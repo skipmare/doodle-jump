@@ -1,0 +1,14 @@
+//
+// Created by karan on 14/11/2024.
+//
+
+#ifndef INC_2024_PROJECT_SKIPMARE_STOPWATCH_H
+#define INC_2024_PROJECT_SKIPMARE_STOPWATCH_H
+
+
+class Stopwatch {
+
+};
+
+
+#endif //INC_2024_PROJECT_SKIPMARE_STOPWATCH_H
