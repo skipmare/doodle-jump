@@ -6,7 +6,8 @@
 #define INC_2024_PROJECT_SKIPMARE_PLAYER_H
 
 
-class Player {
+class Player : public Entity {
+
 
 };
 
