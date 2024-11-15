@@ -5,7 +5,7 @@
 #include "VerticalPlatform.h"
 
 // Constructor
-VerticalPlatform::VerticalPlatform(float x, float y) : Platform(x, y) {
+VerticalPlatform::VerticalPlatform(int x, int y) : Platform(x, y) {
     velocityY = 0.1f;
     type = PlatformType::VERTICAL;
 }

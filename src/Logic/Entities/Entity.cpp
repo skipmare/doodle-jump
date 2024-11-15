@@ -2,7 +2,7 @@
 
 // Constructor of the entity
 
-Entity::Entity(float x, float y) : x(x), y(y) {}
+Entity::Entity(int x, int y) : x(x), y(y) {}
 
 // Destructor of the entity
 

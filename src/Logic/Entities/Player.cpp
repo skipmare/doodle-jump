@@ -3,3 +3,17 @@
 //
 
 #include "Player.h"
+
+#include <Platforms/Platform.h>
+
+Player::Player(int x, int y) : Entity(x, y) {
+    width = 3;
+    height = 3;
+}
+
+Player::~Player() {}
+
+void Player::update(float deltaTime) {
+    // Update the player
+}
+

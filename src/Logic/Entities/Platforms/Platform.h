@@ -18,7 +18,7 @@ class Platform : public Entity {
 public:
 
     // Constructor and destructor
-    Platform(float x, float y);
+    Platform(int x, int y);
     ~Platform() override;
 
     // Updates the platform

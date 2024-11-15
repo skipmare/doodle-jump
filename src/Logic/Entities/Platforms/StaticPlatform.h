@@ -7,7 +7,7 @@ class StaticPlatform : public Platform {
 public:
 
     // constructor and destructor
-    StaticPlatform(float x, float y);
+    StaticPlatform(int x, int y);
     ~StaticPlatform() override;
 
     // This method is used to update the platform

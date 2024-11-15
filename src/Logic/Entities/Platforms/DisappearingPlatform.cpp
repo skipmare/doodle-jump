@@ -5,11 +5,12 @@
 #include "DisappearingPlatform.h"
 
 // DisappearingPlatform constructor
-DisappearingPlatform::DisappearingPlatform(float x, float y) : StaticPlatform(x, y) {
+DisappearingPlatform::DisappearingPlatform(int x, int y) : StaticPlatform(x, y) {
     disappearTime = 2.0f;
     elapsedTime = 0.0f;
     type = PlatformType::DISAPPEARING;
     disappeared = false;
+
 }
 
 // DisappearingPlatform destructor

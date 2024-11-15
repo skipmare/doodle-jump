@@ -1,7 +1,10 @@
 #include "Platform.h"
 
 //constructor
-Platform::Platform(float x, float y) : Entity(x, y) {}
+Platform::Platform(int x, int y) : Entity(x, y) {
+    width = 6;
+    height = 2;
+}
 
 //destructor
 Platform::~Platform() {}
