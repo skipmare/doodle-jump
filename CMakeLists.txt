@@ -14,6 +14,10 @@ FetchContent_Declare(SFML
         SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
+find_package(Freetype REQUIRED)
+target_link_libraries(sfml-graphics PRIVATE Freetype::Freetype)
+
+
 include_directories(
         src/GameRepresentation
         src/GameRepresentation/Camera

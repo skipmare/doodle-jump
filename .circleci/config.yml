@@ -8,12 +8,7 @@ jobs:
     steps:
       - checkout
       - run: apt update
-      - run: DEBIAN_FRONTEND=noninteractive TZ=Europe/Brussels apt install -y \
-          gcc g++ cmake make libsfml-dev git curl \
-          libudev-dev libopenal-dev libxrandr-dev libxcursor-dev \
-          libflac-dev libvorbis-dev libgl1-mesa-dev libegl1-mesa-dev \
-          **libfreetype6-dev**  # Added this line to install FreeType development files
-
+      - run: DEBIAN_FRONTEND=noninteractive TZ=Europe/Brussels apt install -y gcc g++ cmake make libsfml-dev git curl libudev-dev libopenal-dev libxrandr-dev libxcursor-dev libflac-dev libvorbis-dev libgl1-mesa-dev libegl1-mesa-dev
       # Update CMake to the newest version (3.29+)
       - run: |
           CMAKE_VERSION=3.29.0
