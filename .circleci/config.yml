@@ -1,37 +1,23 @@
 version: 2.1
 
-executors:
-  cpp-executor:
-    docker:
-      - image: circleci/cpp:latest
-    working_directory: ~/project
-
 jobs:
   build:
-    executor: cpp-executor
+    resource_class: small
+    docker:
+      - image: ubuntu:22.04
     steps:
       - checkout
+      - run: apt update
+      - run: DEBIAN_FRONTEND=noninteractive TZ=Europe/Brussels apt install -y gcc g++ cmake make libsfml-dev git curl libudev-dev
 
-      # Install dependencies
-      - run:
-          name: Install SFML Dependencies
-          command: sudo apt-get update && sudo apt-get install -y libx11-dev libgl1-mesa-dev libxrandr-dev libudev-dev libfreetype6-dev libjpeg-dev libopenal-dev libflac-dev libvorbis-dev
+      # Update CMake to the newest version (3.29+)
+      - run: |
+          CMAKE_VERSION=3.29.0
+          curl -L https://github.com/Kitware/CMake/releases/download/v$CMAKE_VERSION/cmake-$CMAKE_VERSION-linux-x86_64.sh -o cmake-install.sh
+          chmod +x cmake-install.sh
+          ./cmake-install.sh --skip-license --prefix=/usr/local
 
-      # CMake configuration and build
-      - run:
-          name: CMake Build
-          command: |
-            mkdir -p cmake-build-debug && cd cmake-build-debug
-            cmake -DCMAKE_BUILD_TYPE=Debug ..
-            cmake --build .
-
-      # Run tests (if you have any)
-      - run:
-          name: Run Application
-          command: ./bin/2024_project_skipmare
-
-workflows:
-  version: 2
-  build-and-test:
-    jobs:
-      - build
+      - run: mkdir -p build
+      - run: cd build && cmake ..
+      - run: cd build && make
+      - run: cd build && make install
