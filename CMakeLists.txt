@@ -38,7 +38,7 @@ add_executable(2024_project_skipmare
         src/GameRepresentation/View/PlayerView.cpp
         src/GameRepresentation/Game.cpp
         src/Logic/Entities/BGtile.cpp
-        src/Logic/Entities/Bonus.cpp
+        src/Logic/Entities/Bonuses/Bonus.cpp
         src/Logic/Entities/Entity.cpp
         src/Logic/Entities/Platforms/Platform.cpp
         src/Logic/Entities/Player.cpp
@@ -53,6 +53,8 @@ add_executable(2024_project_skipmare
         src/Logic/Entities/Platforms/VerticalPlatform.cpp
         src/Logic/Entities/Platforms/DisappearingPlatform.cpp
         src/Logic/Entities/Platforms/HorizontalPlatform.cpp
+        src/Logic/Entities/Bonuses/Jetpack.cpp
+        src/Logic/Entities/Bonuses/Spring.cpp
 )
 
 target_link_libraries(2024_project_skipmare PRIVATE sfml-graphics)

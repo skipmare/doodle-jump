@@ -6,14 +6,17 @@
 
 #include <Platforms/Platform.h>
 
-Player::Player(int x, int y) : Entity(x, y) {
-    width = 3;
-    height = 3;
+Player::Player(float x, float y) : Entity(x, y) {
+    width = 40; // width in pixels
+    height = 50; // height in pixels
+    velocityY = 10; // vertical velocity
+    velocityX = 8; // horizontal velocity
 }
-
-Player::~Player() {}
 
 void Player::update(float deltaTime) {
-    // Update the player
+    // Update the player; complex because needs user input
 }
 
+void Player::jump() {
+    // Jump the player
+}

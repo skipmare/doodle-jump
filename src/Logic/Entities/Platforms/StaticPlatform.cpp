@@ -4,7 +4,7 @@
 
 #include "StaticPlatform.h"
 
-StaticPlatform::StaticPlatform(int x, int y) : Platform(x, y) {
+StaticPlatform::StaticPlatform(float x, float y) : Platform(x, y) {
     type = PlatformType::STATIC;
 }
 

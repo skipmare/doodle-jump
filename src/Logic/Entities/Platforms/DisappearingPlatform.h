@@ -10,7 +10,7 @@
 class DisappearingPlatform : public StaticPlatform {
 public:
     // Constructor and destructor
-    DisappearingPlatform(int x, int y);
+    DisappearingPlatform(float x, float y);
     ~DisappearingPlatform() override;
 
     // Updates the platform

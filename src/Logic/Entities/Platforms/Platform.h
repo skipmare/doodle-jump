@@ -18,16 +18,14 @@ class Platform : public Entity {
 public:
 
     // Constructor and destructor
-    Platform(int x, int y);
+    Platform(float x, float y);
     ~Platform() override;
 
     // Updates the platform
     void update(float deltaTime) override;
 
     // Returns the type of the platform
-     PlatformType getPlatformType();
-
-    bool hasCollidedWithPlayer(Entity& player) const;
+     PlatformType getPlatformType() const;
 
 protected:
     // Type of the platform

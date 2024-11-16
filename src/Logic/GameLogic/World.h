@@ -4,9 +4,18 @@
 
 #ifndef INC_2024_PROJECT_SKIPMARE_WORLD_H
 #define INC_2024_PROJECT_SKIPMARE_WORLD_H
-
+#include <vector>
+#include "Entity.h"
 
 class World {
+    World();
+    ~World();
+
+    void initialize();
+    void update();
+
+private:
+    std::vector<Entity*> entities;
 
 };
 

@@ -10,11 +10,13 @@ class VerticalPlatform : public Platform {
 public:
 
     // Constructor and destructor
-    VerticalPlatform(int x, int y);
+    VerticalPlatform(float x, float y);
     ~VerticalPlatform() override;
 
     // Updates the platform
     void update(float deltaTime) override;
+private:
+    float initialY;
 };
 
 #endif // VERTICALPLATFORM_H

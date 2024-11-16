@@ -2,7 +2,7 @@
 
 // Constructor of the entity
 
-Entity::Entity(int x, int y) : x(x), y(y) {}
+Entity::Entity(float x, float y) : x(x), y(y) {}
 
 // Destructor of the entity
 
@@ -32,4 +32,14 @@ void Entity::setPosition(float x, float y) {
 void Entity::update(float deltaTime) {
     x += velocityX * deltaTime;
     y += velocityY * deltaTime;
+}
+
+
+// Calculate all x and y positions of the entity
+
+void Entity::getBoundingBox(float& left, float& right, float& top, float& bottom) {
+    left = x - width / 2;
+    right = x + width / 2;
+    top = y - height / 2;
+    bottom = y + height / 2;
 }
