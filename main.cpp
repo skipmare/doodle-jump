@@ -3,6 +3,7 @@
 #include "src/Logic/Entities/Platforms/HorizontalPlatform.h"
 #include "src/Logic/Entities/Platforms/VerticalPlatform.h"
 #include <iostream>
+
 void drawPlatform(sf::RenderWindow& window, Platform& platform) {
     float left, right, top, bottom;
     platform.getBoundingBox(left, right, top, bottom);
@@ -13,19 +14,36 @@ void drawPlatform(sf::RenderWindow& window, Platform& platform) {
     switch (platform.getPlatformType()) {
         case PlatformType::STATIC:
             rectangle.setFillColor(sf::Color::Green);
-        break;
+            break;
         case PlatformType::VERTICAL:
             rectangle.setFillColor(sf::Color::Blue);
-        break;
+            break;
         case PlatformType::HORIZONTAL:
             rectangle.setFillColor(sf::Color::Red);
-        break;
+            break;
         case PlatformType::DISAPPEARING:
             rectangle.setFillColor(sf::Color::Yellow);
-        break;
+            break;
     }
 
     window.draw(rectangle);
+}
+
+void drawBackground(sf::RenderWindow& window) {
+    const int tileSize = 16;
+    const int windowWidth = window.getSize().x;
+    const int windowHeight = window.getSize().y;
+
+    for (int x = 0; x < windowWidth; x += tileSize) {
+        for (int y = 0; y < windowHeight; y += tileSize) {
+            sf::RectangleShape tile(sf::Vector2f(tileSize, tileSize));
+            tile.setPosition(x, y);
+            tile.setFillColor(sf::Color::White);
+            tile.setOutlineThickness(1);
+            tile.setOutlineColor(sf::Color::Black);
+            window.draw(tile);
+        }
+    }
 }
 
 int main() {
@@ -51,6 +69,7 @@ int main() {
         }
 
         window.clear();
+        drawBackground(window);
         for (Platform* platform : platforms) {
             drawPlatform(window, *platform);
         }

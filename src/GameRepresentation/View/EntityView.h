@@ -1,14 +1,28 @@
-//
 // Created by karan on 14/11/2024.
-//
 
-#ifndef INC_2024_PROJECT_SKIPMARE_ENTITY_H
-#define INC_2024_PROJECT_SKIPMARE_ENTITY_H
+#ifndef INC_2024_PROJECT_SKIPMARE_ENTITYVIEW_H
+#define INC_2024_PROJECT_SKIPMARE_ENTITYVIEW_H
 
+#include <SFML/Graphics.hpp>  // Assuming SFML for rendering
+#include "Entity.h"  // Including the Entity header for access to entity properties
 
-class Entity {
+class EntityView {
+public:
+    virtual ~EntityView() = default;
 
+    // Constructor takes a reference to the associated entity
+    explicit EntityView(Entity& entity);
+
+    // Virtual method for updating the view (can be overridden by derived classes)
+    virtual void update(float deltaTime) = 0;
+
+    // Method for rendering the view
+    virtual void render(sf::RenderWindow& window);
+
+protected:
+    Entity& entity;  // Reference to the entity this view represents
+    sf::Sprite sprite;  // Sprite for graphical representation
+    sf::Texture texture;  // Texture for the sprite
 };
 
-
-#endif //INC_2024_PROJECT_SKIPMARE_ENTITY_H
+#endif // INC_2024_PROJECT_SKIPMARE_ENTITYVIEW_H

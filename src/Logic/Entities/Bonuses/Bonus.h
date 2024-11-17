@@ -18,6 +18,8 @@ public:
 
     void update(float deltaTime) override; // Updates the bonus
 
+    BonusType getType() const; // Returns the type of the bonus
+
 protected:
     BonusType type;
     float duration = 0; // Duration of the bonus
