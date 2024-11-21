@@ -19,8 +19,7 @@ public:
 
 protected:
     BonusType type;
-    float duration = 0; // Duration of the bonus
-    bool isActive = false; // Bonus is active
+    bool isCollected = false; // Bonus is collected
 };
 
 

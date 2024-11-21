@@ -1,18 +1,39 @@
 #include <SFML/Graphics.hpp>
+#include "../Logic/Entities/Platforms/HorizontalPlatform.h"
+#include "../Logic/Entities/Platforms/VerticalPlatform.h"
+#include "PlatformView.h"
 #include "Player.h"
+#include "PlayerView.h"
+#include "../Logic/Entities/Bonuses/Bonus.h"
+#include "BonusView.h"
 
 int main() {
-    // Create a window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Doodle Jump - Jump and Move Test");
+    // Create the SFML window
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Platform and Bonus View Test");
 
-    // Create a player instance
-    Player player(400, 300); // Start in the middle of the window
+    // Create instances of HorizontalPlatform and VerticalPlatform
+    HorizontalPlatform horizontalPlatform(100, 300); // Example parameters
+    VerticalPlatform verticalPlatform(400, 100); // Example parameters
 
-    // Create a rectangle shape to represent the player
-    sf::RectangleShape playerShape(sf::Vector2f(40, 50)); // Width and height of the player
-    playerShape.setFillColor(sf::Color::Green); // Set the color of the player box
+    // Create PlatformView instances for each platform
+    PlatformView horizontalPlatformView(horizontalPlatform);
+    PlatformView verticalPlatformView(verticalPlatform);
 
-    // Game loop
+    // Create a Player instance and PlayerView
+    Player player(200, 500); // Starting position for the player
+    PlayerView playerView(player); // Create the player view
+
+    // Create a Bonus instance and BonusView
+    Bonus bonus(300, 400); // Example parameters
+    BonusView bonusView(bonus); // Create the bonus view
+
+    // Attach views to the entities (assuming they are observers)
+    horizontalPlatform.attach(&horizontalPlatformView);
+    verticalPlatform.attach(&verticalPlatformView);
+    player.attach(&playerView);
+    bonus.attach(&bonusView);
+
+    // Main loop
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -20,35 +41,32 @@ int main() {
                 window.close();
         }
 
-        // Handle input directly in main
-        int direction = 0; // Initialize direction
-
+        // Handle player input
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-            // Move left
-            direction = -1; // Set direction to left
+            player.move(-1); // Move left
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-            // Move right
-            direction = 1; // Set direction to right
+            player.move(1); // Move right
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-            player.jump(); // Call jump method when space is pressed
+            player.jump(); // Jump
         }
 
-        // Move the player based on input
-        player.move(direction);
-
-        // Update the player state
-        player.update(0.016f); // Assuming ~60 FPS, so deltaTime is approximately 1/60
-
-        // Update the position of the player shape based on the player's position
-        playerShape.setPosition(player.getX(), player.getY());
+        // Update platforms and bonus
+        float deltaTime = 0.016f; // Assuming 60 FPS for simplicity
+        horizontalPlatform.update(deltaTime);
+        verticalPlatform.update(deltaTime);
+        player.update(deltaTime); // Update the player
+        bonus.update(deltaTime); // Update the bonus (if applicable)
 
         // Clear the window
-        window.clear();
+        window.clear(sf::Color::Black);
 
-        // Draw the player shape
-        window.draw(playerShape);
+        // Render platforms and bonus using their views
+        horizontalPlatformView.render(window);
+        verticalPlatformView.render(window);
+        playerView.render(window); // Render the player view
+        bonusView.render(window); // Render the bonus view
 
         // Display the contents of the window
         window.display();

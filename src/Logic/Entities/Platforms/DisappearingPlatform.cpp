@@ -18,7 +18,7 @@ DisappearingPlatform::~DisappearingPlatform() = default;
 
 // Updates the platform
 void DisappearingPlatform::update(float deltaTime) {
-    //to do: implement update method
+    //to do nothing, until the player steps on the platform
 }
 
 // This method is used to check if the platform has disappeared

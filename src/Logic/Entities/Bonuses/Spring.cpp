@@ -5,6 +5,5 @@
 #include "Spring.h"
 
 Spring::Spring(float x, float y) : Bonus( x,  y) {
-    duration = 3;
     type = SPRING;
 }

@@ -5,13 +5,9 @@
 
 // Constructor to initialize the view with the associated entity
 EntityView::EntityView(Entity& entity) : entity(entity) {
-    // Initialize the sprite or set any default properties for the sprite
-    // In this base class, we don't set a texture, but derived classes can.
+   //DO NOTHING, JUST INITIALIZE THE ENTITY (BASE CLASS)
 }
-
-// The update method could be implemented here, but it's left as virtual to be overridden
-// by derived classes since each entity might need its own update logic (e.g., animations)
-void EntityView::update(float deltaTime) {
+void EntityView::update() {
     // Default update logic (if any) can be placed here.
     // Derived classes will override this method for specific updates (animations, movement, etc.)
 }
@@ -19,5 +15,9 @@ void EntityView::update(float deltaTime) {
 // The render method could be implemented here, but it's left as virtual to be overridden
 // by derived classes for specific rendering logic
 void EntityView::render(sf::RenderWindow& window) {
-    window.draw(sprite);  // Draw the sprite (if applicable)
+    if (texture.getSize().x > 0) { // Check if texture is loaded
+        window.draw(sprite); // Draw the sprite if texture is loaded
+    } else {
+        window.draw(fallbackShape); // Draw the fallback shape if texture loading failed
+    }
 }

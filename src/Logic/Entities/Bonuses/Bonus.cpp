@@ -15,14 +15,16 @@ void Bonus::update(float deltaTime) {
 
 // Constructor
 Bonus::Bonus(float x, float y) : Entity(x, y) {
+    setPosition(x, y);
     width = 16;
     height = 16;
     EntityType = EntityType::BONUS;
-
+    notify();
 }
 
 // Returns the type of the bonus
 BonusType Bonus::getType() const {
     return type;
 }
+
 

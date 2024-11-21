@@ -16,6 +16,7 @@ void Player::update(float deltaTime) {
     }else {
         setJumping();
     }
+    std::cout<<"velocityY: "<<velocityY<<std::endl;
 
     // Apply gravity
     if (isFallingState || isJumpingState) {
@@ -42,6 +43,7 @@ void Player::update(float deltaTime) {
 
 void Player::jump() {
     if (!isJumpingState) { // Check if the player is not already jumping (mid-air)
+        std::cout << "Jumping!" << std::endl; // Print a message
         velocityY = -jumpForce; // Set a negative velocity for jumping
         isJumpingState = true; // Set the jumping state
         isFallingState = false; // Reset falling state

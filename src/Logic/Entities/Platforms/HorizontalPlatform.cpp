@@ -19,14 +19,16 @@ void HorizontalPlatform::update(float deltaTime) {
 
     // Check if the platform is going out of the screen width
     if (newX - width / 2 < 0) {
-        x = width / 2;
+        newX = width / 2; // Set newX to the left boundary
         velocityX = -velocityX; // Reverse direction
     } else if (newX + width / 2 > 500) {
-        x = 500 - width / 2;
+        newX = 500 - width / 2; // Set newX to the right boundary
         velocityX = -velocityX; // Reverse direction
-    } else {
-        x = newX;
     }
+
+    // Use setPosition to update the position
+    setPosition(newX, getY()); // Assuming getY() returns the current y position
+
 }
 
 

@@ -6,7 +6,7 @@ Entity::Entity(float x, float y) : x(x), y(y) {}
 
 // Destructor of the entity
 
-Entity::~Entity() {}
+Entity::~Entity() = default;
 
 // Get the x position of the entity
 
@@ -25,6 +25,7 @@ float Entity::getY() const {
 void Entity::setPosition(float x, float y) {
     this->x = x;
     this->y = y;
+    notify();
 }
 
 // Update the entity
@@ -42,4 +43,9 @@ void Entity::getBoundingBox(float& left, float& right, float& top, float& bottom
     right = x + width / 2;
     top = y - height / 2;
     bottom = y + height / 2;
+}
+
+void Entity::setHasCollided(bool collided) {
+    hasCollided = collided;
+    notify();
 }

@@ -35,6 +35,7 @@ void VerticalPlatform::update(float deltaTime) {
         velocityY = -velocityY; // Reverse direction
     } else {
         y = newY;
+        notify();
     }
 }
 

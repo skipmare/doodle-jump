@@ -16,7 +16,7 @@ public:
     ~BonusView() override = default;
 
     // Update method to handle bonus-specific animation or effects
-    void update(float deltaTime) override;
+    void update() override;
 
 private:
     Bonus& bonus;  // Reference to the bonus entity for which the view is created

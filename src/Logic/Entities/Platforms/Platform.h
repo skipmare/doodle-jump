@@ -21,9 +21,6 @@ public:
     // Returns the type of the platform
      [[nodiscard]] PlatformType getPlatformType() const;
 
-    // Collision check with the player
-    bool checkCollision(Player& Player);
-
 protected:
     // Type of the platform
     PlatformType type;
