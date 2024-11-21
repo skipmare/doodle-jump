@@ -51,7 +51,7 @@ protected:
     float x = 0, y = 0; // position of the entity, change it in derived class for different position
     float velocityX = 0, velocityY = 0; // set it to 0 for stationary entity, change it in derived class for moving entity
     float width = 0, height = 0; // width and height of the entity, change it in derived class for different size
-    EntityType EntityType = NONE; // type of the entity, change it in derived class for different type
+    EntityType EntityType_var = NONE; // type of the entity, change it in derived class for different type
     bool hasCollided = false; // check if the entity has collided with player
 
 };

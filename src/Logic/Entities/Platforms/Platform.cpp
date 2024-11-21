@@ -4,7 +4,7 @@
 Platform::Platform(float x, float y) : Entity(x, y) {
     width = 100;
     height = 10;
-    EntityType = EntityType::PLATFORM;
+    EntityType_var = EntityType::PLATFORM;
 }
 
 //destructor

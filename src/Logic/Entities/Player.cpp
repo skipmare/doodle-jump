@@ -6,7 +6,7 @@ Player::Player(float x, float y) : Entity(x, y) {
     width = 40; // width in pixels
     height = 50; // height in pixels
     velocityX = 5.0f; // horizontal velocity in pixels per second
-    EntityType = EntityType::PLAYER; // set entity type to player
+    EntityType_var = EntityType::PLAYER; // set entity type to player
 }
 
 void Player::update(float deltaTime) {
