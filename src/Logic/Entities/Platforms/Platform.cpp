@@ -4,10 +4,11 @@
 Platform::Platform(float x, float y) : Entity(x, y) {
     width = 100;
     height = 10;
+    EntityType = EntityType::PLATFORM;
 }
 
 //destructor
-Platform::~Platform() {}
+Platform::~Platform() = default;
 
 //update method
 void Platform::update(float deltaTime) {}

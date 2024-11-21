@@ -6,13 +6,7 @@
 #ifndef INC_2024_PROJECT_SKIPMARE_PLATFORM_H
 #define INC_2024_PROJECT_SKIPMARE_PLATFORM_H
 #include "../Entity.h"
-
-enum class PlatformType {
-    STATIC,
-    VERTICAL,
-    HORIZONTAL,
-    DISAPPEARING
-};
+#include "../Player.h"
 
 class Platform : public Entity {
 public:
@@ -26,6 +20,9 @@ public:
 
     // Returns the type of the platform
      [[nodiscard]] PlatformType getPlatformType() const;
+
+    // Collision check with the player
+    bool checkCollision(Player& Player);
 
 protected:
     // Type of the platform

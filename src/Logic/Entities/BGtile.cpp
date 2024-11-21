@@ -11,4 +11,6 @@ void BGtile::update(float deltaTime) {
 BGtile::BGtile(float x, float y) : Entity(x, y) {
     width = 16;
     height = 16;
+    EntityType = EntityType::BG_TILE;
+
 }

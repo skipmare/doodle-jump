@@ -6,6 +6,26 @@
 #define INC_2024_PROJECT_SKIPMARE_ENTITY_H
 #include <vector>
 
+enum EntityType {
+    PLAYER,
+    PLATFORM,
+    BONUS,
+    BG_TILE
+};
+
+enum BonusType {
+    JETPACK,
+    SPRING
+};
+
+enum PlatformType {
+    STATIC,
+    VERTICAL,
+    HORIZONTAL,
+    DISAPPEARING
+};
+
+
 class Entity {
 public:
     Entity(float x, float y);
@@ -19,11 +39,16 @@ public:
 
     void getBoundingBox(float& left, float& right, float& top, float& bottom); // used to check for collision
 
+    [[nodiscard]] EntityType getEntityType() const; // get the type of the entity
+
+    [[nodiscard]] float getWidth() const{return width;}; // get the width of the entity
+    [[nodiscard]] float getHeight() const{return height;}; // get the height of the entity
+
 protected:
     float x = 0, y = 0; // position of the entity, change it in derived class for different position
     float velocityX = 0, velocityY = 0; // set it to 0 for stationary entity, change it in derived class for moving entity
     float width = 0, height = 0; // width and height of the entity, change it in derived class for different size
-
+    EntityType EntityType; // type of the entity, change it in derived class for different type
 };
 
 

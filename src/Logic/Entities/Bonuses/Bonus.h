@@ -6,10 +6,7 @@
 #define INC_2024_PROJECT_SKIPMARE_BONUS_H
 #include "../Entity.h"
 
-enum BonusType {
-    JETPACK,
-    SPRING
-};
+
 
 class Bonus : public Entity {
 public:
@@ -18,7 +15,7 @@ public:
 
     void update(float deltaTime) override; // Updates the bonus
 
-    BonusType getType() const; // Returns the type of the bonus
+    [[nodiscard]] BonusType getType() const; // Returns the type of the bonus
 
 protected:
     BonusType type;

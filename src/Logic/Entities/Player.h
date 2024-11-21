@@ -22,10 +22,11 @@ public:
     void move(int direction);
 
     // Method to set whether the player has collided with an object (platform/bonus)
-    void SetHasCollided(bool CollisionBool) {
-        hasCollided = CollisionBool;
+    void SetHasCollided(bool collisionBool) {
+        hasCollided = collisionBool;
     }
 
+    // Getters for player velocity
     [[nodiscard]] float getVelocityX() const { return velocityX; }
 
     // Getters for player state
@@ -33,6 +34,13 @@ public:
     [[nodiscard]] bool isFalling() const { return isFallingState; }
     [[nodiscard]] float getVelocityY() const { return velocityY; }
     [[nodiscard]] bool getHasCollided() const {return hasCollided;}
+
+    // Setters for player state
+    void setJumping(); // Set player to jumping state
+    void setFalling(); // Set player to falling state
+
+    // apply Bonus effect
+    void applyBonusEffect(BonusType bonusType);
 
 
 
@@ -42,6 +50,7 @@ private:
     float gravity = 2.0f;         // Gravity value
     float jumpForce = 250.0f;      // Force applied when jumping
     bool hasCollided = false;
+    bool BonusEffect = false;
 };
 
 #endif // INC_2024_PROJECT_SKIPMARE_PLAYER_H

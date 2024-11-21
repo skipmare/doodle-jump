@@ -17,6 +17,8 @@ void Bonus::update(float deltaTime) {
 Bonus::Bonus(float x, float y) : Entity(x, y) {
     width = 16;
     height = 16;
+    EntityType = EntityType::BONUS;
+
 }
 
 // Returns the type of the bonus
