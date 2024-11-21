@@ -25,7 +25,7 @@ public:
     void update(float deltaTime) override;
 
     // Returns the type of the platform
-     PlatformType getPlatformType() const;
+     [[nodiscard]] PlatformType getPlatformType() const;
 
 protected:
     // Type of the platform

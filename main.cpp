@@ -1,60 +1,18 @@
 #include <SFML/Graphics.hpp>
-#include <vector>
-#include "src/Logic/Entities/Platforms/HorizontalPlatform.h"
-#include "src/Logic/Entities/Platforms/VerticalPlatform.h"
-#include <iostream>
-
-void drawPlatform(sf::RenderWindow& window, Platform& platform) {
-    float left, right, top, bottom;
-    platform.getBoundingBox(left, right, top, bottom);
-
-    sf::RectangleShape rectangle(sf::Vector2f(right - left, bottom - top));
-    rectangle.setPosition(left, top);
-
-    switch (platform.getPlatformType()) {
-        case PlatformType::STATIC:
-            rectangle.setFillColor(sf::Color::Green);
-            break;
-        case PlatformType::VERTICAL:
-            rectangle.setFillColor(sf::Color::Blue);
-            break;
-        case PlatformType::HORIZONTAL:
-            rectangle.setFillColor(sf::Color::Red);
-            break;
-        case PlatformType::DISAPPEARING:
-            rectangle.setFillColor(sf::Color::Yellow);
-            break;
-    }
-
-    window.draw(rectangle);
-}
-
-void drawBackground(sf::RenderWindow& window) {
-    const int tileSize = 16;
-    const int windowWidth = window.getSize().x;
-    const int windowHeight = window.getSize().y;
-
-    for (int x = 0; x < windowWidth; x += tileSize) {
-        for (int y = 0; y < windowHeight; y += tileSize) {
-            sf::RectangleShape tile(sf::Vector2f(tileSize, tileSize));
-            tile.setPosition(x, y);
-            tile.setFillColor(sf::Color::White);
-            tile.setOutlineThickness(1);
-            tile.setOutlineColor(sf::Color::Black);
-            window.draw(tile);
-        }
-    }
-}
+#include "Player.h"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(500, 800), "Platform Test");
+    // Create a window
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Doodle Jump - Jump and Move Test");
 
-    std::vector<Platform*> platforms;
-    platforms.push_back(new HorizontalPlatform(100.0f, 200.0f));
-    platforms.push_back(new VerticalPlatform(300.0f, 400.0f));
+    // Create a player instance
+    Player player(400, 300); // Start in the middle of the window
 
-    sf::Clock clock;
+    // Create a rectangle shape to represent the player
+    sf::RectangleShape playerShape(sf::Vector2f(40, 50)); // Width and height of the player
+    playerShape.setFillColor(sf::Color::Green); // Set the color of the player box
 
+    // Game loop
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -62,22 +20,38 @@ int main() {
                 window.close();
         }
 
-        float deltaTime = clock.restart().asSeconds();
+        // Handle input directly in main
+        int direction = 0; // Initialize direction
 
-        for (Platform* platform : platforms) {
-            platform->update(deltaTime);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+            // Move left
+            direction = -1; // Set direction to left
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+            // Move right
+            direction = 1; // Set direction to right
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+            player.jump(); // Call jump method when space is pressed
         }
 
+        // Move the player based on input
+        player.move(direction);
+
+        // Update the player state
+        player.update(0.016f); // Assuming ~60 FPS, so deltaTime is approximately 1/60
+
+        // Update the position of the player shape based on the player's position
+        playerShape.setPosition(player.getX(), player.getY());
+
+        // Clear the window
         window.clear();
-        drawBackground(window);
-        for (Platform* platform : platforms) {
-            drawPlatform(window, *platform);
-        }
-        window.display();
-    }
 
-    for (Platform* platform : platforms) {
-        delete platform;
+        // Draw the player shape
+        window.draw(playerShape);
+
+        // Display the contents of the window
+        window.display();
     }
 
     return 0;

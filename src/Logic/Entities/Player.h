@@ -1,33 +1,47 @@
-//
-// Created by karan on 14/11/2024.
-//
-
+// Player.h
 #ifndef INC_2024_PROJECT_SKIPMARE_PLAYER_H
 #define INC_2024_PROJECT_SKIPMARE_PLAYER_H
+
 #include "Entity.h"
 
 class Player : public Entity {
 public:
-    // Constructor and Destructor
+    // Constructor
     Player(float x, float y);
-    ~Player() override = default;
 
-    // Updates the player
+    // Updates the player's state
     void update(float deltaTime) override;
 
-    // Jump the player up
+    // Method to make the player jump
     void jump();
+
+    // Method to reset the player's state when landing
+    void land();
+
+    // Method to move the player left or right
+    void move(int direction);
+
+    // Method to set whether the player has collided with an object (platform/bonus)
+    void SetHasCollided(bool CollisionBool) {
+        hasCollided = CollisionBool;
+    }
+
+    [[nodiscard]] float getVelocityX() const { return velocityX; }
+
+    // Getters for player state
+    [[nodiscard]] bool isJumping() const { return isJumpingState; }
+    [[nodiscard]] bool isFalling() const { return isFallingState; }
+    [[nodiscard]] float getVelocityY() const { return velocityY; }
+    [[nodiscard]] bool getHasCollided() const {return hasCollided;}
+
 
 
 private:
-    bool isFallingState = false; // Player is falling
     bool isJumpingState = false; // Player is jumping
-    bool BonusState = false; // Player is using a bonus
-    bool isDead = false; // Player fell off the screen
-    bool JetpackState = false; // Player is using the jetpack
-    bool SpringState = false; // Player is using the spring
-    int gravity = 2; // Gravity value
+    bool isFallingState = false;  // Player is falling
+    float gravity = 2.0f;         // Gravity value
+    float jumpForce = 250.0f;      // Force applied when jumping
+    bool hasCollided = false;
 };
 
-
-#endif //INC_2024_PROJECT_SKIPMARE_PLAYER_H
+#endif // INC_2024_PROJECT_SKIPMARE_PLAYER_H
