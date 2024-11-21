@@ -15,16 +15,11 @@ public:
     // Method to make the player jump
     void jump();
 
-    // Method to reset the player's state when landing
-    void land();
-
     // Method to move the player left or right
     void move(int direction);
 
     // Method to set whether the player has collided with an object (platform/bonus)
-    void SetHasCollided(bool collisionBool) {
-        hasCollided = collisionBool;
-    }
+    void SetHasCollided(bool collisionBool);
 
     // Getters for player velocity
     [[nodiscard]] float getVelocityX() const { return velocityX; }

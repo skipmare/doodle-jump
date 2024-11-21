@@ -10,22 +10,33 @@ Player::Player(float x, float y) : Entity(x, y) {
 }
 
 void Player::update(float deltaTime) {
+    // Check if the player is falling or jumping
+    if(velocityY>=0) {
+        setFalling();
+    }else {
+        setJumping();
+    }
+
     // Apply gravity
     if (isFallingState || isJumpingState) {
         velocityY += gravity; // Increase downward velocity due to gravity
-        if(velocityY >= 0) {
-            setFalling();
-        }else {
-            setJumping();
-        }
     }
 
     // Update the player's vertical position
     setPosition(getX(), getY() + velocityY * deltaTime);
 
-    // Check if the player has landed (pseudo-code for collision detection)
+    //check if player has collided with a platform or bonus (World does this and sets the collision state)
     if (getHasCollided()) {
-        //do something
+        // Reset states when landing
+        jump(); // Set player to jumping state
+        setJumping(); // Set player to jumping state
+        SetHasCollided(false); // Reset collision state
+    }
+
+    // Handle bonus effects
+    if (BonusEffect && isFalling()) {
+        BonusEffect = false; // Reset bonus effect
+        jumpForce = 250.0f; // Reset jump force to normal value
     }
 }
 
@@ -46,10 +57,9 @@ void Player::move(int direction) {
 void Player::applyBonusEffect(BonusType bonusType) {
     BonusEffect = true;
     if(bonusType == BonusType::JETPACK) {
-
-
+        jumpForce = 500.0f; // Increase jump force
     } else if(bonusType == BonusType::SPRING) {
-        // Apply spring effect
+        jumpForce = 750.0f; // Increase jump force
     }
 }
 
@@ -65,3 +75,6 @@ void Player::setJumping() {
     isFallingState = false;
 }
 
+void Player::SetHasCollided(bool collisionBool) {
+    hasCollided = collisionBool;
+}
