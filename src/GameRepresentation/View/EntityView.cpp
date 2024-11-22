@@ -4,7 +4,7 @@
 #include "Entity.h"  // Include the Entity class for reference
 
 // Constructor to initialize the view with the associated entity
-EntityView::EntityView(Entity& entity) : entity(entity) {
+EntityView::EntityView(Entity& entity, sf::RenderWindow& window) : entity(entity), CurrentWindow(window) {
    //DO NOTHING, JUST INITIALIZE THE ENTITY (BASE CLASS)
 }
 void EntityView::update() {
@@ -14,10 +14,10 @@ void EntityView::update() {
 
 // The render method could be implemented here, but it's left as virtual to be overridden
 // by derived classes for specific rendering logic
-void EntityView::render(sf::RenderWindow& window) {
+void EntityView::render() {
     if (texture.getSize().x > 0) { // Check if texture is loaded
-        window.draw(sprite); // Draw the sprite if texture is loaded
+        CurrentWindow.draw(sprite); // Draw the sprite if texture is loaded
     } else {
-        window.draw(fallbackShape); // Draw the fallback shape if texture loading failed
+        CurrentWindow.draw(fallbackShape); // Draw the fallback shape if texture loading failed
     }
 }

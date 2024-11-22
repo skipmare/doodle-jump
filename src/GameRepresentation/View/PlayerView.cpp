@@ -1,7 +1,7 @@
 #include "PlayerView.h"
 
 // Constructor to initialize PlayerView with the associated Player entity
-PlayerView::PlayerView(Player& player) : EntityView(player), player(player) {
+PlayerView::PlayerView(Player& player, sf::RenderWindow& window) : EntityView(player, window), player(player) {
     loadTexture();  // Load texture based on the player's state
     sprite.setPosition(player.getX(), player.getY());  // Set the initial position
 }
@@ -13,6 +13,7 @@ void PlayerView::update() {
     }else {
         fallbackShape.setPosition(player.getX() - player.getWidth() / 2, player.getY() - player.getHeight() / 2);
     }
+    render();
 }
 
 // Load a texture based on the player's state

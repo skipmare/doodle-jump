@@ -11,15 +11,16 @@ public:
     virtual ~EntityView() = default; // Destructor
 
     // Constructor takes a reference to the associated entity
-    explicit EntityView(Entity& entity);
+    explicit EntityView(Entity& entity, sf::RenderWindow& window);
 
     // Virtual method for updating the view (can be overridden by derived classes)
     virtual void update() = 0;
 
     // Method for rendering the view
-    void render(sf::RenderWindow& window);
+    void render();
 
 protected:
+    sf::RenderWindow& CurrentWindow;  // Reference to the render window
     Entity& entity;  // Reference to the entity this view represents
     sf::Sprite sprite;  // Sprite for graphical representation
     sf::Texture texture;  // Texture for the sprite

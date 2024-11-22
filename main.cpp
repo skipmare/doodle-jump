@@ -1,37 +1,26 @@
 #include <SFML/Graphics.hpp>
-#include "../Logic/Entities/Platforms/HorizontalPlatform.h"
-#include "../Logic/Entities/Platforms/VerticalPlatform.h"
+#include "ConcreteFactory.h" // Include the factory header
 #include "PlatformView.h"
-#include "Player.h"
 #include "PlayerView.h"
-#include "../Logic/Entities/Bonuses/Bonus.h"
 #include "BonusView.h"
 
 int main() {
     // Create the SFML window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Platform and Bonus View Test");
+    sf::RenderWindow window(sf::VideoMode(500, 800), "Entity Factory Test");
 
-    // Create instances of HorizontalPlatform and VerticalPlatform
-    HorizontalPlatform horizontalPlatform(100, 300); // Example parameters
-    VerticalPlatform verticalPlatform(400, 100); // Example parameters
+    // Create an instance of the concrete factory
+    std::unique_ptr<ConcreteFactory> factory = std::make_unique<ConcreteFactory>(window);
 
-    // Create PlatformView instances for each platform
-    PlatformView horizontalPlatformView(horizontalPlatform);
-    PlatformView verticalPlatformView(verticalPlatform);
+    // Create a Player instance using the factory
+    auto player = factory->createPlayer(200, 500);
 
-    // Create a Player instance and PlayerView
-    Player player(200, 500); // Starting position for the player
-    PlayerView playerView(player); // Create the player view
+    // Create instances of HorizontalPlatform and VerticalPlatform using the factory
+    auto horizontalPlatform = factory->createPlatform(100, 300, PlatformType::HORIZONTAL);
+    auto verticalPlatform = factory->createPlatform(400, 100, PlatformType::VERTICAL);
+    auto staticPlatform = factory->createPlatform(600, 400, PlatformType::STATIC);
 
-    // Create a Bonus instance and BonusView
-    Bonus bonus(300, 400); // Example parameters
-    BonusView bonusView(bonus); // Create the bonus view
-
-    // Attach views to the entities (assuming they are observers)
-    horizontalPlatform.attach(&horizontalPlatformView);
-    verticalPlatform.attach(&verticalPlatformView);
-    player.attach(&playerView);
-    bonus.attach(&bonusView);
+    // Create a Bonus instance and BonusView using the factory
+    auto bonus = factory->createBonus(300, 400, BonusType::JETPACK);
 
     // Main loop
     while (window.isOpen()) {
@@ -43,30 +32,24 @@ int main() {
 
         // Handle player input
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-            player.move(-1); // Move left
+            player->move(-1); // Move left
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-            player.move(1); // Move right
+            player->move(1); // Move right
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-            player.jump(); // Jump
+            player->jump(); // Jump
         }
-
-        // Update platforms and bonus
-        float deltaTime = 0.016f; // Assuming 60 FPS for simplicity
-        horizontalPlatform.update(deltaTime);
-        verticalPlatform.update(deltaTime);
-        player.update(deltaTime); // Update the player
-        bonus.update(deltaTime); // Update the bonus (if applicable)
-
-        // Clear the window
         window.clear(sf::Color::Black);
 
-        // Render platforms and bonus using their views
-        horizontalPlatformView.render(window);
-        verticalPlatformView.render(window);
-        playerView.render(window); // Render the player view
-        bonusView.render(window); // Render the bonus view
+        // Update entities
+        float deltaTime = 0.016f; // Assuming 60 FPS for simplicity
+        player->update(deltaTime); // Update the player
+        horizontalPlatform->update(deltaTime); // Update the horizontal platform
+        verticalPlatform->update(deltaTime); // Update the vertical platform
+        bonus->update(deltaTime); // Update the bonus
+
+        // Render the player and platforms
 
         // Display the contents of the window
         window.display();

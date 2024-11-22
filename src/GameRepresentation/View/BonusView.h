@@ -10,7 +10,7 @@
 class BonusView : public EntityView {
 public:
     // Constructor that accepts a Bonus entity reference
-    explicit BonusView(Bonus& bonus);
+    explicit BonusView(Bonus& bonus, sf::RenderWindow& window);
 
     // Destructor
     ~BonusView() override = default;

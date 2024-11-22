@@ -5,10 +5,24 @@
 #ifndef INC_2024_PROJECT_SKIPMARE_ABSTRACTFACTORY_H
 #define INC_2024_PROJECT_SKIPMARE_ABSTRACTFACTORY_H
 
+#include <memory>
+#include "Player.h"
+#include "../Logic/Entities/Platforms/Platform.h"
+#include "../logic/Entities/Bonuses/Bonus.h"
+#include "Entity.h"
+#include "../Logic/Entities/Platforms/StaticPlatform.h"
+#include "../Logic/Entities/Platforms/DisappearingPlatform.h"
+#include "../Logic/Entities/Platforms/VerticalPlatform.h"
+#include "../Logic/Entities/Platforms/HorizontalPlatform.h"
+#include <Bonuses/Jetpack.h>
+#include <Bonuses/Spring.h>
 
 class AbstractFactory {
-
+public:
+    virtual std::unique_ptr<Player> createPlayer(float x, float y) = 0; // Create a Player
+    virtual std::unique_ptr<Platform> createPlatform(float x, float y, PlatformType type) = 0; // Create a Platform
+    virtual std::unique_ptr<Bonus> createBonus(float x, float y, BonusType type) = 0; // Create a Bonus
+    virtual ~AbstractFactory() = default; // Virtual destructor
 };
-
 
 #endif //INC_2024_PROJECT_SKIPMARE_ABSTRACTFACTORY_H

@@ -2,7 +2,7 @@
 #include <iostream> // For error handling
 
 // Constructor that accepts a Bonus entity reference
-BonusView::BonusView(Bonus& bonus) : EntityView(bonus), bonus(bonus) {
+BonusView::BonusView(Bonus& bonus, sf::RenderWindow& window) : EntityView(bonus, window), bonus(bonus) {
     loadTexture();  // Load the texture based on bonus type
     setPosition();  // Set the initial position of the bonus sprite
 }
@@ -11,6 +11,7 @@ BonusView::BonusView(Bonus& bonus) : EntityView(bonus), bonus(bonus) {
 void BonusView::update() {
     // Update the position based on the bonus' current position
     setPosition();
+    render(); // Render the bonus
 }
 
 // Load the texture based on the bonus type
@@ -46,6 +47,9 @@ void BonusView::loadTexture() {
 
 // Set sprite position based on bonus position
 void BonusView::setPosition() {
-    sprite.setPosition(bonus.getX(), bonus.getY());  // Set the sprite's position based on bonus position
-    fallbackShape.setPosition(bonus.getX() - 8, bonus.getY() - 8); // Center the rectangle
+    if(isTextureLoaded){
+        sprite.setPosition(bonus.getX(), bonus.getY());  // Set the sprite's position based on bonus position
+    } else {
+        fallbackShape.setPosition(bonus.getX() - 8, bonus.getY() - 8); // Center the rectangle
+    }
 }

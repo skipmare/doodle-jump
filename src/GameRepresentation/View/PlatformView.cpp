@@ -3,7 +3,7 @@
 #include <iostream>            // For error handling
 
 // Constructor takes a reference to the associated platform
-PlatformView::PlatformView(Platform& platform) : EntityView(platform), platform(platform) {
+PlatformView::PlatformView(Platform& platform, sf::RenderWindow& window) : EntityView(platform,window), platform(platform) {
     loadTexture();  // Load texture for the platform sprite
     sprite.setPosition(platform.getX(), platform.getY());  // Set the initial position
 }
@@ -16,6 +16,7 @@ void PlatformView::update() {
     }else {
         fallbackShape.setPosition(platform.getX() - platform.getWidth() / 2, platform.getY() - platform.getHeight() / 2);
     }
+    render();  // Render the platform
 }
 
 // Load texture based on platform type

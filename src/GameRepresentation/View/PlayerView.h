@@ -7,7 +7,7 @@
 
 class PlayerView : public EntityView {
 public:
-    PlayerView(Player& player); // Constructor
+    PlayerView(Player& player, sf::RenderWindow& window); // Constructor
     void update() override; // Update the visual representation
     void loadTexture(); // Load texture based on the player's state
 

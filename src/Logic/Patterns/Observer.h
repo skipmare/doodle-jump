@@ -4,7 +4,7 @@
 
 #ifndef INC_2024_PROJECT_SKIPMARE_OBSERVER_H
 #define INC_2024_PROJECT_SKIPMARE_OBSERVER_H
-
+#include <SFML/Graphics.hpp>
 
 class Observer {
 public:
