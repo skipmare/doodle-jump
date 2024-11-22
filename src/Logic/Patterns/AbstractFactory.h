@@ -8,7 +8,7 @@
 #include <memory>
 #include "Player.h"
 #include "../Logic/Entities/Platforms/Platform.h"
-#include "../logic/Entities/Bonuses/Bonus.h"
+#include "../Logic/Entities/Bonuses/Bonus.h"
 #include "Entity.h"
 #include "../Logic/Entities/Platforms/StaticPlatform.h"
 #include "../Logic/Entities/Platforms/DisappearingPlatform.h"
