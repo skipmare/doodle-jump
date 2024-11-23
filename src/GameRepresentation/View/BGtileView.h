@@ -5,11 +5,6 @@
 #ifndef BGTILEVIEW_H
 #define BGTILEVIEW_H
 
-
-
-#ifndef INC_2024_PROJECT_SKIPMARE_BGTILEVIEW_H
-#define INC_2024_PROJECT_SKIPMARE_BGTILEVIEW_H
-
 #include <SFML/Graphics.hpp>
 #include "EntityView.h"
 #include "../Logic/Entities/BGtile.h" // Assuming you have a BackgroundTile entity
@@ -29,9 +24,5 @@ private:
     void loadTexture();
 
 };
-
-#endif // INC_2024_PROJECT_SKIPMARE_BGTILEVIEW_H
-
-
 
 #endif //BGTILEVIEW_H
