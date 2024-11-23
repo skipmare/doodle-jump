@@ -6,4 +6,5 @@
 
 Jetpack::Jetpack(float x, float y) : Bonus(x,  y) {
     type = JETPACK;
+    collisionOnLand = false;
 }

@@ -11,6 +11,6 @@ StaticPlatform::StaticPlatform(float x, float y) : Platform(x, y) {
 StaticPlatform::~StaticPlatform() = default;
 
 void StaticPlatform::update(float deltaTime) {
-    // Do nothing unless camera is moving
+    // Static platforms do not move
 }
 

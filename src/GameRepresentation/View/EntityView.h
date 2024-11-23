@@ -14,10 +14,12 @@ public:
     explicit EntityView(Entity& entity, sf::RenderWindow& window);
 
     // Virtual method for updating the view (can be overridden by derived classes)
-    virtual void update() = 0;
+    void update() final;
 
     // Method for rendering the view
     void render();
+
+    void setPosition();
 
 protected:
     sf::RenderWindow& CurrentWindow;  // Reference to the render window

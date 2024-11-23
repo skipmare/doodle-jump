@@ -4,14 +4,7 @@
 // Constructor that accepts a Bonus entity reference
 BonusView::BonusView(Bonus& bonus, sf::RenderWindow& window) : EntityView(bonus, window), bonus(bonus) {
     loadTexture();  // Load the texture based on bonus type
-    setPosition();  // Set the initial position of the bonus sprite
-}
-
-// Update method to handle bonus-specific animation or effects
-void BonusView::update() {
-    // Update the position based on the bonus' current position
-    setPosition();
-    render(); // Render the bonus
+    this->setPosition();  // Set the initial position of the bonus sprite
 }
 
 // Load the texture based on the bonus type
@@ -39,17 +32,10 @@ void BonusView::loadTexture() {
         sprite.setTexture(texture);  // Apply the texture to the sprite
     } else {
         // If texture loading fails, create a rectangle shape as a fallback
-        fallbackShape.setSize(sf::Vector2f(16, 16)); // Set a default size for the fallback shape
-        fallbackShape.setPosition(bonus.getX() - 8, bonus.getY() - 8); // Center the rectangle
+        fallbackShape.setSize(sf::Vector2f(bonus.getWidth(), bonus.getHeight())); // Set a default size for the fallback shape
+        fallbackShape.setPosition(bonus.getX() - bonus.getWidth()/2, bonus.getY() - bonus.getHeight()/2); // Center the rectangle
         std::cerr << "Failed to load texture from: " << textureFile << std::endl; // Log the error
     }
 }
 
-// Set sprite position based on bonus position
-void BonusView::setPosition() {
-    if(isTextureLoaded){
-        sprite.setPosition(bonus.getX(), bonus.getY());  // Set the sprite's position based on bonus position
-    } else {
-        fallbackShape.setPosition(bonus.getX() - 8, bonus.getY() - 8); // Center the rectangle
-    }
-}
+

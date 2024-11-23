@@ -7,6 +7,7 @@ Player::Player(float x, float y) : Entity(x, y) {
     height = 50; // height in pixels
     velocityX = 5.0f; // horizontal velocity in pixels per second
     EntityType_var = EntityType::PLAYER; // set entity type to player
+    collidable = false; // set player to collidable
 }
 
 void Player::update(float deltaTime) {
@@ -50,7 +51,16 @@ void Player::jump() {
 // method to move player to left or right
 void Player::move(int direction) {
     // 1 for right, -1 for left
-    setPosition(getX() + (direction * velocityX), getY());
+    float newX = getX() + (direction * velocityX); // Calculate new x position
+
+    // Wrap around logic
+    if (newX > 500) {
+        newX = 0; // Wrap to the left side
+    } else if (newX < 0) {
+        newX = 500; // Wrap to the right side
+    }
+
+    setPosition(newX, getY()); // Update the player's position
 }
 
 void Player::applyBonusEffect(BonusType bonusType) {

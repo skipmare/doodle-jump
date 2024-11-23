@@ -1,41 +1,41 @@
 #include "Stopwatch.h"
 
-// Starts the stopwatch
+// Private constructor
+Stopwatch::Stopwatch() : running(false), deltaTime(0.0) {}
 
+// Start the stopwatch
 void Stopwatch::start() {
+    running = true;
     startTime = std::chrono::high_resolution_clock::now();
     previousTime = startTime;
-    running = true;
 }
 
-// Stops the stopwatch
-
+// Stop the stopwatch
 void Stopwatch::stop() {
     running = false;
 }
 
-// Returns the elapsed time in seconds
-
+// Get the elapsed time in seconds
 double Stopwatch::getElapsedTime() const {
     if (running) {
-        auto currentTime = std::chrono::high_resolution_clock::now();
-        return std::chrono::duration<double>(currentTime - startTime).count();
+        auto now = std::chrono::high_resolution_clock::now();
+        return std::chrono::duration<double>(now - startTime).count();
     }
     return 0.0;
 }
 
-// Updates the stopwatch
-
-void Stopwatch::tick() {
+// Update the stopwatch and return the delta time
+double Stopwatch::tick() {
     if (running) {
-        auto currentTime = std::chrono::high_resolution_clock::now();
-        deltaTime = currentTime - previousTime;
-        previousTime = currentTime;
+        auto now = std::chrono::high_resolution_clock::now();
+        deltaTime = std::chrono::duration<double>(now - previousTime).count();
+        previousTime = now;
+        return deltaTime;
     }
+    return 0.0;
 }
 
-// Returns the delta time in seconds
-
+// Get the delta time in seconds
 double Stopwatch::getDeltaTime() const {
-    return deltaTime.count();
+    return deltaTime;
 }

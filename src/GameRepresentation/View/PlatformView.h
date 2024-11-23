@@ -8,7 +8,6 @@
 class PlatformView : public EntityView {
 public:
     explicit PlatformView(Platform& platform, sf::RenderWindow& window);
-    void update() override; // Update the visual representation
     void loadTexture(); // Load texture based on platform type
 
 private:

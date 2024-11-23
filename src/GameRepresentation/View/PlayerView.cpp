@@ -6,16 +6,6 @@ PlayerView::PlayerView(Player& player, sf::RenderWindow& window) : EntityView(pl
     sprite.setPosition(player.getX(), player.getY());  // Set the initial position
 }
 
-// Method to update the visual representation
-void PlayerView::update() {
-    if(isTextureLoaded){
-        sprite.setPosition(player.getX(), player.getY());
-    }else {
-        fallbackShape.setPosition(player.getX() - player.getWidth() / 2, player.getY() - player.getHeight() / 2);
-    }
-    render();
-}
-
 // Load a texture based on the player's state
 void PlayerView::loadTexture() {
     std::string textureFile = "../Sprites/player.png"; // Example texture path

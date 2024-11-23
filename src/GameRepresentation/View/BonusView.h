@@ -15,17 +15,10 @@ public:
     // Destructor
     ~BonusView() override = default;
 
-    // Update method to handle bonus-specific animation or effects
-    void update() override;
-
 private:
-    Bonus& bonus;  // Reference to the bonus entity for which the view is created
-
+    Bonus &bonus; // Reference to the bonus entity for which the view is created
     // Load the texture based on the bonus type
     void loadTexture();
-
-    // Set sprite position based on bonus position
-    void setPosition();
 };
 
 #endif //INC_2024_PROJECT_SKIPMARE_BONUSVIEW_H

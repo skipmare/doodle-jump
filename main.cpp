@@ -3,6 +3,8 @@
 #include "PlatformView.h"
 #include "PlayerView.h"
 #include "BonusView.h"
+#include "BGtileView.h" // Include the BGtileView header
+#include <iostream>
 
 int main() {
     // Create the SFML window
@@ -22,12 +24,35 @@ int main() {
     // Create a Bonus instance and BonusView using the factory
     auto bonus = factory->createBonus(300, 400, BonusType::JETPACK);
 
+    // Create background tiles using the factory
+    std::vector<std::unique_ptr<BGtile>> backgroundTiles;
+
+    // Define the window dimensions
+    const int windowWidth = 500;
+    const int windowHeight = 800;
+    const int tileSize = 16;
+
+    // Calculate the number of tiles needed to cover the window and beyond
+    int numTilesX = (windowWidth / tileSize) + 2; // Extra tiles for wrapping
+    int numTilesY = (windowHeight / tileSize) + 2; // Extra tiles for wrapping
+
+    // Create tiles across the width of the window
+    for (int x = -tileSize; x < (numTilesX * tileSize); x += tileSize) {
+        // Create tiles down the height of the window
+        for (int y = -tileSize; y < (numTilesY * tileSize); y += tileSize) {
+            // Create a tile at the calculated position
+            auto tile = factory->createBGtile(x, y); // Assuming createBGTile exists
+            backgroundTiles.push_back(std::move(tile));
+        }
+    }
+
     // Main loop
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
+            if (event.type == sf::Event::Closed) {
                 window.close();
+            }
         }
 
         // Handle player input
@@ -40,16 +65,17 @@ int main() {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
             player->jump(); // Jump
         }
-        window.clear(sf::Color::Black);
 
-        // Update entities
         float deltaTime = 0.016f; // Assuming 60 FPS for simplicity
+        // Update and render background tiles
+        for (auto &tile : backgroundTiles) {
+            tile->update(deltaTime);
+        }
+
         player->update(deltaTime); // Update the player
         horizontalPlatform->update(deltaTime); // Update the horizontal platform
         verticalPlatform->update(deltaTime); // Update the vertical platform
         bonus->update(deltaTime); // Update the bonus
-
-        // Render the player and platforms
 
         // Display the contents of the window
         window.display();

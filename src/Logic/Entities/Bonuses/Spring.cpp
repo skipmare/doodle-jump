@@ -6,4 +6,5 @@
 
 Spring::Spring(float x, float y) : Bonus( x,  y) {
     type = SPRING;
+    collisionOnLand = true;
 }

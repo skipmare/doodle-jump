@@ -44,8 +44,3 @@ void Entity::getBoundingBox(float& left, float& right, float& top, float& bottom
     top = y - height / 2;
     bottom = y + height / 2;
 }
-
-void Entity::setHasCollided(bool collided) {
-    hasCollided = collided;
-    notify();
-}

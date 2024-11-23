@@ -8,8 +8,7 @@ EntityView::EntityView(Entity& entity, sf::RenderWindow& window) : entity(entity
    //DO NOTHING, JUST INITIALIZE THE ENTITY (BASE CLASS)
 }
 void EntityView::update() {
-    // Default update logic (if any) can be placed here.
-    // Derived classes will override this method for specific updates (animations, movement, etc.)
+    setPosition();
 }
 
 // The render method could be implemented here, but it's left as virtual to be overridden
@@ -19,5 +18,13 @@ void EntityView::render() {
         CurrentWindow.draw(sprite); // Draw the sprite if texture is loaded
     } else {
         CurrentWindow.draw(fallbackShape); // Draw the fallback shape if texture loading failed
+    }
+}
+
+void EntityView::setPosition() {
+    if(isTextureLoaded){
+        sprite.setPosition(entity.getX(), entity.getY()); // Set the position of the sprite
+    }else {
+        fallbackShape.setPosition(entity.getX()-entity.getWidth()/2,entity.getY()-entity.getHeight()/2);
     }
 }

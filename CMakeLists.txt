@@ -56,6 +56,7 @@ add_executable(2024_project_skipmare
         src/Logic/Entities/Bonuses/Jetpack.cpp
         src/Logic/Entities/Bonuses/Spring.cpp
         src/Logic/Patterns/Subject.cpp
+        src/GameRepresentation/View/BGtileView.cpp
 )
 
 target_link_libraries(2024_project_skipmare PRIVATE sfml-graphics)

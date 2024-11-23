@@ -45,14 +45,15 @@ public:
 
     [[nodiscard]] float getWidth() const{return width;}; // get the width of the entity
     [[nodiscard]] float getHeight() const{return height;}; // get the height of the entity
-    [[nodiscard]] bool getHasCollided() const{return hasCollided;}; // get the collision status of the entity
-    void setHasCollided(bool collided); // set the collision status of the entity
+    [[nodiscard]] bool getCollisionOnLand() const{return collisionOnLand;}; // get the collision on land state
+    [[nodiscard]] bool getCollidable() const{return collidable;}; // get the collidable state
 protected:
     float x = 0, y = 0; // position of the entity, change it in derived class for different position
     float velocityX = 0, velocityY = 0; // set it to 0 for stationary entity, change it in derived class for moving entity
     float width = 0, height = 0; // width and height of the entity, change it in derived class for different size
     EntityType EntityType_var = NONE; // type of the entity, change it in derived class for different type
-    bool hasCollided = false; // check if the entity has collided with player
+    bool collisionOnLand = false; // check if the entity has collided with player on landing
+    bool collidable = true; // check if the entity is collidable
 
 };
 

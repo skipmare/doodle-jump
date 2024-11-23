@@ -8,17 +8,6 @@ PlatformView::PlatformView(Platform& platform, sf::RenderWindow& window) : Entit
     sprite.setPosition(platform.getX(), platform.getY());  // Set the initial position
 }
 
-// Update the visual representation of the platform
-void PlatformView::update() {
-    // Update position based on platform's position
-    if(isTextureLoaded) {
-        sprite.setPosition(platform.getX(), platform.getY());
-    }else {
-        fallbackShape.setPosition(platform.getX() - platform.getWidth() / 2, platform.getY() - platform.getHeight() / 2);
-    }
-    render();  // Render the platform
-}
-
 // Load texture based on platform type
 void PlatformView::loadTexture() {
     std::string textureFile;  // Variable to hold the texture file path

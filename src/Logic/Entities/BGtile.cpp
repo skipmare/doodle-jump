@@ -5,12 +5,13 @@
 #include "BGtile.h"
 
 void BGtile::update(float deltaTime) {
-    // Update logic for BGtile
+    notify();
 }
 
 BGtile::BGtile(float x, float y) : Entity(x, y) {
     width = 16;
     height = 16;
     EntityType_var = EntityType::BG_TILE;
+    collidable = false;
 
 }

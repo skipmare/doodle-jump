@@ -9,6 +9,7 @@
 class Observer {
 public:
     virtual void update() = 0; // Method to be called when the subject changes
+    virtual void render() = 0; // Method to render the observer
     virtual ~Observer() = default;
 };
 

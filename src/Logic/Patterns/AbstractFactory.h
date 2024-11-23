@@ -14,6 +14,7 @@
 #include "../Logic/Entities/Platforms/DisappearingPlatform.h"
 #include "../Logic/Entities/Platforms/VerticalPlatform.h"
 #include "../Logic/Entities/Platforms/HorizontalPlatform.h"
+#include "../Logic/Entities/BGTile.h"
 #include <Bonuses/Jetpack.h>
 #include <Bonuses/Spring.h>
 
@@ -22,6 +23,7 @@ public:
     virtual std::unique_ptr<Player> createPlayer(float x, float y) = 0; // Create a Player
     virtual std::unique_ptr<Platform> createPlatform(float x, float y, PlatformType type) = 0; // Create a Platform
     virtual std::unique_ptr<Bonus> createBonus(float x, float y, BonusType type) = 0; // Create a Bonus
+    virtual std::unique_ptr<BGtile> createBGtile(float x, float y) = 0; // Create a BGtile
     virtual ~AbstractFactory() = default; // Virtual destructor
 };
 
