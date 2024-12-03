@@ -5,25 +5,19 @@
 
 class Random {
 public:
-    Random() : rng(std::random_device()()), distX(0, 500), distY(0, 800), distType(0, 1) {}
+    Random();
+    ~Random() = default;
 
-    float getRandomX() {
-        return distX(rng);
-    }
+    Random(const Random&) = delete;
+    Random& operator=(const Random&) = delete;
 
-    float getRandomY() {
-        return distY(rng);
-    }
+    static Random& getInstance();
 
-    int getRandomType() {
-        return distType(rng);
-    }
+    float getRandomFloat(float min, float max);
 
 private:
-    std::mt19937 rng;
-    std::uniform_real_distribution<float> distX;
-    std::uniform_real_distribution<float> distY;
-    std::uniform_int_distribution<int> distType;
+    std::mt19937 gen;
+
 };
 
 #endif // RANDOM_H

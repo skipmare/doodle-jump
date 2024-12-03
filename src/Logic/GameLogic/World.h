@@ -2,27 +2,24 @@
 #define WORLD_H
 
 #include <vector>
-#include <memory> // For std::unique_ptr
+#include <memory> // For std::shared_ptr
 #include "Entity.h"
-#include "ConcreteFactory.h" // Include the factory header
+#include "AbstractFactory.h" // Include the factory header
 #include "Camera.h"
 
 class World {
 public:
-    World (ConcreteFactory& factory, float viewWidth, float viewHeight); // Constructor
+    World(std::shared_ptr<AbstractFactory> factory, float viewWidth, float viewHeight); // Constructor
+    ~World() = default; // Destructor
 
-    void generateBGtiles(); // Method to generate background tiles
-    void update(float deltaTime); // Update method
-    void render(); // Render method
-
-
+    bool checkCollision(std::shared_ptr<Entity> entity1, std::shared_ptr<Entity> entity2); // Check collision between two entities
 
 private:
-    std::shared_ptr<Player> player; // Unique pointer to the player entity
+    std::shared_ptr<Player> player; // Shared pointer to the player entity
     std::vector<std::shared_ptr<Entity>> entities; // Vector to store entities
-    std::vector<std::shared_ptr<Entity>> EntitiesToRender; // Vector to store entities to render
+    std::vector<std::shared_ptr<Entity>> entitiesToRender; // Vector to store entities to render
     int score; // Current score
-    ConcreteFactory& factory; // Reference to the factory
+    std::shared_ptr<AbstractFactory> factory; // Shared pointer to the factory
     Camera camera; // Camera object
 
     // Helper method to update the camera based on player position
