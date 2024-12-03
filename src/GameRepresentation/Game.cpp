@@ -4,7 +4,7 @@
 Game::Game()
     : window(std::make_shared<sf::RenderWindow>(sf::VideoMode(500, 800), "Doodle Jump by Karan")), // Create the SFML window
       factory(std::make_shared<ConcreteFactory>(window)), // Instantiate the factory
-      world(*factory, 500, 800), // Initialize the World instance
+      world(factory, 500, 800), // Initialize the World instance
       stopwatch(Stopwatch::getInstance()) // Get the Stopwatch instance
 
 {
