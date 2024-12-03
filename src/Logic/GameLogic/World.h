@@ -11,11 +11,16 @@ class World {
 public:
     World (ConcreteFactory& factory, float viewWidth, float viewHeight); // Constructor
 
+    void generateBGtiles(); // Method to generate background tiles
+    void update(float deltaTime); // Update method
+    void render(); // Render method
+
+
 
 private:
-    std::unique_ptr<Player> player; // Unique pointer to the player entity
-    std::vector<std::unique_ptr<Entity>> entities; // Vector to store entities
-    std::vector<std::unique_ptr<Entity>> EntitiesToRender; // Vector to store entities to render
+    std::shared_ptr<Player> player; // Unique pointer to the player entity
+    std::vector<std::shared_ptr<Entity>> entities; // Vector to store entities
+    std::vector<std::shared_ptr<Entity>> EntitiesToRender; // Vector to store entities to render
     int score; // Current score
     ConcreteFactory& factory; // Reference to the factory
     Camera camera; // Camera object

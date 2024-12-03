@@ -7,11 +7,11 @@
 
 class PlatformView : public EntityView {
 public:
-    explicit PlatformView(Platform& platform, sf::RenderWindow& window);
+    explicit PlatformView(std::shared_ptr<Platform> platform, std::shared_ptr<sf::RenderWindow> window);
     void loadTexture(); // Load texture based on platform type
 
 private:
-    Platform& platform; // Reference to the associated platform
+    std::shared_ptr<Platform> platform; // Reference to the associated platform
 };
 
 #endif // PLATFORMVIEW_H

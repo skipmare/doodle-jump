@@ -4,7 +4,7 @@
 #include "Entity.h"  // Include the Entity class for reference
 
 // Constructor to initialize the view with the associated entity
-EntityView::EntityView(Entity& entity, sf::RenderWindow& window) : entity(entity), CurrentWindow(window) {
+EntityView::EntityView(std::shared_ptr<Entity> entity, std::shared_ptr<sf::RenderWindow> window) : entity(entity), CurrentWindow(window) {
    //DO NOTHING, JUST INITIALIZE THE ENTITY (BASE CLASS)
 }
 void EntityView::update() {
@@ -15,16 +15,16 @@ void EntityView::update() {
 // by derived classes for specific rendering logic
 void EntityView::render() {
     if (texture.getSize().x > 0) { // Check if texture is loaded
-        CurrentWindow.draw(sprite); // Draw the sprite if texture is loaded
+        CurrentWindow->draw(sprite); // Draw the sprite if texture is loaded
     } else {
-        CurrentWindow.draw(fallbackShape); // Draw the fallback shape if texture loading failed
+        CurrentWindow->draw(fallbackShape); // Draw the fallback shape if texture loading failed
     }
 }
 
 void EntityView::setPosition() {
     if(isTextureLoaded){
-        sprite.setPosition(entity.getX(), entity.getY()); // Set the position of the sprite
+        sprite.setPosition(entity->getX(), entity->getY()); // Set the position of the sprite
     }else {
-        fallbackShape.setPosition(entity.getX()-entity.getWidth()/2,entity.getY()-entity.getHeight()/2);
+        fallbackShape.setPosition(entity->getX()-entity->getWidth()/2,entity->getY()-entity->getHeight()/2);
     }
 }

@@ -1,9 +1,9 @@
 #include "PlayerView.h"
 
 // Constructor to initialize PlayerView with the associated Player entity
-PlayerView::PlayerView(Player& player, sf::RenderWindow& window) : EntityView(player, window), player(player) {
+PlayerView::PlayerView(std::shared_ptr<Player> player, std::shared_ptr<sf::RenderWindow> window) : EntityView(player, window), player(player) {
     loadTexture();  // Load texture based on the player's state
-    sprite.setPosition(player.getX(), player.getY());  // Set the initial position
+    sprite.setPosition(player->getX(), player->getY());  // Set the initial position
 }
 
 // Load a texture based on the player's state
@@ -16,8 +16,8 @@ void PlayerView::loadTexture() {
         sprite.setTexture(texture);  // Apply the loaded texture to the sprite
     } else {
         // If texture loading fails, create a rectangle shape as a fallback
-        fallbackShape.setSize(sf::Vector2f(player.getWidth(), player.getHeight())); // Create rectangle with player dimensions
+        fallbackShape.setSize(sf::Vector2f(player->getWidth(), player->getHeight())); // Create rectangle with player dimensions
         fallbackShape.setFillColor(sf::Color::Red);  // Set a fallback color (can be customized)
-        fallbackShape.setPosition(player.getX() - player.getWidth() / 2, player.getY() - player.getHeight() / 2); // Center the rectangle
+        fallbackShape.setPosition(player->getX() - player->getWidth() / 2, player->getY() - player->getHeight() / 2); // Center the rectangle
     }
 }

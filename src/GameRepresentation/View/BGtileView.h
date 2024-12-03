@@ -12,13 +12,13 @@
 class BGtileView : public EntityView {
 public:
     // Constructor that accepts a BackgroundTile entity reference and a render window
-    explicit BGtileView(BGtile& tile, sf::RenderWindow& window);
+    explicit BGtileView(std::shared_ptr<BGtile> tile, std::shared_ptr<sf::RenderWindow> window);
 
     // Destructor
     ~BGtileView() override = default;
 
 private:
-    BGtile& tile; // Reference to the background tile entity for which the view is created
+    std::shared_ptr<BGtile> tile; // Reference to the background tile entity for which the view is created
 
     // Load the texture based on the background tile type
     void loadTexture();

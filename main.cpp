@@ -8,10 +8,9 @@
 
 int main() {
     // Create the SFML window
-    sf::RenderWindow window(sf::VideoMode(500, 800), "Entity Factory Test");
-
+    std::shared_ptr<sf::RenderWindow> window = std::make_shared<sf::RenderWindow>(sf::VideoMode(500, 800), "Entity Factory Test");
     // Create an instance of the concrete factory
-    std::unique_ptr<ConcreteFactory> factory = std::make_unique<ConcreteFactory>(window);
+    std::shared_ptr<ConcreteFactory> factory = std::make_shared<ConcreteFactory>(window);
 
     // Create a Player instance using the factory
     auto player = factory->createPlayer(200, 500);
@@ -25,7 +24,7 @@ int main() {
     auto bonus = factory->createBonus(300, 400, BonusType::JETPACK);
 
     // Create background tiles using the factory
-    std::vector<std::unique_ptr<BGtile>> backgroundTiles;
+    std::vector<std::shared_ptr<BGtile>> backgroundTiles;
 
     // Define the window dimensions
     const int windowWidth = 500;
@@ -42,16 +41,16 @@ int main() {
         for (int y = -tileSize; y < (numTilesY * tileSize); y += tileSize) {
             // Create a tile at the calculated position
             auto tile = factory->createBGtile(x, y); // Assuming createBGTile exists
-            backgroundTiles.push_back(std::move(tile));
+            backgroundTiles.push_back(tile);
         }
     }
 
     // Main loop
-    while (window.isOpen()) {
+    while (window->isOpen()) {
         sf::Event event;
-        while (window.pollEvent(event)) {
+        while (window->pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
-                window.close();
+                window->close();
             }
         }
 
@@ -78,7 +77,7 @@ int main() {
         bonus->update(deltaTime); // Update the bonus
 
         // Display the contents of the window
-        window.display();
+        window->display();
     }
 
     return 0;

@@ -10,20 +10,25 @@ class EntityView : public Observer{
 public:
     virtual ~EntityView() = default; // Destructor
 
+
+    // Pure virtual method to load the texture
+    virtual void loadTexture() = 0;
+
     // Constructor takes a reference to the associated entity
-    explicit EntityView(Entity& entity, sf::RenderWindow& window);
+    explicit EntityView(std::shared_ptr<Entity> entity, std::shared_ptr<sf::RenderWindow> window);
 
     // Virtual method for updating the view (can be overridden by derived classes)
     void update() final;
 
     // Method for rendering the view
-    void render();
+    void render() final;
 
+    // Method to set the position of the view
     void setPosition();
 
 protected:
-    sf::RenderWindow& CurrentWindow;  // Reference to the render window
-    Entity& entity;  // Reference to the entity this view represents
+    std::shared_ptr<sf::RenderWindow> CurrentWindow;  // Reference to the render window
+    std::shared_ptr<Entity> entity;  // Reference to the entity this view represents
     sf::Sprite sprite;  // Sprite for graphical representation
     sf::Texture texture;  // Texture for the sprite
     sf::RectangleShape fallbackShape;  // Rectangle shape for fallback

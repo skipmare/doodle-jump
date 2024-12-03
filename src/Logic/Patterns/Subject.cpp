@@ -7,16 +7,16 @@
 #include <algorithm>
 
 // Attach an observer to this subject
-void Subject::attach(std::unique_ptr<Observer> observer) {
+void Subject::attach(std::shared_ptr<Observer> observer) {
     // Add the unique_ptr to the vector
-    observers.push_back(std::move(observer));
+    observers.push_back(observer);
 }
 
 // Detach an observer from this subject
-void Subject::detach(Observer* observer) {
+void Subject::detach(std::shared_ptr<Observer> observer) {
     // Remove the observer from the vector
     observers.erase(std::remove_if(observers.begin(), observers.end(),
-        [observer](const std::unique_ptr<Observer>& obs) { return obs.get() == observer; }), observers.end());
+        [observer](const std::shared_ptr<Observer>& obs) { return obs.get() == observer.get(); }), observers.end());
 }
 
 // Notify all observers that are attached to this subject

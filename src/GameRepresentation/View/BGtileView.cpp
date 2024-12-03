@@ -2,7 +2,7 @@
 #include <iostream> // For error handling
 
 // Constructor that accepts a BackgroundTile entity reference
-BGtileView::BGtileView(BGtile& tile, sf::RenderWindow& window)
+BGtileView::BGtileView(std::shared_ptr<BGtile> tile, std::shared_ptr<sf::RenderWindow> window)
     : EntityView(tile, window), tile(tile) {
     loadTexture(); // Load the texture based on the background tile type
     setPosition(); // Set the initial position of the background tile sprite
@@ -21,8 +21,8 @@ void BGtileView::loadTexture() {
         isTextureLoaded = true; // Indicate that the texture has been loaded successfully
     } else {
         // If texture loading fails, create a rectangle shape as a fallback
-        fallbackShape.setSize(sf::Vector2f(tile.getWidth(), tile.getHeight())); // Set a default size for the fallback shape
-        fallbackShape.setPosition(tile.getX() - 8, tile.getY() - 8); // Center the rectangle
+        fallbackShape.setSize(sf::Vector2f(tile->getWidth(), tile->getHeight())); // Set a default size for the fallback shape
+        fallbackShape.setPosition(tile->getX() - 8, tile->getY() - 8); // Center the rectangle
 
         // Set the outline color and thickness for the fallback shape
         fallbackShape.setOutlineColor(sf::Color::Black); // Set border color to black
