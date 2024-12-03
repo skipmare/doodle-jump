@@ -14,7 +14,7 @@
 #include "../Logic/Entities/Platforms/DisappearingPlatform.h"
 #include "../Logic/Entities/Platforms/VerticalPlatform.h"
 #include "../Logic/Entities/Platforms/HorizontalPlatform.h"
-#include "../Logic/Entities/BGTile.h"
+#include "../Logic/Entities/BGtile.h"
 #include <Bonuses/Jetpack.h>
 #include <Bonuses/Spring.h>
 
