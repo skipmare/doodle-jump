@@ -41,3 +41,11 @@ void Entity::update(float deltaTime) {
 BoundingBox Entity::getBoundingBox() const {
     return { x - width / 2, x + width / 2, y - height / 2, y + height / 2 };
 }
+
+void Entity::setOutOfView(bool outOfView) {
+    this->outOfView = outOfView;
+}
+
+bool Entity::getOutOfView() const {
+    return outOfView;
+}

@@ -21,7 +21,8 @@ bool checkCollision_player(std::shared_ptr<Player> player, std::shared_ptr<Entit
             std::cout << "collision on land" << std::endl;
             BoundingBox playerBox = player->getBoundingBox(); // Get bounding box of player
             BoundingBox entityBox = entity->getBoundingBox(); // Get bounding box of entity
-return (std::abs(playerBox.bottom - entityBox.top) < 1.0f && playerBox.right >= entityBox.left && playerBox.left <= entityBox.right && player->isFalling()); // Check for collision        } else {
+            return (playerBox.bottom == entityBox.top && playerBox.right >= entityBox.left && playerBox.left <= entityBox.right && player->isFalling()); // Check for collision
+        } else {
             return checkCollision(player, entity); // Check collision between player and entity
         }
     }

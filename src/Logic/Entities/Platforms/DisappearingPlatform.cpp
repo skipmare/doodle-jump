@@ -19,7 +19,7 @@ DisappearingPlatform::~DisappearingPlatform() = default;
 // Updates the platform
 void DisappearingPlatform::update(float deltaTime) {
     if(hasCollided) {
-        setOutOfView(true);
+        this->setOutOfView(true);
     }
     notify();
 }

@@ -54,7 +54,7 @@ public:
     [[nodiscard]] bool getCollisionOnLand() const{return collisionOnLand;}; // get the collision on land state
     [[nodiscard]] bool getCollidable() const{return collidable;}; // get the collidable state
 
-    [[nodiscard]] void setOutOfView(bool outOfView) const; // set the out of view state
+    void setOutOfView(bool outOfView); // set the out of view state
     [[nodiscard]] bool getOutOfView() const; // get the out of view state
 
     [[nodiscard]] bool getHasCollided() const; // get the has collided state
