@@ -18,7 +18,10 @@ DisappearingPlatform::~DisappearingPlatform() = default;
 
 // Updates the platform
 void DisappearingPlatform::update(float deltaTime) {
-    //to do nothing, until the player steps on the platform
+    if(hasCollided) {
+        setOutOfView(true);
+    }
+    notify();
 }
 
 // This method is used to check if the platform has disappeared

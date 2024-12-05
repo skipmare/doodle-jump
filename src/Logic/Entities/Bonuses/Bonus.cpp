@@ -5,12 +5,10 @@
 #include "Bonus.h"
 
 void Bonus::update(float deltaTime) {
-    // Update logic for Bonus
-    // For example, check if the bonus has been collected by the player
-    // or if the duration has expired
-    // This method will be called by the game loop to update the state of the bonus
-    // based on the elapsed time (deltaTime)
-    // You can add more logic here based on the specific behavior of the bonus
+    if(hasCollided && BonusType::JETPACK == type) {
+        setOutOfView(true);
+    }
+    notify();
 }
 
 // Constructor

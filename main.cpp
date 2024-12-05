@@ -1,49 +1,48 @@
+#include <ConcreteFactory.h>
 #include <SFML/Graphics.hpp>
-#include "ConcreteFactory.h" // Include the factory header
-#include "PlatformView.h"
-#include "PlayerView.h"
-#include "BonusView.h"
-#include "BGtileView.h" // Include the BGtileView header
 #include <iostream>
+#include <memory>
+#include "Player.h"
+#include "../Logic/Entities/Entity.h"
+#include "AbstractFactory.h"
 
-int main() {
-    // Create the SFML window
-    std::shared_ptr<sf::RenderWindow> window = std::make_shared<sf::RenderWindow>(sf::VideoMode(500, 800), "Entity Factory Test");
-    // Create an instance of the concrete factory
-    std::shared_ptr<ConcreteFactory> factory = std::make_shared<ConcreteFactory>(window);
+bool checkCollision(const std::shared_ptr<Entity>& entity1, const std::shared_ptr<Entity>& entity2) {
+    auto box1 = entity1->getBoundingBox();
+    auto box2 = entity2->getBoundingBox();
+    return (box1.right >= box2.left && box1.left <= box2.right &&
+            box1.bottom >= box2.top && box1.top <= box2.bottom);
+}
 
-    // Create a Player instance using the factory
-    auto player = factory->createPlayer(200, 500);
+bool checkCollision_player(std::shared_ptr<Player> player, std::shared_ptr<Entity> entity) {
+    if (!entity) return false; // Handle null pointer.
 
-    // Create instances of HorizontalPlatform and VerticalPlatform using the factory
-    auto horizontalPlatform = factory->createPlatform(100, 300, PlatformType::HORIZONTAL);
-    auto verticalPlatform = factory->createPlatform(400, 100, PlatformType::VERTICAL);
-    auto staticPlatform = factory->createPlatform(600, 400, PlatformType::STATIC);
-
-    // Create a Bonus instance and BonusView using the factory
-    auto bonus = factory->createBonus(300, 400, BonusType::JETPACK);
-
-    // Create background tiles using the factory
-    std::vector<std::shared_ptr<BGtile>> backgroundTiles;
-
-    // Define the window dimensions
-    const int windowWidth = 500;
-    const int windowHeight = 800;
-    const int tileSize = 16;
-
-    // Calculate the number of tiles needed to cover the window and beyond
-    int numTilesX = (windowWidth / tileSize) + 2; // Extra tiles for wrapping
-    int numTilesY = (windowHeight / tileSize) + 2; // Extra tiles for wrapping
-
-    // Create tiles across the width of the window
-    for (int x = -tileSize; x < (numTilesX * tileSize); x += tileSize) {
-        // Create tiles down the height of the window
-        for (int y = -tileSize; y < (numTilesY * tileSize); y += tileSize) {
-            // Create a tile at the calculated position
-            auto tile = factory->createBGtile(x, y); // Assuming createBGTile exists
-            backgroundTiles.push_back(tile);
+    if (entity->getCollidable()) {
+        if (entity->getCollisionOnLand()) {
+            std::cout << "collision on land" << std::endl;
+            BoundingBox playerBox = player->getBoundingBox(); // Get bounding box of player
+            BoundingBox entityBox = entity->getBoundingBox(); // Get bounding box of entity
+return (std::abs(playerBox.bottom - entityBox.top) < 1.0f && playerBox.right >= entityBox.left && playerBox.left <= entityBox.right && player->isFalling()); // Check for collision        } else {
+            return checkCollision(player, entity); // Check collision between player and entity
         }
     }
+
+    return false; // Return false if the entity is not collidable
+}
+
+int main() {
+    // Create an SFML window
+    auto window = std::make_shared<sf::RenderWindow>(sf::VideoMode(500, 800), "Game Window");
+
+    // Create the factory with the window
+    auto factory = std::make_shared<ConcreteFactory>(window);
+
+    // Create player and platform
+    auto player = factory->createPlayer(250, 250);
+    auto platform = factory->createPlatform(250, 300, PlatformType::HORIZONTAL);
+    auto platform2 = factory->createPlatform(250, 500, PlatformType::HORIZONTAL);
+    auto platform3 = factory->createPlatform(250, 700, PlatformType::HORIZONTAL);
+    // Create a clock to measure elapsed time
+    sf::Clock clock;
 
     // Main loop
     while (window->isOpen()) {
@@ -54,29 +53,36 @@ int main() {
             }
         }
 
+        // Get the elapsed time
+        sf::Time elapsed = clock.restart();
+        float deltaTime = elapsed.asSeconds();
+
         // Handle player input
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-            player->move(-1); // Move left
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+            player->move(-1);
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-            player->move(1); // Move right
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-            player->jump(); // Jump
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+            player->move(1);
         }
 
-        float deltaTime = 0.016f; // Assuming 60 FPS for simplicity
-        // Update and render background tiles
-        for (auto &tile : backgroundTiles) {
-            tile->update(deltaTime);
+        // Clear the window
+        window->clear();
+        // Update entities
+        player->update(deltaTime);
+        platform->update(deltaTime);
+        platform2->update(deltaTime);
+        platform3->update(deltaTime);
+
+        // Check for collision
+        if (checkCollision_player(player, platform) || checkCollision_player(player, platform2) || checkCollision_player(player, platform3)) {
+            std::cout << "Collision detected! Making player jump." << std::endl;
+            player->jump();
+        } else {
+            std::cout << "No collision detected." << std::endl;
         }
 
-        player->update(deltaTime); // Update the player
-        horizontalPlatform->update(deltaTime); // Update the horizontal platform
-        verticalPlatform->update(deltaTime); // Update the vertical platform
-        bonus->update(deltaTime); // Update the bonus
 
-        // Display the contents of the window
+        // Display the window contents
         window->display();
     }
 

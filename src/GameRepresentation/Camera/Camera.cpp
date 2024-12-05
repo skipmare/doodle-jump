@@ -2,7 +2,7 @@
 
 // Constructor initializes the camera with specific dimensions
 Camera::Camera(float viewWidth, float viewHeight)
-    : cameraY(viewHeight / 2), viewWidth(viewWidth), viewHeight(viewHeight), PlayerMaxY(viewHeight / 2) {}
+    : cameraY(viewHeight / 2), viewWidth(viewWidth), viewHeight(viewHeight), PlayerMaxY(viewHeight / 2),cameraX(viewWidth/2) {}
 
 // Set the camera position based on the player's position
 void Camera::setPosition(float playerX, float playerY) {
@@ -22,6 +22,21 @@ void Camera::project(float worldY, float& pixelY) const {
 // Get the current camera Y position
 float Camera::getCameraY() const {
     return cameraY; // Return the current camera Y position
+}
+
+// Get the current camera X position
+float Camera::getCamerax() const {
+    return cameraX;
+}
+
+// Get the width of the camera view
+float Camera::getViewWidth() const {
+    return viewWidth; // Return the width of the camera view
+}
+
+// Get the height of the camera view
+float Camera::getViewHeight() const {
+    return viewHeight; // Return the height of the camera view
 }
 
 // Check if a point is within the camera's view

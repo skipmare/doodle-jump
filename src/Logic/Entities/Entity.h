@@ -27,6 +27,12 @@ enum PlatformType {
     DISAPPEARING
 };
 
+struct BoundingBox {
+    float left;
+    float right;
+    float top;
+    float bottom;
+};
 
 class Entity : public Subject {
 public:
@@ -39,7 +45,7 @@ public:
     [[nodiscard]] float getY() const; // get the y position of the entity
     void setPosition(float x, float y); // set the position of the entity
 
-    void getBoundingBox(float& left, float& right, float& top, float& bottom); // used to check for collision
+    BoundingBox getBoundingBox() const; // get the bounding box of the entity
 
     [[nodiscard]] EntityType getEntityType() const; // get the type of the entity
 
@@ -47,6 +53,13 @@ public:
     [[nodiscard]] float getHeight() const{return height;}; // get the height of the entity
     [[nodiscard]] bool getCollisionOnLand() const{return collisionOnLand;}; // get the collision on land state
     [[nodiscard]] bool getCollidable() const{return collidable;}; // get the collidable state
+
+    [[nodiscard]] void setOutOfView(bool outOfView) const; // set the out of view state
+    [[nodiscard]] bool getOutOfView() const; // get the out of view state
+
+    [[nodiscard]] bool getHasCollided() const; // get the has collided state
+    void setHasCollided(bool hasCollided); // set the has collided state
+
 protected:
     float x = 0, y = 0; // position of the entity, change it in derived class for different position
     float velocityX = 0, velocityY = 0; // set it to 0 for stationary entity, change it in derived class for moving entity
@@ -55,6 +68,9 @@ protected:
     bool collisionOnLand = false; // check if the entity has collided with player on landing
     bool collidable = true; // check if the entity is collidable
 
+
+    bool hasCollided = false; // check if the entity has collided with player
+    bool outOfView = false; // check if the entity is out of view
 };
 
 

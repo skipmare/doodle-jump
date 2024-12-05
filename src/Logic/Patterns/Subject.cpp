@@ -23,6 +23,5 @@ void Subject::detach(std::shared_ptr<Observer> observer) {
 void Subject::notify() {
     for (const auto& observer : observers) {
         observer->update(); // Call the update method on each observer
-        observer->render(); // Call the render method on each observer
     }
 }

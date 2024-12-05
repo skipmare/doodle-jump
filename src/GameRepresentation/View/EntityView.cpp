@@ -9,6 +9,7 @@ EntityView::EntityView(std::shared_ptr<Entity> entity, std::shared_ptr<sf::Rende
 }
 void EntityView::update() {
     setPosition();
+    render();
 }
 
 // The render method could be implemented here, but it's left as virtual to be overridden

@@ -16,11 +16,15 @@ public:
 
     // Get the current camera position
     [[nodiscard]] float getCameraY() const;
+    [[nodiscard]] float getCamerax() const;
+    [[nodiscard]] float getViewWidth() const;
+    [[nodiscard]] float getViewHeight() const;
 
     // Check if a point is within the camera's view
     [[nodiscard]] bool isInView(float worldX, float worldY) const;
 
 private:
+    float cameraX;
     float cameraY; // Current camera y position
     float viewWidth; // Width of the camera view
     float viewHeight; // Height of the camera view
