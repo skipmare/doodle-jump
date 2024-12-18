@@ -6,6 +6,7 @@
 #define INC_2024_PROJECT_SKIPMARE_BONUS_H
 #include "../Entity.h"
 #include "../Platforms/Platform.h"
+#include "../Utilities/Random.h"
 
 
 class Bonus : public Entity {

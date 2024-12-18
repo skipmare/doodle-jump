@@ -3,8 +3,6 @@
 //
 
 #include "Bonus.h"
-#include "random.h" // Include your own random number generator header
-#include <iostream> // For error handling
 
 void Bonus::update(float deltaTime) {
     if (hasCollided && BonusType::JETPACK == type) {
