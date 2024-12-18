@@ -4,7 +4,7 @@
 
 #include "Spring.h"
 
-Spring::Spring(float x, float y) : Bonus( x,  y) {
+Spring::Spring(float x, float y, std::shared_ptr<Platform> platform) : Bonus( x,  y, platform) {
     type = SPRING;
     collisionOnLand = true;
 }

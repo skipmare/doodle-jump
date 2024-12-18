@@ -5,12 +5,12 @@
 #ifndef INC_2024_PROJECT_SKIPMARE_BONUS_H
 #define INC_2024_PROJECT_SKIPMARE_BONUS_H
 #include "../Entity.h"
-
+#include "../Platforms/Platform.h"
 
 
 class Bonus : public Entity {
 public:
-    Bonus(float x, float y); // Constructor
+    Bonus(float x, float y, std::shared_ptr<Platform> platform); // Constructor
     ~Bonus() override = default; // Destructor
 
     void update(float deltaTime) override; // Updates the bonus
@@ -19,6 +19,9 @@ public:
     [[nodiscard]] bool getIsCollected() const; // Returns if the bonus is collected
 protected:
     BonusType type;
+    std::shared_ptr<Platform> on_platform;
+    float prevPlatformX = 0;
+    float prevPlatformY = 0;
 };
 
 

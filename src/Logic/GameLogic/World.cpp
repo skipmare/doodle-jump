@@ -26,11 +26,11 @@ bool World::checkCollision_player(std::shared_ptr<Entity> entity) {
         if (entity->getCollisionOnLand()) {
             BoundingBox playerBox = player->getBoundingBox(); // Get bounding box of player
             BoundingBox entityBox = entity->getBoundingBox(); // Get bounding box of entity
-            return (std::abs(playerBox.bottom - entityBox.top) < 1.0f && playerBox.right >= entityBox.left && playerBox.left <= entityBox.right && player->isFalling()); // Check for collision        } else {
+            return (std::abs(playerBox.bottom - entityBox.top) < 1.0f && playerBox.right >= entityBox.left && playerBox.left <= entityBox.right && player->isFalling()); // Check for collision
+        } else {
             return checkCollision(player, entity); // Check collision between player and entity
         }
     }
-
     return false; // Return false if the entity is not collidable
 }
 

@@ -5,12 +5,13 @@
 #include "Player.h"
 #include "../Logic/Entities/Entity.h"
 #include "AbstractFactory.h"
+#include "ConcreteFactory.h"
 
 bool checkCollision(const std::shared_ptr<Entity>& entity1, const std::shared_ptr<Entity>& entity2) {
     auto box1 = entity1->getBoundingBox();
     auto box2 = entity2->getBoundingBox();
     return (box1.right >= box2.left && box1.left <= box2.right &&
-            box1.bottom >= box2.top && box1.top <= box2.bottom);
+        box1.bottom >= box2.top && box1.top <= box2.bottom);
 }
 
 bool checkCollision_player(std::shared_ptr<Player> player, std::shared_ptr<Entity> entity) {
@@ -18,15 +19,14 @@ bool checkCollision_player(std::shared_ptr<Player> player, std::shared_ptr<Entit
 
     if (entity->getCollidable()) {
         if (entity->getCollisionOnLand()) {
-            std::cout << "collision on land" << std::endl;
             BoundingBox playerBox = player->getBoundingBox(); // Get bounding box of player
             BoundingBox entityBox = entity->getBoundingBox(); // Get bounding box of entity
-            return (playerBox.bottom == entityBox.top && playerBox.right >= entityBox.left && playerBox.left <= entityBox.right && player->isFalling()); // Check for collision
+            return (std::abs(playerBox.bottom - entityBox.top) < 1.0f && playerBox.right >= entityBox.left && playerBox.left <= entityBox.right && player->isFalling()); // Check for collision
         } else {
+            std::cout<<"no collision on land"<<std::endl;
             return checkCollision(player, entity); // Check collision between player and entity
         }
     }
-
     return false; // Return false if the entity is not collidable
 }
 
@@ -42,6 +42,10 @@ int main() {
     auto platform = factory->createPlatform(250, 300, PlatformType::HORIZONTAL);
     auto platform2 = factory->createPlatform(250, 500, PlatformType::HORIZONTAL);
     auto platform3 = factory->createPlatform(250, 700, PlatformType::HORIZONTAL);
+
+    // Create a bonus on top of platform2
+    auto bonus = factory->createBonus(250, platform2->getY() - 50, BonusType::JETPACK, platform2);
+
     // Create a clock to measure elapsed time
     sf::Clock clock;
 
@@ -73,15 +77,13 @@ int main() {
         platform->update(deltaTime);
         platform2->update(deltaTime);
         platform3->update(deltaTime);
+        bonus->update(deltaTime);
 
         // Check for collision
-        if (checkCollision_player(player, platform) || checkCollision_player(player, platform2) || checkCollision_player(player, platform3)) {
+        if (checkCollision_player(player, platform) || checkCollision_player(player, platform2) || checkCollision_player(player, platform3) || checkCollision_player(player, bonus)) {
             std::cout << "Collision detected! Making player jump." << std::endl;
             player->jump();
-        } else {
-            std::cout << "No collision detected." << std::endl;
         }
-
 
         // Display the window contents
         window->display();

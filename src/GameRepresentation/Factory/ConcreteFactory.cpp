@@ -40,16 +40,16 @@ std::shared_ptr<Platform> ConcreteFactory::createPlatform(float x, float y, Plat
 }
 
 // Create a Bonus instance and return a tuple with Bonus and BonusView
-std::shared_ptr<Bonus> ConcreteFactory::createBonus(float x, float y, BonusType type) {
+std::shared_ptr<Bonus> ConcreteFactory::createBonus(float x, float y, BonusType type, std::shared_ptr<Platform> platform) {
     std::shared_ptr<Bonus> bonus; // Create a bonus based on the type
 
     // Create a bonus based on the specified type
     switch (type) {
         case BonusType::SPRING:
-            bonus = std::make_shared<Spring>(x, y); // Create a spring bonus
+            bonus = std::make_shared<Spring>(x, y, platform); // Create a spring bonus
             break;
         case BonusType::JETPACK:
-            bonus = std::make_shared<Jetpack>(x, y); // Create a jetpack bonus
+            bonus = std::make_shared<Jetpack>(x, y,platform); // Create a jetpack bonus
             break;
     }
 

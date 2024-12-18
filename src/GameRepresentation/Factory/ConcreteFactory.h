@@ -21,7 +21,7 @@ public:
     std::shared_ptr<Platform> createPlatform(float x, float y, PlatformType type) override;
 
     // Create a Bonus instance and return a pair with Bonus and BonusView
-    std::shared_ptr<Bonus> createBonus(float x, float y, BonusType type) override;
+    std::shared_ptr<Bonus> createBonus(float x, float y, BonusType type, std::shared_ptr<Platform> platform) override;
 
     // Create a BGtile instance and return a pair with BGtile and BGtileView
     std::shared_ptr<BGtile> createBGtile(float x, float y) override;

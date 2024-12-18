@@ -4,7 +4,7 @@
 
 #include "Jetpack.h"
 
-Jetpack::Jetpack(float x, float y) : Bonus(x,  y) {
+Jetpack::Jetpack(float x, float y, std::shared_ptr<Platform> platform) : Bonus(x,  y,platform) {
     type = JETPACK;
     collisionOnLand = false;
 }

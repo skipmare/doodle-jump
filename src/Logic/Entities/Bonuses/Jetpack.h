@@ -5,7 +5,7 @@
 
 class Jetpack : public Bonus {
 public:
-    Jetpack(float x, float y);// Constructor
+    Jetpack(float x, float y, std::shared_ptr<Platform> platform);// Constructor
     ~Jetpack() override = default; // Destructor
 
 };
