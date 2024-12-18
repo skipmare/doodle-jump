@@ -43,7 +43,7 @@ private:
     bool isJumpingState = false; // Player is jumping
     bool isFallingState = false;  // Player is falling
     float gravity = 2.0f;         // Gravity value
-    float jumpForce = 250.0f;      // Force applied when jumping
+    float jumpForce = 500.0f;      // Force applied when jumping
     bool hasCollided = false;
     bool BonusEffect = false;
 };

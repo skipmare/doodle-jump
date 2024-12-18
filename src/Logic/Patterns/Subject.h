@@ -7,7 +7,6 @@
 
 class Subject {
     std::vector<std::shared_ptr<Observer>> observers; // Vector of unique_ptr to observers
-
 public:
     // Attach an observer to this subject
     void attach(std::shared_ptr<Observer> observer);

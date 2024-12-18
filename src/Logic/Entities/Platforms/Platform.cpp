@@ -13,7 +13,9 @@ Platform::Platform(float x, float y) : Entity(x, y) {
 Platform::~Platform() = default;
 
 //update method
-void Platform::update(float deltaTime) {}
+void Platform::update(float deltaTime) {
+    notify();
+}
 
 //getPlatformType method
 

@@ -49,3 +49,7 @@ void Entity::setOutOfView(bool outOfView) {
 bool Entity::getOutOfView() const {
     return outOfView;
 }
+
+void Entity::setHasCollided(bool hasCollided) {
+    this->hasCollided = hasCollided;
+}

@@ -17,6 +17,7 @@ void Player::update(float deltaTime) {
     }else {
         setJumping();
     }
+
     // Apply gravity
     if (isFallingState || isJumpingState) {
         velocityY += gravity; // Increase downward velocity due to gravity
@@ -66,9 +67,9 @@ void Player::move(int direction) {
 void Player::applyBonusEffect(BonusType bonusType) {
     BonusEffect = true;
     if(bonusType == BonusType::JETPACK) {
-        jumpForce = 500.0f; // Increase jump force
+        jumpForce = 650.0f; // Increase jump force
     } else if(bonusType == BonusType::SPRING) {
-        jumpForce = 750.0f; // Increase jump force
+        jumpForce = 850.0f; // Increase jump force
     }
 }
 

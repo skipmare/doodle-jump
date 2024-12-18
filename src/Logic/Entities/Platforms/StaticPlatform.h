@@ -10,9 +10,6 @@ public:
     StaticPlatform(float x, float y);
     ~StaticPlatform() override;
 
-    // This method is used to update the platform
-    void update(float deltaTime) override;
-
 };
 
 #endif // STATICPLATFORM_H

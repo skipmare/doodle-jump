@@ -6,6 +6,8 @@
 #ifndef INC_2024_PROJECT_SKIPMARE_PLATFORM_H
 #define INC_2024_PROJECT_SKIPMARE_PLATFORM_H
 #include "../Entity.h"
+#include <iostream>
+
 #include "../Player.h"
 
 class Platform : public Entity {
