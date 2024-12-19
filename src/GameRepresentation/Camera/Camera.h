@@ -22,6 +22,7 @@ public:
 
     // Check if a point is within the camera's view
     [[nodiscard]] bool isInView(float worldX, float worldY) const;
+    [[nodiscard]] float getPlayerYOffset() const;
 
 private:
     float cameraX;
@@ -30,6 +31,7 @@ private:
     float viewHeight; // Height of the camera view
 
     float PlayerMaxY;
+    float playerYOffset; // Total Y offset from the initial camera position
 };
 
 #endif //INC_2024_PROJECT_SKIPMARE_CAMERA_H

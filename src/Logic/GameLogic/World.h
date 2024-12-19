@@ -15,31 +15,34 @@ enum class Difficulty {
 }; // Enum for difficulty levels
 
 struct EASY {
-    int platformCount = 12;           // Slightly more platforms for easier gameplay
+    int platformCount = 10;           // Slightly more platforms for easier gameplay
     float ChanceBonus = 0.5f;         // Lower chance of bonuses to keep gameplay simple
-    float ChanceStatic = 0.8f;        // High chance of static platforms for stability
-    float ChanceHorizontal = 0.15f;   // Few moving horizontal platforms
+    float ChanceStatic = 0.7f;        // High chance of static platforms for stability
+    float ChanceHorizontal = 0.1f;    // Few moving horizontal platforms
     float ChanceVertical = 0.05f;     // Rare vertical platforms
-    float minDistance = 100.0f;        // Minimum distance between platforms
-    float maxDistance = 200.0f;       // Maximum distance a player can jump
+    float ChanceDisappearing = 0.25f; // More likely disappearing platforms
+    float minDistance = 100.0f;       // Minimum distance between platforms
+    float maxDistance = 250.0f;       // Maximum distance a player can jump
 };
 
 struct MEDIUM {
-    int platformCount = 8;            // Fewer platforms than EASY
+    int platformCount = 15;            // Fewer platforms than EASY
     float ChanceBonus = 0.4f;         // Decrease bonus availability for challenge
-    float ChanceStatic = 0.6f;        // Moderate chance of static platforms
-    float ChanceHorizontal = 0.25f;   // Increase horizontal movement
-    float ChanceVertical = 0.15f;     // Slightly more vertical platforms
-    float minDistance = 120.0f;        // Minimum distance between platforms
+    float ChanceStatic = 0.5f;        // Moderate chance of static platforms
+    float ChanceHorizontal = 0.2f;    // Increase horizontal movement
+    float ChanceVertical = 0.1f;      // Slightly more vertical platforms
+    float ChanceDisappearing = 0.2f;  // More likely disappearing platforms
+    float minDistance = 120.0f;       // Minimum distance between platforms
     float maxDistance = 200.0f;       // Maximum distance a player can jump
 };
 
 struct HARD {
-    int platformCount = 5;            // Minimal platforms for difficulty
+    int platformCount = 17;            // Minimal platforms for difficulty
     float ChanceBonus = 0.3f;         // Rare bonuses to increase challenge
     float ChanceStatic = 0.4f;        // Low chance of static platforms
-    float ChanceHorizontal = 0.35f;   // Higher chance of horizontal platforms
+    float ChanceHorizontal = 0.25f;   // Higher chance of horizontal platforms
     float ChanceVertical = 0.25f;     // Increase vertical platforms for difficulty
+    float ChanceDisappearing = 0.25f;  // More likely disappearing platforms
     float minDistance = 150.0f;       // Minimum distance between platforms
     float maxDistance = 200.0f;       // Maximum distance a player can jump
 };
@@ -51,8 +54,8 @@ public:
     World(const std::shared_ptr<AbstractFactory>& factory, float viewWidth, float viewHeight); // Constructor
     ~World() = default; // Destructor
 
-    static bool checkCollision(std::shared_ptr<Entity> entity1, std::shared_ptr<Entity> entity2); // Check collision between two entities
-    bool checkCollision_player(std::shared_ptr<Entity> entity); // Check collision between player and entity
+    static bool checkCollision(const std::shared_ptr<Entity>& entity1, const std::shared_ptr<Entity>& entity2) ; // Check collision between two entities
+    bool checkCollision_player(const std::shared_ptr<Entity>& entity) const; // Check collision between player and entity
 
     void update(float deltaTime); // Update the world
 
@@ -70,6 +73,11 @@ public:
 
     void removeRemovableEntities(); // Remove entities which are out of view
     void genWorld(); // Generate the world
+
+    bool isValidMaxDistance(float MaxDistance, const std::shared_ptr<Entity>& newplat) const; // Check if the distance between platforms is valid
+    bool isValidMinDistance(float minDistance, const std::shared_ptr<Entity>& newplat) const; // Check if the distance between platforms is valid
+
+    void genPlats(float chanceStatic, float chanceVertical, float chanceHorizontal, float chanceDisappearing, int maxPlatforms, float minDistance, float maxDistance, float fromy, float toy); // Initialize the world
 
 private:
     std::shared_ptr<Player> player; // Shared pointer to the player entity
