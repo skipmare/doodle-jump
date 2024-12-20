@@ -15,36 +15,36 @@ enum class Difficulty {
 }; // Enum for difficulty levels
 
 struct EASY {
-    int platformCount = 10;           // Slightly more platforms for easier gameplay
+    int platformCount = 25;           // Slightly more platforms for easier gameplay
     float ChanceBonus = 0.5f;         // Lower chance of bonuses to keep gameplay simple
     float ChanceStatic = 0.7f;        // High chance of static platforms for stability
     float ChanceHorizontal = 0.1f;    // Few moving horizontal platforms
     float ChanceVertical = 0.05f;     // Rare vertical platforms
     float ChanceDisappearing = 0.25f; // More likely disappearing platforms
-    float minDistance = 100.0f;       // Minimum distance between platforms
-    float maxDistance = 250.0f;       // Maximum distance a player can jump
+    float minDistance = 130.0f;       // Minimum distance between platforms
+    float maxDistance = 300.0f;       // Maximum distance a player can jump
 };
 
 struct MEDIUM {
-    int platformCount = 15;            // Fewer platforms than EASY
+    int platformCount = 20;            // Fewer platforms than EASY
     float ChanceBonus = 0.4f;         // Decrease bonus availability for challenge
     float ChanceStatic = 0.5f;        // Moderate chance of static platforms
     float ChanceHorizontal = 0.2f;    // Increase horizontal movement
     float ChanceVertical = 0.1f;      // Slightly more vertical platforms
     float ChanceDisappearing = 0.2f;  // More likely disappearing platforms
-    float minDistance = 120.0f;       // Minimum distance between platforms
-    float maxDistance = 200.0f;       // Maximum distance a player can jump
+    float minDistance = 150.0f;       // Minimum distance between platforms
+    float maxDistance = 300.0f;       // Maximum distance a player can jump
 };
 
 struct HARD {
-    int platformCount = 17;            // Minimal platforms for difficulty
+    int platformCount = 15;            // Minimal platforms for difficulty
     float ChanceBonus = 0.3f;         // Rare bonuses to increase challenge
     float ChanceStatic = 0.4f;        // Low chance of static platforms
     float ChanceHorizontal = 0.25f;   // Higher chance of horizontal platforms
     float ChanceVertical = 0.25f;     // Increase vertical platforms for difficulty
     float ChanceDisappearing = 0.25f;  // More likely disappearing platforms
-    float minDistance = 150.0f;       // Minimum distance between platforms
-    float maxDistance = 200.0f;       // Maximum distance a player can jump
+    float minDistance = 190.0f;       // Minimum distance between platforms
+    float maxDistance = 300.0f;       // Maximum distance a player can jump
 };
 
 
@@ -67,6 +67,7 @@ public:
 
     [[nodiscard]] Player& getPlayer(); // Get the player reference
     [[nodiscard]] std::vector<std::shared_ptr<Entity>> getEntities(); // Get the entities
+    [[nodiscard]] float getPlayerNormalizedY() const; // Get the player's normalized Y position
 
     void addEntity(std::shared_ptr<Entity> entity); // Add an entity to the world
     void removeEntity(std::shared_ptr<Entity> entity); // Remove an entity from the world

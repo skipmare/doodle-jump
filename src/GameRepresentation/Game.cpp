@@ -13,7 +13,7 @@ Game::Game()
 
 void Game::run() {
     Stopwatch::getInstance().start();
-    float targetFrameTime = 1.0f / 60.0f; // 60 FPS
+    float targetFrameTime = 1.0f / 30.0f; // 60 FPS
     // Main game loop
     while (window->isOpen()) {
         sf::Event event {};

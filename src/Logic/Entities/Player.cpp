@@ -8,6 +8,7 @@ Player::Player(float x, float y) : Entity(x, y) {
     velocityX = 5.0f; // horizontal velocity in pixels per second
     EntityType_var = EntityType::PLAYER; // set entity type to player
     collidable = false; // set player to collidable
+    NormalizedY = y; // set normalized y position
 }
 
 void Player::update(float deltaTime) {
@@ -88,3 +89,4 @@ void Player::setJumping() {
 void Player::SetHasCollided(bool collisionBool) {
     hasCollided = collisionBool;
 }
+

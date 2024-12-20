@@ -29,13 +29,15 @@ public:
     [[nodiscard]] bool isFalling() const { return isFallingState; }
     [[nodiscard]] float getVelocityY() const { return velocityY; }
     [[nodiscard]] bool getHasCollided() const {return hasCollided;}
-
+    [[nodiscard]] float getJumpForce() const {return jumpForce;}
+    [[nodiscard]] float getNormalizedY() const {return NormalizedY;}
     // Setters for player state
     void setJumping(); // Set player to jumping state
     void setFalling(); // Set player to falling state
 
     // apply Bonus effect
     void applyBonusEffect(BonusType bonusType);
+
 
 
 
@@ -46,6 +48,7 @@ private:
     float jumpForce = 500.0f;      // Force applied when jumping
     bool hasCollided = false;
     bool BonusEffect = false;
+    float NormalizedY = 0.0f;
 };
 
 #endif // INC_2024_PROJECT_SKIPMARE_PLAYER_H

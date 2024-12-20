@@ -9,7 +9,7 @@ public:
     explicit Camera(float viewWidth, float viewHeight);
 
     // Set the camera position based on the player's position
-    void setPosition(float playerX, float playerY);
+    void setPosition(float playerY, float deltaTime, float playerVelocityY);
 
     // Project normalized coordinates to pixel values
     void project(float worldY, float& pixelY) const;
@@ -31,7 +31,7 @@ private:
     float viewHeight; // Height of the camera view
 
     float PlayerMaxY;
-    float playerYOffset; // Total Y offset from the initial camera position
+    float normalizedCameraY;
 };
 
 #endif //INC_2024_PROJECT_SKIPMARE_CAMERA_H
