@@ -24,7 +24,6 @@ std::pair<float, float> Camera::undotransform(float x, float y) const {
 // check if the player has reached a new max height
 bool Camera::isNewMax(float PlayerY) {
     if(PlayerY>cameraY) {
-        std::cout<<"PlayerY is greater than cameraY"<<std::endl;
         return false;
     }
     if (PlayerY < PlayerMaxY) {

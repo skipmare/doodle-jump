@@ -10,7 +10,7 @@
 
 int main() {
     // Create an SFML window
-    auto window = std::make_shared<sf::RenderWindow>(sf::VideoMode(500, 800), "Game Window");
+    auto window = std::make_shared<sf::RenderWindow>(sf::VideoMode(500, 800), "Doodle Jump by Karan (Prototype)");
 
     // Create the factory with the window
     auto factory = std::make_shared<ConcreteFactory>(window);

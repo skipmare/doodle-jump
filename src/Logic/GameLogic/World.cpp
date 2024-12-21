@@ -70,25 +70,29 @@ void World::genWorld() {
 
     player = factory->createPlayer(0, 0); // Create the player entity
     // Set player position on top of the static platform
-    player->setPosition(250, 570);
+    player->setPosition(250, 530);
+
+    //create the score entity
+    score = factory->createScore(150,100);
 
     // Generate additional platforms as needed
-    EASY easySettings;
-    int maxPlatforms = easySettings.platformCount;
+    HARD easySettings;
     float chanceStatic = easySettings.ChanceStatic;
     float chanceHorizontal = easySettings.ChanceHorizontal;
     float chanceVertical = easySettings.ChanceVertical;
     float minDistance = easySettings.minDistance;
     float maxDistance = easySettings.maxDistance;
     float chanceDisappearing = easySettings.ChanceDisappearing;
-    genPlats(chanceStatic, chanceVertical, chanceHorizontal, chanceDisappearing, maxPlatforms, minDistance, maxDistance,camera.getCameraY() + 395, camera.getCameraY() - 100000);
-
+    genPlats(chanceStatic, chanceVertical, chanceHorizontal, chanceDisappearing,  minDistance, maxDistance,camera.getCameraY() + 395, camera.getCameraY() - 395);
+    generateBackground(camera.getCameraY() + 400, camera.getCameraY() - 400);
 }
 
 
-void World::genPlats(float chanceStatic, float chanceVertical, float chanceHorizontal, float chanceDisappearing, int maxPlatforms, float minDistance, float maxDistance, float fromy, float toy) {
+void World::genPlats(float chanceStatic, float chanceVertical, float chanceHorizontal, float chanceDisappearing, float minDistance, float maxDistance, float fromy, float toy) {
     // Generate platforms
-    while (ActivePlatforms < maxPlatforms) {
+    bool canGenerateMore = true;
+
+    while (canGenerateMore) {
         float X_pos = Random::getInstance().getRandomFloat(camera.getCameraX() - 200, camera.getCameraX() + 200);
         float Y_pos = Random::getInstance().getRandomFloat(toy, fromy);
 
@@ -138,9 +142,26 @@ void World::genPlats(float chanceStatic, float chanceVertical, float chanceHoriz
             entities.push_back(newPlatform);
             ActivePlatforms++;
         }
-    }
 
+        // Check if we can generate more platforms in the given range
+        canGenerateMore = false;
+        for (float y = toy; y <= fromy; y += minDistance) {
+            bool spaceAvailable = true;
+            for (const auto& entity : entities) {
+                if (std::abs(entity->getY() - y) < minDistance) {
+                    spaceAvailable = false;
+                    break;
+                }
+            }
+
+            if (spaceAvailable) {
+                canGenerateMore = true;
+                break;
+            }
+        }
+    }
 }
+
 
 
 //check if the max distance between platforms is valid
@@ -176,40 +197,142 @@ Player& World::getPlayer() {
 std::vector<std::shared_ptr<Entity>> World::getEntities() {
     return entities;
 }
-
 void World::update(float deltaTime) {
-    // Update the player
-    player->update(deltaTime);
-    // make sure player does not go out of view
-    if(player->getY() < camera.getCameraY()){
-        player->setPosition(player->getX(), camera.getCameraY());
-    }
-    // Update the camera
-    camera.updateCameraY(player->getY());
-    // Update the entities
-    for (const auto& entity : entities) {
-        if(entity->getY()>camera.getCameraY() + camera.getViewHeight() / 2){
-            entity->setOutOfView(true);
-            std::cout<<"Entity out of view"<<std::endl;
-        }
-        if(player->getVelocityY()<0){
-            entity->setPosition(entity->getX(), entity->getY() - player->getVelocityY() * deltaTime);
-        }
-        entity->update(deltaTime);
-    }
-    // check for collisions
-    for (const auto& entity : entities) {
-        if (checkCollision_player(entity)) {
-           entity->setHasCollided(true);
-            player->jump();
-            break;
-        }
-    }
-    std::cout<<"entities size: "<<entities.size()<<std::endl;
-    removeRemovableEntities(); // Remove entities which are out of view
+    updateCamera();                        // Update camera position
+    updateBackground(deltaTime);          // Update background tiles
+    updateEntities(deltaTime);             // Update all entities (platforms, etc.)
+    updatePlayer(deltaTime);               // Update player
+    checkCollisions();                     // Check for player collisions with entities
+    removeRemovableEntities();             // Remove entities that are out of view
+    generateNewPlatforms();                // Generate new platforms if needed
+    checkGameOver();                       // Check if the game is over
 }
 
+// Function to update the player
+void World::updatePlayer(float deltaTime) {
+    player->update(deltaTime);  // Update the player with the deltaTime
 
+    // Make sure player doesn't go out of view
+    if (player->getY() < camera.getCameraY()) {
+        player->setPosition(player->getX(), camera.getCameraY());
+    }
+}
+
+// Function to update the camera
+void World::updateCamera() {
+    camera.updateCameraY(player->getY());  // Update the camera's Y position based on the player
+}
+
+// Function to update the entities (platforms, etc.)
+void World::updateEntities(float deltaTime) {
+    for (const auto& entity : entities) {
+        // Mark entity out of view if it has moved past the camera view
+        if (entity->getY() > camera.getCameraY() + camera.getViewHeight() / 2) {
+            entity->setOutOfView(true);
+            std::cout << "Entity out of view" << std::endl;
+        }
+
+        // Move the platforms down if the player is going up
+        if (player->getVelocityY() < 0) {
+            entity->setPosition(entity->getX(), entity->getY() - player->getVelocityY() * deltaTime);
+            score->setScore(score->getScore() - player->getVelocityY() * deltaTime);
+        }
+        // Update entity (handle entity-specific updates)
+        entity->update(deltaTime);
+        score->update(deltaTime);
+    }
+}
+
+// Function to check for collisions between player and entities
+void World::checkCollisions() {
+    for (const auto& entity : entities) {
+        if (checkCollision_player(entity)) {
+            entity->setHasCollided(true);
+            if(entity->getJumpTrigger()) {
+                player->jump();  // Make player jump upon collision
+            }
+            break;  // Assuming one collision is enough for now
+        }
+    }
+}
+
+// Function to generate new platforms if needed
+void World::generateNewPlatforms() {
+    MEDIUM easySettings;
+    float minDistance = easySettings.minDistance;
+    float maxDistance = easySettings.maxDistance;
+
+    genPlats(easySettings.ChanceStatic, easySettings.ChanceVertical, easySettings.ChanceHorizontal, easySettings.ChanceDisappearing,minDistance, maxDistance, camera.getCameraY() - 395, camera.getCameraY() - 800);
+}
+
+void World::generateNewTiles() {
+    generateBackground(camera.getCameraY() - 400, camera.getCameraY() - 800);
+}
+
+// Function to check if the game is over
+void World::checkGameOver() {
+    if (player->getY() > 800) {
+        isGameOver = true;
+    }
+
+    if (isGameOver) {
+    }
+}
+
+//function to generate the background tiles for the world
+void World::generateBackground(float from_y, float to_y) {
+    float viewWidth = camera.getViewWidth();
+
+    // Generate background tiles
+    for (float y = from_y; y >= to_y-50; y -= 50) {
+        for (float x = camera.getCameraX() - viewWidth / 2; x <= camera.getCameraX() + viewWidth / 2; x += 50) {
+            std::shared_ptr<BGtile> bgTile = factory->createBGtile(x, y);
+            background.push_back(bgTile);
+        }
+    }
+}
+
+void World::updateBackground(float deltaTime) {
+    float viewHeight = camera.getViewHeight();
+    float cameraY = camera.getCameraY();
+
+    for (const auto& bgTile : background) {
+        // Mark background tile out of view if it has moved past the camera view
+        if (bgTile->getY() > cameraY + viewHeight / 2 + bgTile->getHeight() / 2) {
+            bgTile->setOutOfView(true);
+            std::cout << "Background tile out of view" << std::endl;
+        }
+
+        // Move the background tiles down if the player is going up
+        if (player->getVelocityY() < 0) {
+            bgTile->setPosition(bgTile->getX(), bgTile->getY() - player->getVelocityY() * deltaTime);
+        }
+
+        // Update background tile (handle tile-specific updates)
+        bgTile->update(deltaTime);
+    }
+
+    float lowestY = std::numeric_limits<float>::max();
+
+    // Find the tile with the lowest Y position
+    for (const auto& bgTile : background) {
+        if (bgTile->getY() < lowestY) {
+            lowestY = bgTile->getY();
+        }
+    }
+
+    float currentX = 0.0f;
+    for (auto& bgTile : background) {
+        if (bgTile->getOutOfView()) {
+            bgTile->setOutOfView(false);
+            bgTile->setPosition(currentX, lowestY - bgTile->getHeight());
+            currentX += bgTile->getHeight();
+            if (currentX > 500) {
+                currentX = 0.0f;
+            }
+        }
+    }
+}
 
 
 

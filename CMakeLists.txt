@@ -46,7 +46,6 @@ add_executable(2024_project_skipmare
         src/Logic/Patterns/AbstractFactory.cpp
         src/Logic/Patterns/Observer.cpp
         src/Logic/Utilities/Random.cpp
-        src/Logic/Utilities/Score.cpp
         src/Logic/Utilities/Stopwatch.cpp
         main.cpp
         src/Logic/Entities/Platforms/StaticPlatform.cpp
@@ -57,6 +56,8 @@ add_executable(2024_project_skipmare
         src/Logic/Entities/Bonuses/Spring.cpp
         src/Logic/Patterns/Subject.cpp
         src/GameRepresentation/View/BGtileView.cpp
+        src/Logic/Entities/score.cpp
+        src/GameRepresentation/View/ScoreView.cpp
 )
 
 target_link_libraries(2024_project_skipmare PRIVATE sfml-graphics)

@@ -10,6 +10,7 @@ DisappearingPlatform::DisappearingPlatform(float x, float y) : StaticPlatform(x,
     elapsedTime = 0.0f;
     type = PlatformType::DISAPPEARING;
     disappeared = false;
+    jumptrigger = false;
 
 }
 

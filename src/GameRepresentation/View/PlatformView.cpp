@@ -15,31 +15,42 @@ void PlatformView::loadTexture() {
     // Load different textures based on platform type
     switch (platform->getPlatformType()) {
         case PlatformType::STATIC:
-            textureFile = "static_platform.png";  // Path to static platform texture
-            fallbackShape.setFillColor(sf::Color::Green); // Fallback color for static
-            break;
+            textureFile = "Sprites/staticplatform.png";  // Path to static platform texture
+        fallbackShape.setFillColor(sf::Color::Green); // Fallback color for static
+        break;
         case PlatformType::VERTICAL:
-            textureFile = "vertical_platform.png";  // Path to vertical platform texture
-            fallbackShape.setFillColor(sf::Color::Blue); // Fallback color for vertical
-            break;
+            textureFile = "Sprites/verticalplatform.png";  // Path to vertical platform texture
+        fallbackShape.setFillColor(sf::Color::Blue); // Fallback color for vertical
+        break;
         case PlatformType::HORIZONTAL:
-            textureFile = "horizontal_platform.png";  // Path to horizontal platform texture
-            fallbackShape.setFillColor(sf::Color::Red); // Fallback color for horizontal
-            break;
+            textureFile = "Sprites/horizontalplatform.png";  // Path to horizontal platform texture
+        fallbackShape.setFillColor(sf::Color::Red); // Fallback color for horizontal
+        break;
         case PlatformType::DISAPPEARING:
-            textureFile = "disappearing_platform.png";  // Path to disappearing platform texture
-            fallbackShape.setFillColor(sf::Color::Yellow); // Fallback color for disappearing
-            break;
+            textureFile = "Sprites/disappearingplatform.png";  // Path to disappearing platform texture
+        fallbackShape.setFillColor(sf::Color::Yellow); // Fallback color for disappearing
+        break;
         default:
             textureFile = ""; // Handle unknown platform type
-            fallbackShape.setFillColor(sf::Color::Magenta); // Fallback color for unknown
-            break;
+        fallbackShape.setFillColor(sf::Color::Magenta); // Fallback color for unknown
+        break;
     }
 
     // Load the texture from file and apply it to the sprite
     if (texture.loadFromFile(textureFile)) {
         isTextureLoaded = true; // Set texture loaded flag
         sprite.setTexture(texture);  // Apply the texture to the sprite
+
+        // Calculate the scale factors to match the platform's dimensions
+        float scaleX = platform->getWidth() / static_cast<float>(texture.getSize().x);
+        float scaleY = platform->getHeight() / static_cast<float>(texture.getSize().y);
+        sprite.setScale(scaleX, scaleY); // Resize the sprite
+
+        // Set the origin to the center of the sprite
+        sprite.setOrigin(texture.getSize().x / 2.0f, texture.getSize().y / 2.0f);
+
+        // Set the initial position to the platform's position
+        sprite.setPosition(platform->getX(), platform->getY());
     } else {
         // If texture loading fails, create a rectangle shape as a fallback
         fallbackShape.setSize(sf::Vector2f(platform->getWidth(), platform->getHeight())); // Create rectangle with platform dimensions

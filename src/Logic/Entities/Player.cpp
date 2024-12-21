@@ -3,8 +3,8 @@
 #include <iostream>
 
 Player::Player(float x, float y) : Entity(x, y) {
-    width = 40; // width in pixels
-    height = 50; // height in pixels
+    width = 80; // width in pixels
+    height = 100; // height in pixels
     velocityX = 5.0f; // horizontal velocity in pixels per second
     EntityType_var = EntityType::PLAYER; // set entity type to player
     collidable = false; // set player to collidable
@@ -54,7 +54,11 @@ void Player::jump() {
 void Player::move(int direction) {
     // 1 for right, -1 for left
     float newX = getX() + (direction * velocityX); // Calculate new x position
-
+    if(direction == -1) {
+        isgoingleft = true;
+    } else {
+        isgoingleft = false;
+    }
     // Wrap around logic
     if (newX > 500) {
         newX = 0; // Wrap to the left side

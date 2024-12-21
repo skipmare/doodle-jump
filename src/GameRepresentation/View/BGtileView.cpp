@@ -10,19 +10,29 @@ BGtileView::BGtileView(std::shared_ptr<BGtile> tile, std::shared_ptr<sf::RenderW
 
 // Load the texture based on the background tile type
 void BGtileView::loadTexture() {
-    std::string textureFile; // Variable to hold the texture file path
-    textureFile = "default_tile.png"; // Fallback texture if type is unknown
+    std::string textureFile = "Sprites/ltile.png"; // Example texture path
 
     fallbackShape.setFillColor(sf::Color::Yellow); // Fallback color for unknown
 
     // Load the texture from file and apply it to the sprite
     if (texture.loadFromFile(textureFile)) {
-        sprite.setTexture(texture); // Apply the texture to the sprite
         isTextureLoaded = true; // Indicate that the texture has been loaded successfully
+        sprite.setTexture(texture); // Apply the texture to the sprite
+
+        // Calculate the scale factors to match the tile's dimensions
+        float scaleX = tile->getWidth() / static_cast<float>(texture.getSize().x);
+        float scaleY = tile->getHeight() / static_cast<float>(texture.getSize().y);
+        sprite.setScale(scaleX, scaleY); // Resize the sprite
+
+        // Set the origin to the center of the sprite
+        sprite.setOrigin(texture.getSize().x / 2.0f, texture.getSize().y / 2.0f);
+
+        // Set the initial position to the tile's position
+        sprite.setPosition(tile->getX(), tile->getY());
     } else {
         // If texture loading fails, create a rectangle shape as a fallback
         fallbackShape.setSize(sf::Vector2f(tile->getWidth(), tile->getHeight())); // Set a default size for the fallback shape
-        fallbackShape.setPosition(tile->getX() - 8, tile->getY() - 8); // Center the rectangle
+        fallbackShape.setPosition(tile->getX() - tile->getWidth() / 2, tile->getY() - tile->getHeight() / 2); // Center the rectangle
 
         // Set the outline color and thickness for the fallback shape
         fallbackShape.setOutlineColor(sf::Color::Black); // Set border color to black

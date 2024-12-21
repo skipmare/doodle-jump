@@ -26,6 +26,8 @@ public:
     // Create a BGtile instance and return a pair with BGtile and BGtileView
     std::shared_ptr<BGtile> createBGtile(float x, float y) override;
 
+    std::shared_ptr<Score> createScore(float x, float y) override;
+
 private:
     std::shared_ptr<sf::RenderWindow> currentWindow; // Reference to the window
 };

@@ -31,10 +31,12 @@ public:
     [[nodiscard]] bool getHasCollided() const {return hasCollided;}
     [[nodiscard]] float getJumpForce() const {return jumpForce;}
     [[nodiscard]] float getNormalizedY() const {return NormalizedY;}
+    [[nodiscard]] bool getisgoingleft() const {return isgoingleft;}
+
     // Setters for player state
     void setJumping(); // Set player to jumping state
     void setFalling(); // Set player to falling state
-
+    void setisgoingleft(bool goingleft); // Set player to falling state
     // apply Bonus effect
     void applyBonusEffect(BonusType bonusType);
 
@@ -49,6 +51,7 @@ private:
     bool hasCollided = false;
     bool BonusEffect = false;
     float NormalizedY = 0.0f;
+    bool isgoingleft = false;
 };
 
 #endif // INC_2024_PROJECT_SKIPMARE_PLAYER_H

@@ -3,6 +3,7 @@
 #include "PlatformView.h"
 #include "BonusView.h"
 #include "BGtileView.h"
+#include "ScoreView.h"
 #include <memory>
 #include <tuple> // For std::tuple
 
@@ -21,7 +22,7 @@ std::shared_ptr<Platform> ConcreteFactory::createPlatform(float x, float y, Plat
     // Create a platform based on the specified type
     switch (type) {
         case PlatformType::STATIC:
-            platform = std::make_shared<Platform>(x, y); // Create a static platform
+            platform = std::make_shared<StaticPlatform>(x, y); // Create a static platform
             break;
         case PlatformType::VERTICAL:
             platform = std::make_shared<VerticalPlatform>(x, y); // Create a vertical platform
@@ -30,7 +31,7 @@ std::shared_ptr<Platform> ConcreteFactory::createPlatform(float x, float y, Plat
             platform = std::make_shared<HorizontalPlatform>(x, y); // Create a horizontal platform
             break;
         case PlatformType::DISAPPEARING:
-            platform = std::make_shared<Platform>(x, y); // Create a disappearing platform (implement as needed)
+            platform = std::make_shared<DisappearingPlatform>(x, y); // Create a disappearing platform (implement as needed)
             break;
     }
 
@@ -64,4 +65,12 @@ std::shared_ptr<BGtile> ConcreteFactory::createBGtile(float x, float y) {
     auto bgTileView = std::make_shared<BGtileView>(bgTile, currentWindow); // Create the background tile view
     bgTile->attach(bgTileView); // Attach the view to the background tile
     return bgTile; // Return the shared_ptr to the BGtile
+}
+
+// create a Score instance
+std::shared_ptr<Score> ConcreteFactory::createScore(float x, float y) {
+    auto score = std::make_shared<Score>(x, y); // Create a score
+    auto scoreView = std::make_shared<ScoreView>(score, currentWindow); // Create the score view
+    score->attach(scoreView); // Attach the view to the score
+    return score; // Return the shared_ptr to the Score
 }

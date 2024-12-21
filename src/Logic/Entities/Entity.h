@@ -53,6 +53,8 @@ public:
     [[nodiscard]] float getHeight() const{return height;}; // get the height of the entity
     [[nodiscard]] bool getCollisionOnLand() const{return collisionOnLand;}; // get the collision on land state
     [[nodiscard]] bool getCollidable() const{return collidable;}; // get the collidable state
+    [[nodiscard]] bool getJumpTrigger() const{return jumptrigger;}; // get the jump trigger state
+    void setJumpTrigger(bool input){jumptrigger=input;}; // set the jump trigger state
 
     void setOutOfView(bool outOfView); // set the out of view state
     [[nodiscard]] bool getOutOfView() const; // get the out of view state
@@ -68,7 +70,7 @@ protected:
     bool collisionOnLand = false; // check if the entity has collided with player on landing
     bool collidable = true; // check if the entity is collidable
 
-
+    bool jumptrigger = true;
     bool hasCollided = false; // check if the entity has collided with player
     bool outOfView = false; // check if the entity is out of view
 };

@@ -17,13 +17,14 @@
 #include "../Logic/Entities/BGtile.h"
 #include <Bonuses/Jetpack.h>
 #include <Bonuses/Spring.h>
-
+#include "../Logic/Entities/score.h"
 class AbstractFactory {
 public:
     virtual std::shared_ptr<Player> createPlayer(float x, float y) = 0; // Create a Player
     virtual std::shared_ptr<Platform> createPlatform(float x, float y, PlatformType type) = 0; // Create a Platform
     virtual std::shared_ptr<Bonus> createBonus(float x, float y, BonusType type, std::shared_ptr<Platform> platform) = 0; // Create a Bonus
     virtual std::shared_ptr<BGtile> createBGtile(float x, float y) = 0; // Create a BGtile
+    virtual std::shared_ptr<Score> createScore(float x, float y) = 0; // Create a Score
     virtual ~AbstractFactory() = default; // Virtual destructor
 };
 

@@ -21,7 +21,7 @@ public:
     void update() final;
 
     // Method for rendering the view
-    void render();
+    virtual void render();
 
     // Method to set the position of the view
     void setPosition();
@@ -30,6 +30,7 @@ protected:
     std::shared_ptr<sf::RenderWindow> CurrentWindow;  // Reference to the render window
     std::shared_ptr<Entity> entity;  // Reference to the entity this view represents
     sf::Sprite sprite;  // Sprite for graphical representation
+    sf::Text text;  // Text for displaying information
     sf::Texture texture;  // Texture for the sprite
     sf::RectangleShape fallbackShape;  // Rectangle shape for fallback
     bool isTextureLoaded = false; // Flag to check if texture is loaded
