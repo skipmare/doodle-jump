@@ -89,7 +89,7 @@ void World::genWorld() {
 void World::genPlats(float chanceStatic, float chanceVertical, float chanceHorizontal, float chanceDisappearing, int maxPlatforms, float minDistance, float maxDistance, float fromy, float toy) {
     // Generate platforms
     while (ActivePlatforms < maxPlatforms) {
-        float X_pos = Random::getInstance().getRandomFloat(camera.getCamerax() - 200, camera.getCamerax() + 200);
+        float X_pos = Random::getInstance().getRandomFloat(camera.getCameraX() - 200, camera.getCameraX() + 200);
         float Y_pos = Random::getInstance().getRandomFloat(toy, fromy);
 
         float chance = Random::getInstance().getRandomFloat(0.0f, 1.0f);
@@ -178,42 +178,37 @@ std::vector<std::shared_ptr<Entity>> World::getEntities() {
 }
 
 void World::update(float deltaTime) {
-    float previousCameraY = camera.getCameraY();
-
-    // Pass the player as a shared pointer to setPosition
-    camera.setPosition(player->getY(), deltaTime, player->getVelocityY());
-
-    float cameraYDifference = camera.getCameraY() - previousCameraY;
-
     // Update the player
     player->update(deltaTime);
-
-    // Adjust entities based on camera movement
-    for (auto& entity : entities) {
-        entity->setPosition(entity->getX(), entity->getY() - cameraYDifference);
+    // make sure player does not go out of view
+    if(player->getY() < camera.getCameraY()){
+        player->setPosition(player->getX(), camera.getCameraY());
+    }
+    // Update the camera
+    camera.updateCameraY(player->getY());
+    // Update the entities
+    for (const auto& entity : entities) {
+        if(entity->getY()>camera.getCameraY() + camera.getViewHeight() / 2){
+            entity->setOutOfView(true);
+            std::cout<<"Entity out of view"<<std::endl;
+        }
+        if(player->getVelocityY()<0){
+            entity->setPosition(entity->getX(), entity->getY() - player->getVelocityY() * deltaTime);
+        }
         entity->update(deltaTime);
     }
-
-    // Define a fixed removal threshold below the current camera position
-    float removalThreshold = camera.getCameraY() + camera.getViewHeight() + 1000; // Fixed buffer below the camera
-
-    entities.erase(std::remove_if(entities.begin(), entities.end(), [&](const auto& entity) {
-        bool outOfView = entity->getY() > removalThreshold; // Compare with fixed threshold
-        if (outOfView) {
-            ActivePlatforms--;
-        }
-        return outOfView;
-    }), entities.end());
-
-
-    // Handle collisions between the player and entities
+    // check for collisions
     for (const auto& entity : entities) {
         if (checkCollision_player(entity)) {
-            entity->setHasCollided(true);
+           entity->setHasCollided(true);
             player->jump();
+            break;
         }
     }
+    std::cout<<"entities size: "<<entities.size()<<std::endl;
+    removeRemovableEntities(); // Remove entities which are out of view
 }
+
 
 
 

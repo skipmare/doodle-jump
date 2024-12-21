@@ -2,27 +2,30 @@
 
 #ifndef INC_2024_PROJECT_SKIPMARE_CAMERA_H
 #define INC_2024_PROJECT_SKIPMARE_CAMERA_H
+#include <utility>
 
 class Camera {
 public:
     // Constructor initializes the camera with specific dimensions
     explicit Camera(float viewWidth, float viewHeight);
 
-    // Set the camera position based on the player's position
-    void setPosition(float playerY, float deltaTime, float playerVelocityY);
+    // Transform world coordinates to screen (window) coordinates
+    std::pair<float, float> transform(float x, float y) const;
+    // Transform screen (window) coordinates to world coordinates
+    std::pair<float, float> undotransform(float x, float y) const;
 
-    // Project normalized coordinates to pixel values
-    void project(float worldY, float& pixelY) const;
+    // Update the camera position based on the player's position
+    void updateCameraY(float PlayerY);
+    // check if the player has reached a new max height
+    bool isNewMax(float PlayerY);
 
-    // Get the current camera position
-    [[nodiscard]] float getCameraY() const;
-    [[nodiscard]] float getCamerax() const;
-    [[nodiscard]] float getViewWidth() const;
-    [[nodiscard]] float getViewHeight() const;
-
-    // Check if a point is within the camera's view
-    [[nodiscard]] bool isInView(float worldX, float worldY) const;
-    [[nodiscard]] float getPlayerYOffset() const;
+    // Getters
+    float getCameraX() const { return cameraX; }
+    float getCameraY() const { return cameraY; }
+    float getViewWidth() const { return viewWidth; }
+    float getViewHeight() const { return viewHeight; }
+    float getPlayerMaxY() const { return PlayerMaxY; }
+    float getPlayerMaxYprev() const { return PlayerMaxYprev; }
 
 private:
     float cameraX;
@@ -31,7 +34,7 @@ private:
     float viewHeight; // Height of the camera view
 
     float PlayerMaxY;
-    float normalizedCameraY;
+    float PlayerMaxYprev;
 };
 
 #endif //INC_2024_PROJECT_SKIPMARE_CAMERA_H
