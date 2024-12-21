@@ -300,7 +300,6 @@ void World::updateBackground(float deltaTime) {
         // Mark background tile out of view if it has moved past the camera view
         if (bgTile->getY() > cameraY + viewHeight / 2 + bgTile->getHeight() / 2) {
             bgTile->setOutOfView(true);
-            std::cout << "Background tile out of view" << std::endl;
         }
 
         // Move the background tiles down if the player is going up
