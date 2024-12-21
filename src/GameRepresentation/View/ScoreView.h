@@ -5,7 +5,7 @@
 #ifndef SCOREVIEW_H
 #define SCOREVIEW_H
 #include "EntityView.h"
-#include "../Logic/Entities/score.h"
+#include "../Logic/Entities/Score.h"
 #include <iostream>
 #include <cmath>
 
