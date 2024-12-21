@@ -56,7 +56,7 @@ add_executable(2024_project_skipmare
         src/Logic/Entities/Bonuses/Spring.cpp
         src/Logic/Patterns/Subject.cpp
         src/GameRepresentation/View/BGtileView.cpp
-        src/Logic/Entities/score.cpp
+        src/Logic/Entities/Score.cpp
         src/GameRepresentation/View/ScoreView.cpp
 )
 
