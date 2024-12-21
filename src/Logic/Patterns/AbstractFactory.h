@@ -17,7 +17,7 @@
 #include "../Logic/Entities/BGtile.h"
 #include <Bonuses/Jetpack.h>
 #include <Bonuses/Spring.h>
-#include "../Logic/Entities/score.h"
+#include "../Logic/Entities/Score.h"
 class AbstractFactory {
 public:
     virtual std::shared_ptr<Player> createPlayer(float x, float y) = 0; // Create a Player
