@@ -20,14 +20,8 @@ void VerticalPlatform::update(float deltaTime) {
     float Maxupwards = initialY + 50;
     float Maxdownwards = initialY - 50;
 
-    // Check if the platform is going out of the screen bounds
-    if (newY < 0) {
-        y = 0;
-        velocityY = -velocityY; // Reverse direction
-    } else if (newY > 800) {
-        y = 800;
-        velocityY = -velocityY; // Reverse direction
-    } else if (newY > Maxupwards) {
+    // Check if the platform is going out of the allowed range
+    if (newY > Maxupwards) {
         y = Maxupwards;
         velocityY = -velocityY; // Reverse direction
     } else if (newY < Maxdownwards) {

@@ -5,7 +5,7 @@
 Player::Player(float x, float y) : Entity(x, y) {
     width = 80; // width in pixels
     height = 100; // height in pixels
-    velocityX = 5.0f; // horizontal velocity in pixels per second
+    velocityX = 4.0f; // horizontal velocity in pixels per second
     EntityType_var = EntityType::PLAYER; // set entity type to player
     collidable = false; // set player to collidable
     NormalizedY = y; // set normalized y position
@@ -94,3 +94,7 @@ void Player::SetHasCollided(bool collisionBool) {
     hasCollided = collisionBool;
 }
 
+
+void Player::setCWP(bool CWP) {
+    CollisionWithPlatform = CWP;
+}

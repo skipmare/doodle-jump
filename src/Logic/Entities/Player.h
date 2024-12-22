@@ -32,8 +32,11 @@ public:
     [[nodiscard]] float getJumpForce() const {return jumpForce;}
     [[nodiscard]] float getNormalizedY() const {return NormalizedY;}
     [[nodiscard]] bool getisgoingleft() const {return isgoingleft;}
+    [[nodiscard]] float getGravity() const {return gravity;}
+    [[nodiscard]] bool getCollisionWithPlatform() const {return CollisionWithPlatform;}
 
     // Setters for player state
+    void setCWP(bool CWP);
     void setJumping(); // Set player to jumping state
     void setFalling(); // Set player to falling state
     void setisgoingleft(bool goingleft); // Set player to falling state
@@ -46,12 +49,13 @@ public:
 private:
     bool isJumpingState = false; // Player is jumping
     bool isFallingState = false;  // Player is falling
-    float gravity = 2.0f;         // Gravity value
+    float gravity = 5.0f;         // Gravity value
     float jumpForce = 500.0f;      // Force applied when jumping
     bool hasCollided = false;
     bool BonusEffect = false;
     float NormalizedY = 0.0f;
     bool isgoingleft = false;
+    bool CollisionWithPlatform = false;
 };
 
 #endif // INC_2024_PROJECT_SKIPMARE_PLAYER_H

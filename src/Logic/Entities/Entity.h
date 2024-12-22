@@ -59,7 +59,7 @@ public:
     void setOutOfView(bool outOfView); // set the out of view state
     [[nodiscard]] bool getOutOfView() const; // get the out of view state
 
-    [[nodiscard]] bool getHasCollided() const; // get the has collided state
+    [[nodiscard]] bool getHasCollided() const{return hasCollided;}; // get the has collided state
     void setHasCollided(bool hasCollided); // set the has collided state
 
 protected:
