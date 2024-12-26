@@ -54,6 +54,15 @@ void World::removeRemovableEntities() {
             ++it;
         }
     }
+
+    // Remove bonuses which are out of view
+    for (auto it = bonuses.begin(); it != bonuses.end();) {
+        if ((*it)->getOutOfView()) {
+            it = bonuses.erase(it);
+        } else {
+            ++it;
+        }
+    }
 }
 
 void World::genWorld() {
@@ -75,19 +84,42 @@ void World::genWorld() {
     //create the score entity
     score = factory->createScore(150,100);
 
-    // Generate additional platforms as needed
-    EASY easySettings;
-    float chanceStatic = easySettings.ChanceStatic;
-    float chanceHorizontal = easySettings.ChanceHorizontal;
-    float chanceVertical = easySettings.ChanceVertical;
-    float minDistance = easySettings.minDistance;
-    float chanceDisappearing = easySettings.ChanceDisappearing;
-    genPlats(chanceStatic, chanceVertical, chanceHorizontal, chanceDisappearing,  minDistance,easySettings.maxDistance, camera.getCameraY() + 395, camera.getCameraY() - 395);
+
+    genPlats(getDifficulty().ChanceStatic, getDifficulty().ChanceVertical, getDifficulty().ChanceHorizontal, getDifficulty().ChanceDisappearing,  getDifficulty().minDistance,getDifficulty().maxDistance, camera.getCameraY() + 395, camera.getCameraY() - 395);
     generateBackground(camera.getCameraY() + 400, camera.getCameraY() - 400);
 }
 
-void World::genPlats(float chanceStatic, float chanceVertical, float chanceHorizontal, float chanceDisappearing, float minDistance, float maxDistance, float fromy, float toy) {
+bool World::Pathfinders(const std::vector<std::shared_ptr<Platform>>& platforms, float maxDistance) const{
+    for (size_t i = 0; i < platforms.size(); ++i) {
+        if (platforms[i]->getPlatformType() == PlatformType::DISAPPEARING) {
+            continue; // Skip disappearing platforms for the distance check
+        }
 
+        bool reachable = false;
+        for (size_t j = 0; j < platforms.size(); ++j) {
+            if (i == j || platforms[j]->getPlatformType() == PlatformType::DISAPPEARING) {
+                continue;
+            }
+
+            float dx = platforms[i]->getX() - platforms[j]->getX();
+            float dy = platforms[i]->getY() - platforms[j]->getY();
+            float distance = std::sqrt(dx * dx + dy * dy);
+
+            if (distance <= maxDistance) {
+                reachable = true;
+                break;
+            }
+        }
+
+        if (!reachable) {
+            return false; // A non-disappearing platform is unreachable
+        }
+    }
+
+    return true;
+}
+
+void World::genPlats(float chanceStatic, float chanceVertical, float chanceHorizontal, float chanceDisappearing, float minDistance, float maxDistance, float fromy, float toy) {
     bool canGenerateMore = true;
 
     while (canGenerateMore) {
@@ -114,33 +146,22 @@ void World::genPlats(float chanceStatic, float chanceVertical, float chanceHoriz
                 collisionDetected = true;
                 break;
             }
-
-            // Additional checks for vertical platforms
-            if (newPlatform->getPlatformType() == PlatformType::VERTICAL) {
-                if (std::abs(newPlatform->getY() - entity->getY()) < minDistance ||
-                    (newPlatform->getX() >= entity->getX() - entity->getWidth() / 2 - minDistance &&
-                     newPlatform->getX() <= entity->getX() + entity->getWidth() / 2 + minDistance)) {
-                    collisionDetected = true;
-                    break;
-                }
-            }
-
-            // Additional checks for horizontal platforms
-            if (newPlatform->getPlatformType() == PlatformType::HORIZONTAL) {
-                if (std::abs(newPlatform->getX() - entity->getX()) < minDistance ||
-                    (newPlatform->getY() >= entity->getY() - entity->getHeight() / 2 - minDistance &&
-                     newPlatform->getY() <= entity->getY() + entity->getHeight() / 2 + minDistance)) {
-                    collisionDetected = true;
-                    break;
-                }
-            }
         }
 
         if (!collisionDetected && isValidMinDistance(minDistance, newPlatform) && isValidMaxDistance(maxDistance, newPlatform)) {
+            genBonus(newPlatform);
             entities.push_back(newPlatform);
-            std::cout<<"New platform generated"<<std::endl;
             ActivePlatforms++;
         }
+
+        // Check reachability using the pathfinder function
+        std::vector<std::shared_ptr<Platform>> nonDisappearingPlatforms;
+        for (const auto& platform : entities) {
+            if (platform->getPlatformType() != PlatformType::DISAPPEARING) {
+                nonDisappearingPlatforms.push_back(platform);
+            }
+        }
+
 
         // Check if we can generate more platforms in the given range
         canGenerateMore = false;
@@ -195,6 +216,7 @@ Player& World::getPlayer() {
 std::vector<std::shared_ptr<Platform>> World::getEntities() const{
     return entities;
 }
+
 void World::update(float deltaTime) {
     updateCamera();                        // Update camera position
     updateBackground(deltaTime);          // Update background tiles
@@ -231,12 +253,21 @@ void World::updateEntities(float deltaTime) {
 
         // Move the platforms down if the player is going up
         if (player->getVelocityY() < 0 && !player->getCollisionWithPlatform()) {
+            if(entity->getPlatformType()==VERTICAL){}
             entity->setPosition(entity->getX(), entity->getY() - player->getVelocityY() * deltaTime);
             score->setScore(score->getScore() - player->getVelocityY() * deltaTime);
         }
         // Update entity (handle entity-specific updates)
         entity->update(deltaTime);
         score->update(deltaTime);
+
+    }
+    for (const auto& bonus : bonuses) {
+        // Mark bonus out of view if it has moved past the camera view
+        if (bonus->getY() > camera.getCameraY() + camera.getViewHeight() / 2) {
+            bonus->setOutOfView(true);
+        }
+        bonus->update(deltaTime);
     }
 }
 
@@ -256,10 +287,9 @@ void World::checkCollisions() {
 
 // Function to generate new platforms if needed
 void World::generateNewPlatforms() {
-    EASY easySettings;
-    float minDistance = easySettings.minDistance;
 
-    genPlats(easySettings.ChanceStatic, easySettings.ChanceVertical, easySettings.ChanceHorizontal, easySettings.ChanceDisappearing,minDistance,easySettings.maxDistance,camera.getCameraY() - 395, camera.getCameraY() - 800);
+
+    genPlats(getDifficulty().ChanceStatic, getDifficulty().ChanceVertical, getDifficulty().ChanceHorizontal, getDifficulty().ChanceDisappearing,getDifficulty().minDistance,getDifficulty().maxDistance,camera.getCameraY() - 395, camera.getCameraY() - 800);
 }
 
 void World::generateNewTiles() {
@@ -281,8 +311,8 @@ void World::generateBackground(float from_y, float to_y) {
     float viewWidth = camera.getViewWidth();
 
     // Generate background tiles
-    for (float y = from_y; y >= to_y-50; y -= 50) {
-        for (float x = camera.getCameraX() - viewWidth / 2; x <= camera.getCameraX() + viewWidth / 2; x += 50) {
+    for (float y = from_y; y >= to_y-30; y -= 30) {
+        for (float x = camera.getCameraX() - viewWidth / 2; x <= camera.getCameraX() + viewWidth / 2; x += 30) {
             std::shared_ptr<BGtile> bgTile = factory->createBGtile(x, y);
             background.push_back(bgTile);
         }
@@ -329,6 +359,45 @@ void World::updateBackground(float deltaTime) {
         }
     }
 }
+
+// get the difficulty level
+const DifficultySettings& World::getDifficulty() const {
+    static EASY easy;
+    static MEDIUM medium;
+    static HARD hard;
+
+    switch(difficulty) {
+        case Difficulty::EASY:
+            return easy;
+        case Difficulty::MEDIUM:
+            return medium;
+        case Difficulty::HARD:
+            return hard;
+    }
+    throw std::runtime_error("Unknown difficulty level");
+}
+
+// Set the difficulty level
+void World::setDifficulty(Difficulty difficulty) {
+    this->difficulty = difficulty;
+}
+
+//spawn bonus platforms
+void World::genBonus(std::shared_ptr<Platform> entity) {
+        float SpawnRate = Random::getInstance().getRandomFloat(0.0f, 1.0f);
+        if(entity->getPlatformType()!=DISAPPEARING) {
+            if(SpawnRate < getDifficulty().ChanceBonus) {
+                float springRate = Random::getInstance().getRandomFloat(0.0f, 1.0f);
+               if(springRate<0.6f) {
+                   std::shared_ptr<Bonus> newbonus = factory->createBonus(0,0,BonusType::SPRING,entity);
+                   bonuses.push_back(newbonus);
+               }else {
+                   std::shared_ptr<Bonus> newbonus = factory->createBonus(0,0,BonusType::JETPACK,entity);
+                     bonuses.push_back(newbonus);
+               }
+            }
+        }
+    }
 
 
 

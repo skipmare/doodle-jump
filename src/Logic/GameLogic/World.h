@@ -7,44 +7,15 @@
 #include "AbstractFactory.h" // Include the factory header
 #include "Camera.h"
 #include "Random.h"
+#include "../DifficultySettings/EASY.h"
+#include "../DifficultySettings/MEDIUM.h"
+#include "../DifficultySettings/HARD.h"
 
 enum class Difficulty {
     EASY,
     MEDIUM,
     HARD
 }; // Enum for difficulty levels
-
-struct EASY {
-    float ChanceBonus = 0.15f;         // Slight chance of bonus platforms
-    float ChanceStatic = 1.0f;        // High chance of static platforms for stability
-    float ChanceHorizontal = 0.1f;     // A few moving horizontal platforms
-    float ChanceVertical = 0.05f;      // Rare vertical platforms
-    float ChanceDisappearing = 0.15f;  // Some disappearing platforms to keep things dynamic
-    float minDistance = 110.0f;        // Minimum distance between platforms
-    float maxDistance = 260.0f;        // Maximum distance between platforms
-};
-
-struct MEDIUM {
-    float ChanceBonus = 0.1f;          // Decreased chance for bonuses
-    float ChanceStatic = 0.45f;        // Moderate chance of static platforms
-    float ChanceHorizontal = 0.2f;     // Moderate chance of horizontal platforms
-    float ChanceVertical = 0.1f;       // Slightly more vertical platforms
-    float ChanceDisappearing = 0.15f;  // Some disappearing platforms for challenge
-    float minDistance = 50.0f;        // Minimum distance between platforms
-    float maxDistance = 300.0f;        // Maximum distance between platforms
-};
-
-struct HARD {
-    float ChanceBonus = 0.05f;         // Very rare bonuses to increase challenge
-    float ChanceStatic = 0.3f;         // Low chance of static platforms
-    float ChanceHorizontal = 0.25f;    // Higher chance of horizontal platforms
-    float ChanceVertical = 0.2f;      // Increased chance of vertical platforms
-    float ChanceDisappearing = 0.3f;   // High chance of disappearing platforms
-    float minDistance = 50.0f;        // Minimum distance between platforms
-    float maxDistance = 300.0f;        // Maximum distance between platforms
-};
-
-
 
 class World {
 public:
@@ -64,6 +35,9 @@ public:
 
     [[nodiscard]] Player& getPlayer(); // Get the player reference
     [[nodiscard]] float getPlayerNormalizedY() const; // Get the player's normalized Y position
+    [[nodiscard]] bool Pathfinders(const std::vector<std::shared_ptr<Platform>>& platforms, float maxDistance) const; // Get the pathfinder state
+    [[nodiscard]] bool getGameOver() const; // Get the game over state
+    [[nodiscard]] const DifficultySettings& getDifficulty() const; // Get the difficulty level
 
     void addEntity(std::shared_ptr<Entity> entity); // Add an entity to the world
     void removeEntity(std::shared_ptr<Entity> entity); // Remove an entity from the world
@@ -81,8 +55,10 @@ public:
     void generateNewPlatforms(); // Generate new platforms
     void updateCamera(); // Update the camera
     void setGameOver(bool gameOver); // Set the game over state
-    [[nodiscard]] bool getGameOver() const; // Get the game over state
     void checkGameOver(); // Check if the game is over
+
+    void genBonus(std::shared_ptr<Platform> entity); // Generate bonus platforms
+    void updateBonuses(float deltaTime); // Update bonus platforms
 
     void generateBackground(float from_y, float to_y); // Generate the background tiles for the world
     void updateBackground(float deltaTime); // Update the background tiles
@@ -92,12 +68,13 @@ private:
     std::shared_ptr<Player> player; // Shared pointer to the player entity
     std::vector<std::shared_ptr<Platform>> entities; // Vector to store entities
     std::vector<std::shared_ptr<Entity>> background;
+    std::vector<std::shared_ptr<Bonus>> bonuses; // Vector to store bonus entities
     std::shared_ptr<Score> score; // Current score
     std::shared_ptr<AbstractFactory> factory; // Shared pointer to the factory
     Camera camera; // Camera object
-    Difficulty difficulty = Difficulty::EASY; // Difficulty level
     int ActivePlatforms = 0;
     bool isGameOver = false;
+    Difficulty difficulty = Difficulty::EASY; // Default difficulty level
 
 
 };

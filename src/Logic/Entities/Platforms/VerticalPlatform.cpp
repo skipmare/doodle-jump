@@ -17,20 +17,28 @@ VerticalPlatform::~VerticalPlatform() = default;
 // Updates the platform
 void VerticalPlatform::update(float deltaTime) {
     float newY = y + velocityY * deltaTime; // Calculate new position
-    float Maxupwards = initialY + 50;
-    float Maxdownwards = initialY - 50;
+    float Maxupwards = initialY - 50;
+    float Maxdownwards = initialY + 50;
 
     // Check if the platform is going out of the allowed range
-    if (newY > Maxupwards) {
+    if (newY < Maxupwards) {
         y = Maxupwards;
         velocityY = -velocityY; // Reverse direction
-    } else if (newY < Maxdownwards) {
+    } else if (newY > Maxdownwards) {
         y = Maxdownwards;
         velocityY = -velocityY; // Reverse direction
     } else {
         y = newY;
         notify();
     }
+}
+
+// Set the position of the platform, gets called to change the initial position of the platform
+void VerticalPlatform::setPosition(float x, float initialY) {
+    this->x = x;
+    this->initialY = initialY;
+    this->y = initialY;
+    notify();
 }
 
 

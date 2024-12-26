@@ -13,15 +13,17 @@ void Bonus::update(float deltaTime) {
     float deltaY = on_platform->getY() - prevPlatformY;
 
     // Update the bonus position based on the platform's movement
-    this->x += deltaX;
-    this->y += deltaY;
-    setPosition(this->x, on_platform->getY() - on_platform->getHeight() / 2 - height / 2);
+    setPosition(this->x+deltaX, this->y+ deltaY);
 
     // Update previous platform positions
     prevPlatformX = on_platform->getX();
     prevPlatformY = on_platform->getY();
 
-    notify();
+    // check if platform is out of view ->bonus is out of view
+    if(on_platform->getOutOfView()) {
+        this->setOutOfView(true);
+    }
+
 }
 
 // Constructor
@@ -30,8 +32,8 @@ Bonus::Bonus(float x, float y, std::shared_ptr<Platform> platform) : Entity(x, y
     float randomX = Random::getInstance().getRandomFloat(on_platform->getX() - on_platform->getWidth() / 2, on_platform->getX() + on_platform->getWidth() / 2 - width);
     this->x = randomX;
     setPosition(this->x, on_platform->getY() - on_platform->getHeight() / 2 - height / 2);
-    width = 16;
-    height = 16;
+    width = 20;
+    height = 20;
     EntityType_var = EntityType::BONUS;
     prevPlatformX = on_platform->getX();
     prevPlatformY = on_platform->getY();

@@ -13,6 +13,12 @@ public:
     VerticalPlatform(float x, float y);
     ~VerticalPlatform() override;
 
+    //override setposition
+    void setPosition(float x, float initialY) override;
+
+    //override gety
+    [[nodiscard]] float getY() const override{return y;};
+
     // Updates the platform
     void update(float deltaTime) override;
 private:

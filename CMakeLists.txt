@@ -58,6 +58,10 @@ add_executable(2024_project_skipmare
         src/GameRepresentation/View/BGtileView.cpp
         src/Logic/Entities/Score.cpp
         src/GameRepresentation/View/ScoreView.cpp
+        src/Logic/DifficultySettings/DifficultySettings.cpp
+        src/Logic/DifficultySettings/MEDIUM.cpp
+        src/Logic/DifficultySettings/HARD.cpp
+        src/Logic/DifficultySettings/EASY.cpp
 )
 
 target_link_libraries(2024_project_skipmare PRIVATE sfml-graphics)

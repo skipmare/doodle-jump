@@ -42,8 +42,8 @@ public:
     virtual void update(float deltaTime) = 0; // update the entity, pure virtual function
 
     [[nodiscard]] float getX() const; // get the x position of the entity
-    [[nodiscard]] float getY() const; // get the y position of the entity
-    void setPosition(float x, float y); // set the position of the entity
+    [[nodiscard]] virtual float getY() const; // get the y position of the entity
+    virtual void setPosition(float x, float y); // set the position of the entity
 
     BoundingBox getBoundingBox() const; // get the bounding box of the entity
 

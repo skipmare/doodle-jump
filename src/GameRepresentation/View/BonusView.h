@@ -14,6 +14,7 @@ public:
 
     // Destructor
     ~BonusView() override = default;
+    void render() override; // Render the score
 
 private:
     std::shared_ptr<Bonus> bonus; // Reference to the bonus entity for which the view is created
