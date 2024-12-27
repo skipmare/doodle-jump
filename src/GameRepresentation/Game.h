@@ -14,6 +14,8 @@ public:
     void run(); // Main game loop
     ~Game() = default; // Destructor
 
+    void handleInput(); // Handle user input
+
 private:
     std::shared_ptr<sf::RenderWindow> window; // SFML window
     std::shared_ptr<ConcreteFactory> factory; // Pointer to the entity factory

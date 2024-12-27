@@ -6,14 +6,12 @@ Game::Game()
       factory(std::make_shared<ConcreteFactory>(window)), // Instantiate the factory
       world(factory, 500, 800), // Initialize the World instance
       stopwatch(Stopwatch::getInstance()) // Get the Stopwatch instance
-
 {
     stopwatch.start(); // Start the stopwatch
 }
 
 void Game::run() {
-    Stopwatch::getInstance().start();
-    float targetFrameTime = 1.0f / 30.0f; // 60 FPS
+    float targetFrameTime = 1.0f / 60.0f; // 60 FPS
     // Main game loop
     while (window->isOpen()) {
         sf::Event event {};
@@ -22,16 +20,7 @@ void Game::run() {
                 window->close();
         }
 
-        // Handle user input and update the world
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-            // Move player left (you may need to access the player instance)
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-            // Move player right (you may need to access the player instance)
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-            // Make the player jump (you may need to access the player instance)
-        }
+        handleInput(); // Handle user input
 
         // Update the world
         float deltaTime = stopwatch.tick(); // Get the time since the last update
@@ -39,7 +28,7 @@ void Game::run() {
         // Clear the window
         window->clear(sf::Color::Black);
 
-        //world.update(deltaTime); // Update the world and render the entities
+        world.update(deltaTime); // Update the world and render the entities
 
         // Display the contents of the window
         window->display();
@@ -52,3 +41,13 @@ void Game::run() {
         }
     }
 }
+
+
+    void Game::handleInput() {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+            world.getPlayer().move(-1); // Move player left
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+            world.PlayerMove(1); // Move player right
+        }
+    }

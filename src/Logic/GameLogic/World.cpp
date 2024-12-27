@@ -223,6 +223,7 @@ void World::update(float deltaTime) {
     updateEntities(deltaTime);             // Update all entities (platforms, etc.)
     updatePlayer(deltaTime);               // Update player
     checkCollisions();                     // Check for player collisions with entities
+    CheckBonusCollision();                 // Check for bonus collisions
     removeRemovableEntities();             // Remove entities that are out of view
     generateNewPlatforms();                // Generate new platforms if needed
     checkGameOver();                       // Check if the game is over
@@ -288,7 +289,6 @@ void World::checkCollisions() {
 // Function to generate new platforms if needed
 void World::generateNewPlatforms() {
 
-
     genPlats(getDifficulty().ChanceStatic, getDifficulty().ChanceVertical, getDifficulty().ChanceHorizontal, getDifficulty().ChanceDisappearing,getDifficulty().minDistance,getDifficulty().maxDistance,camera.getCameraY() - 395, camera.getCameraY() - 800);
 }
 
@@ -311,7 +311,7 @@ void World::generateBackground(float from_y, float to_y) {
     float viewWidth = camera.getViewWidth();
 
     // Generate background tiles
-    for (float y = from_y; y >= to_y-30; y -= 30) {
+    for (float y = from_y; y >= to_y-3000; y -= 30) {
         for (float x = camera.getCameraX() - viewWidth / 2; x <= camera.getCameraX() + viewWidth / 2; x += 30) {
             std::shared_ptr<BGtile> bgTile = factory->createBGtile(x, y);
             background.push_back(bgTile);
@@ -398,6 +398,30 @@ void World::genBonus(std::shared_ptr<Platform> entity) {
             }
         }
     }
+
+void World::CheckBonusCollision() {
+    for (const auto& bonus : bonuses) {
+        if (checkCollision_player(bonus)) {
+            bonus->setHasCollided(true);
+            player->applyBonusEffect(bonus->getType());
+        }
+    }
+}
+
+void World::CheckDifficulty() {
+    if(score->getScore()/100 > 1000 && score->getScore()/100 < 2000) {
+        setDifficulty(Difficulty::MEDIUM);
+    }else if(score->getScore()/100 > 2000 ) {
+        setDifficulty(Difficulty::HARD);
+    }else {
+        setDifficulty(Difficulty::EASY);
+    }
+}
+
+void World::PlayerMove(int direction) {
+    player->move(direction);
+}
+
 
 
 

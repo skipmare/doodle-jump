@@ -49,13 +49,14 @@ public:
 private:
     bool isJumpingState = false; // Player is jumping
     bool isFallingState = false;  // Player is falling
-    float gravity = 5.0f;         // Gravity value
+    float gravity = 8.0f;         // Gravity value
     float jumpForce = 500.0f;      // Force applied when jumping
     bool hasCollided = false;
     bool BonusEffect = false;
     float NormalizedY = 0.0f;
     bool isgoingleft = false;
     bool CollisionWithPlatform = false;
+    float BonusEffectTime = 0.0f;
 };
 
 #endif // INC_2024_PROJECT_SKIPMARE_PLAYER_H

@@ -34,11 +34,13 @@ void Player::update(float deltaTime) {
         setJumping(); // Set player to jumping state
         SetHasCollided(false); // Reset collision state
     }
-
+    BonusEffectTime -= deltaTime;
+    std::cout<<BonusEffectTime<<std::endl;
     // Handle bonus effects
-    if (BonusEffect && isFalling()) {
+    if (BonusEffect && BonusEffectTime < 0) {
         BonusEffect = false; // Reset bonus effect
-        jumpForce = 250.0f; // Reset jump force to normal value
+        jumpForce = 500.0f; // Reset jump force to normal value
+        gravity = 8.0f;
     }
 }
 
@@ -70,11 +72,15 @@ void Player::move(int direction) {
 }
 
 void Player::applyBonusEffect(BonusType bonusType) {
-    BonusEffect = true;
     if(bonusType == BonusType::JETPACK) {
-        jumpForce = 650.0f; // Increase jump force
+        BonusEffect = true;
+        gravity = -0.5f; // Set gravity to 0
+        BonusEffectTime = 5.0f; // Set bonus effect time
     } else if(bonusType == BonusType::SPRING) {
-        jumpForce = 850.0f; // Increase jump force
+        BonusEffect = true;
+        jumpForce = 1500.0f; // Increase jump force
+        gravity= 5.0f; // Decrease gravity
+        BonusEffectTime = 1.0f; // Set bonus effect time
     }
 }
 

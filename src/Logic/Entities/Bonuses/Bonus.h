@@ -17,7 +17,6 @@ public:
     void update(float deltaTime) override; // Updates the bonus
 
     [[nodiscard]] BonusType getType() const; // Returns the type of the bonus
-    [[nodiscard]] bool getIsCollected() const; // Returns if the bonus is collected
 protected:
     BonusType type;
     std::shared_ptr<Platform> on_platform;

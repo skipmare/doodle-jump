@@ -64,6 +64,11 @@ public:
     void updateBackground(float deltaTime); // Update the background tiles
     void generateNewTiles(); // Generate new background tiles
 
+    void CheckBonusCollision(); // Check for bonus collisions
+    void CheckDifficulty(); // Check the difficulty level
+
+    void PlayerMove(int direction); // Move the player
+
 private:
     std::shared_ptr<Player> player; // Shared pointer to the player entity
     std::vector<std::shared_ptr<Platform>> entities; // Vector to store entities
