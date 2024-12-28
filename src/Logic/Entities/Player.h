@@ -39,12 +39,14 @@ public:
     void setisgoingleft(bool goingleft); // Set player to falling state
     // apply Bonus effect
     void applyBonusEffect(BonusType bonusType);
+    //set playervelocity
+    void setVelocityY(float velocityY) { this->velocityY = velocityY; }
 
 private:
     bool isJumpingState = false; // Player is jumping
     bool isFallingState = false;  // Player is falling
     float gravity = 8.0f;         // Gravity value
-    float jumpForce = 750.0f;      // Force applied when jumping
+    float jumpForce = 650.0f;      // Force applied when jumping
     bool hasCollided = false;
     bool BonusEffect = false;
     bool isgoingleft = false;

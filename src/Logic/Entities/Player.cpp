@@ -34,11 +34,10 @@ void Player::update(float deltaTime) {
         SetHasCollided(false); // Reset collision state
     }
     BonusEffectTime -= deltaTime;
-    std::cout<<BonusEffectTime<<std::endl;
     // Handle bonus effects
     if (BonusEffect && BonusEffectTime < 0) {
         BonusEffect = false; // Reset bonus effect
-        jumpForce = 500.0f; // Reset jump force to normal value
+        jumpForce = 650.0f; // Reset jump force to normal value
         gravity = 8.0f;
     }
 }

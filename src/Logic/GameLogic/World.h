@@ -49,7 +49,7 @@ public:
     void setGameOver(bool gameOver); // Set the game over state
     void checkGameOver(); // Check if the game is over
 
-    void genBonus(std::shared_ptr<Platform> &entity); // Generate bonus platforms
+    void genBonus(const std::shared_ptr<Platform> &entity); // Generate bonus platforms
     void updateBonuses(float deltaTime); // Update bonus platforms
 
     void generateBackground(float from_y, float to_y); // Generate the background tiles for the world

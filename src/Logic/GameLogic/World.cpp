@@ -268,8 +268,8 @@ void World::generateBackground(float from_y, float to_y) {
     float viewWidth = camera.getViewWidth();
 
     // Generate background tiles
-    for (float y = from_y; y >= to_y-3000; y -= 30) {
-        for (float x = camera.getCameraX() - viewWidth / 2; x <= camera.getCameraX() + viewWidth / 2; x += 30) {
+    for (float y = from_y; y >= to_y-3000; y -= 30.0f) {
+        for (float x = camera.getCameraX() - viewWidth / 2; x <= camera.getCameraX() + viewWidth / 2; x += 30.0f) {
             std::shared_ptr<BGtile> bgTile = factory->createBGtile(x, y);
             background.push_back(bgTile);
         }
@@ -340,7 +340,7 @@ void World::setDifficulty(Difficulty difficulty) {
 }
 
 //spawn bonus platforms
-void World::genBonus(std::shared_ptr<Platform> &entity) {
+void World::genBonus(const std::shared_ptr<Platform> &entity) {
         float SpawnRate = Random::getInstance().getRandomFloat(0.0f, 1.0f);
         if(entity->getPlatformType()!=DISAPPEARING) {
             if(SpawnRate < getDifficulty().ChanceBonus) {
