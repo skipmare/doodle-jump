@@ -2,7 +2,7 @@
 #include <iostream> // For error handling
 
 // Constructor that accepts a BackgroundTile entity reference
-BGtileView::BGtileView(std::shared_ptr<BGtile> tile, std::shared_ptr<sf::RenderWindow> window)
+BGtileView::BGtileView(const std::shared_ptr<BGtile> &tile, const std::shared_ptr<sf::RenderWindow> &window)
     : EntityView(tile, window), tile(tile) {
     loadTexture(); // Load the texture based on the background tile type
     setPosition(); // Set the initial position of the background tile sprite
@@ -10,7 +10,7 @@ BGtileView::BGtileView(std::shared_ptr<BGtile> tile, std::shared_ptr<sf::RenderW
 
 // Load the texture based on the background tile type
 void BGtileView::loadTexture() {
-    std::string textureFile = "Sprites/defaulttile.png"; // Example texture path
+    std::string textureFile = "Assets/Sprites/defaulttile.png"; // Example texture path
 
     fallbackShape.setFillColor(sf::Color::Yellow); // Fallback color for unknown
 

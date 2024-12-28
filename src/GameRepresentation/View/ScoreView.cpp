@@ -5,7 +5,7 @@
 #include "ScoreView.h"
 
 // Constructor to initialize the view with the associated score
-ScoreView::ScoreView(std::shared_ptr<Score> score, std::shared_ptr<sf::RenderWindow> window)
+ScoreView::ScoreView(const std::shared_ptr<Score> &score, const std::shared_ptr<sf::RenderWindow> &window)
     : EntityView(score, window), score(score) {
     loadFont();
     configureText();
@@ -13,7 +13,7 @@ ScoreView::ScoreView(std::shared_ptr<Score> score, std::shared_ptr<sf::RenderWin
 
 // Load font for displaying the score
 void ScoreView::loadFont() {
-    if (!font.loadFromFile("C:\\Uni\\Advanced Programming\\2024-project-skipmare\\Sprites\\CenturyGothic.ttf")) {
+    if (!font.loadFromFile("Assets/CenturyGothic.ttf")) {
         std::cerr << "Error loading font\n";
     }
 }

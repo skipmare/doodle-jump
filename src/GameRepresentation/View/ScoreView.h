@@ -11,8 +11,8 @@
 
 class ScoreView : public EntityView {
 public:
-    ScoreView(std::shared_ptr<Score> score, std::shared_ptr<sf::RenderWindow> window);
-    void loadTexture() override; // Load texture based on the score's state
+    ScoreView(const std::shared_ptr<Score> &score, const std::shared_ptr<sf::RenderWindow> &window);
+    void loadTexture() final; // Load texture based on the score's state
     void loadFont(); // Load font for displaying the score
     void configureText(); // Configure text properties
     void render() override; // Render the score

@@ -1,7 +1,7 @@
 #include "PlayerView.h"
 
 // Constructor to initialize PlayerView with the associated Player entity
-PlayerView::PlayerView(std::shared_ptr<Player> player, std::shared_ptr<sf::RenderWindow> window) : EntityView(player, window), player(player) {
+PlayerView::PlayerView(const std::shared_ptr<Player> &player, const std::shared_ptr<sf::RenderWindow> &window) : EntityView(player, window), player(player) {
     loadTexture();  // Load texture based on the player's state
     sprite.setPosition(player->getX(), player->getY());  // Set the initial position
 }
@@ -9,7 +9,7 @@ PlayerView::PlayerView(std::shared_ptr<Player> player, std::shared_ptr<sf::Rende
 // Load a texture based on the player's state
 void PlayerView::loadTexture() {
 
-    std::string textureFile = "Sprites/player.png"; // Example texture path
+    std::string textureFile = "Assets/Sprites/player.png"; // Example texture path
 
     // Load the texture from file and apply it to the sprite
     if (texture.loadFromFile(textureFile)) {

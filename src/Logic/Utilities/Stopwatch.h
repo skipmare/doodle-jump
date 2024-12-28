@@ -18,26 +18,26 @@ public:
     void stop();
 
     // Get the elapsed time in seconds
-    double getElapsedTime() const;
+    [[nodiscard]] float getElapsedTime() const;
 
     // Update the stopwatch and return the delta time
-    double tick();
+    float tick();
 
     // Get the delta time in seconds
-    double getDeltaTime() const;
-
-private:
-    // Private constructor
-    Stopwatch();
+    [[nodiscard]] float getDeltaTime() const;
 
     // Deleted copy constructor and assignment operator
     Stopwatch(const Stopwatch&) = delete;
     Stopwatch& operator=(const Stopwatch&) = delete;
 
+private:
+    // Private constructor
+    Stopwatch();
+
     // Private member variables
     std::chrono::time_point<std::chrono::high_resolution_clock> startTime;
     std::chrono::time_point<std::chrono::high_resolution_clock> previousTime;
-    double deltaTime;
+    float deltaTime;
     bool running;
 };
 

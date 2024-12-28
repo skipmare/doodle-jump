@@ -7,12 +7,13 @@
 #include "BonusView.h"
 #include "BGtileView.h"
 #include <memory>
-#include <utility> // For std::pair
+#include "ConcreteFactory.h"
+#include "ScoreView.h"
 
 class ConcreteFactory : public AbstractFactory {
 public:
     // Constructor
-    ConcreteFactory(std::shared_ptr<sf::RenderWindow> window) : currentWindow(window) {}
+    explicit ConcreteFactory(const std::shared_ptr<sf::RenderWindow>& window) : currentWindow(window) {}
 
     // Create a Player instance and return a pair with Player and PlayerView
     std::shared_ptr<Player> createPlayer(float x, float y) override;

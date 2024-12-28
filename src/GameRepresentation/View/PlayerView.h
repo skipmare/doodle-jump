@@ -7,8 +7,8 @@
 
 class PlayerView : public EntityView {
 public:
-    PlayerView(std::shared_ptr<Player> player, std::shared_ptr<sf::RenderWindow> window); // Constructor
-    void loadTexture(); // Load texture based on the player's state
+    PlayerView(const std::shared_ptr<Player> &player, const std::shared_ptr<sf::RenderWindow> &window); // Constructor
+    void loadTexture() final; // Load texture based on the player's state
 
 private:
     std::shared_ptr<Player> player; // Reference to the associated player

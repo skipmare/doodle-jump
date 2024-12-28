@@ -16,7 +16,7 @@ void Stopwatch::stop() {
 }
 
 // Get the elapsed time in seconds
-double Stopwatch::getElapsedTime() const {
+float Stopwatch::getElapsedTime() const {
     if (running) {
         auto now = std::chrono::high_resolution_clock::now();
         return std::chrono::duration<double>(now - startTime).count();
@@ -25,7 +25,7 @@ double Stopwatch::getElapsedTime() const {
 }
 
 // Update the stopwatch and return the delta time
-double Stopwatch::tick() {
+float Stopwatch::tick() {
     if (running) {
         auto now = std::chrono::high_resolution_clock::now();
         deltaTime = std::chrono::duration<double>(now - previousTime).count();
@@ -36,6 +36,6 @@ double Stopwatch::tick() {
 }
 
 // Get the delta time in seconds
-double Stopwatch::getDeltaTime() const {
+float Stopwatch::getDeltaTime() const {
     return deltaTime;
 }

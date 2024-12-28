@@ -4,8 +4,8 @@
 
 #ifndef INC_2024_PROJECT_SKIPMARE_ENTITY_H
 #define INC_2024_PROJECT_SKIPMARE_ENTITY_H
+
 #include <Subject.h>
-#include <vector>
 
 enum EntityType {
     PLAYER,
@@ -45,21 +45,20 @@ public:
     [[nodiscard]] virtual float getY() const; // get the y position of the entity
     virtual void setPosition(float x, float y); // set the position of the entity
 
-    BoundingBox getBoundingBox() const; // get the bounding box of the entity
-
+    [[nodiscard]] BoundingBox getBoundingBox() const; // get the bounding box of the entity
     [[nodiscard]] EntityType getEntityType() const; // get the type of the entity
 
-    [[nodiscard]] float getWidth() const{return width;}; // get the width of the entity
-    [[nodiscard]] float getHeight() const{return height;}; // get the height of the entity
-    [[nodiscard]] bool getCollisionOnLand() const{return collisionOnLand;}; // get the collision on land state
-    [[nodiscard]] bool getCollidable() const{return collidable;}; // get the collidable state
-    [[nodiscard]] bool getJumpTrigger() const{return jumptrigger;}; // get the jump trigger state
-    void setJumpTrigger(bool input){jumptrigger=input;}; // set the jump trigger state
+    [[nodiscard]] float getWidth() const { return width; } // get the width of the entity
+    [[nodiscard]] float getHeight() const { return height; } // get the height of the entity
+    [[nodiscard]] bool getCollisionOnLand() const { return collisionOnLand; } // get the collision on land state
+    [[nodiscard]] bool getCollidable() const { return collidable; } // get the collidable state
+    [[nodiscard]] bool getJumpTrigger() const { return jumptrigger; } // get the jump trigger state
+    void setJumpTrigger(bool input) { jumptrigger = input; } // set the jump trigger state
 
     void setOutOfView(bool outOfView); // set the out of view state
     [[nodiscard]] bool getOutOfView() const; // get the out of view state
 
-    [[nodiscard]] bool getHasCollided() const{return hasCollided;}; // get the has collided state
+    [[nodiscard]] bool getHasCollided() const { return hasCollided; } // get the has collided state
     void setHasCollided(bool hasCollided); // set the has collided state
 
 protected:
@@ -69,11 +68,9 @@ protected:
     EntityType EntityType_var = NONE; // type of the entity, change it in derived class for different type
     bool collisionOnLand = false; // check if the entity has collided with player on landing
     bool collidable = true; // check if the entity is collidable
-
     bool jumptrigger = true;
     bool hasCollided = false; // check if the entity has collided with player
     bool outOfView = false; // check if the entity is out of view
 };
 
-
-#endif
+#endif // INC_2024_PROJECT_SKIPMARE_ENTITY_H

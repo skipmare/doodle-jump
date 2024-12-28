@@ -1,5 +1,4 @@
 #include "Camera.h"
-#include <iostream>
 
 // Constructor initializes the camera with specific dimensions
 Camera::Camera(float viewWidth, float viewHeight)

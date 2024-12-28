@@ -45,7 +45,7 @@ void Game::run() {
 
     void Game::handleInput() {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-            world.getPlayer().move(-1); // Move player left
+            world.PlayerMove(-1); // Move player left
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
             world.PlayerMove(1); // Move player right

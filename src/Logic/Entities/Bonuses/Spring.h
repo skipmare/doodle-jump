@@ -9,7 +9,7 @@
 
 class Spring : public Bonus {
 public:
-    Spring(float x, float y, std::shared_ptr<Platform> platform); // Constructor
+    Spring(float x, float y, const std::shared_ptr<Platform> &platform); // Constructor
     ~Spring() override = default; // Destructor
 
 

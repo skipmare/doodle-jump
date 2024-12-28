@@ -1,9 +1,7 @@
 #include "PlatformView.h"
-#include <SFML/Graphics.hpp>  // For rendering
-#include <iostream>            // For error handling
 
 // Constructor takes a reference to the associated platform
-PlatformView::PlatformView(std::shared_ptr<Platform> platform, std::shared_ptr<sf::RenderWindow> window) : EntityView(platform,window), platform(platform) {
+PlatformView::PlatformView(const std::shared_ptr<Platform> &platform, const std::shared_ptr<sf::RenderWindow> &window) : EntityView(platform,window), platform(platform) {
     loadTexture();  // Load texture for the platform sprite
     sprite.setPosition(platform->getX(), platform->getY());  // Set the initial position
 }
@@ -15,19 +13,19 @@ void PlatformView::loadTexture() {
     // Load different textures based on platform type
     switch (platform->getPlatformType()) {
         case PlatformType::STATIC:
-            textureFile = "Sprites/staticplatform.png";  // Path to static platform texture
+            textureFile = "Assets/Sprites/staticplatform.png";  // Path to static platform texture
         fallbackShape.setFillColor(sf::Color::Green); // Fallback color for static
         break;
         case PlatformType::VERTICAL:
-            textureFile = "Sprites/verticalplatform.png";  // Path to vertical platform texture
+            textureFile = "Assets/Sprites/verticalplatform.png";  // Path to vertical platform texture
         fallbackShape.setFillColor(sf::Color::Blue); // Fallback color for vertical
         break;
         case PlatformType::HORIZONTAL:
-            textureFile = "Sprites/horizontalplatform.png";  // Path to horizontal platform texture
+            textureFile = "Assets/Sprites/horizontalplatform.png";  // Path to horizontal platform texture
         fallbackShape.setFillColor(sf::Color::Red); // Fallback color for horizontal
         break;
         case PlatformType::DISAPPEARING:
-            textureFile = "Sprites/disappearingplatform.png";  // Path to disappearing platform texture
+            textureFile = "Assets/Sprites/disappearingplatform.png";  // Path to disappearing platform texture
         fallbackShape.setFillColor(sf::Color::Yellow); // Fallback color for disappearing
         break;
         default:

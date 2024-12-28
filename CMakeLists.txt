@@ -17,7 +17,6 @@ FetchContent_MakeAvailable(SFML)
 find_package(Freetype REQUIRED)
 target_link_libraries(sfml-graphics PRIVATE Freetype::Freetype)
 
-
 include_directories(
         src/GameRepresentation
         src/GameRepresentation/Camera
@@ -64,5 +63,5 @@ add_executable(2024_project_skipmare
         src/Logic/DifficultySettings/EASY.cpp
 )
 
-target_link_libraries(2024_project_skipmare PRIVATE sfml-graphics)
+target_link_libraries(2024_project_skipmare PRIVATE sfml-graphics sfml-audio)
 target_compile_features(2024_project_skipmare PRIVATE cxx_std_17)

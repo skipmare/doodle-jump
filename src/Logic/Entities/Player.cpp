@@ -3,12 +3,11 @@
 #include <iostream>
 
 Player::Player(float x, float y) : Entity(x, y) {
-    width = 80; // width in pixels
-    height = 100; // height in pixels
+    width = 60; // width in pixels
+    height = 80; // height in pixels
     velocityX = 4.0f; // horizontal velocity in pixels per second
     EntityType_var = EntityType::PLAYER; // set entity type to player
     collidable = false; // set player to collidable
-    NormalizedY = y; // set normalized y position
 }
 
 void Player::update(float deltaTime) {
@@ -74,8 +73,8 @@ void Player::move(int direction) {
 void Player::applyBonusEffect(BonusType bonusType) {
     if(bonusType == BonusType::JETPACK) {
         BonusEffect = true;
-        gravity = -0.5f; // Set gravity to 0
-        BonusEffectTime = 5.0f; // Set bonus effect time
+        gravity = -2.0f; // Set gravity to 0
+        BonusEffectTime = 2.0f; // Set bonus effect time
     } else if(bonusType == BonusType::SPRING) {
         BonusEffect = true;
         jumpForce = 1500.0f; // Increase jump force
@@ -104,3 +103,6 @@ void Player::SetHasCollided(bool collisionBool) {
 void Player::setCWP(bool CWP) {
     CollisionWithPlatform = CWP;
 }
+
+
+

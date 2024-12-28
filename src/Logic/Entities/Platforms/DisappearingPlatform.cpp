@@ -6,8 +6,7 @@
 
 // DisappearingPlatform constructor
 DisappearingPlatform::DisappearingPlatform(float x, float y) : StaticPlatform(x, y) {
-    disappearTime = 2.0f;
-    elapsedTime = 0.0f;
+
     type = PlatformType::DISAPPEARING;
     disappeared = false;
     jumptrigger = false;
@@ -29,4 +28,3 @@ void DisappearingPlatform::update(float deltaTime) {
 bool DisappearingPlatform::isDisappeared() const {
     return disappeared;
 }
-

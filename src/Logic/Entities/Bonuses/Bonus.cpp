@@ -27,7 +27,7 @@ void Bonus::update(float deltaTime) {
 }
 
 // Constructor
-Bonus::Bonus(float x, float y, std::shared_ptr<Platform> platform) : Entity(x, y), on_platform(platform) {
+Bonus::Bonus(float x, float y,const std::shared_ptr<Platform>& platform) : Entity(x, y), on_platform(platform) {
     // Generate a random x-coordinate within the platform's width
     float randomX = Random::getInstance().getRandomFloat(on_platform->getX() - on_platform->getWidth() / 2, on_platform->getX() + on_platform->getWidth() / 2 - width);
     this->x = randomX;

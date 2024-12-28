@@ -30,17 +30,9 @@ public:
     void setDifficulty(Difficulty difficulty); // Set the difficulty level
     [[nodiscard]] int getScore() const; // Get the current score
     [[nodiscard]] std::shared_ptr<Player> getPlayer() const; // Get the player entity
-    [[nodiscard]] std::vector<std::shared_ptr<Platform>> getEntities() const; // Get the entities
-    [[nodiscard]] Camera& getCamera(); // Get the camera object
 
-    [[nodiscard]] Player& getPlayer(); // Get the player reference
-    [[nodiscard]] float getPlayerNormalizedY() const; // Get the player's normalized Y position
-    [[nodiscard]] bool Pathfinders(const std::vector<std::shared_ptr<Platform>>& platforms, float maxDistance) const; // Get the pathfinder state
     [[nodiscard]] bool getGameOver() const; // Get the game over state
     [[nodiscard]] const DifficultySettings& getDifficulty() const; // Get the difficulty level
-
-    void addEntity(std::shared_ptr<Entity> entity); // Add an entity to the world
-    void removeEntity(std::shared_ptr<Entity> entity); // Remove an entity from the world
 
     void removeRemovableEntities(); // Remove entities which are out of view
     void genWorld(); // Generate the world
@@ -49,7 +41,7 @@ public:
     bool isValidMaxDistance(float maxDistance, const std::shared_ptr<Entity>& newplat) const; // Check if the distance between platforms is valid
 
     void genPlats(float chanceStatic, float chanceVertical, float chanceHorizontal, float chanceDisappearing, float minDistance,float maxDistance, float fromy, float toy); // Initialize the world
-    void updatePlayer(float deltaTime); // Update the player
+    void updatePlayer(float deltaTime) const; // Update the player
     void updateEntities(float deltaTime); // Update all entities
     void checkCollisions(); // Check for collisions
     void generateNewPlatforms(); // Generate new platforms
@@ -57,7 +49,7 @@ public:
     void setGameOver(bool gameOver); // Set the game over state
     void checkGameOver(); // Check if the game is over
 
-    void genBonus(std::shared_ptr<Platform> entity); // Generate bonus platforms
+    void genBonus(std::shared_ptr<Platform> &entity); // Generate bonus platforms
     void updateBonuses(float deltaTime); // Update bonus platforms
 
     void generateBackground(float from_y, float to_y); // Generate the background tiles for the world
@@ -67,7 +59,7 @@ public:
     void CheckBonusCollision(); // Check for bonus collisions
     void CheckDifficulty(); // Check the difficulty level
 
-    void PlayerMove(int direction); // Move the player
+    void PlayerMove(int direction) const; // Move the player
 
 private:
     std::shared_ptr<Player> player; // Shared pointer to the player entity

@@ -17,11 +17,12 @@ public:
     void update(float deltaTime) override;
 
     // This method is used to check if the platform has disappeared
-    bool isDisappeared() const;
+    [[nodiscard]] bool isDisappeared() const;
+
+    //play disappear sound
+    void playDisappearSound();
 
 private:
-    float disappearTime;
-    float elapsedTime;
     bool disappeared;
 };
 

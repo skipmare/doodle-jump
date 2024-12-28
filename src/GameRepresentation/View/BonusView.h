@@ -10,7 +10,7 @@
 class BonusView : public EntityView {
 public:
     // Constructor that accepts a Bonus entity reference
-    explicit BonusView(std::shared_ptr<Bonus> bonus, std::shared_ptr<sf::RenderWindow> window);
+    explicit BonusView(const std::shared_ptr<Bonus> &bonus, const std::shared_ptr<sf::RenderWindow> &window);
 
     // Destructor
     ~BonusView() override = default;
@@ -19,7 +19,7 @@ public:
 private:
     std::shared_ptr<Bonus> bonus; // Reference to the bonus entity for which the view is created
     // Load the texture based on the bonus type
-    void loadTexture();
+    void loadTexture() override;
 };
 
 #endif //INC_2024_PROJECT_SKIPMARE_BONUSVIEW_H

@@ -28,10 +28,7 @@ public:
     [[nodiscard]] bool isJumping() const { return isJumpingState; }
     [[nodiscard]] bool isFalling() const { return isFallingState; }
     [[nodiscard]] float getVelocityY() const { return velocityY; }
-    [[nodiscard]] bool getHasCollided() const {return hasCollided;}
     [[nodiscard]] float getJumpForce() const {return jumpForce;}
-    [[nodiscard]] float getNormalizedY() const {return NormalizedY;}
-    [[nodiscard]] bool getisgoingleft() const {return isgoingleft;}
     [[nodiscard]] float getGravity() const {return gravity;}
     [[nodiscard]] bool getCollisionWithPlatform() const {return CollisionWithPlatform;}
 
@@ -43,17 +40,13 @@ public:
     // apply Bonus effect
     void applyBonusEffect(BonusType bonusType);
 
-
-
-
 private:
     bool isJumpingState = false; // Player is jumping
     bool isFallingState = false;  // Player is falling
     float gravity = 8.0f;         // Gravity value
-    float jumpForce = 500.0f;      // Force applied when jumping
+    float jumpForce = 750.0f;      // Force applied when jumping
     bool hasCollided = false;
     bool BonusEffect = false;
-    float NormalizedY = 0.0f;
     bool isgoingleft = false;
     bool CollisionWithPlatform = false;
     float BonusEffectTime = 0.0f;

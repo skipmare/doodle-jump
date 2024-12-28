@@ -1,11 +1,4 @@
 #include "ConcreteFactory.h"
-#include "PlayerView.h"
-#include "PlatformView.h"
-#include "BonusView.h"
-#include "BGtileView.h"
-#include "ScoreView.h"
-#include <memory>
-#include <tuple> // For std::tuple
 
 // Create a Player instance
 std::shared_ptr<Player> ConcreteFactory::createPlayer(float x, float y) {

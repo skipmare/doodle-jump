@@ -11,7 +11,7 @@
 
 class Bonus : public Entity {
 public:
-    Bonus(float x, float y, std::shared_ptr<Platform> platform); // Constructor
+    Bonus(float x, float y, const std::shared_ptr<Platform> &platform); // Constructor
     ~Bonus() override = default; // Destructor
 
     void update(float deltaTime) override; // Updates the bonus

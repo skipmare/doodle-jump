@@ -4,7 +4,7 @@
 #include "Entity.h"  // Include the Entity class for reference
 
 // Constructor to initialize the view with the associated entity
-EntityView::EntityView(std::shared_ptr<Entity> entity, std::shared_ptr<sf::RenderWindow> window) : entity(entity), CurrentWindow(window) {
+EntityView::EntityView(const std::shared_ptr<Entity> &entity, const std::shared_ptr<sf::RenderWindow> &window) : entity(entity), CurrentWindow(window) {
    //DO NOTHING, JUST INITIALIZE THE ENTITY (BASE CLASS)
 }
 void EntityView::update() {

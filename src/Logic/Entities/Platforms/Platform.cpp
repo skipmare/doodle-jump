@@ -2,7 +2,7 @@
 
 //constructor
 Platform::Platform(float x, float y) : Entity(x, y) {
-    width = 90;
+    width = 80;
     height = 30;
     EntityType_var = EntityType::PLATFORM;
     collidable = true;

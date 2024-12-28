@@ -2,7 +2,7 @@
 #include <iostream> // For error handling
 
 // Constructor that accepts a Bonus entity reference
-BonusView::BonusView(std::shared_ptr<Bonus> bonus, std::shared_ptr<sf::RenderWindow> window)
+BonusView::BonusView(const std::shared_ptr<Bonus> &bonus, const std::shared_ptr<sf::RenderWindow> &window)
     : EntityView(bonus, window), bonus(bonus) {
     loadTexture();  // Load the texture based on bonus type
     setPosition();  // Set the initial position of the bonus sprite
@@ -15,15 +15,15 @@ void BonusView::loadTexture() {
     // Load different textures based on bonus type
     switch (bonus->getType()) {  // Assuming 'getType()' returns the BonusType enum
         case BonusType::JETPACK:
-            textureFile = "Sprites/Jetpack.png";  // Path to jetpack bonus texture
+            textureFile = "Assets/Sprites/Jetpack.png";  // Path to jetpack bonus texture
             fallbackShape.setFillColor(sf::Color::Cyan); // Fallback color for jetpack
             break;
         case BonusType::SPRING:
-            textureFile = "Sprites/Spring.png";  // Path to spring bonus texture
+            textureFile = "Assets/Sprites/Spring.png";  // Path to spring bonus texture
             fallbackShape.setFillColor(sf::Color::Magenta); // Fallback color for spring
             break;
         default:
-            textureFile = "Sprites/default_bonus.png";  // Fallback texture if type is unknown
+            textureFile = "Assets/Sprites/default_bonus.png";  // Fallback texture if type is unknown
             fallbackShape.setFillColor(sf::Color::Yellow); // Fallback color for unknown
             break;
     }

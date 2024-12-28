@@ -8,14 +8,13 @@
 
 class EntityView : public Observer{
 public:
-    virtual ~EntityView() = default; // Destructor
-
+    ~EntityView() override = default;
 
     // Pure virtual method to load the texture
     virtual void loadTexture() = 0;
 
     // Constructor takes a reference to the associated entity
-    explicit EntityView(std::shared_ptr<Entity> entity, std::shared_ptr<sf::RenderWindow> window);
+    explicit EntityView(const std::shared_ptr<Entity> &entity, const std::shared_ptr<sf::RenderWindow> &window);
 
     // Method to update the view
     void update() final;
