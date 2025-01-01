@@ -22,10 +22,8 @@ void VerticalPlatform::update(float deltaTime) {
 
     // Check if the platform is going out of the allowed range
     if (newY < Maxupwards) {
-        y = Maxupwards;
         velocityY = -velocityY; // Reverse direction
     } else if (newY > Maxdownwards) {
-        y = Maxdownwards;
         velocityY = -velocityY; // Reverse direction
     } else {
         y = newY;
@@ -36,8 +34,9 @@ void VerticalPlatform::update(float deltaTime) {
 // Set the position of the platform, gets called to change the initial position of the platform
 void VerticalPlatform::setPosition(float x, float initialY) {
     this->x = x;
+    float diff = this->initialY - initialY;
     this->initialY = initialY;
-    this->y = initialY;
+    this->y = this->y - diff;
     notify();
 }
 

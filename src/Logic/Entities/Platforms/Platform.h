@@ -20,8 +20,12 @@ public:
     // Returns the type of the platform
      [[nodiscard]] PlatformType getPlatformType() const;
 
+    //get the initial y position of the platform
+    [[nodiscard]] float getInitialY() const{return initialY;};
+
 protected:
     // Type of the platform
+    float initialY;
     PlatformType type;
 };
 

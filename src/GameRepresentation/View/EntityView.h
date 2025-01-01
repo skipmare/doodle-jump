@@ -29,7 +29,8 @@ protected:
     std::shared_ptr<sf::RenderWindow> CurrentWindow;  // Reference to the render window
     std::shared_ptr<Entity> entity;  // Reference to the entity this view represents
     sf::Sprite sprite;  // Sprite for graphical representation
-    sf::Text text;  // Text for displaying information
+    sf::Text ScoreText;  // Text for displaying information
+    sf::Text BestScoreText;  // Text for displaying score
     sf::Texture texture;  // Texture for the sprite
     sf::RectangleShape fallbackShape;  // Rectangle shape for fallback
     bool isTextureLoaded = false; // Flag to check if texture is loaded

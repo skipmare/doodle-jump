@@ -20,13 +20,21 @@ void ScoreView::loadFont() {
 
 // Configure text properties
 void ScoreView::configureText() {
-    text.setFont(font);
-    text.setPosition(15, 10);
-    text.setCharacterSize(30);
-    text.setFillColor(sf::Color::Green);
-    text.setString(std::to_string(score->getScore()));
-    text.setOutlineColor(sf::Color::Black);
-    text.setOutlineThickness(0.5f);
+    ScoreText.setFont(font);
+    ScoreText.setPosition(15, 50);
+    ScoreText.setCharacterSize(30);
+    ScoreText.setFillColor(sf::Color::Green);
+    ScoreText.setString(std::to_string(score->getScore()));
+    ScoreText.setOutlineColor(sf::Color::Black);
+    ScoreText.setOutlineThickness(0.5f);
+
+    BestScoreText.setFont(font);
+    BestScoreText.setPosition(15, 10);
+    BestScoreText.setCharacterSize(30);
+    BestScoreText.setFillColor(sf::Color::Red);
+    BestScoreText.setString("Best: " + std::to_string(score->getBestScore()));
+    BestScoreText.setOutlineColor(sf::Color::Black);
+    BestScoreText.setOutlineThickness(0.5f);
 }
 
 void ScoreView::loadTexture() {
@@ -34,6 +42,8 @@ void ScoreView::loadTexture() {
 }
 
 void ScoreView::render() {
-    text.setString(std::to_string(score->getScore()/100));
-    CurrentWindow->draw(text);
+    ScoreText.setString(std::to_string(score->getScore()/100));
+    CurrentWindow->draw(ScoreText);
+    BestScoreText.setString("Best: " + std::to_string(score->getBestScore()/100));
+    CurrentWindow->draw(BestScoreText);
 }

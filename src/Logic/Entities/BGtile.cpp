@@ -9,8 +9,8 @@ void BGtile::update(float deltaTime) {
 }
 
 BGtile::BGtile(float x, float y) : Entity(x, y) {
-    width = 30;
-    height = 30;
+    width = 40;
+    height = 40;
     EntityType_var = EntityType::BG_TILE;
     collidable = false;
 

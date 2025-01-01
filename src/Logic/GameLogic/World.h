@@ -10,6 +10,9 @@
 #include "../DifficultySettings/EASY.h"
 #include "../DifficultySettings/MEDIUM.h"
 #include "../DifficultySettings/HARD.h"
+#include "iostream"
+#include "unordered_set"
+#include "functional"
 
 enum class Difficulty {
     EASY,
@@ -23,7 +26,7 @@ public:
     ~World() = default; // Destructor
 
     static bool checkCollision(const std::shared_ptr<Entity>& entity1, const std::shared_ptr<Entity>& entity2) ; // Check collision between two entities
-    bool checkCollision_player(const std::shared_ptr<Entity>& entity) const; // Check collision between player and entity
+    [[nodiscard]] bool checkCollision_player(const std::shared_ptr<Entity>& entity) const; // Check collision between player and entity fuck you prof
 
     void update(float deltaTime); // Update the world
 
@@ -37,10 +40,10 @@ public:
     void removeRemovableEntities(); // Remove entities which are out of view
     void genWorld(); // Generate the world
 
-    bool isValidMinDistance(float minDistance, const std::shared_ptr<Entity>& newplat) const; // Check if the distance between platforms is valid
-    bool isValidMaxDistance(float maxDistance, const std::shared_ptr<Entity>& newplat) const; // Check if the distance between platforms is valid
+    [[nodiscard]] bool isValidMinDistance(float minDistance, const std::shared_ptr<Entity>& newplat) const; // Check if the distance between platforms is valid
+    [[nodiscard]] bool isValidMaxDistance(float maxDistance, const std::shared_ptr<Entity>& newplat) const; // Check if the distance between platforms is valid
 
-    void genPlats(float chanceStatic, float chanceVertical, float chanceHorizontal, float chanceDisappearing, float minDistance,float maxDistance, float fromy, float toy); // Initialize the world
+    void genPlats(float fromy, float toy); // Initialize the world
     void updatePlayer(float deltaTime) const; // Update the player
     void updateEntities(float deltaTime); // Update all entities
     void checkCollisions(); // Check for collisions
@@ -60,6 +63,7 @@ public:
     void CheckDifficulty(); // Check the difficulty level
 
     void PlayerMove(int direction) const; // Move the player
+
 
 private:
     std::shared_ptr<Player> player; // Shared pointer to the player entity

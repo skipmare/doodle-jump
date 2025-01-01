@@ -5,7 +5,12 @@
 World::World(const std::shared_ptr<AbstractFactory>& factory, float viewWidth, float viewHeight)
     : factory(factory), score(nullptr), camera(viewWidth, viewHeight) { // Initialize camera with dimensions
 
+
+    //create the score entity
+    score = factory->createScore(150,100);
     genWorld(); // Generate the world
+
+
 }
 
 // Check collision between two entities
@@ -50,6 +55,7 @@ void World::removeRemovableEntities() {
     for (auto it = entities.begin(); it != entities.end();) {
         if ((*it)->getOutOfView()) {
             it = entities.erase(it);
+            ActivePlatforms--;
         } else {
             ++it;
         }
@@ -72,24 +78,21 @@ void World::genWorld() {
     // Reset active platforms count
     ActivePlatforms = 0;
 
+    player = factory->createPlayer(0, 0); // Create the player entity
+    // Set player position on top of the static platform
+    player->setPosition(250, 530);
+
     // Hard code a static platform at (250, 200)
     std::shared_ptr<Platform> staticPlatform = factory->createPlatform(250, 600, PlatformType::STATIC);
     entities.push_back(staticPlatform);
     ActivePlatforms++;
 
-    player = factory->createPlayer(0, 0); // Create the player entity
-    // Set player position on top of the static platform
-    player->setPosition(250, 530);
 
-    //create the score entity
-    score = factory->createScore(150,100);
-
-
-    genPlats(getDifficulty().ChanceStatic, getDifficulty().ChanceVertical, getDifficulty().ChanceHorizontal, getDifficulty().ChanceDisappearing,  getDifficulty().minDistance,getDifficulty().maxDistance, camera.getCameraY() + 395, camera.getCameraY() - 395);
+    genPlats(camera.getCameraY() + 395, camera.getCameraY() - 395);
     generateBackground(camera.getCameraY() + 400, camera.getCameraY() - 400);
 }
 
-void World::genPlats(float chanceStatic, float chanceVertical, float chanceHorizontal, float chanceDisappearing, float minDistance, float maxDistance, float fromy, float toy) {
+void World::genPlats(float fromy, float toy) {
     bool canGenerateMore = true;
 
     while (canGenerateMore) {
@@ -100,14 +103,14 @@ void World::genPlats(float chanceStatic, float chanceVertical, float chanceHoriz
 
         std::shared_ptr<Platform> newPlatform;
 
-        if (chance < chanceStatic) {
+        if (chance < getDifficulty().ChanceStatic) {
             newPlatform = factory->createPlatform(X_pos, Y_pos, PlatformType::STATIC);
-        } else if (chance < chanceStatic + chanceHorizontal) {
+        } else if (chance < getDifficulty().ChanceStatic + getDifficulty().ChanceHorizontal) {
             newPlatform = factory->createPlatform(X_pos, Y_pos, PlatformType::HORIZONTAL);
-        } else if (chance < chanceStatic + chanceHorizontal + chanceVertical) {
+        } else if (chance < getDifficulty().ChanceStatic + getDifficulty().ChanceHorizontal + getDifficulty().ChanceVertical) {
             newPlatform = factory->createPlatform(X_pos, Y_pos, PlatformType::VERTICAL);
-        } else if (chance < chanceStatic + chanceHorizontal + chanceVertical + chanceDisappearing) {
-            newPlatform = factory->createPlatform(X_pos, Y_pos, PlatformType::DISAPPEARING);
+        } else if (chance < getDifficulty().ChanceStatic + getDifficulty().ChanceHorizontal + getDifficulty().ChanceVertical + getDifficulty().ChanceDisappearing) {
+            newPlatform = factory->createPlatform(X_pos, Y_pos, PlatformType::STATIC);
         }
 
         bool collisionDetected = false;
@@ -118,33 +121,24 @@ void World::genPlats(float chanceStatic, float chanceVertical, float chanceHoriz
             }
         }
 
-        if (!collisionDetected && isValidMinDistance(minDistance, newPlatform) && isValidMaxDistance(maxDistance, newPlatform)) {
+        if (!collisionDetected && isValidMinDistance(getDifficulty().minDistance, newPlatform) && isValidMaxDistance(getDifficulty().maxDistance, newPlatform)) {
             genBonus(newPlatform);
             entities.push_back(newPlatform);
             ActivePlatforms++;
         }
 
-        // Check reachability using the pathfinder function
-        std::vector<std::shared_ptr<Platform>> nonDisappearingPlatforms;
-        for (const auto& platform : entities) {
-            if (platform->getPlatformType() != PlatformType::DISAPPEARING) {
-                nonDisappearingPlatforms.push_back(platform);
-            }
-        }
-
-
         // Check if we can generate more platforms in the given range
         canGenerateMore = false;
-        for (float y = toy; y <= fromy; y += minDistance) {
+        for (float y = toy; y <= fromy; y += getDifficulty().minDistance) {
             bool spaceAvailable = true;
             for (const auto& entity : entities) {
-                if (std::abs(entity->getY() - y) < minDistance) {
+                if (std::abs(entity->getY() - y) < getDifficulty().minDistance) {
                     spaceAvailable = false;
                     break;
                 }
             }
 
-            if (spaceAvailable) {
+            if (spaceAvailable ) {
                 canGenerateMore = true;
                 break;
             }
@@ -152,14 +146,22 @@ void World::genPlats(float chanceStatic, float chanceVertical, float chanceHoriz
     }
 }
 
-//check if the max distance between platforms is valid
 bool World::isValidMaxDistance(float MaxDistance, const std::shared_ptr<Entity>& newplat) const {
     return std::any_of(entities.begin(), entities.end(), [&](const auto& entity) {
-        float distanceX = std::abs(newplat->getX() - entity->getX());
-        float distanceY = std::abs(newplat->getY() - entity->getY());
-        return (distanceX < MaxDistance && distanceY < MaxDistance);
+        // Check if the entity's platform type is not DISAPPEARING
+        if (entity->getPlatformType() != DISAPPEARING) {
+            // Calculate the distance in both X and Y directions
+            float distanceX = abs(newplat->getX() - entity->getX());
+            float distanceY = abs(newplat->getY() - entity->getY());
+
+            // Return true if the entity is within MaxDistance
+        return (distanceY < MaxDistance && distanceX < MaxDistance);
+
+        }
+        return false;
     });
 }
+
 
 
 //check if the min distance between platforms is valid
@@ -188,7 +190,6 @@ void World::update(float deltaTime) {
 // Function to update the player
 void World::updatePlayer(float deltaTime) const {
     player->update(deltaTime);  // Update the player with the deltaTime
-
     // Make sure player doesn't go out of view
     if (player->getY() < camera.getCameraY()) {
         player->setPosition(player->getX(), camera.getCameraY());
@@ -211,9 +212,12 @@ void World::updateEntities(float deltaTime) {
 
         // Move the platforms down if the player is going up
         if (player->getVelocityY() < 0 && (camera.getCameraY()-player->getY() ==0.0f)) {
-            if(entity->getPlatformType()==VERTICAL){}
-            entity->setPosition(entity->getX(), entity->getY() - player->getVelocityY() * deltaTime);
-            score->setScore(score->getScore() - player->getVelocityY() * deltaTime);
+            if(entity->getPlatformType()==VERTICAL) {
+                entity->setPosition(entity->getX(), entity->getInitialY() - player->getVelocityY() * deltaTime);
+            }else {
+                entity->setPosition(entity->getX(), entity->getY() - player->getVelocityY() * deltaTime);
+            }
+                score->setScore(score->getScore() - player->getVelocityY() * deltaTime);
         }
         // Update entity (handle entity-specific updates)
         entity->update(deltaTime);
@@ -246,7 +250,7 @@ void World::checkCollisions() {
 // Function to generate new platforms if needed
 void World::generateNewPlatforms() {
 
-    genPlats(getDifficulty().ChanceStatic, getDifficulty().ChanceVertical, getDifficulty().ChanceHorizontal, getDifficulty().ChanceDisappearing,getDifficulty().minDistance,getDifficulty().maxDistance,camera.getCameraY() - 395, camera.getCameraY() - 800);
+    genPlats(camera.getCameraY() - 395, camera.getCameraY() - 800);
 }
 
 void World::generateNewTiles() {
@@ -254,22 +258,34 @@ void World::generateNewTiles() {
 }
 
 // Function to check if the game is over
+// World.cpp
 void World::checkGameOver() {
-    if (player->getY() > 800) {
-        isGameOver = true;
+        if (player->getY() > 800) {
+            isGameOver = true;
+            std::cout << "Game Over" << std::endl;
+        }
+
+        if (isGameOver) {
+            score->ResetScore();
+            isGameOver = false;
+            for (const auto& entity : entities) {
+                entity->setOutOfView(true);
+            }
+            for (const auto& bonus : bonuses) {
+                bonus->setOutOfView(true);
+            }
+            genWorld();
+        }
     }
 
-    if (isGameOver) {
-    }
-}
 
 //function to generate the background tiles for the world
 void World::generateBackground(float from_y, float to_y) {
     float viewWidth = camera.getViewWidth();
 
     // Generate background tiles
-    for (float y = from_y; y >= to_y-3000; y -= 30.0f) {
-        for (float x = camera.getCameraX() - viewWidth / 2; x <= camera.getCameraX() + viewWidth / 2; x += 30.0f) {
+    for (float y = from_y; y >= to_y-4000; y -= 40.0f) {
+        for (float x = camera.getCameraX() - viewWidth / 2; x <= camera.getCameraX() + viewWidth / 2; x += 40.0f) {
             std::shared_ptr<BGtile> bgTile = factory->createBGtile(x, y);
             background.push_back(bgTile);
         }
@@ -378,7 +394,3 @@ void World::CheckDifficulty() {
 void World::PlayerMove(int direction)const{
     player->move(direction);
 }
-
-
-
-

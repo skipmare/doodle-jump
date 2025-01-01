@@ -20,8 +20,8 @@ void EntityView::render() {
     } else {
         CurrentWindow->draw(fallbackShape); // Draw the fallback shape if texture loading failed
     }
-    text.setString(std::to_string(entity->getX()));
-    CurrentWindow->draw(text);
+    ScoreText.setString(std::to_string(entity->getX()));
+    CurrentWindow->draw(ScoreText);
 }
 
 void EntityView::setPosition() {

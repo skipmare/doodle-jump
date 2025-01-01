@@ -4,6 +4,7 @@ class DifficultySettings {
 public:
     virtual ~DifficultySettings() = default;
 
+    int MaxPlat;
     float ChanceBonus;
     float ChanceStatic;
     float ChanceHorizontal;
