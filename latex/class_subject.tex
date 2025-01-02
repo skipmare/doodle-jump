@@ -1,0 +1,96 @@
+\doxysection{Subject Class Reference}
+\hypertarget{class_subject}{}\label{class_subject}\index{Subject@{Subject}}
+
+
+A class that manages and notifies a list of observers.  
+
+
+
+
+{\ttfamily \#include $<$Subject.\+h$>$}
+
+Inheritance diagram for Subject\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.836879cm]{class_subject}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_subject_a7e360b2f847983bff270c67b6aeb153b}{attach}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observer}{Observer}} $>$ observer)
+\begin{DoxyCompactList}\small\item\em Attaches an observer to this subject. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_subject_a9dda003f071a9c8e41813b68901d3741}{detach}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observer}{Observer}} $>$ observer)
+\begin{DoxyCompactList}\small\item\em Detaches an observer from this subject. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_subject_af104c2baf37c7aa63b2ef6d32c2b3a9c}{notify}} ()
+\begin{DoxyCompactList}\small\item\em Notifies all attached observers of a change. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that manages and notifies a list of observers. 
+
+The \doxylink{class_subject}{Subject} class follows the \doxylink{class_observer}{Observer} design pattern, allowing observers to attach and detach themselves from the subject. When the subject\textquotesingle{}s state changes, it will notify all attached observers by calling their update method. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_subject_a7e360b2f847983bff270c67b6aeb153b}\index{Subject@{Subject}!attach@{attach}}
+\index{attach@{attach}!Subject@{Subject}}
+\doxysubsubsection{\texorpdfstring{attach()}{attach()}}
+{\footnotesize\ttfamily \label{class_subject_a7e360b2f847983bff270c67b6aeb153b} 
+void Subject\+::attach (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observer}{Observer}} $>$}]{observer}{}\end{DoxyParamCaption})}
+
+
+
+Attaches an observer to this subject. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & A shared pointer to the observer to be attached. This observer will be notified when the subject\textquotesingle{}s state changes.\\
+\hline
+\end{DoxyParams}
+Adds a shared pointer to an observer to the list of observers. This observer will be notified when the subject\textquotesingle{}s state changes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & A shared pointer to the observer to be attached. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_subject_a9dda003f071a9c8e41813b68901d3741}\index{Subject@{Subject}!detach@{detach}}
+\index{detach@{detach}!Subject@{Subject}}
+\doxysubsubsection{\texorpdfstring{detach()}{detach()}}
+{\footnotesize\ttfamily \label{class_subject_a9dda003f071a9c8e41813b68901d3741} 
+void Subject\+::detach (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observer}{Observer}} $>$}]{observer}{}\end{DoxyParamCaption})}
+
+
+
+Detaches an observer from this subject. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & A shared pointer to the observer to be detached. The observer will no longer be notified of changes in the subject.\\
+\hline
+\end{DoxyParams}
+Removes the given observer from the list of observers. The observer will no longer be notified of changes in the subject\textquotesingle{}s state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & A shared pointer to the observer to be detached. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_subject_af104c2baf37c7aa63b2ef6d32c2b3a9c}\index{Subject@{Subject}!notify@{notify}}
+\index{notify@{notify}!Subject@{Subject}}
+\doxysubsubsection{\texorpdfstring{notify()}{notify()}}
+{\footnotesize\ttfamily \label{class_subject_af104c2baf37c7aa63b2ef6d32c2b3a9c} 
+void Subject\+::notify (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Notifies all attached observers of a change. 
+
+This method iterates through the list of attached observers and calls their update method to notify them of a change in the subject\textquotesingle{}s state.
+
+Iterates through the list of attached observers and calls their update method to notify them of a change in the subject\textquotesingle{}s state. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Logic/\+Patterns/\mbox{\hyperlink{_subject_8h}{Subject.\+h}}\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Logic/\+Patterns/\mbox{\hyperlink{_subject_8cpp}{Subject.\+cpp}}\end{DoxyCompactItemize}

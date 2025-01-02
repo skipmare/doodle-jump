@@ -1,0 +1,184 @@
+\doxysection{Abstract\+Factory Class Reference}
+\hypertarget{class_abstract_factory}{}\label{class_abstract_factory}\index{AbstractFactory@{AbstractFactory}}
+
+
+An abstract base class for creating different game entities like \doxylink{class_player}{Player}, \doxylink{class_platform}{Platform}, \doxylink{class_bonus}{Bonus}, etc.  
+
+
+
+
+{\ttfamily \#include $<$Abstract\+Factory.\+h$>$}
+
+Inheritance diagram for Abstract\+Factory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_abstract_factory}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_player}{Player}} $>$ \mbox{\hyperlink{class_abstract_factory_a46700428c7560625ebd3b599e35ad60c}{create\+Player}} (float x, float y)=0
+\begin{DoxyCompactList}\small\item\em Creates a player entity. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_platform}{Platform}} $>$ \mbox{\hyperlink{class_abstract_factory_a31f01f312dd7a874b17607b8024c2805}{create\+Platform}} (float x, float y, \mbox{\hyperlink{_entity_8h_a527bfd1a86584280ea4bb3f8a1f8d523}{Platform\+Type}} type)=0
+\begin{DoxyCompactList}\small\item\em Creates a platform entity. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_bonus}{Bonus}} $>$ \mbox{\hyperlink{class_abstract_factory_ac4ef593f9fb329597961f3391e68020e}{create\+Bonus}} (float x, float y, \mbox{\hyperlink{_entity_8h_ad6d58ebabfbf9aa4181bfe97a5d8d984}{Bonus\+Type}} type, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_platform}{Platform}} $>$ platform)=0
+\begin{DoxyCompactList}\small\item\em Creates a bonus entity. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_b_gtile}{BGtile}} $>$ \mbox{\hyperlink{class_abstract_factory_a3859df828747e5d8296e7217a74e8fc1}{create\+BGtile}} (float x, float y)=0
+\begin{DoxyCompactList}\small\item\em Creates a background tile entity. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_score}{Score}} $>$ \mbox{\hyperlink{class_abstract_factory_a2af03c94c2af0f951008e78953bffba3}{create\+Score}} (float x, float y)=0
+\begin{DoxyCompactList}\small\item\em Creates a score entity. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_abstract_factory_ae0b348ff14d4b3e9ab8322afd2fd8b38}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+Factory}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{class_abstract_factory}{Abstract\+Factory} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An abstract base class for creating different game entities like \doxylink{class_player}{Player}, \doxylink{class_platform}{Platform}, \doxylink{class_bonus}{Bonus}, etc. 
+
+This factory pattern provides a common interface for creating various game objects. The concrete implementation of this factory will define how each object is created. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_abstract_factory_ae0b348ff14d4b3e9ab8322afd2fd8b38}\index{AbstractFactory@{AbstractFactory}!````~AbstractFactory@{\texorpdfstring{$\sim$}{\string~}AbstractFactory}}
+\index{````~AbstractFactory@{\texorpdfstring{$\sim$}{\string~}AbstractFactory}!AbstractFactory@{AbstractFactory}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}AbstractFactory()}{\string~AbstractFactory()}}
+{\footnotesize\ttfamily \label{class_abstract_factory_ae0b348ff14d4b3e9ab8322afd2fd8b38} 
+virtual Abstract\+Factory\+::\texorpdfstring{$\sim$}{\string~}\+Abstract\+Factory (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Virtual destructor for \doxylink{class_abstract_factory}{Abstract\+Factory} class. 
+
+Ensures proper cleanup of derived classes. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_abstract_factory_a3859df828747e5d8296e7217a74e8fc1}\index{AbstractFactory@{AbstractFactory}!createBGtile@{createBGtile}}
+\index{createBGtile@{createBGtile}!AbstractFactory@{AbstractFactory}}
+\doxysubsubsection{\texorpdfstring{createBGtile()}{createBGtile()}}
+{\footnotesize\ttfamily \label{class_abstract_factory_a3859df828747e5d8296e7217a74e8fc1} 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_b_gtile}{BGtile}} $>$ Abstract\+Factory\+::create\+BGtile (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates a background tile entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the background tile. \\
+\hline
+{\em y} & The y-\/coordinate of the background tile. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \doxylink{class_b_gtile}{BGtile} object. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_concrete_factory_a69716d5a8ecec7b2881c5b146ada11a5}{Concrete\+Factory}}.
+
+\Hypertarget{class_abstract_factory_ac4ef593f9fb329597961f3391e68020e}\index{AbstractFactory@{AbstractFactory}!createBonus@{createBonus}}
+\index{createBonus@{createBonus}!AbstractFactory@{AbstractFactory}}
+\doxysubsubsection{\texorpdfstring{createBonus()}{createBonus()}}
+{\footnotesize\ttfamily \label{class_abstract_factory_ac4ef593f9fb329597961f3391e68020e} 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_bonus}{Bonus}} $>$ Abstract\+Factory\+::create\+Bonus (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{, }\item[{\mbox{\hyperlink{_entity_8h_ad6d58ebabfbf9aa4181bfe97a5d8d984}{Bonus\+Type}}}]{type}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_platform}{Platform}} $>$}]{platform}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates a bonus entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the bonus. \\
+\hline
+{\em y} & The y-\/coordinate of the bonus. \\
+\hline
+{\em type} & The type of bonus to create (e.\+g., \doxylink{class_jetpack}{Jetpack}, \doxylink{class_spring}{Spring}). \\
+\hline
+{\em platform} & A shared pointer to the platform associated with the bonus. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \doxylink{class_bonus}{Bonus} object. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_concrete_factory_a39446ea269efd1df5377abc0dd2af755}{Concrete\+Factory}}.
+
+\Hypertarget{class_abstract_factory_a31f01f312dd7a874b17607b8024c2805}\index{AbstractFactory@{AbstractFactory}!createPlatform@{createPlatform}}
+\index{createPlatform@{createPlatform}!AbstractFactory@{AbstractFactory}}
+\doxysubsubsection{\texorpdfstring{createPlatform()}{createPlatform()}}
+{\footnotesize\ttfamily \label{class_abstract_factory_a31f01f312dd7a874b17607b8024c2805} 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_platform}{Platform}} $>$ Abstract\+Factory\+::create\+Platform (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{, }\item[{\mbox{\hyperlink{_entity_8h_a527bfd1a86584280ea4bb3f8a1f8d523}{Platform\+Type}}}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates a platform entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the platform. \\
+\hline
+{\em y} & The y-\/coordinate of the platform. \\
+\hline
+{\em type} & The type of platform to create (e.\+g., Static, Disappearing, Vertical, Horizontal). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \doxylink{class_platform}{Platform} object. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_concrete_factory_aaffcd2d7867916f03b15f0f9de25db79}{Concrete\+Factory}}.
+
+\Hypertarget{class_abstract_factory_a46700428c7560625ebd3b599e35ad60c}\index{AbstractFactory@{AbstractFactory}!createPlayer@{createPlayer}}
+\index{createPlayer@{createPlayer}!AbstractFactory@{AbstractFactory}}
+\doxysubsubsection{\texorpdfstring{createPlayer()}{createPlayer()}}
+{\footnotesize\ttfamily \label{class_abstract_factory_a46700428c7560625ebd3b599e35ad60c} 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_player}{Player}} $>$ Abstract\+Factory\+::create\+Player (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates a player entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the player. \\
+\hline
+{\em y} & The y-\/coordinate of the player. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \doxylink{class_player}{Player} object. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_concrete_factory_ac4ebb08e28ddf4a3a53979394e78bf71}{Concrete\+Factory}}.
+
+\Hypertarget{class_abstract_factory_a2af03c94c2af0f951008e78953bffba3}\index{AbstractFactory@{AbstractFactory}!createScore@{createScore}}
+\index{createScore@{createScore}!AbstractFactory@{AbstractFactory}}
+\doxysubsubsection{\texorpdfstring{createScore()}{createScore()}}
+{\footnotesize\ttfamily \label{class_abstract_factory_a2af03c94c2af0f951008e78953bffba3} 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_score}{Score}} $>$ Abstract\+Factory\+::create\+Score (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates a score entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the score display. \\
+\hline
+{\em y} & The y-\/coordinate of the score display. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \doxylink{class_score}{Score} object. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_concrete_factory_ada417995eef16341b351387e1385b717}{Concrete\+Factory}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Logic/\+Patterns/\mbox{\hyperlink{_abstract_factory_8h}{Abstract\+Factory.\+h}}\end{DoxyCompactItemize}

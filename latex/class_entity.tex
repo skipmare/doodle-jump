@@ -1,0 +1,503 @@
+\doxysection{Entity Class Reference}
+\hypertarget{class_entity}{}\label{class_entity}\index{Entity@{Entity}}
+
+
+Base class for all entities in the game.  
+
+
+
+
+{\ttfamily \#include $<$Entity.\+h$>$}
+
+Inheritance diagram for Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.836879cm]{class_entity}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_ae5a9ed9b94b78f5f89b177a611689e5f}{Entity}} (float \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}}, float \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}})
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{class_entity}{Entity} object with the specified initial position. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}{\texorpdfstring{$\sim$}{\string~}\+Entity}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor to allow proper cleanup of derived classes. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a0a9aa21e0ee17422cf3b91452c3431c4}{update}} (float delta\+Time)=0
+\begin{DoxyCompactList}\small\item\em Updates the entity\textquotesingle{}s state. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a43a066e3ab4376eb6afbade526c2d1e2}{getX}} () const
+\begin{DoxyCompactList}\small\item\em Gets the x-\/coordinate of the entity. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{class_entity_a1628120ebbd5b236a029eaa4a9547313}{getY}} () const
+\begin{DoxyCompactList}\small\item\em Gets the y-\/coordinate of the entity. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a93306ecdce9446da37560f5f2b5307c0}{set\+Position}} (float \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}}, float \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}})
+\begin{DoxyCompactList}\small\item\em Sets the position of the entity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} \mbox{\hyperlink{class_entity_ac9be21c21f70756bf0ad72bb5d7e6b28}{get\+Bounding\+Box}} () const
+\begin{DoxyCompactList}\small\item\em Gets the bounding box of the entity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44}{Entity\+Type}} \mbox{\hyperlink{class_entity_a69c6347e1d6aeabc72f8e754bd0f2b83}{get\+Entity\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Gets the type of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a5f154968f2a478ea924460c78e0cd39e}{get\+Width}} () const
+\begin{DoxyCompactList}\small\item\em Gets the width of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a1332918563adb284c0fd432d47486d44}{get\+Height}} () const
+\begin{DoxyCompactList}\small\item\em Gets the height of the entity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a60c66ea3107dfab9de9ddc19cd9d0e0e}{get\+Collision\+On\+Land}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the entity has collided with the player on landing. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a0e2cb1d3e94796b76909dd9de169deb7}{get\+Collidable}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the entity is collidable. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a9722eefb92bda9cb7cf0ddf5521d52bf}{get\+Jump\+Trigger}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the jump trigger is active. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a24837eeec9f82089609ec84b51d600db}{set\+Jump\+Trigger}} (bool input)
+\begin{DoxyCompactList}\small\item\em Sets the jump trigger state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a50f8a72062a0ebf253c66bbbdef73edd}{set\+Out\+Of\+View}} (bool \mbox{\hyperlink{class_entity_a4fd01fc33b5a1f7877fe5ecd4c583407}{out\+Of\+View}})
+\begin{DoxyCompactList}\small\item\em Sets whether the entity is out of view. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_aa617323e4260b580b73f15138e975060}{get\+Out\+Of\+View}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the entity is out of view. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_ae0136ae533b5de07fcc5fd9a967b409a}{get\+Has\+Collided}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the entity has collided with the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a1a23935fde9e7d7d1c6877f5d4e4fb39}{set\+Has\+Collided}} (bool \mbox{\hyperlink{class_entity_ad2cc13f1f53bf57a100658399ef5db9b}{has\+Collided}})
+\begin{DoxyCompactList}\small\item\em Sets the collision state of the entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_subject}{Subject}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_subject_a7e360b2f847983bff270c67b6aeb153b}{attach}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observer}{Observer}} $>$ observer)
+\begin{DoxyCompactList}\small\item\em Attaches an observer to this subject. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_subject_a9dda003f071a9c8e41813b68901d3741}{detach}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observer}{Observer}} $>$ observer)
+\begin{DoxyCompactList}\small\item\em Detaches an observer from this subject. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_subject_af104c2baf37c7aa63b2ef6d32c2b3a9c}{notify}} ()
+\begin{DoxyCompactList}\small\item\em Notifies all attached observers of a change. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}} = 0
+\begin{DoxyCompactList}\small\item\em The x-\/coordinate of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}} = 0
+\begin{DoxyCompactList}\small\item\em The y-\/coordinate of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a489f84ea2f7b049c466ec25d1bd5957d}{velocityX}} = 0
+\begin{DoxyCompactList}\small\item\em The horizontal velocity of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a7eee17062ce809ed32030b344c6232fe}{velocityY}} = 0
+\begin{DoxyCompactList}\small\item\em The vertical velocity of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_adadfcc784f30b51b8e49f8230a56b793}{width}} = 0
+\begin{DoxyCompactList}\small\item\em The width of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a4550dc1011f47f6c4bb86e564e7d605b}{height}} = 0
+\begin{DoxyCompactList}\small\item\em The height of the entity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44}{Entity\+Type}} \mbox{\hyperlink{class_entity_a98b987ac07e1d55153c4fb3f8588545f}{Entity\+Type\+\_\+var}} = \mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}
+\begin{DoxyCompactList}\small\item\em The type of the entity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_ab8334073c4a81c38f733a1bd0ef1826a}{collision\+On\+Land}} = false
+\begin{DoxyCompactList}\small\item\em Indicates if the entity has collided with the player on landing. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a35a0b763d249ebb4a1e2394f8764236d}{collidable}} = true
+\begin{DoxyCompactList}\small\item\em Indicates if the entity is collidable. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a3cbb140a102f0c95f7fdeb13b466826d}{jumptrigger}} = true
+\begin{DoxyCompactList}\small\item\em Indicates if the jump trigger is active. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_ad2cc13f1f53bf57a100658399ef5db9b}{has\+Collided}} = false
+\begin{DoxyCompactList}\small\item\em Indicates if the entity has collided with the player. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a4fd01fc33b5a1f7877fe5ecd4c583407}{out\+Of\+View}} = false
+\begin{DoxyCompactList}\small\item\em Indicates if the entity is out of view. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for all entities in the game. 
+
+This class defines common properties and methods that all game entities share. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_entity_ae5a9ed9b94b78f5f89b177a611689e5f}\index{Entity@{Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}}
+{\footnotesize\ttfamily \label{class_entity_ae5a9ed9b94b78f5f89b177a611689e5f} 
+Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Constructs an \doxylink{class_entity}{Entity} object with the specified initial position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The initial x-\/coordinate of the entity. \\
+\hline
+{\em y} & The initial y-\/coordinate of the entity. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}\index{Entity@{Entity}!````~Entity@{\texorpdfstring{$\sim$}{\string~}Entity}}
+\index{````~Entity@{\texorpdfstring{$\sim$}{\string~}Entity}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Entity()}{\string~Entity()}}
+{\footnotesize\ttfamily \label{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae} 
+Entity\+::\texorpdfstring{$\sim$}{\string~}\+Entity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Virtual destructor to allow proper cleanup of derived classes. 
+
+Destructor for the \doxylink{class_entity}{Entity} class. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_entity_ac9be21c21f70756bf0ad72bb5d7e6b28}\index{Entity@{Entity}!getBoundingBox@{getBoundingBox}}
+\index{getBoundingBox@{getBoundingBox}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getBoundingBox()}{getBoundingBox()}}
+{\footnotesize\ttfamily \label{class_entity_ac9be21c21f70756bf0ad72bb5d7e6b28} 
+\mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} Entity\+::get\+Bounding\+Box (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Gets the bounding box of the entity. 
+
+Calculates and retrieves the bounding box of the entity.
+
+\begin{DoxyReturn}{Returns}
+The bounding box.
+
+A \doxylink{struct_bounding_box}{Bounding\+Box} struct representing the entity\textquotesingle{}s bounds. 
+\end{DoxyReturn}
+\Hypertarget{class_entity_a0e2cb1d3e94796b76909dd9de169deb7}\index{Entity@{Entity}!getCollidable@{getCollidable}}
+\index{getCollidable@{getCollidable}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getCollidable()}{getCollidable()}}
+{\footnotesize\ttfamily \label{class_entity_a0e2cb1d3e94796b76909dd9de169deb7} 
+bool Entity\+::get\+Collidable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Checks if the entity is collidable. 
+
+\begin{DoxyReturn}{Returns}
+True if the entity is collidable, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_entity_a60c66ea3107dfab9de9ddc19cd9d0e0e}\index{Entity@{Entity}!getCollisionOnLand@{getCollisionOnLand}}
+\index{getCollisionOnLand@{getCollisionOnLand}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getCollisionOnLand()}{getCollisionOnLand()}}
+{\footnotesize\ttfamily \label{class_entity_a60c66ea3107dfab9de9ddc19cd9d0e0e} 
+bool Entity\+::get\+Collision\+On\+Land (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Checks if the entity has collided with the player on landing. 
+
+\begin{DoxyReturn}{Returns}
+True if a collision occurred on landing, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_entity_a69c6347e1d6aeabc72f8e754bd0f2b83}\index{Entity@{Entity}!getEntityType@{getEntityType}}
+\index{getEntityType@{getEntityType}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getEntityType()}{getEntityType()}}
+{\footnotesize\ttfamily \label{class_entity_a69c6347e1d6aeabc72f8e754bd0f2b83} 
+\mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44}{Entity\+Type}} Entity\+::get\+Entity\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Gets the type of the entity. 
+
+\begin{DoxyReturn}{Returns}
+The entity type. 
+\end{DoxyReturn}
+\Hypertarget{class_entity_ae0136ae533b5de07fcc5fd9a967b409a}\index{Entity@{Entity}!getHasCollided@{getHasCollided}}
+\index{getHasCollided@{getHasCollided}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getHasCollided()}{getHasCollided()}}
+{\footnotesize\ttfamily \label{class_entity_ae0136ae533b5de07fcc5fd9a967b409a} 
+bool Entity\+::get\+Has\+Collided (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Checks if the entity has collided with the player. 
+
+\begin{DoxyReturn}{Returns}
+True if a collision occurred, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_entity_a1332918563adb284c0fd432d47486d44}\index{Entity@{Entity}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}}
+{\footnotesize\ttfamily \label{class_entity_a1332918563adb284c0fd432d47486d44} 
+float Entity\+::get\+Height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Gets the height of the entity. 
+
+\begin{DoxyReturn}{Returns}
+The height. 
+\end{DoxyReturn}
+\Hypertarget{class_entity_a9722eefb92bda9cb7cf0ddf5521d52bf}\index{Entity@{Entity}!getJumpTrigger@{getJumpTrigger}}
+\index{getJumpTrigger@{getJumpTrigger}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getJumpTrigger()}{getJumpTrigger()}}
+{\footnotesize\ttfamily \label{class_entity_a9722eefb92bda9cb7cf0ddf5521d52bf} 
+bool Entity\+::get\+Jump\+Trigger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Checks if the jump trigger is active. 
+
+\begin{DoxyReturn}{Returns}
+True if the jump trigger is active, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_entity_aa617323e4260b580b73f15138e975060}\index{Entity@{Entity}!getOutOfView@{getOutOfView}}
+\index{getOutOfView@{getOutOfView}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getOutOfView()}{getOutOfView()}}
+{\footnotesize\ttfamily \label{class_entity_aa617323e4260b580b73f15138e975060} 
+bool Entity\+::get\+Out\+Of\+View (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Checks if the entity is out of view. 
+
+\begin{DoxyReturn}{Returns}
+True if the entity is out of view, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_entity_a5f154968f2a478ea924460c78e0cd39e}\index{Entity@{Entity}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getWidth()}{getWidth()}}
+{\footnotesize\ttfamily \label{class_entity_a5f154968f2a478ea924460c78e0cd39e} 
+float Entity\+::get\+Width (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Gets the width of the entity. 
+
+\begin{DoxyReturn}{Returns}
+The width. 
+\end{DoxyReturn}
+\Hypertarget{class_entity_a43a066e3ab4376eb6afbade526c2d1e2}\index{Entity@{Entity}!getX@{getX}}
+\index{getX@{getX}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getX()}{getX()}}
+{\footnotesize\ttfamily \label{class_entity_a43a066e3ab4376eb6afbade526c2d1e2} 
+float Entity\+::getX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Gets the x-\/coordinate of the entity. 
+
+\begin{DoxyReturn}{Returns}
+The x-\/coordinate.
+
+The current x-\/coordinate. 
+\end{DoxyReturn}
+\Hypertarget{class_entity_a1628120ebbd5b236a029eaa4a9547313}\index{Entity@{Entity}!getY@{getY}}
+\index{getY@{getY}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getY()}{getY()}}
+{\footnotesize\ttfamily \label{class_entity_a1628120ebbd5b236a029eaa4a9547313} 
+float Entity\+::getY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [virtual]}}
+
+
+
+Gets the y-\/coordinate of the entity. 
+
+\begin{DoxyReturn}{Returns}
+The y-\/coordinate.
+
+The current y-\/coordinate. 
+\end{DoxyReturn}
+\Hypertarget{class_entity_a1a23935fde9e7d7d1c6877f5d4e4fb39}\index{Entity@{Entity}!setHasCollided@{setHasCollided}}
+\index{setHasCollided@{setHasCollided}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{setHasCollided()}{setHasCollided()}}
+{\footnotesize\ttfamily \label{class_entity_a1a23935fde9e7d7d1c6877f5d4e4fb39} 
+void Entity\+::set\+Has\+Collided (\begin{DoxyParamCaption}\item[{bool}]{has\+Collided}{}\end{DoxyParamCaption})}
+
+
+
+Sets the collision state of the entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em has\+Collided} & True if a collision occurred, false otherwise.\\
+\hline
+{\em has\+Collided} & True if the entity has collided, false otherwise. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_entity_a24837eeec9f82089609ec84b51d600db}\index{Entity@{Entity}!setJumpTrigger@{setJumpTrigger}}
+\index{setJumpTrigger@{setJumpTrigger}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{setJumpTrigger()}{setJumpTrigger()}}
+{\footnotesize\ttfamily \label{class_entity_a24837eeec9f82089609ec84b51d600db} 
+void Entity\+::set\+Jump\+Trigger (\begin{DoxyParamCaption}\item[{bool}]{input}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the jump trigger state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & True to activate the jump trigger, false otherwise. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_entity_a50f8a72062a0ebf253c66bbbdef73edd}\index{Entity@{Entity}!setOutOfView@{setOutOfView}}
+\index{setOutOfView@{setOutOfView}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{setOutOfView()}{setOutOfView()}}
+{\footnotesize\ttfamily \label{class_entity_a50f8a72062a0ebf253c66bbbdef73edd} 
+void Entity\+::set\+Out\+Of\+View (\begin{DoxyParamCaption}\item[{bool}]{out\+Of\+View}{}\end{DoxyParamCaption})}
+
+
+
+Sets whether the entity is out of view. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+Of\+View} & True if the entity is out of view, false otherwise. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_entity_a93306ecdce9446da37560f5f2b5307c0}\index{Entity@{Entity}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily \label{class_entity_a93306ecdce9446da37560f5f2b5307c0} 
+void Entity\+::set\+Position (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sets the position of the entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The new x-\/coordinate. \\
+\hline
+{\em y} & The new y-\/coordinate. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Notify observers of the position change.
+
+Reimplemented in \mbox{\hyperlink{class_vertical_platform_a993a65886e131bf37997669f20196b51}{Vertical\+Platform}}.
+
+\Hypertarget{class_entity_a0a9aa21e0ee17422cf3b91452c3431c4}\index{Entity@{Entity}!update@{update}}
+\index{update@{update}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_entity_a0a9aa21e0ee17422cf3b91452c3431c4} 
+void Entity\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Updates the entity\textquotesingle{}s state. 
+
+Updates the entity\textquotesingle{}s position based on its velocity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Time elapsed since the last update, in seconds.\\
+\hline
+{\em delta\+Time} & The time elapsed since the last update, in seconds. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Update the x-\/coordinate.
+
+\texorpdfstring{$<$}{<} Update the y-\/coordinate.
+
+Implemented in \mbox{\hyperlink{class_b_gtile_a32642bd9eda795f1a059d2723dabc7bc}{BGtile}}, \mbox{\hyperlink{class_bonus_a0b8f69ee630c1821e196b0075bd581b4}{Bonus}}, \mbox{\hyperlink{class_disappearing_platform_abafc60e51ce4269c48d9c8e50c8eecf4}{Disappearing\+Platform}}, \mbox{\hyperlink{class_horizontal_platform_a113faf0aab2ce99d5afa88deb072566a}{Horizontal\+Platform}}, \mbox{\hyperlink{class_platform_a32528599eaf97a4d4c733362b56e4b8c}{Platform}}, \mbox{\hyperlink{class_player_a9acd4c2abd2a98d54a4bc574452c20a7}{Player}}, \mbox{\hyperlink{class_score_a288df0b7ea3aced828d7f5e72b2016cf}{Score}}, and \mbox{\hyperlink{class_vertical_platform_a275c28be53e25cb390eeeaceb187abb0}{Vertical\+Platform}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_entity_a35a0b763d249ebb4a1e2394f8764236d}\index{Entity@{Entity}!collidable@{collidable}}
+\index{collidable@{collidable}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{collidable}{collidable}}
+{\footnotesize\ttfamily \label{class_entity_a35a0b763d249ebb4a1e2394f8764236d} 
+bool Entity\+::collidable = true\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Indicates if the entity is collidable. 
+
+\Hypertarget{class_entity_ab8334073c4a81c38f733a1bd0ef1826a}\index{Entity@{Entity}!collisionOnLand@{collisionOnLand}}
+\index{collisionOnLand@{collisionOnLand}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{collisionOnLand}{collisionOnLand}}
+{\footnotesize\ttfamily \label{class_entity_ab8334073c4a81c38f733a1bd0ef1826a} 
+bool Entity\+::collision\+On\+Land = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Indicates if the entity has collided with the player on landing. 
+
+\Hypertarget{class_entity_a98b987ac07e1d55153c4fb3f8588545f}\index{Entity@{Entity}!EntityType\_var@{EntityType\_var}}
+\index{EntityType\_var@{EntityType\_var}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{EntityType\_var}{EntityType\_var}}
+{\footnotesize\ttfamily \label{class_entity_a98b987ac07e1d55153c4fb3f8588545f} 
+\mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44}{Entity\+Type}} Entity\+::\+Entity\+Type\+\_\+var = \mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The type of the entity. 
+
+\Hypertarget{class_entity_ad2cc13f1f53bf57a100658399ef5db9b}\index{Entity@{Entity}!hasCollided@{hasCollided}}
+\index{hasCollided@{hasCollided}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{hasCollided}{hasCollided}}
+{\footnotesize\ttfamily \label{class_entity_ad2cc13f1f53bf57a100658399ef5db9b} 
+bool Entity\+::has\+Collided = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Indicates if the entity has collided with the player. 
+
+\Hypertarget{class_entity_a4550dc1011f47f6c4bb86e564e7d605b}\index{Entity@{Entity}!height@{height}}
+\index{height@{height}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily \label{class_entity_a4550dc1011f47f6c4bb86e564e7d605b} 
+float Entity\+::height = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The height of the entity. 
+
+\Hypertarget{class_entity_a3cbb140a102f0c95f7fdeb13b466826d}\index{Entity@{Entity}!jumptrigger@{jumptrigger}}
+\index{jumptrigger@{jumptrigger}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{jumptrigger}{jumptrigger}}
+{\footnotesize\ttfamily \label{class_entity_a3cbb140a102f0c95f7fdeb13b466826d} 
+bool Entity\+::jumptrigger = true\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Indicates if the jump trigger is active. 
+
+\Hypertarget{class_entity_a4fd01fc33b5a1f7877fe5ecd4c583407}\index{Entity@{Entity}!outOfView@{outOfView}}
+\index{outOfView@{outOfView}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{outOfView}{outOfView}}
+{\footnotesize\ttfamily \label{class_entity_a4fd01fc33b5a1f7877fe5ecd4c583407} 
+bool Entity\+::out\+Of\+View = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Indicates if the entity is out of view. 
+
+\Hypertarget{class_entity_a489f84ea2f7b049c466ec25d1bd5957d}\index{Entity@{Entity}!velocityX@{velocityX}}
+\index{velocityX@{velocityX}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{velocityX}{velocityX}}
+{\footnotesize\ttfamily \label{class_entity_a489f84ea2f7b049c466ec25d1bd5957d} 
+float Entity\+::velocityX = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The horizontal velocity of the entity. 
+
+\Hypertarget{class_entity_a7eee17062ce809ed32030b344c6232fe}\index{Entity@{Entity}!velocityY@{velocityY}}
+\index{velocityY@{velocityY}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{velocityY}{velocityY}}
+{\footnotesize\ttfamily \label{class_entity_a7eee17062ce809ed32030b344c6232fe} 
+float Entity\+::velocityY = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The vertical velocity of the entity. 
+
+\Hypertarget{class_entity_adadfcc784f30b51b8e49f8230a56b793}\index{Entity@{Entity}!width@{width}}
+\index{width@{width}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily \label{class_entity_adadfcc784f30b51b8e49f8230a56b793} 
+float Entity\+::width = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The width of the entity. 
+
+\Hypertarget{class_entity_abc2d19ee6ff26b8520428894da6a8f68}\index{Entity@{Entity}!x@{x}}
+\index{x@{x}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily \label{class_entity_abc2d19ee6ff26b8520428894da6a8f68} 
+float Entity\+::x = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The x-\/coordinate of the entity. 
+
+\Hypertarget{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}\index{Entity@{Entity}!y@{y}}
+\index{y@{y}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily \label{class_entity_af4966f81d91cc8f8d5eb9e9002240c49} 
+float Entity\+::y = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The y-\/coordinate of the entity. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Logic/\+Entities/\mbox{\hyperlink{_entity_8h}{Entity.\+h}}\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Logic/\+Entities/\mbox{\hyperlink{_entity_8cpp}{Entity.\+cpp}}\end{DoxyCompactItemize}

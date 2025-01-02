@@ -1,0 +1,37 @@
+\doxysection{Concrete\+Factory.\+h}
+\hypertarget{_concrete_factory_8h_source}{}\label{_concrete_factory_8h_source}\index{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/GameRepresentation/Factory/ConcreteFactory.h@{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/GameRepresentation/Factory/ConcreteFactory.h}}
+\mbox{\hyperlink{_concrete_factory_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_SKIPMARE\_CONCRETEFACTORY\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_SKIPMARE\_CONCRETEFACTORY\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_abstract_factory_8h}{AbstractFactory.h}}"{}}\ \textcolor{comment}{//\ Include\ the\ abstract\ factory\ header}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_player_view_8h}{PlayerView.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_platform_view_8h}{PlatformView.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_bonus_view_8h}{BonusView.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_b_gtile_view_8h}{BGtileView.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_concrete_factory_8h}{ConcreteFactory.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_score_view_8h}{ScoreView.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_concrete_factory_a18729ce55b0f20acab2f466a14728de6}{ConcreteFactory}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_abstract_factory}{AbstractFactory}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_concrete_factory_a18729ce55b0f20acab2f466a14728de6}{ConcreteFactory}}(\textcolor{keyword}{const}\ std::shared\_ptr<sf::RenderWindow>\&\ window)\ :\ currentWindow(window)\ \{\}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00041\ \ \ \ \ std::shared\_ptr<Player>\ \mbox{\hyperlink{class_concrete_factory_ac4ebb08e28ddf4a3a53979394e78bf71}{createPlayer}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00053\ \ \ \ \ std::shared\_ptr<Platform>\ \mbox{\hyperlink{class_concrete_factory_aaffcd2d7867916f03b15f0f9de25db79}{createPlatform}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \mbox{\hyperlink{_entity_8h_a527bfd1a86584280ea4bb3f8a1f8d523}{PlatformType}}\ type)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00066\ \ \ \ \ std::shared\_ptr<Bonus>\ \mbox{\hyperlink{class_concrete_factory_a39446ea269efd1df5377abc0dd2af755}{createBonus}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \mbox{\hyperlink{_entity_8h_ad6d58ebabfbf9aa4181bfe97a5d8d984}{BonusType}}\ type,\ std::shared\_ptr<Platform>\ platform)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00077\ \ \ \ \ std::shared\_ptr<BGtile>\ \mbox{\hyperlink{class_concrete_factory_a69716d5a8ecec7b2881c5b146ada11a5}{createBGtile}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00088\ \ \ \ \ std::shared\_ptr<Score>\ \mbox{\hyperlink{class_concrete_factory_ada417995eef16341b351387e1385b717}{createScore}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00091\ \ \ \ \ std::shared\_ptr<sf::RenderWindow>\ currentWindow;\ }
+\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_SKIPMARE\_CONCRETEFACTORY\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,24 @@
+\doxysection{Player\+View.\+h}
+\hypertarget{_player_view_8h_source}{}\label{_player_view_8h_source}\index{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/GameRepresentation/View/PlayerView.h@{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/GameRepresentation/View/PlayerView.h}}
+\mbox{\hyperlink{_player_view_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PLAYERVIEW\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PLAYERVIEW\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_view_8h}{EntityView.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_player_8h}{Player.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player_view_ac79b30ef00a4bfa6d2e0e085ea97aec4}{PlayerView}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity_view_a8f74e594a1d814f30ae25b9ad5b425d4}{EntityView}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_player_view_ac79b30ef00a4bfa6d2e0e085ea97aec4}{PlayerView}}(\textcolor{keyword}{const}\ std::shared\_ptr<Player>\ \&player,\ \textcolor{keyword}{const}\ std::shared\_ptr<sf::RenderWindow>\ \&window);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_view_afce785294689abe3851e4f1eb641d480}{loadTexture}}()\ \textcolor{keyword}{final};\ \textcolor{comment}{//\ Load\ texture\ based\ on\ the\ player's\ state}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00049\ \ \ \ \ std::shared\_ptr<Player>\ player;\ \textcolor{comment}{//\ Reference\ to\ the\ associated\ player}}
+\DoxyCodeLine{00050\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PLAYERVIEW\_H}}
+
+\end{DoxyCode}

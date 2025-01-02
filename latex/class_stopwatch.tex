@@ -1,0 +1,167 @@
+\doxysection{Stopwatch Class Reference}
+\hypertarget{class_stopwatch}{}\label{class_stopwatch}\index{Stopwatch@{Stopwatch}}
+
+
+A singleton class to measure elapsed time and delta time.  
+
+
+
+
+{\ttfamily \#include $<$Stopwatch.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_stopwatch_a6d01ecc80c92f1d5210cd9c3eb72883d}{start}} ()
+\begin{DoxyCompactList}\small\item\em Starts the stopwatch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_stopwatch_aa0266311b7392b948061bb985b49cff4}{stop}} ()
+\begin{DoxyCompactList}\small\item\em Stops the stopwatch. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_stopwatch_ae095049063daf3545700784598eb2ecd}{get\+Elapsed\+Time}} () const
+\begin{DoxyCompactList}\small\item\em Gets the elapsed time in seconds. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_stopwatch_a71234ede9b40c852fd9ce721506140b3}{tick}} ()
+\begin{DoxyCompactList}\small\item\em Updates the stopwatch and returns the delta time in seconds. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_stopwatch_ae1298eaa585575d4657cf86bf79db34f}{get\+Delta\+Time}} () const
+\begin{DoxyCompactList}\small\item\em Gets the delta time in seconds. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_stopwatch_a9168950a70e64909ac292fa1ab203c83}{Stopwatch}} (const \mbox{\hyperlink{class_stopwatch}{Stopwatch}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor to prevent copying of the \doxylink{class_stopwatch}{Stopwatch} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_stopwatch}{Stopwatch}} \& \mbox{\hyperlink{class_stopwatch_a2783eb908f8509282035d2bc7d499d93}{operator=}} (const \mbox{\hyperlink{class_stopwatch}{Stopwatch}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator to prevent assignment of the \doxylink{class_stopwatch}{Stopwatch} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_stopwatch}{Stopwatch}} \& \mbox{\hyperlink{class_stopwatch_ae8b7e7fbb1ec4dfaec39ed8f72d1ca45}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Gets the instance of the \doxylink{class_stopwatch}{Stopwatch} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A singleton class to measure elapsed time and delta time. 
+
+The \doxylink{class_stopwatch}{Stopwatch} class provides functionality to measure elapsed time and track time deltas. It supports starting, stopping, and updating the stopwatch, as well as retrieving elapsed time and delta time between ticks. The class follows the singleton pattern, ensuring that only one instance of the stopwatch is used. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_stopwatch_a9168950a70e64909ac292fa1ab203c83}\index{Stopwatch@{Stopwatch}!Stopwatch@{Stopwatch}}
+\index{Stopwatch@{Stopwatch}!Stopwatch@{Stopwatch}}
+\doxysubsubsection{\texorpdfstring{Stopwatch()}{Stopwatch()}}
+{\footnotesize\ttfamily \label{class_stopwatch_a9168950a70e64909ac292fa1ab203c83} 
+Stopwatch\+::\+Stopwatch (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stopwatch}{Stopwatch}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy constructor to prevent copying of the \doxylink{class_stopwatch}{Stopwatch} object. 
+
+The \doxylink{class_stopwatch}{Stopwatch} class follows the singleton pattern and does not allow copying. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_stopwatch_ae1298eaa585575d4657cf86bf79db34f}\index{Stopwatch@{Stopwatch}!getDeltaTime@{getDeltaTime}}
+\index{getDeltaTime@{getDeltaTime}!Stopwatch@{Stopwatch}}
+\doxysubsubsection{\texorpdfstring{getDeltaTime()}{getDeltaTime()}}
+{\footnotesize\ttfamily \label{class_stopwatch_ae1298eaa585575d4657cf86bf79db34f} 
+float Stopwatch\+::get\+Delta\+Time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Gets the delta time in seconds. 
+
+Returns the time difference between the current tick and the previous tick.
+
+\begin{DoxyReturn}{Returns}
+The delta time in seconds.
+\end{DoxyReturn}
+Returns the time difference between the current tick and the previous tick in seconds.
+
+\begin{DoxyReturn}{Returns}
+The delta time in seconds. 
+\end{DoxyReturn}
+\Hypertarget{class_stopwatch_ae095049063daf3545700784598eb2ecd}\index{Stopwatch@{Stopwatch}!getElapsedTime@{getElapsedTime}}
+\index{getElapsedTime@{getElapsedTime}!Stopwatch@{Stopwatch}}
+\doxysubsubsection{\texorpdfstring{getElapsedTime()}{getElapsedTime()}}
+{\footnotesize\ttfamily \label{class_stopwatch_ae095049063daf3545700784598eb2ecd} 
+float Stopwatch\+::get\+Elapsed\+Time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Gets the elapsed time in seconds. 
+
+If the stopwatch is running, this method calculates and returns the time elapsed since the stopwatch was started.
+
+\begin{DoxyReturn}{Returns}
+The elapsed time in seconds. Returns 0 if the stopwatch is not running.
+\end{DoxyReturn}
+If the stopwatch is running, calculates and returns the time elapsed since the stopwatch was started.
+
+\begin{DoxyReturn}{Returns}
+The elapsed time in seconds. Returns 0 if the stopwatch is not running. 
+\end{DoxyReturn}
+\Hypertarget{class_stopwatch_ae8b7e7fbb1ec4dfaec39ed8f72d1ca45}\index{Stopwatch@{Stopwatch}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Stopwatch@{Stopwatch}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \label{class_stopwatch_ae8b7e7fbb1ec4dfaec39ed8f72d1ca45} 
+static \mbox{\hyperlink{class_stopwatch}{Stopwatch}} \& Stopwatch\+::get\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Gets the instance of the \doxylink{class_stopwatch}{Stopwatch} class. 
+
+This static method ensures that only one instance of the \doxylink{class_stopwatch}{Stopwatch} class exists throughout the lifetime of the program. It follows the singleton design pattern.
+
+\begin{DoxyReturn}{Returns}
+A reference to the singleton \doxylink{class_stopwatch}{Stopwatch} instance. 
+\end{DoxyReturn}
+\Hypertarget{class_stopwatch_a2783eb908f8509282035d2bc7d499d93}\index{Stopwatch@{Stopwatch}!operator=@{operator=}}
+\index{operator=@{operator=}!Stopwatch@{Stopwatch}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_stopwatch_a2783eb908f8509282035d2bc7d499d93} 
+\mbox{\hyperlink{class_stopwatch}{Stopwatch}} \& Stopwatch\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stopwatch}{Stopwatch}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy assignment operator to prevent assignment of the \doxylink{class_stopwatch}{Stopwatch} object. 
+
+The \doxylink{class_stopwatch}{Stopwatch} class follows the singleton pattern and does not allow assignment. \Hypertarget{class_stopwatch_a6d01ecc80c92f1d5210cd9c3eb72883d}\index{Stopwatch@{Stopwatch}!start@{start}}
+\index{start@{start}!Stopwatch@{Stopwatch}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily \label{class_stopwatch_a6d01ecc80c92f1d5210cd9c3eb72883d} 
+void Stopwatch\+::start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Starts the stopwatch. 
+
+Begins tracking time by recording the current time as the start time. The stopwatch is marked as running. \Hypertarget{class_stopwatch_aa0266311b7392b948061bb985b49cff4}\index{Stopwatch@{Stopwatch}!stop@{stop}}
+\index{stop@{stop}!Stopwatch@{Stopwatch}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily \label{class_stopwatch_aa0266311b7392b948061bb985b49cff4} 
+void Stopwatch\+::stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Stops the stopwatch. 
+
+Stops the stopwatch and prevents further time tracking.
+
+Stops the stopwatch and prevents any further time tracking. \Hypertarget{class_stopwatch_a71234ede9b40c852fd9ce721506140b3}\index{Stopwatch@{Stopwatch}!tick@{tick}}
+\index{tick@{tick}!Stopwatch@{Stopwatch}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily \label{class_stopwatch_a71234ede9b40c852fd9ce721506140b3} 
+float Stopwatch\+::tick (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Updates the stopwatch and returns the delta time in seconds. 
+
+Calculates the time elapsed since the last tick and returns it as the delta time. If the stopwatch is not running, it returns 0.
+
+\begin{DoxyReturn}{Returns}
+The delta time in seconds. Returns 0 if the stopwatch is not running.
+\end{DoxyReturn}
+Calculates the time elapsed since the last tick and returns it as the delta time. If the stopwatch is not running, returns 0.
+
+\begin{DoxyReturn}{Returns}
+The delta time in seconds. Returns 0 if the stopwatch is not running. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Logic/\+Utilities/\mbox{\hyperlink{_stopwatch_8h}{Stopwatch.\+h}}\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Logic/\+Utilities/\mbox{\hyperlink{_stopwatch_8cpp}{Stopwatch.\+cpp}}\end{DoxyCompactItemize}

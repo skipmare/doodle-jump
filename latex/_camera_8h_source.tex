@@ -1,0 +1,51 @@
+\doxysection{Camera.\+h}
+\hypertarget{_camera_8h_source}{}\label{_camera_8h_source}\index{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/GameRepresentation/Camera/Camera.h@{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/GameRepresentation/Camera/Camera.h}}
+\mbox{\hyperlink{_camera_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Created\ by\ karan\ on\ 14/11/2024.}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_SKIPMARE\_CAMERA\_H}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_SKIPMARE\_CAMERA\_H}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_camera_a38e93174f6450406000650953293875a}{Camera}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_camera_a38e93174f6450406000650953293875a}{Camera}}(\textcolor{keywordtype}{float}\ viewWidth,\ \textcolor{keywordtype}{float}\ viewHeight);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00034\ \ \ \ \ std::pair<float,\ float>\ \mbox{\hyperlink{class_camera_ab941bc003f74b5865bf5551cf678aad0}{transform}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00045\ \ \ \ \ std::pair<float,\ float>\ \mbox{\hyperlink{class_camera_adab10118006db41369a91f2dde10fade}{undotransform}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_camera_a0c41d93e9c1f7d0af22d17d607265bcd}{updateCameraY}}(\textcolor{keywordtype}{float}\ PlayerY);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_camera_abc7f30951636e6f1b915fbe45eafe9cf}{isNewMax}}(\textcolor{keywordtype}{float}\ PlayerY);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_camera_a9cd37c4fa5f09764953814485e6b4693}{getCameraX}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ cameraX;\ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_camera_a3ab89ab6b71ea26686487b52c7d974be}{getCameraY}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ cameraY;\ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_camera_abe6247c5c87603d38ab0418fe1421e67}{getViewWidth}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ viewWidth;\ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_camera_adfcbb94c60a6fdaddd70b26d221be01b}{getViewHeight}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ viewHeight;\ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_camera_a8a1d1a43e5e6816de7c10e8af1ba8b35}{getPlayerMaxY}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ PlayerMaxY;\ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_camera_a0c04035ae3fa7fc2c7f1c1f5d2162a32}{getPlayerMaxYprev}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ PlayerMaxYprev;\ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_camera_aee8027b5309a5dc77db956d27924c387}{resetCamera}}();}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{float}\ cameraX;\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{float}\ cameraY;\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{float}\ viewWidth;\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{float}\ viewHeight;\ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{float}\ PlayerMaxY;\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{float}\ PlayerMaxYprev;\ }
+\DoxyCodeLine{00124\ \};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//INC\_2024\_PROJECT\_SKIPMARE\_CAMERA\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,64 @@
+\doxysection{Observer Class Reference}
+\hypertarget{class_observer}{}\label{class_observer}\index{Observer@{Observer}}
+
+
+An abstract base class for the \doxylink{class_observer}{Observer} design pattern.  
+
+
+
+
+{\ttfamily \#include $<$Observer.\+h$>$}
+
+Inheritance diagram for Observer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_observer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_observer_ac75e4b339faeb3ea6fe0a01bf0b4a215}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Called to notify the observer of a change in the subject. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_observer_a37824643eeaef086de17bba2717d865a}{\texorpdfstring{$\sim$}{\string~}\+Observer}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{class_observer}{Observer} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An abstract base class for the \doxylink{class_observer}{Observer} design pattern. 
+
+The \doxylink{class_observer}{Observer} class is used to define a contract for objects that wish to be notified of changes in a \doxylink{class_subject}{Subject}. This class defines an update method that will be called when the subject undergoes a change. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_observer_a37824643eeaef086de17bba2717d865a}\index{Observer@{Observer}!````~Observer@{\texorpdfstring{$\sim$}{\string~}Observer}}
+\index{````~Observer@{\texorpdfstring{$\sim$}{\string~}Observer}!Observer@{Observer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Observer()}{\string~Observer()}}
+{\footnotesize\ttfamily \label{class_observer_a37824643eeaef086de17bba2717d865a} 
+virtual Observer\+::\texorpdfstring{$\sim$}{\string~}\+Observer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Virtual destructor for \doxylink{class_observer}{Observer} class. 
+
+Ensures proper cleanup of derived classes. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_observer_ac75e4b339faeb3ea6fe0a01bf0b4a215}\index{Observer@{Observer}!update@{update}}
+\index{update@{update}!Observer@{Observer}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_observer_ac75e4b339faeb3ea6fe0a01bf0b4a215} 
+virtual void Observer\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Called to notify the observer of a change in the subject. 
+
+This method is called when the subject\textquotesingle{}s state changes and the observer needs to react accordingly. 
+
+Implemented in \mbox{\hyperlink{class_entity_view_a3ae42cf32e30ce8d418e35096aab0849}{Entity\+View}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Logic/\+Patterns/\mbox{\hyperlink{_observer_8h}{Observer.\+h}}\end{DoxyCompactItemize}

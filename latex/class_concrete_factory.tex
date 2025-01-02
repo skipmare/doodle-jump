@@ -1,0 +1,283 @@
+\doxysection{Concrete\+Factory Class Reference}
+\hypertarget{class_concrete_factory}{}\label{class_concrete_factory}\index{ConcreteFactory@{ConcreteFactory}}
+
+
+A concrete implementation of the \doxylink{class_abstract_factory}{Abstract\+Factory}.  
+
+
+
+
+{\ttfamily \#include $<$Concrete\+Factory.\+h$>$}
+
+Inheritance diagram for Concrete\+Factory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_concrete_factory}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_concrete_factory_a18729ce55b0f20acab2f466a14728de6}{Concrete\+Factory}} (const std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \&window)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_concrete_factory}{Concrete\+Factory} with a window reference. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_player}{Player}} $>$ \mbox{\hyperlink{class_concrete_factory_ac4ebb08e28ddf4a3a53979394e78bf71}{create\+Player}} (float x, float y) override
+\begin{DoxyCompactList}\small\item\em Creates a \doxylink{class_player}{Player} instance and returns it. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_platform}{Platform}} $>$ \mbox{\hyperlink{class_concrete_factory_aaffcd2d7867916f03b15f0f9de25db79}{create\+Platform}} (float x, float y, \mbox{\hyperlink{_entity_8h_a527bfd1a86584280ea4bb3f8a1f8d523}{Platform\+Type}} type) override
+\begin{DoxyCompactList}\small\item\em Creates a \doxylink{class_platform}{Platform} instance and returns it. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_bonus}{Bonus}} $>$ \mbox{\hyperlink{class_concrete_factory_a39446ea269efd1df5377abc0dd2af755}{create\+Bonus}} (float x, float y, \mbox{\hyperlink{_entity_8h_ad6d58ebabfbf9aa4181bfe97a5d8d984}{Bonus\+Type}} type, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_platform}{Platform}} $>$ platform) override
+\begin{DoxyCompactList}\small\item\em Creates a \doxylink{class_bonus}{Bonus} instance and returns it. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_b_gtile}{BGtile}} $>$ \mbox{\hyperlink{class_concrete_factory_a69716d5a8ecec7b2881c5b146ada11a5}{create\+BGtile}} (float x, float y) override
+\begin{DoxyCompactList}\small\item\em Creates a \doxylink{class_b_gtile}{BGtile} instance and returns it. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_score}{Score}} $>$ \mbox{\hyperlink{class_concrete_factory_ada417995eef16341b351387e1385b717}{create\+Score}} (float x, float y) override
+\begin{DoxyCompactList}\small\item\em Creates a \doxylink{class_score}{Score} instance and returns it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_abstract_factory}{Abstract\+Factory}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_abstract_factory_ae0b348ff14d4b3e9ab8322afd2fd8b38}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+Factory}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{class_abstract_factory}{Abstract\+Factory} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A concrete implementation of the \doxylink{class_abstract_factory}{Abstract\+Factory}. 
+
+The \doxylink{class_concrete_factory}{Concrete\+Factory} is responsible for creating various game objects such as \doxylink{class_player}{Player}, \doxylink{class_platform}{Platform}, \doxylink{class_bonus}{Bonus}, \doxylink{class_b_gtile}{BGtile}, and \doxylink{class_score}{Score}. It creates both the game entities and their corresponding views. The factory provides the methods to instantiate these objects with the necessary parameters, using the provided window reference. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_concrete_factory_a18729ce55b0f20acab2f466a14728de6}\index{ConcreteFactory@{ConcreteFactory}!ConcreteFactory@{ConcreteFactory}}
+\index{ConcreteFactory@{ConcreteFactory}!ConcreteFactory@{ConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{ConcreteFactory()}{ConcreteFactory()}}
+{\footnotesize\ttfamily \label{class_concrete_factory_a18729ce55b0f20acab2f466a14728de6} 
+Concrete\+Factory\+::\+Concrete\+Factory (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructs a \doxylink{class_concrete_factory}{Concrete\+Factory} with a window reference. 
+
+Initializes the factory with a shared pointer to the render window, which is used for creating views.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & A shared pointer to the SFML render window. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_concrete_factory_a69716d5a8ecec7b2881c5b146ada11a5}\index{ConcreteFactory@{ConcreteFactory}!createBGtile@{createBGtile}}
+\index{createBGtile@{createBGtile}!ConcreteFactory@{ConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{createBGtile()}{createBGtile()}}
+{\footnotesize\ttfamily \label{class_concrete_factory_a69716d5a8ecec7b2881c5b146ada11a5} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_b_gtile}{BGtile}} $>$ Concrete\+Factory\+::create\+BGtile (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a \doxylink{class_b_gtile}{BGtile} instance and returns it. 
+
+Creates a \doxylink{class_b_gtile}{BGtile} (background tile) instance and its associated \doxylink{class_b_gtile_view}{BGtile\+View}.
+
+This method creates a \doxylink{class_b_gtile}{BGtile} (background tile) object at the specified position and returns a shared pointer to it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate for the \doxylink{class_b_gtile}{BGtile}\textquotesingle{}s position. \\
+\hline
+{\em y} & The y-\/coordinate for the \doxylink{class_b_gtile}{BGtile}\textquotesingle{}s position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \doxylink{class_b_gtile}{BGtile} object.
+\end{DoxyReturn}
+This method creates a \doxylink{class_b_gtile}{BGtile} object at the specified position and creates a \doxylink{class_b_gtile_view}{BGtile\+View} to represent the visual aspect of the \doxylink{class_b_gtile}{BGtile}. The view is attached to the \doxylink{class_b_gtile}{BGtile}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate for the \doxylink{class_b_gtile}{BGtile}\textquotesingle{}s position. \\
+\hline
+{\em y} & The y-\/coordinate for the \doxylink{class_b_gtile}{BGtile}\textquotesingle{}s position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \doxylink{class_b_gtile}{BGtile} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_factory_a3859df828747e5d8296e7217a74e8fc1}{Abstract\+Factory}}.
+
+\Hypertarget{class_concrete_factory_a39446ea269efd1df5377abc0dd2af755}\index{ConcreteFactory@{ConcreteFactory}!createBonus@{createBonus}}
+\index{createBonus@{createBonus}!ConcreteFactory@{ConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{createBonus()}{createBonus()}}
+{\footnotesize\ttfamily \label{class_concrete_factory_a39446ea269efd1df5377abc0dd2af755} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_bonus}{Bonus}} $>$ Concrete\+Factory\+::create\+Bonus (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{, }\item[{\mbox{\hyperlink{_entity_8h_ad6d58ebabfbf9aa4181bfe97a5d8d984}{Bonus\+Type}}}]{type}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_platform}{Platform}} $>$}]{platform}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a \doxylink{class_bonus}{Bonus} instance and returns it. 
+
+Creates a \doxylink{class_bonus}{Bonus} instance and its associated \doxylink{class_bonus_view}{Bonus\+View}.
+
+This method creates a \doxylink{class_bonus}{Bonus} object at the specified position, of the given type, associated with the provided platform.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate for the bonus\textquotesingle{}s position. \\
+\hline
+{\em y} & The y-\/coordinate for the bonus\textquotesingle{}s position. \\
+\hline
+{\em type} & The type of bonus to create (e.\+g., \doxylink{class_spring}{Spring}, \doxylink{class_jetpack}{Jetpack}). \\
+\hline
+{\em platform} & A shared pointer to the platform the bonus is associated with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \doxylink{class_bonus}{Bonus} object.
+\end{DoxyReturn}
+This method creates a \doxylink{class_bonus}{Bonus} object of the specified type (e.\+g., \doxylink{class_spring}{Spring} or \doxylink{class_jetpack}{Jetpack}) at the given position, associated with a platform. It also creates a \doxylink{class_bonus_view}{Bonus\+View} and attaches it to the bonus.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate for the bonus\textquotesingle{}s position. \\
+\hline
+{\em y} & The y-\/coordinate for the bonus\textquotesingle{}s position. \\
+\hline
+{\em type} & The type of bonus to create (e.\+g., \doxylink{class_spring}{Spring}, \doxylink{class_jetpack}{Jetpack}). \\
+\hline
+{\em platform} & A shared pointer to the platform associated with the bonus. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \doxylink{class_bonus}{Bonus} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_factory_ac4ef593f9fb329597961f3391e68020e}{Abstract\+Factory}}.
+
+\Hypertarget{class_concrete_factory_aaffcd2d7867916f03b15f0f9de25db79}\index{ConcreteFactory@{ConcreteFactory}!createPlatform@{createPlatform}}
+\index{createPlatform@{createPlatform}!ConcreteFactory@{ConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{createPlatform()}{createPlatform()}}
+{\footnotesize\ttfamily \label{class_concrete_factory_aaffcd2d7867916f03b15f0f9de25db79} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_platform}{Platform}} $>$ Concrete\+Factory\+::create\+Platform (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{, }\item[{\mbox{\hyperlink{_entity_8h_a527bfd1a86584280ea4bb3f8a1f8d523}{Platform\+Type}}}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a \doxylink{class_platform}{Platform} instance and returns it. 
+
+Creates a \doxylink{class_platform}{Platform} instance based on the specified type and position.
+
+This method creates a \doxylink{class_platform}{Platform} object of the specified type at the given position and returns a shared pointer to it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate for the platform\textquotesingle{}s position. \\
+\hline
+{\em y} & The y-\/coordinate for the platform\textquotesingle{}s position. \\
+\hline
+{\em type} & The type of platform to create (e.\+g., Static, Disappearing). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \doxylink{class_platform}{Platform} object.
+\end{DoxyReturn}
+This method creates a \doxylink{class_platform}{Platform} object based on the given platform type (Static, Vertical, Horizontal, or Disappearing) and position. It also creates a corresponding \doxylink{class_platform_view}{Platform\+View} to represent the platform visually and attaches it to the platform.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate for the platform\textquotesingle{}s position. \\
+\hline
+{\em y} & The y-\/coordinate for the platform\textquotesingle{}s position. \\
+\hline
+{\em type} & The type of platform to create (e.\+g., Static, Vertical, Horizontal, Disappearing). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \doxylink{class_platform}{Platform} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_factory_a31f01f312dd7a874b17607b8024c2805}{Abstract\+Factory}}.
+
+\Hypertarget{class_concrete_factory_ac4ebb08e28ddf4a3a53979394e78bf71}\index{ConcreteFactory@{ConcreteFactory}!createPlayer@{createPlayer}}
+\index{createPlayer@{createPlayer}!ConcreteFactory@{ConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{createPlayer()}{createPlayer()}}
+{\footnotesize\ttfamily \label{class_concrete_factory_ac4ebb08e28ddf4a3a53979394e78bf71} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_player}{Player}} $>$ Concrete\+Factory\+::create\+Player (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a \doxylink{class_player}{Player} instance and returns it. 
+
+Creates a \doxylink{class_player}{Player} instance and its associated \doxylink{class_player_view}{Player\+View}.
+
+This method creates a \doxylink{class_player}{Player} object at the specified position and returns a shared pointer to it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate for the player\textquotesingle{}s position. \\
+\hline
+{\em y} & The y-\/coordinate for the player\textquotesingle{}s position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \doxylink{class_player}{Player} object.
+\end{DoxyReturn}
+This method creates a \doxylink{class_player}{Player} object at the specified position and a \doxylink{class_player_view}{Player\+View} that represents the visual aspects of the \doxylink{class_player}{Player}. The view is attached to the player, ensuring that changes to the player\textquotesingle{}s state are reflected in the view.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate for the player\textquotesingle{}s position. \\
+\hline
+{\em y} & The y-\/coordinate for the player\textquotesingle{}s position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \doxylink{class_player}{Player} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_factory_a46700428c7560625ebd3b599e35ad60c}{Abstract\+Factory}}.
+
+\Hypertarget{class_concrete_factory_ada417995eef16341b351387e1385b717}\index{ConcreteFactory@{ConcreteFactory}!createScore@{createScore}}
+\index{createScore@{createScore}!ConcreteFactory@{ConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{createScore()}{createScore()}}
+{\footnotesize\ttfamily \label{class_concrete_factory_ada417995eef16341b351387e1385b717} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_score}{Score}} $>$ Concrete\+Factory\+::create\+Score (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a \doxylink{class_score}{Score} instance and returns it. 
+
+Creates a \doxylink{class_score}{Score} instance and its associated \doxylink{class_score_view}{Score\+View}.
+
+This method creates a \doxylink{class_score}{Score} object at the specified position and returns a shared pointer to it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate for the score\textquotesingle{}s position. \\
+\hline
+{\em y} & The y-\/coordinate for the score\textquotesingle{}s position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \doxylink{class_score}{Score} object.
+\end{DoxyReturn}
+This method creates a \doxylink{class_score}{Score} object at the specified position and creates a \doxylink{class_score_view}{Score\+View} to represent the visual aspect of the score. The view is attached to the \doxylink{class_score}{Score}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate for the score\textquotesingle{}s position. \\
+\hline
+{\em y} & The y-\/coordinate for the score\textquotesingle{}s position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created \doxylink{class_score}{Score} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_factory_a2af03c94c2af0f951008e78953bffba3}{Abstract\+Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Game\+Representation/\+Factory/\mbox{\hyperlink{_concrete_factory_8h}{Concrete\+Factory.\+h}}\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Game\+Representation/\+Factory/\mbox{\hyperlink{_concrete_factory_8cpp}{Concrete\+Factory.\+cpp}}\end{DoxyCompactItemize}

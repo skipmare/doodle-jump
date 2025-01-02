@@ -1,0 +1,157 @@
+\doxysection{Platform\+View Class Reference}
+\hypertarget{class_platform_view}{}\label{class_platform_view}\index{PlatformView@{PlatformView}}
+
+
+Class for rendering and updating the view of a platform entity.  
+
+
+
+
+{\ttfamily \#include $<$Platform\+View.\+h$>$}
+
+Inheritance diagram for Platform\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_platform_view}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_platform_view_a7e5ee8165b44c6e319552e4c36ad8ca1}{Platform\+View}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_platform}{Platform}} $>$ \&platform, const std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \&window)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_platform_view}{Platform\+View} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_platform_view_ab17eeed5913d211784b3e010216f0ef2}{load\+Texture}} () final
+\begin{DoxyCompactList}\small\item\em Loads the texture based on the platform type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity_view}{Entity\+View}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_view_a0f778007e6a69481a371e9ef322e976a}{\texorpdfstring{$\sim$}{\string~}\+Entity\+View}} () override=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_entity_view}{Entity\+View} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_entity_view_a8f74e594a1d814f30ae25b9ad5b425d4}{Entity\+View}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \&\mbox{\hyperlink{class_entity_view_a44310c7a56f0beb141064f88857e92df}{entity}}, const std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \&window)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_entity_view}{Entity\+View} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_view_a3ae42cf32e30ce8d418e35096aab0849}{update}} () final
+\begin{DoxyCompactList}\small\item\em Updates the position and renders the entity\textquotesingle{}s view. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_view_adf2869ddecd4e3f5bf1ae25684b2ee61}{render}} ()
+\begin{DoxyCompactList}\small\item\em Renders the entity\textquotesingle{}s view. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_view_ad33f9914b06f7c1fc1775f3714919441}{set\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Sets the position of the entity\textquotesingle{}s view. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_observer}{Observer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_observer_a37824643eeaef086de17bba2717d865a}{\texorpdfstring{$\sim$}{\string~}\+Observer}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{class_observer}{Observer} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity_view}{Entity\+View}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \mbox{\hyperlink{class_entity_view_aa7e2b51d07a976495ce00ae99d8f4c61}{Current\+Window}}
+\begin{DoxyCompactList}\small\item\em The render window for rendering the entity. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \mbox{\hyperlink{class_entity_view_a44310c7a56f0beb141064f88857e92df}{entity}}
+\begin{DoxyCompactList}\small\item\em The entity associated with this view. \end{DoxyCompactList}\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_entity_view_a39508da83001b63aa61b24af79890a83}{sprite}}
+\begin{DoxyCompactList}\small\item\em The sprite representing the entity. \end{DoxyCompactList}\item 
+sf\+::\+Text \mbox{\hyperlink{class_entity_view_ad9082b7d2c1ecbbe3344e6c292014f37}{Score\+Text}}
+\begin{DoxyCompactList}\small\item\em Text to display information about the entity. \end{DoxyCompactList}\item 
+sf\+::\+Text \mbox{\hyperlink{class_entity_view_a7096285f0c661bc0b07ee9fdb9c32f54}{Best\+Score\+Text}}
+\begin{DoxyCompactList}\small\item\em Text to display the best score. \end{DoxyCompactList}\item 
+sf\+::\+Texture \mbox{\hyperlink{class_entity_view_ab3993583777840a99d04e8823791cace}{texture}}
+\begin{DoxyCompactList}\small\item\em The texture for the sprite. \end{DoxyCompactList}\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_entity_view_a12117818a17530140db583f213f76213}{fallback\+Shape}}
+\begin{DoxyCompactList}\small\item\em The fallback shape to be rendered if texture loading fails. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_view_a521643e64c07c3eaac6b51c297aed77e}{is\+Texture\+Loaded}} = false
+\begin{DoxyCompactList}\small\item\em Flag indicating whether the texture has been loaded. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for rendering and updating the view of a platform entity. 
+
+\texorpdfstring{$<$}{<} Include the \doxylink{class_platform}{Platform} class for platform properties Include the \doxylink{class_entity_view}{Entity\+View} class as a base class SFML for rendering graphics
+
+The \doxylink{class_platform_view}{Platform\+View} class is responsible for rendering the graphical representation of a platform, updating its position, and handling texture loading based on the platform type. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_platform_view_a7e5ee8165b44c6e319552e4c36ad8ca1}\index{PlatformView@{PlatformView}!PlatformView@{PlatformView}}
+\index{PlatformView@{PlatformView}!PlatformView@{PlatformView}}
+\doxysubsubsection{\texorpdfstring{PlatformView()}{PlatformView()}}
+{\footnotesize\ttfamily \label{class_platform_view_a7e5ee8165b44c6e319552e4c36ad8ca1} 
+Platform\+View\+::\+Platform\+View (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_platform}{Platform}} $>$ \&}]{platform}{, }\item[{const std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor for the \doxylink{class_platform_view}{Platform\+View} class. 
+
+Initializes the \doxylink{class_platform_view}{Platform\+View} with a reference to the associated platform and the render window.
+
+
+\begin{DoxyParams}{Parameters}
+{\em platform} & A shared pointer to the associated platform. \\
+\hline
+{\em window} & A shared pointer to the SFML render window.\\
+\hline
+\end{DoxyParams}
+Initializes the \doxylink{class_platform_view}{Platform\+View} with a reference to the associated platform and the render window. It also loads the appropriate texture for the platform and sets its initial position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em platform} & A shared pointer to the associated platform. \\
+\hline
+{\em window} & A shared pointer to the SFML render window. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Load texture for the platform sprite
+
+\texorpdfstring{$<$}{<} Set the initial position
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_platform_view_ab17eeed5913d211784b3e010216f0ef2}\index{PlatformView@{PlatformView}!loadTexture@{loadTexture}}
+\index{loadTexture@{loadTexture}!PlatformView@{PlatformView}}
+\doxysubsubsection{\texorpdfstring{loadTexture()}{loadTexture()}}
+{\footnotesize\ttfamily \label{class_platform_view_ab17eeed5913d211784b3e010216f0ef2} 
+void Platform\+View\+::load\+Texture (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Loads the texture based on the platform type. 
+
+This method loads a different texture depending on the type of the platform.
+
+This method loads a different texture depending on the type of the platform. It also sets fallback colors for each platform type in case the texture loading fails. \texorpdfstring{$<$}{<} Variable to hold the texture file path
+
+\texorpdfstring{$<$}{<} Path to static platform texture
+
+\texorpdfstring{$<$}{<} Fallback color for static
+
+\texorpdfstring{$<$}{<} Path to vertical platform texture
+
+\texorpdfstring{$<$}{<} Fallback color for vertical
+
+\texorpdfstring{$<$}{<} Path to horizontal platform texture
+
+\texorpdfstring{$<$}{<} Fallback color for horizontal
+
+\texorpdfstring{$<$}{<} Path to disappearing platform texture
+
+\texorpdfstring{$<$}{<} Fallback color for disappearing
+
+\texorpdfstring{$<$}{<} Handle unknown platform type
+
+\texorpdfstring{$<$}{<} Fallback color for unknown
+
+\texorpdfstring{$<$}{<} Set texture loaded flag
+
+\texorpdfstring{$<$}{<} Apply the texture to the sprite
+
+\texorpdfstring{$<$}{<} Resize the sprite
+
+\texorpdfstring{$<$}{<} Create rectangle with platform dimensions
+
+\texorpdfstring{$<$}{<} Center the rectangle
+
+Implements \mbox{\hyperlink{class_entity_view_a6c99fbda524fe5ad64319d1b6dbd2721}{Entity\+View}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Game\+Representation/\+View/\mbox{\hyperlink{_platform_view_8h}{Platform\+View.\+h}}\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Game\+Representation/\+View/\mbox{\hyperlink{_platform_view_8cpp}{Platform\+View.\+cpp}}\end{DoxyCompactItemize}

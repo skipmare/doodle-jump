@@ -1,0 +1,147 @@
+\doxysection{Difficulty\+Settings Class Reference}
+\hypertarget{class_difficulty_settings}{}\label{class_difficulty_settings}\index{DifficultySettings@{DifficultySettings}}
+
+
+A base class representing the settings for game difficulty.  
+
+
+
+
+{\ttfamily \#include $<$Difficulty\+Settings.\+h$>$}
+
+Inheritance diagram for Difficulty\+Settings\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_difficulty_settings}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_difficulty_settings_ade6a65fde5f50709d576b0edc1251d23}{\texorpdfstring{$\sim$}{\string~}\+Difficulty\+Settings}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor for the \doxylink{class_difficulty_settings}{Difficulty\+Settings} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_difficulty_settings_ad76caf9982799df41eb726a3203a48a9}{Max\+Plat}}
+\begin{DoxyCompactList}\small\item\em The maximum number of platforms that can appear on the screen. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_difficulty_settings_a6678353a83d375619ccff439907da484}{Chance\+Bonus}}
+\begin{DoxyCompactList}\small\item\em The chance for a bonus to appear on a platform (as a float between 0 and 1). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_difficulty_settings_af46cebb01bcc5ed9468f6f7a7cd7fc2d}{Chance\+Static}}
+\begin{DoxyCompactList}\small\item\em The chance for a static platform to appear. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_difficulty_settings_a0eb35eb28fc9e6a78b9fd5e00683d39d}{Chance\+Horizontal}}
+\begin{DoxyCompactList}\small\item\em The chance for a horizontal platform to appear. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_difficulty_settings_acf90e71488fd552aabbe77f7a7572832}{Chance\+Vertical}}
+\begin{DoxyCompactList}\small\item\em The chance for a vertical platform to appear. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_difficulty_settings_ae41ec9d2bcd23d8c639b3f2d39a78c56}{Chance\+Disappearing}}
+\begin{DoxyCompactList}\small\item\em The chance for a disappearing platform to appear. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_difficulty_settings_a950a9f945e29183b49819f8b50d56cf2}{min\+Distance}}
+\begin{DoxyCompactList}\small\item\em The minimum distance between two consecutive platforms. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_difficulty_settings_a7f6ce9a79a920f5d95206ee2581cf276}{max\+Distance}}
+\begin{DoxyCompactList}\small\item\em The maximum distance between two consecutive platforms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A base class representing the settings for game difficulty. 
+
+This class defines the general parameters for different difficulty levels. It contains settings such as the maximum number of platforms, chances for various types of platforms, and the minimum and maximum distances between platforms. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_difficulty_settings_ade6a65fde5f50709d576b0edc1251d23}\index{DifficultySettings@{DifficultySettings}!````~DifficultySettings@{\texorpdfstring{$\sim$}{\string~}DifficultySettings}}
+\index{````~DifficultySettings@{\texorpdfstring{$\sim$}{\string~}DifficultySettings}!DifficultySettings@{DifficultySettings}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DifficultySettings()}{\string~DifficultySettings()}}
+{\footnotesize\ttfamily \label{class_difficulty_settings_ade6a65fde5f50709d576b0edc1251d23} 
+virtual Difficulty\+Settings\+::\texorpdfstring{$\sim$}{\string~}\+Difficulty\+Settings (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Default destructor for the \doxylink{class_difficulty_settings}{Difficulty\+Settings} class. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_difficulty_settings_a6678353a83d375619ccff439907da484}\index{DifficultySettings@{DifficultySettings}!ChanceBonus@{ChanceBonus}}
+\index{ChanceBonus@{ChanceBonus}!DifficultySettings@{DifficultySettings}}
+\doxysubsubsection{\texorpdfstring{ChanceBonus}{ChanceBonus}}
+{\footnotesize\ttfamily \label{class_difficulty_settings_a6678353a83d375619ccff439907da484} 
+float Difficulty\+Settings\+::\+Chance\+Bonus}
+
+
+
+The chance for a bonus to appear on a platform (as a float between 0 and 1). 
+
+\Hypertarget{class_difficulty_settings_ae41ec9d2bcd23d8c639b3f2d39a78c56}\index{DifficultySettings@{DifficultySettings}!ChanceDisappearing@{ChanceDisappearing}}
+\index{ChanceDisappearing@{ChanceDisappearing}!DifficultySettings@{DifficultySettings}}
+\doxysubsubsection{\texorpdfstring{ChanceDisappearing}{ChanceDisappearing}}
+{\footnotesize\ttfamily \label{class_difficulty_settings_ae41ec9d2bcd23d8c639b3f2d39a78c56} 
+float Difficulty\+Settings\+::\+Chance\+Disappearing}
+
+
+
+The chance for a disappearing platform to appear. 
+
+\Hypertarget{class_difficulty_settings_a0eb35eb28fc9e6a78b9fd5e00683d39d}\index{DifficultySettings@{DifficultySettings}!ChanceHorizontal@{ChanceHorizontal}}
+\index{ChanceHorizontal@{ChanceHorizontal}!DifficultySettings@{DifficultySettings}}
+\doxysubsubsection{\texorpdfstring{ChanceHorizontal}{ChanceHorizontal}}
+{\footnotesize\ttfamily \label{class_difficulty_settings_a0eb35eb28fc9e6a78b9fd5e00683d39d} 
+float Difficulty\+Settings\+::\+Chance\+Horizontal}
+
+
+
+The chance for a horizontal platform to appear. 
+
+\Hypertarget{class_difficulty_settings_af46cebb01bcc5ed9468f6f7a7cd7fc2d}\index{DifficultySettings@{DifficultySettings}!ChanceStatic@{ChanceStatic}}
+\index{ChanceStatic@{ChanceStatic}!DifficultySettings@{DifficultySettings}}
+\doxysubsubsection{\texorpdfstring{ChanceStatic}{ChanceStatic}}
+{\footnotesize\ttfamily \label{class_difficulty_settings_af46cebb01bcc5ed9468f6f7a7cd7fc2d} 
+float Difficulty\+Settings\+::\+Chance\+Static}
+
+
+
+The chance for a static platform to appear. 
+
+\Hypertarget{class_difficulty_settings_acf90e71488fd552aabbe77f7a7572832}\index{DifficultySettings@{DifficultySettings}!ChanceVertical@{ChanceVertical}}
+\index{ChanceVertical@{ChanceVertical}!DifficultySettings@{DifficultySettings}}
+\doxysubsubsection{\texorpdfstring{ChanceVertical}{ChanceVertical}}
+{\footnotesize\ttfamily \label{class_difficulty_settings_acf90e71488fd552aabbe77f7a7572832} 
+float Difficulty\+Settings\+::\+Chance\+Vertical}
+
+
+
+The chance for a vertical platform to appear. 
+
+\Hypertarget{class_difficulty_settings_a7f6ce9a79a920f5d95206ee2581cf276}\index{DifficultySettings@{DifficultySettings}!maxDistance@{maxDistance}}
+\index{maxDistance@{maxDistance}!DifficultySettings@{DifficultySettings}}
+\doxysubsubsection{\texorpdfstring{maxDistance}{maxDistance}}
+{\footnotesize\ttfamily \label{class_difficulty_settings_a7f6ce9a79a920f5d95206ee2581cf276} 
+float Difficulty\+Settings\+::max\+Distance}
+
+
+
+The maximum distance between two consecutive platforms. 
+
+\Hypertarget{class_difficulty_settings_ad76caf9982799df41eb726a3203a48a9}\index{DifficultySettings@{DifficultySettings}!MaxPlat@{MaxPlat}}
+\index{MaxPlat@{MaxPlat}!DifficultySettings@{DifficultySettings}}
+\doxysubsubsection{\texorpdfstring{MaxPlat}{MaxPlat}}
+{\footnotesize\ttfamily \label{class_difficulty_settings_ad76caf9982799df41eb726a3203a48a9} 
+int Difficulty\+Settings\+::\+Max\+Plat}
+
+
+
+The maximum number of platforms that can appear on the screen. 
+
+\Hypertarget{class_difficulty_settings_a950a9f945e29183b49819f8b50d56cf2}\index{DifficultySettings@{DifficultySettings}!minDistance@{minDistance}}
+\index{minDistance@{minDistance}!DifficultySettings@{DifficultySettings}}
+\doxysubsubsection{\texorpdfstring{minDistance}{minDistance}}
+{\footnotesize\ttfamily \label{class_difficulty_settings_a950a9f945e29183b49819f8b50d56cf2} 
+float Difficulty\+Settings\+::min\+Distance}
+
+
+
+The minimum distance between two consecutive platforms. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Logic/\+Difficulty\+Settings/\mbox{\hyperlink{_difficulty_settings_8h}{Difficulty\+Settings.\+h}}\end{DoxyCompactItemize}

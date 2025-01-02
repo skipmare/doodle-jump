@@ -4,41 +4,39 @@
 
 #include "VerticalPlatform.h"
 
-// Constructor
+/// @brief Constructs a VerticalPlatform object.
 VerticalPlatform::VerticalPlatform(float x, float y) : Platform(x, y) {
-    velocityY = 30.0f;
-    type = PlatformType::VERTICAL;
-    initialY = y;
+    velocityY = 30.0f; ///< Set the vertical velocity for movement.
+    type = PlatformType::VERTICAL; ///< Set the platform type to VERTICAL.
+    initialY = y; ///< Store the initial y-coordinate for vertical movement.
 }
 
-// Destructor
+/// @brief Default destructor for the VerticalPlatform class.
 VerticalPlatform::~VerticalPlatform() = default;
 
-// Updates the platform
+/// @brief Updates the platform's vertical position based on the velocity.
 void VerticalPlatform::update(float deltaTime) {
-    float newY = y + velocityY * deltaTime; // Calculate new position
+    float newY = y + velocityY * deltaTime; ///< Calculate new y-position based on velocity.
+
+    // Check if the platform has moved out of the allowed range.
     float Maxupwards = initialY - 50;
     float Maxdownwards = initialY + 50;
 
-    // Check if the platform is going out of the allowed range
     if (newY < Maxupwards) {
-        velocityY = -velocityY; // Reverse direction
+        velocityY = -velocityY; ///< Reverse direction when reaching the upper boundary.
     } else if (newY > Maxdownwards) {
-        velocityY = -velocityY; // Reverse direction
+        velocityY = -velocityY; ///< Reverse direction when reaching the lower boundary.
     } else {
-        y = newY;
-        notify();
+        y = newY; ///< Update the platform's y-position.
+        notify(); ///< Notify observers (if any).
     }
 }
 
-// Set the position of the platform, gets called to change the initial position of the platform
+/// @brief Sets the position of the platform, including vertical position adjustments.
 void VerticalPlatform::setPosition(float x, float initialY) {
-    this->x = x;
-    float diff = this->initialY - initialY;
-    this->initialY = initialY;
-    this->y = this->y - diff;
-    notify();
+    this->x = x; ///< Update the x-coordinate.
+    float diff = this->initialY - initialY; ///< Calculate the vertical difference.
+    this->initialY = initialY; ///< Update the initial y-coordinate.
+    this->y = this->y - diff; ///< Adjust the platform's current y-position.
+    notify(); ///< Notify observers (if any).
 }
-
-
-

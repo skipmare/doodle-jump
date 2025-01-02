@@ -1,0 +1,293 @@
+\doxysection{Camera Class Reference}
+\hypertarget{class_camera}{}\label{class_camera}\index{Camera@{Camera}}
+
+
+A class to manage the camera\textquotesingle{}s position and transformation of coordinates.  
+
+
+
+
+{\ttfamily \#include $<$Camera.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_camera_a38e93174f6450406000650953293875a}{Camera}} (float view\+Width, float view\+Height)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_camera}{Camera} object with specific dimensions. \end{DoxyCompactList}\item 
+std\+::pair$<$ float, float $>$ \mbox{\hyperlink{class_camera_ab941bc003f74b5865bf5551cf678aad0}{transform}} (float x, float y) const
+\begin{DoxyCompactList}\small\item\em Transforms world coordinates to screen (window) coordinates. \end{DoxyCompactList}\item 
+std\+::pair$<$ float, float $>$ \mbox{\hyperlink{class_camera_adab10118006db41369a91f2dde10fade}{undotransform}} (float x, float y) const
+\begin{DoxyCompactList}\small\item\em Transforms screen (window) coordinates to world coordinates. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a0c41d93e9c1f7d0af22d17d607265bcd}{update\+CameraY}} (float PlayerY)
+\begin{DoxyCompactList}\small\item\em Updates the camera\textquotesingle{}s y-\/position based on the player\textquotesingle{}s y-\/position. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_camera_abc7f30951636e6f1b915fbe45eafe9cf}{is\+New\+Max}} (float PlayerY)
+\begin{DoxyCompactList}\small\item\em Checks if the player has reached a new maximum height. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_camera_a9cd37c4fa5f09764953814485e6b4693}{get\+CameraX}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current x-\/position of the camera. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_camera_a3ab89ab6b71ea26686487b52c7d974be}{get\+CameraY}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current y-\/position of the camera. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_camera_abe6247c5c87603d38ab0418fe1421e67}{get\+View\+Width}} () const
+\begin{DoxyCompactList}\small\item\em Gets the width of the camera view. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_camera_adfcbb94c60a6fdaddd70b26d221be01b}{get\+View\+Height}} () const
+\begin{DoxyCompactList}\small\item\em Gets the height of the camera view. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_camera_a8a1d1a43e5e6816de7c10e8af1ba8b35}{get\+Player\+MaxY}} () const
+\begin{DoxyCompactList}\small\item\em Gets the player\textquotesingle{}s maximum y-\/position. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_camera_a0c04035ae3fa7fc2c7f1c1f5d2162a32}{get\+Player\+Max\+Yprev}} () const
+\begin{DoxyCompactList}\small\item\em Gets the player\textquotesingle{}s previous maximum y-\/position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_aee8027b5309a5dc77db956d27924c387}{reset\+Camera}} ()
+\begin{DoxyCompactList}\small\item\em Resets the camera\textquotesingle{}s position and properties to their initial state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to manage the camera\textquotesingle{}s position and transformation of coordinates. 
+
+The \doxylink{class_camera}{Camera} class handles the camera\textquotesingle{}s position in the game world, updating based on the player\textquotesingle{}s position, and provides methods to transform coordinates between world space and screen space. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_camera_a38e93174f6450406000650953293875a}\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}}
+{\footnotesize\ttfamily \label{class_camera_a38e93174f6450406000650953293875a} 
+Camera\+::\+Camera (\begin{DoxyParamCaption}\item[{float}]{view\+Width}{, }\item[{float}]{view\+Height}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs a \doxylink{class_camera}{Camera} object with specific dimensions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em view\+Width} & The width of the camera view (in world units). \\
+\hline
+{\em view\+Height} & The height of the camera view (in world units).\\
+\hline
+\end{DoxyParams}
+The constructor sets the initial position of the camera at the center of the screen and initializes other camera properties like view dimensions and the player\textquotesingle{}s max height.
+
+
+\begin{DoxyParams}{Parameters}
+{\em view\+Width} & The width of the camera view (in world units). \\
+\hline
+{\em view\+Height} & The height of the camera view (in world units). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_camera_a9cd37c4fa5f09764953814485e6b4693}\index{Camera@{Camera}!getCameraX@{getCameraX}}
+\index{getCameraX@{getCameraX}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{getCameraX()}{getCameraX()}}
+{\footnotesize\ttfamily \label{class_camera_a9cd37c4fa5f09764953814485e6b4693} 
+float Camera\+::get\+CameraX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the current x-\/position of the camera. 
+
+\begin{DoxyReturn}{Returns}
+The current x-\/coordinate of the camera. 
+\end{DoxyReturn}
+\Hypertarget{class_camera_a3ab89ab6b71ea26686487b52c7d974be}\index{Camera@{Camera}!getCameraY@{getCameraY}}
+\index{getCameraY@{getCameraY}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{getCameraY()}{getCameraY()}}
+{\footnotesize\ttfamily \label{class_camera_a3ab89ab6b71ea26686487b52c7d974be} 
+float Camera\+::get\+CameraY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the current y-\/position of the camera. 
+
+\begin{DoxyReturn}{Returns}
+The current y-\/coordinate of the camera. 
+\end{DoxyReturn}
+\Hypertarget{class_camera_a8a1d1a43e5e6816de7c10e8af1ba8b35}\index{Camera@{Camera}!getPlayerMaxY@{getPlayerMaxY}}
+\index{getPlayerMaxY@{getPlayerMaxY}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{getPlayerMaxY()}{getPlayerMaxY()}}
+{\footnotesize\ttfamily \label{class_camera_a8a1d1a43e5e6816de7c10e8af1ba8b35} 
+float Camera\+::get\+Player\+MaxY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the player\textquotesingle{}s maximum y-\/position. 
+
+\begin{DoxyReturn}{Returns}
+The highest y-\/coordinate the player has reached. 
+\end{DoxyReturn}
+\Hypertarget{class_camera_a0c04035ae3fa7fc2c7f1c1f5d2162a32}\index{Camera@{Camera}!getPlayerMaxYprev@{getPlayerMaxYprev}}
+\index{getPlayerMaxYprev@{getPlayerMaxYprev}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{getPlayerMaxYprev()}{getPlayerMaxYprev()}}
+{\footnotesize\ttfamily \label{class_camera_a0c04035ae3fa7fc2c7f1c1f5d2162a32} 
+float Camera\+::get\+Player\+Max\+Yprev (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the player\textquotesingle{}s previous maximum y-\/position. 
+
+\begin{DoxyReturn}{Returns}
+The previous highest y-\/coordinate the player reached. 
+\end{DoxyReturn}
+\Hypertarget{class_camera_adfcbb94c60a6fdaddd70b26d221be01b}\index{Camera@{Camera}!getViewHeight@{getViewHeight}}
+\index{getViewHeight@{getViewHeight}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{getViewHeight()}{getViewHeight()}}
+{\footnotesize\ttfamily \label{class_camera_adfcbb94c60a6fdaddd70b26d221be01b} 
+float Camera\+::get\+View\+Height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the height of the camera view. 
+
+\begin{DoxyReturn}{Returns}
+The height of the camera\textquotesingle{}s view (in world units). 
+\end{DoxyReturn}
+\Hypertarget{class_camera_abe6247c5c87603d38ab0418fe1421e67}\index{Camera@{Camera}!getViewWidth@{getViewWidth}}
+\index{getViewWidth@{getViewWidth}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{getViewWidth()}{getViewWidth()}}
+{\footnotesize\ttfamily \label{class_camera_abe6247c5c87603d38ab0418fe1421e67} 
+float Camera\+::get\+View\+Width (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the width of the camera view. 
+
+\begin{DoxyReturn}{Returns}
+The width of the camera\textquotesingle{}s view (in world units). 
+\end{DoxyReturn}
+\Hypertarget{class_camera_abc7f30951636e6f1b915fbe45eafe9cf}\index{Camera@{Camera}!isNewMax@{isNewMax}}
+\index{isNewMax@{isNewMax}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{isNewMax()}{isNewMax()}}
+{\footnotesize\ttfamily \label{class_camera_abc7f30951636e6f1b915fbe45eafe9cf} 
+bool Camera\+::is\+New\+Max (\begin{DoxyParamCaption}\item[{float}]{PlayerY}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the player has reached a new maximum height. 
+
+Determines if the player has reached a higher vertical position than before, indicating a new "{}max height"{} in the game.
+
+
+\begin{DoxyParams}{Parameters}
+{\em PlayerY} & The current y-\/position of the player. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the player has reached a new max height, false otherwise.
+\end{DoxyReturn}
+Determines if the player has reached a higher vertical position than the current maximum height and updates the player\textquotesingle{}s max height values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em PlayerY} & The current y-\/position of the player. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the player has reached a new max height, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_camera_aee8027b5309a5dc77db956d27924c387}\index{Camera@{Camera}!resetCamera@{resetCamera}}
+\index{resetCamera@{resetCamera}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{resetCamera()}{resetCamera()}}
+{\footnotesize\ttfamily \label{class_camera_aee8027b5309a5dc77db956d27924c387} 
+void Camera\+::reset\+Camera (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Resets the camera\textquotesingle{}s position and properties to their initial state. 
+
+Resets the camera\textquotesingle{}s y-\/position and the player\textquotesingle{}s max height values to their default values (the center of the screen). \Hypertarget{class_camera_ab941bc003f74b5865bf5551cf678aad0}\index{Camera@{Camera}!transform@{transform}}
+\index{transform@{transform}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{transform()}{transform()}}
+{\footnotesize\ttfamily \label{class_camera_ab941bc003f74b5865bf5551cf678aad0} 
+std\+::pair$<$ float, float $>$ Camera\+::transform (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption}) const}
+
+
+
+Transforms world coordinates to screen (window) coordinates. 
+
+Converts the provided world coordinates (x, y) to the corresponding screen coordinates based on the camera\textquotesingle{}s position and view size.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate in world space. \\
+\hline
+{\em y} & The y-\/coordinate in world space. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pair of float values representing the screen (window) coordinates.
+\end{DoxyReturn}
+Converts the given world coordinates (x, y) to screen coordinates, adjusting for the camera\textquotesingle{}s position and the view height.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate in world space. \\
+\hline
+{\em y} & The y-\/coordinate in world space. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pair of float values representing the screen coordinates (x, y). 
+\end{DoxyReturn}
+\Hypertarget{class_camera_adab10118006db41369a91f2dde10fade}\index{Camera@{Camera}!undotransform@{undotransform}}
+\index{undotransform@{undotransform}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{undotransform()}{undotransform()}}
+{\footnotesize\ttfamily \label{class_camera_adab10118006db41369a91f2dde10fade} 
+std\+::pair$<$ float, float $>$ Camera\+::undotransform (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption}) const}
+
+
+
+Transforms screen (window) coordinates to world coordinates. 
+
+Converts the provided screen coordinates (x, y) back to world coordinates.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate on the screen. \\
+\hline
+{\em y} & The y-\/coordinate on the screen. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pair of float values representing the world coordinates.
+\end{DoxyReturn}
+Converts the given screen coordinates (x, y) back to world coordinates, adjusting for the camera\textquotesingle{}s position and the view height.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate on the screen. \\
+\hline
+{\em y} & The y-\/coordinate on the screen. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pair of float values representing the world coordinates (x, y). 
+\end{DoxyReturn}
+\Hypertarget{class_camera_a0c41d93e9c1f7d0af22d17d607265bcd}\index{Camera@{Camera}!updateCameraY@{updateCameraY}}
+\index{updateCameraY@{updateCameraY}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{updateCameraY()}{updateCameraY()}}
+{\footnotesize\ttfamily \label{class_camera_a0c41d93e9c1f7d0af22d17d607265bcd} 
+void Camera\+::update\+CameraY (\begin{DoxyParamCaption}\item[{float}]{PlayerY}{}\end{DoxyParamCaption})}
+
+
+
+Updates the camera\textquotesingle{}s y-\/position based on the player\textquotesingle{}s y-\/position. 
+
+Updates the camera\textquotesingle{}s position based on the player\textquotesingle{}s position.
+
+Adjusts the camera\textquotesingle{}s position so that it follows the player in the vertical direction.
+
+
+\begin{DoxyParams}{Parameters}
+{\em PlayerY} & The current y-\/position of the player in the world.\\
+\hline
+\end{DoxyParams}
+If the player has reached a new maximum height, the camera\textquotesingle{}s vertical position (cameraY) is updated to the player\textquotesingle{}s new max height.
+
+
+\begin{DoxyParams}{Parameters}
+{\em PlayerY} & The current y-\/position of the player. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Game\+Representation/\+Camera/\mbox{\hyperlink{_camera_8h}{Camera.\+h}}\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Game\+Representation/\+Camera/\mbox{\hyperlink{_camera_8cpp}{Camera.\+cpp}}\end{DoxyCompactItemize}

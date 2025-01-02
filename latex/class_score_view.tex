@@ -1,0 +1,164 @@
+\doxysection{Score\+View Class Reference}
+\hypertarget{class_score_view}{}\label{class_score_view}\index{ScoreView@{ScoreView}}
+
+
+Handles the visual representation of the score.  
+
+
+
+
+{\ttfamily \#include $<$Score\+View.\+h$>$}
+
+Inheritance diagram for Score\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_score_view}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_score_view_a1a4129838696383cf684c4ffb0e48420}{Score\+View}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_score}{Score}} $>$ \&score, const std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \&window)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_score_view}{Score\+View} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_score_view_afb840951fe79c87c2517c224e996d05d}{load\+Texture}} () final
+\begin{DoxyCompactList}\small\item\em Loads the texture based on the score\textquotesingle{}s state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_score_view_a2f86cc66adb7c18ebb368859ff9d10a7}{load\+Font}} ()
+\begin{DoxyCompactList}\small\item\em Loads the font for displaying the score. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_score_view_a3ef414b4e33dade6c488ca5622f157ec}{configure\+Text}} ()
+\begin{DoxyCompactList}\small\item\em Configures the text properties for the score display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_score_view_a78331eb5c577302ca384af9106010fe7}{render}} () override
+\begin{DoxyCompactList}\small\item\em Renders the current score and best score on the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity_view}{Entity\+View}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_view_a0f778007e6a69481a371e9ef322e976a}{\texorpdfstring{$\sim$}{\string~}\+Entity\+View}} () override=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_entity_view}{Entity\+View} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_entity_view_a8f74e594a1d814f30ae25b9ad5b425d4}{Entity\+View}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \&\mbox{\hyperlink{class_entity_view_a44310c7a56f0beb141064f88857e92df}{entity}}, const std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \&window)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_entity_view}{Entity\+View} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_view_a3ae42cf32e30ce8d418e35096aab0849}{update}} () final
+\begin{DoxyCompactList}\small\item\em Updates the position and renders the entity\textquotesingle{}s view. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_view_ad33f9914b06f7c1fc1775f3714919441}{set\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Sets the position of the entity\textquotesingle{}s view. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_observer}{Observer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_observer_a37824643eeaef086de17bba2717d865a}{\texorpdfstring{$\sim$}{\string~}\+Observer}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{class_observer}{Observer} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity_view}{Entity\+View}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \mbox{\hyperlink{class_entity_view_aa7e2b51d07a976495ce00ae99d8f4c61}{Current\+Window}}
+\begin{DoxyCompactList}\small\item\em The render window for rendering the entity. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \mbox{\hyperlink{class_entity_view_a44310c7a56f0beb141064f88857e92df}{entity}}
+\begin{DoxyCompactList}\small\item\em The entity associated with this view. \end{DoxyCompactList}\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_entity_view_a39508da83001b63aa61b24af79890a83}{sprite}}
+\begin{DoxyCompactList}\small\item\em The sprite representing the entity. \end{DoxyCompactList}\item 
+sf\+::\+Text \mbox{\hyperlink{class_entity_view_ad9082b7d2c1ecbbe3344e6c292014f37}{Score\+Text}}
+\begin{DoxyCompactList}\small\item\em Text to display information about the entity. \end{DoxyCompactList}\item 
+sf\+::\+Text \mbox{\hyperlink{class_entity_view_a7096285f0c661bc0b07ee9fdb9c32f54}{Best\+Score\+Text}}
+\begin{DoxyCompactList}\small\item\em Text to display the best score. \end{DoxyCompactList}\item 
+sf\+::\+Texture \mbox{\hyperlink{class_entity_view_ab3993583777840a99d04e8823791cace}{texture}}
+\begin{DoxyCompactList}\small\item\em The texture for the sprite. \end{DoxyCompactList}\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_entity_view_a12117818a17530140db583f213f76213}{fallback\+Shape}}
+\begin{DoxyCompactList}\small\item\em The fallback shape to be rendered if texture loading fails. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_view_a521643e64c07c3eaac6b51c297aed77e}{is\+Texture\+Loaded}} = false
+\begin{DoxyCompactList}\small\item\em Flag indicating whether the texture has been loaded. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles the visual representation of the score. 
+
+The \doxylink{class_score_view}{Score\+View} class is responsible for rendering the current score and the best score. It displays the scores as text on the screen, with customized font, size, and colors.
+
+The \doxylink{class_score_view}{Score\+View} class is responsible for rendering the current score and the best score as text on the screen. It includes methods for loading fonts, configuring text properties, and rendering the scores with custom colors and outlines. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_score_view_a1a4129838696383cf684c4ffb0e48420}\index{ScoreView@{ScoreView}!ScoreView@{ScoreView}}
+\index{ScoreView@{ScoreView}!ScoreView@{ScoreView}}
+\doxysubsubsection{\texorpdfstring{ScoreView()}{ScoreView()}}
+{\footnotesize\ttfamily \label{class_score_view_a1a4129838696383cf684c4ffb0e48420} 
+Score\+View\+::\+Score\+View (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_score}{Score}} $>$ \&}]{score}{, }\item[{const std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \&}]{window}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_score_view}{Score\+View} object. 
+
+Initializes the view with the associated score entity and window, and loads the font for displaying the score.
+
+
+\begin{DoxyParams}{Parameters}
+{\em score} & A shared pointer to the \doxylink{class_score}{Score} entity that holds the score information. \\
+\hline
+{\em window} & A shared pointer to the SFML render window used for drawing. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Load the font used for score display
+
+\texorpdfstring{$<$}{<} Configure the text properties for both score and best score
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_score_view_a3ef414b4e33dade6c488ca5622f157ec}\index{ScoreView@{ScoreView}!configureText@{configureText}}
+\index{configureText@{configureText}!ScoreView@{ScoreView}}
+\doxysubsubsection{\texorpdfstring{configureText()}{configureText()}}
+{\footnotesize\ttfamily \label{class_score_view_a3ef414b4e33dade6c488ca5622f157ec} 
+void Score\+View\+::configure\+Text (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Configures the text properties for the score display. 
+
+Configures the text properties for displaying the score and best score.
+
+This method sets the font, position, size, color, and outline for both the current score and best score texts.
+
+This method sets the font, position, size, color, and outline for both the current score and best score texts. It also sets the string values to the respective scores. \Hypertarget{class_score_view_a2f86cc66adb7c18ebb368859ff9d10a7}\index{ScoreView@{ScoreView}!loadFont@{loadFont}}
+\index{loadFont@{loadFont}!ScoreView@{ScoreView}}
+\doxysubsubsection{\texorpdfstring{loadFont()}{loadFont()}}
+{\footnotesize\ttfamily \label{class_score_view_a2f86cc66adb7c18ebb368859ff9d10a7} 
+void Score\+View\+::load\+Font (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Loads the font for displaying the score. 
+
+Loads the font used for displaying the score.
+
+This method loads the font from the file "{}\+Assets/\+Century\+Gothic.\+ttf"{}. If the font cannot be loaded, an error message is printed to the standard error stream. \texorpdfstring{$<$}{<} Error message if font fails to load\Hypertarget{class_score_view_afb840951fe79c87c2517c224e996d05d}\index{ScoreView@{ScoreView}!loadTexture@{loadTexture}}
+\index{loadTexture@{loadTexture}!ScoreView@{ScoreView}}
+\doxysubsubsection{\texorpdfstring{loadTexture()}{loadTexture()}}
+{\footnotesize\ttfamily \label{class_score_view_afb840951fe79c87c2517c224e996d05d} 
+void Score\+View\+::load\+Texture (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Loads the texture based on the score\textquotesingle{}s state. 
+
+Loads the texture for the score view.
+
+This method is overridden from the base class but does nothing in this context as the score is displayed using text, not a texture.
+
+This method is overridden from the base class but does nothing in this context. The score view only uses text for rendering, so no texture is needed. 
+
+Implements \mbox{\hyperlink{class_entity_view_a6c99fbda524fe5ad64319d1b6dbd2721}{Entity\+View}}.
+
+\Hypertarget{class_score_view_a78331eb5c577302ca384af9106010fe7}\index{ScoreView@{ScoreView}!render@{render}}
+\index{render@{render}!ScoreView@{ScoreView}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_score_view_a78331eb5c577302ca384af9106010fe7} 
+void Score\+View\+::render (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Renders the current score and best score on the window. 
+
+This method updates the text for the current score and best score and draws them on the window. The current score is displayed in green, while the best score is displayed in red. 
+
+Reimplemented from \mbox{\hyperlink{class_entity_view_adf2869ddecd4e3f5bf1ae25684b2ee61}{Entity\+View}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Game\+Representation/\+View/\mbox{\hyperlink{_score_view_8h}{Score\+View.\+h}}\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Game\+Representation/\+View/\mbox{\hyperlink{_score_view_8cpp}{Score\+View.\+cpp}}\end{DoxyCompactItemize}

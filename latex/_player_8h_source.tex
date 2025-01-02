@@ -1,0 +1,64 @@
+\doxysection{Player.\+h}
+\hypertarget{_player_8h_source}{}\label{_player_8h_source}\index{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/Logic/Entities/Player.h@{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/Logic/Entities/Player.h}}
+\mbox{\hyperlink{_player_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_SKIPMARE\_PLAYER\_H}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_SKIPMARE\_PLAYER\_H}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player_a4c481b6493f9e0d550377c0d99763c82}{Player}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity_ae5a9ed9b94b78f5f89b177a611689e5f}{Entity}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_player_a4c481b6493f9e0d550377c0d99763c82}{Player}}(\textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}});}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a9acd4c2abd2a98d54a4bc574452c20a7}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a70e21ca98281b7d72f105f2693113d7e}{jump}}();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a8e6ae2e7828c05c2125ab0c573b55d83}{move}}(\textcolor{keywordtype}{int}\ direction);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a660c9b084f368f60ec5f92215c4829d1}{SetHasCollided}}(\textcolor{keywordtype}{bool}\ collisionBool);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00034\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_player_a5bbde059ecbc0d08efbbeb91e12c6eb1}{getVelocityX}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_entity_a489f84ea2f7b049c466ec25d1bd5957d}{velocityX}};\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00038\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a4eefad86ee90c945cacd79bcb9fe9573}{isJumping}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ isJumpingState;\ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00042\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a825c1069de7e6f6663a30a9ba7ae6e05}{isFalling}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ isFallingState;\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00046\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_player_a602b6127e7fb97ad1f049543e1bb3b4e}{getVelocityY}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_entity_a7eee17062ce809ed32030b344c6232fe}{velocityY}};\ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00050\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_player_a4199a0b3ac3fc9474faafc6c36b3b4c2}{getJumpForce}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ jumpForce;\ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00054\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_player_a87ee847dba1b210acafba2afce56b925}{getGravity}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ gravity;\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00058\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_af1fd609055816f348fd7877939371fcd}{getCollisionWithPlatform}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ CollisionWithPlatform;\ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a1896238f10350b1047480a395bbb6e34}{setCWP}}(\textcolor{keywordtype}{bool}\ CWP);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a0850eeca735baecc96e39b47f57e0351}{setJumping}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_ae6e3dfed9bb31f3cea6a97bca37897f3}{setFalling}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_ac5283899c0393a932a243248b650ba14}{setisgoingleft}}(\textcolor{keywordtype}{bool}\ goingleft);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a7b1d459c095922db6cdc6ef4452e9a31}{applyBonusEffect}}(\mbox{\hyperlink{_entity_8h_ad6d58ebabfbf9aa4181bfe97a5d8d984}{BonusType}}\ bonusType);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a91d870c54071bcc914e2db4609d6b1ff}{setVelocityY}}(\textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_entity_a7eee17062ce809ed32030b344c6232fe}{velocityY}})\ \{\ this-\/>velocityY\ =\ \mbox{\hyperlink{class_entity_a7eee17062ce809ed32030b344c6232fe}{velocityY}};\ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{bool}\ isJumpingState\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ isFallingState\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{float}\ gravity\ =\ 8.0f;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{float}\ jumpForce\ =\ 650.0f;\ \ \ \ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasCollided\ =\ \textcolor{keyword}{false};\ \ \ \ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{bool}\ BonusEffect\ =\ \textcolor{keyword}{false};\ \ \ \ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{bool}\ isgoingleft\ =\ \textcolor{keyword}{false};\ \ \ \ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ CollisionWithPlatform\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{float}\ BonusEffectTime\ =\ 0.0f;\ }
+\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_SKIPMARE\_PLAYER\_H}}
+
+\end{DoxyCode}

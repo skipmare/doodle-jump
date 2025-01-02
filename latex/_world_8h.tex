@@ -1,0 +1,54 @@
+\doxysection{C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Logic/\+Game\+Logic/\+World.h File Reference}
+\hypertarget{_world_8h}{}\label{_world_8h}\index{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/Logic/GameLogic/World.h@{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/Logic/GameLogic/World.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include "{}Entity.\+h"{}}\newline
+{\ttfamily \#include "{}Abstract\+Factory.\+h"{}}\newline
+{\ttfamily \#include "{}Camera.\+h"{}}\newline
+{\ttfamily \#include "{}Random.\+h"{}}\newline
+{\ttfamily \#include "{}../\+Difficulty\+Settings/\+EASY.\+h"{}}\newline
+{\ttfamily \#include "{}../\+Difficulty\+Settings/\+MEDIUM.\+h"{}}\newline
+{\ttfamily \#include "{}../\+Difficulty\+Settings/\+HARD.\+h"{}}\newline
+{\ttfamily \#include "{}iostream"{}}\newline
+{\ttfamily \#include "{}unordered\+\_\+set"{}}\newline
+{\ttfamily \#include "{}functional"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_world}{World}}
+\begin{DoxyCompactList}\small\item\em Represents the game world, including entities, the player, camera, and collision detection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83}{Difficulty}} \{ \mbox{\hyperlink{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83a6e5affbf5c08fef0e28c094856f94627}{EASY}}
+, \mbox{\hyperlink{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83ac87f3be66ffc3c0d4249f1c2cc5f3cce}{MEDIUM}}
+, \mbox{\hyperlink{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83a7c144eae2e08db14c82e376603cc01f4}{HARD}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum for difficulty levels in the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83}\index{World.h@{World.h}!Difficulty@{Difficulty}}
+\index{Difficulty@{Difficulty}!World.h@{World.h}}
+\doxysubsubsection{\texorpdfstring{Difficulty}{Difficulty}}
+{\footnotesize\ttfamily \label{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83} 
+enum class \mbox{\hyperlink{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83}{Difficulty}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum for difficulty levels in the game. 
+
+The \doxylink{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83}{Difficulty} enum represents the three levels of difficulty available in the game. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EASY@{EASY}!World.h@{World.h}}\index{World.h@{World.h}!EASY@{EASY}}}\Hypertarget{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83a6e5affbf5c08fef0e28c094856f94627}\label{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83a6e5affbf5c08fef0e28c094856f94627} 
+EASY&Easy difficulty level. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MEDIUM@{MEDIUM}!World.h@{World.h}}\index{World.h@{World.h}!MEDIUM@{MEDIUM}}}\Hypertarget{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83ac87f3be66ffc3c0d4249f1c2cc5f3cce}\label{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83ac87f3be66ffc3c0d4249f1c2cc5f3cce} 
+MEDIUM&Medium difficulty level. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HARD@{HARD}!World.h@{World.h}}\index{World.h@{World.h}!HARD@{HARD}}}\Hypertarget{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83a7c144eae2e08db14c82e376603cc01f4}\label{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83a7c144eae2e08db14c82e376603cc01f4} 
+HARD&Hard difficulty level. \\
+\hline
+
+\end{DoxyEnumFields}

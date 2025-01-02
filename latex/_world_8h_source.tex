@@ -1,0 +1,104 @@
+\doxysection{World.\+h}
+\hypertarget{_world_8h_source}{}\label{_world_8h_source}\index{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/Logic/GameLogic/World.h@{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/Logic/GameLogic/World.h}}
+\mbox{\hyperlink{_world_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WORLD\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WORLD\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}\ \textcolor{comment}{//\ For\ std::shared\_ptr}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_abstract_factory_8h}{AbstractFactory.h}}"{}}\ \textcolor{comment}{//\ Include\ the\ factory\ header}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_camera_8h}{Camera.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_random_8h}{Random.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_e_a_s_y_8h}{../DifficultySettings/EASY.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_m_e_d_i_u_m_8h}{../DifficultySettings/MEDIUM.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_h_a_r_d_8h}{../DifficultySettings/HARD.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}iostream"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}unordered\_set"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}functional"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83}{Difficulty}}\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_e_a_s_y}{EASY}},\ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_m_e_d_i_u_m}{MEDIUM}},\ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_h_a_r_d}{HARD}}\ \ \ \ \ }
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_world_a75a5d645388a4396d7ef93f9e9b5c9b6}{World}}\ \{}
+\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_world_a75a5d645388a4396d7ef93f9e9b5c9b6}{World}}(\textcolor{keyword}{const}\ std::shared\_ptr<AbstractFactory>\&\ factory,\ \textcolor{keywordtype}{float}\ viewWidth,\ \textcolor{keywordtype}{float}\ viewHeight);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_world_a3d07ed2f713c3946fbbaa3a1b7b7f8c0}{\string~World}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_world_aea3d52ec29393b6946dcae71c755b4d7}{checkCollision}}(\textcolor{keyword}{const}\ std::shared\_ptr<Entity>\&\ entity1,\ \textcolor{keyword}{const}\ std::shared\_ptr<Entity>\&\ entity2);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00074\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_world_a74776047804cc6c051c3477dcd18cef6}{checkCollision\_player}}(\textcolor{keyword}{const}\ std::shared\_ptr<Entity>\&\ entity)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_a6f861499defce9ddb7f660e4c7f4a194}{update}}(\textcolor{keywordtype}{float}\ deltaTime);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_a3ebe87b202e0616fea548e80acec8944}{setDifficulty}}(\mbox{\hyperlink{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83}{Difficulty}}\ difficulty);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00099\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_world_ae4cdb1f935e32c78bab7ccab263a05fe}{getScore}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00106\ \ \ \ \ [[nodiscard]]\ std::shared\_ptr<Player>\ \mbox{\hyperlink{class_world_a4ed5bd7bf58ec514fed817150f86c884}{getPlayer}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00113\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_world_ae28ad4b0c4d8c8087f90ede406e887b6}{getGameOver}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00120\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_difficulty_settings}{DifficultySettings}}\&\ \mbox{\hyperlink{class_world_a346015de13a414e155db410040cceb95}{getDifficulty}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_afa1bc807024ae7a2d268f38e07576f80}{removeRemovableEntities}}();}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_ad74ae77656443fe0614d371af74a2793}{genWorld}}();}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00145\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_world_ad283006059f446189fa61ec302d0cbda}{isValidMinDistance}}(\textcolor{keywordtype}{float}\ minDistance,\ \textcolor{keyword}{const}\ std::shared\_ptr<Entity>\&\ newplat)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00156\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_world_ad0e5be627276f6e999a5fb4310a42195}{isValidMaxDistance}}(\textcolor{keywordtype}{float}\ maxDistance,\ \textcolor{keyword}{const}\ std::shared\_ptr<Entity>\&\ newplat)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_a911335bcbfac6e698eb3cd5c41489297}{genPlats}}(\textcolor{keywordtype}{float}\ fromy,\ \textcolor{keywordtype}{float}\ toy);}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_a02bfb4d5ae1ac1b4f38e8ca1390d1913}{updatePlayer}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_afecbfd107e9865a44e9e77a78371c243}{updateEntities}}(\textcolor{keywordtype}{float}\ deltaTime);}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_a1a97411eb1695686ced14d388faf8a50}{checkCollisions}}();}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_aea49845d64559c2acde527c0069198d9}{generateNewPlatforms}}();}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_a9404eb0c63f75c1bf9a6d889509800dd}{updateCamera}}();}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_a5a8c1fb5c751eb22b974cdedea76e15c}{setGameOver}}(\textcolor{keywordtype}{bool}\ gameOver);}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_af368b07ca0b1198933db0163e0c85f40}{checkGameOver}}();}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_ada3035481e4588853374446001cc716d}{genBonus}}(\textcolor{keyword}{const}\ std::shared\_ptr<Platform>\&\ entity);}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_aa50b1b216927d5945b98af16c2707fa9}{updateBonuses}}(\textcolor{keywordtype}{float}\ deltaTime);}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_a0bc049484179c1b283da6191986ddb56}{generateBackground}}(\textcolor{keywordtype}{float}\ from\_y,\ \textcolor{keywordtype}{float}\ to\_y);}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_a20683f3d1cc3655003238192893b6175}{updateBackground}}(\textcolor{keywordtype}{float}\ deltaTime);}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_a506c2375ce432fab03840e1882aed84a}{generateNewTiles}}();}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_aefaa246f557e3d8d97f5da06b6c9a784}{CheckBonusCollision}}();}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_aaef74b1d04d2c3362041facf46b1e2a0}{CheckDifficulty}}();}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_a7df93ad92d5ae5ce82110eaa7f52f0ba}{PlayerMove}}(\textcolor{keywordtype}{int}\ direction)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00291\ \ \ \ \ std::shared\_ptr<Player>\ player;\ }
+\DoxyCodeLine{00292\ \ \ \ \ std::vector<std::shared\_ptr<Platform>>\ entities;\ }
+\DoxyCodeLine{00293\ \ \ \ \ std::vector<std::shared\_ptr<Entity>>\ background;\ }
+\DoxyCodeLine{00294\ \ \ \ \ std::vector<std::shared\_ptr<Bonus>>\ bonuses;\ }
+\DoxyCodeLine{00295\ \ \ \ \ std::shared\_ptr<Score>\ score;\ }
+\DoxyCodeLine{00296\ \ \ \ \ std::shared\_ptr<AbstractFactory>\ factory;\ }
+\DoxyCodeLine{00297\ \ \ \ \ \mbox{\hyperlink{class_camera}{Camera}}\ camera;\ }
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keywordtype}{int}\ ActivePlatforms\ =\ 0;\ }
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keywordtype}{bool}\ isGameOver\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00300\ \ \ \ \ \mbox{\hyperlink{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83}{Difficulty}}\ difficulty\ =\ \mbox{\hyperlink{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83a6e5affbf5c08fef0e28c094856f94627}{Difficulty::EASY}};\ }
+\DoxyCodeLine{00301\ \};}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ WORLD\_H}}
+
+\end{DoxyCode}

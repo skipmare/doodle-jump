@@ -1,0 +1,208 @@
+\doxysection{Score Class Reference}
+\hypertarget{class_score}{}\label{class_score}\index{Score@{Score}}
+
+
+Represents the player\textquotesingle{}s score in the game.  
+
+
+
+
+{\ttfamily \#include $<$Score.\+h$>$}
+
+Inheritance diagram for Score\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_score}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_score_a5db8740e7df6ba796d5043cd31641a8f}{Score}} (float \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}}, float \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_score}{Score} object with the specified initial position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_score_a288df0b7ea3aced828d7f5e72b2016cf}{update}} (float delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Updates the score\textquotesingle{}s state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_score_a04f9de1a1f989472a52d225e8d735580}{set\+Score}} (int score)
+\begin{DoxyCompactList}\small\item\em Sets the current score. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_score_aa2b4e6c71a59ec81f7a111848e1dc8fa}{Reset\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Resets the current score to zero. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_score_a0b481b4e3963090980301b2dbe2c3f95}{get\+Score}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current score. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_score_a44b5564aca6967d806343b8fcf567c28}{get\+Best\+Score}} () const
+\begin{DoxyCompactList}\small\item\em Gets the best score achieved. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_ae5a9ed9b94b78f5f89b177a611689e5f}{Entity}} (float \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}}, float \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}})
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{class_entity}{Entity} object with the specified initial position. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}{\texorpdfstring{$\sim$}{\string~}\+Entity}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor to allow proper cleanup of derived classes. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a43a066e3ab4376eb6afbade526c2d1e2}{getX}} () const
+\begin{DoxyCompactList}\small\item\em Gets the x-\/coordinate of the entity. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{class_entity_a1628120ebbd5b236a029eaa4a9547313}{getY}} () const
+\begin{DoxyCompactList}\small\item\em Gets the y-\/coordinate of the entity. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a93306ecdce9446da37560f5f2b5307c0}{set\+Position}} (float \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}}, float \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}})
+\begin{DoxyCompactList}\small\item\em Sets the position of the entity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} \mbox{\hyperlink{class_entity_ac9be21c21f70756bf0ad72bb5d7e6b28}{get\+Bounding\+Box}} () const
+\begin{DoxyCompactList}\small\item\em Gets the bounding box of the entity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44}{Entity\+Type}} \mbox{\hyperlink{class_entity_a69c6347e1d6aeabc72f8e754bd0f2b83}{get\+Entity\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Gets the type of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a5f154968f2a478ea924460c78e0cd39e}{get\+Width}} () const
+\begin{DoxyCompactList}\small\item\em Gets the width of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a1332918563adb284c0fd432d47486d44}{get\+Height}} () const
+\begin{DoxyCompactList}\small\item\em Gets the height of the entity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a60c66ea3107dfab9de9ddc19cd9d0e0e}{get\+Collision\+On\+Land}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the entity has collided with the player on landing. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a0e2cb1d3e94796b76909dd9de169deb7}{get\+Collidable}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the entity is collidable. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a9722eefb92bda9cb7cf0ddf5521d52bf}{get\+Jump\+Trigger}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the jump trigger is active. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a24837eeec9f82089609ec84b51d600db}{set\+Jump\+Trigger}} (bool input)
+\begin{DoxyCompactList}\small\item\em Sets the jump trigger state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a50f8a72062a0ebf253c66bbbdef73edd}{set\+Out\+Of\+View}} (bool \mbox{\hyperlink{class_entity_a4fd01fc33b5a1f7877fe5ecd4c583407}{out\+Of\+View}})
+\begin{DoxyCompactList}\small\item\em Sets whether the entity is out of view. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_aa617323e4260b580b73f15138e975060}{get\+Out\+Of\+View}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the entity is out of view. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_ae0136ae533b5de07fcc5fd9a967b409a}{get\+Has\+Collided}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the entity has collided with the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a1a23935fde9e7d7d1c6877f5d4e4fb39}{set\+Has\+Collided}} (bool \mbox{\hyperlink{class_entity_ad2cc13f1f53bf57a100658399ef5db9b}{has\+Collided}})
+\begin{DoxyCompactList}\small\item\em Sets the collision state of the entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_subject}{Subject}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_subject_a7e360b2f847983bff270c67b6aeb153b}{attach}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observer}{Observer}} $>$ observer)
+\begin{DoxyCompactList}\small\item\em Attaches an observer to this subject. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_subject_a9dda003f071a9c8e41813b68901d3741}{detach}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observer}{Observer}} $>$ observer)
+\begin{DoxyCompactList}\small\item\em Detaches an observer from this subject. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_subject_af104c2baf37c7aa63b2ef6d32c2b3a9c}{notify}} ()
+\begin{DoxyCompactList}\small\item\em Notifies all attached observers of a change. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}} = 0
+\begin{DoxyCompactList}\small\item\em The x-\/coordinate of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}} = 0
+\begin{DoxyCompactList}\small\item\em The y-\/coordinate of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a489f84ea2f7b049c466ec25d1bd5957d}{velocityX}} = 0
+\begin{DoxyCompactList}\small\item\em The horizontal velocity of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a7eee17062ce809ed32030b344c6232fe}{velocityY}} = 0
+\begin{DoxyCompactList}\small\item\em The vertical velocity of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_adadfcc784f30b51b8e49f8230a56b793}{width}} = 0
+\begin{DoxyCompactList}\small\item\em The width of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a4550dc1011f47f6c4bb86e564e7d605b}{height}} = 0
+\begin{DoxyCompactList}\small\item\em The height of the entity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44}{Entity\+Type}} \mbox{\hyperlink{class_entity_a98b987ac07e1d55153c4fb3f8588545f}{Entity\+Type\+\_\+var}} = \mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}
+\begin{DoxyCompactList}\small\item\em The type of the entity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_ab8334073c4a81c38f733a1bd0ef1826a}{collision\+On\+Land}} = false
+\begin{DoxyCompactList}\small\item\em Indicates if the entity has collided with the player on landing. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a35a0b763d249ebb4a1e2394f8764236d}{collidable}} = true
+\begin{DoxyCompactList}\small\item\em Indicates if the entity is collidable. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a3cbb140a102f0c95f7fdeb13b466826d}{jumptrigger}} = true
+\begin{DoxyCompactList}\small\item\em Indicates if the jump trigger is active. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_ad2cc13f1f53bf57a100658399ef5db9b}{has\+Collided}} = false
+\begin{DoxyCompactList}\small\item\em Indicates if the entity has collided with the player. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a4fd01fc33b5a1f7877fe5ecd4c583407}{out\+Of\+View}} = false
+\begin{DoxyCompactList}\small\item\em Indicates if the entity is out of view. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the player\textquotesingle{}s score in the game. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_score_a5db8740e7df6ba796d5043cd31641a8f}\index{Score@{Score}!Score@{Score}}
+\index{Score@{Score}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{Score()}{Score()}}
+{\footnotesize\ttfamily \label{class_score_a5db8740e7df6ba796d5043cd31641a8f} 
+Score\+::\+Score (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_score}{Score} object with the specified initial position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The initial x-\/coordinate of the score display. \\
+\hline
+{\em y} & The initial y-\/coordinate of the score display. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_score_a44b5564aca6967d806343b8fcf567c28}\index{Score@{Score}!getBestScore@{getBestScore}}
+\index{getBestScore@{getBestScore}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{getBestScore()}{getBestScore()}}
+{\footnotesize\ttfamily \label{class_score_a44b5564aca6967d806343b8fcf567c28} 
+int Score\+::get\+Best\+Score (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Gets the best score achieved. 
+
+\begin{DoxyReturn}{Returns}
+The best score. 
+\end{DoxyReturn}
+\Hypertarget{class_score_a0b481b4e3963090980301b2dbe2c3f95}\index{Score@{Score}!getScore@{getScore}}
+\index{getScore@{getScore}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily \label{class_score_a0b481b4e3963090980301b2dbe2c3f95} 
+int Score\+::get\+Score (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Gets the current score. 
+
+\begin{DoxyReturn}{Returns}
+The current score. 
+\end{DoxyReturn}
+\Hypertarget{class_score_aa2b4e6c71a59ec81f7a111848e1dc8fa}\index{Score@{Score}!ResetScore@{ResetScore}}
+\index{ResetScore@{ResetScore}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{ResetScore()}{ResetScore()}}
+{\footnotesize\ttfamily \label{class_score_aa2b4e6c71a59ec81f7a111848e1dc8fa} 
+void Score\+::\+Reset\+Score (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Resets the current score to zero. 
+
+\Hypertarget{class_score_a04f9de1a1f989472a52d225e8d735580}\index{Score@{Score}!setScore@{setScore}}
+\index{setScore@{setScore}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{setScore()}{setScore()}}
+{\footnotesize\ttfamily \label{class_score_a04f9de1a1f989472a52d225e8d735580} 
+void Score\+::set\+Score (\begin{DoxyParamCaption}\item[{int}]{score}{}\end{DoxyParamCaption})}
+
+
+
+Sets the current score. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em score} & The new score to set. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Updates the best score if the current score exceeds it.\Hypertarget{class_score_a288df0b7ea3aced828d7f5e72b2016cf}\index{Score@{Score}!update@{update}}
+\index{update@{update}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_score_a288df0b7ea3aced828d7f5e72b2016cf} 
+void Score\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the score\textquotesingle{}s state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Time elapsed since the last update, in seconds. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Notify observers of score updates.
+
+Implements \mbox{\hyperlink{class_entity_a0a9aa21e0ee17422cf3b91452c3431c4}{Entity}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Logic/\+Entities/\mbox{\hyperlink{_score_8h}{Score.\+h}}\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Logic/\+Entities/\mbox{\hyperlink{_score_8cpp}{Score.\+cpp}}\end{DoxyCompactItemize}

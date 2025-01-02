@@ -1,0 +1,26 @@
+\doxysection{Platform\+View.\+h}
+\hypertarget{_platform_view_8h_source}{}\label{_platform_view_8h_source}\index{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/GameRepresentation/View/PlatformView.h@{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/GameRepresentation/View/PlatformView.h}}
+\mbox{\hyperlink{_platform_view_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ PLATFORMVIEW\_H}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ PLATFORMVIEW\_H}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}../Logic/Entities/Platforms/Platform.h"{}}\ \ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_view_8h}{EntityView.h}}"{}}\ \ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}\ \ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_platform_view_a7e5ee8165b44c6e319552e4c36ad8ca1}{PlatformView}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity_view_a8f74e594a1d814f30ae25b9ad5b425d4}{EntityView}}\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_platform_view_a7e5ee8165b44c6e319552e4c36ad8ca1}{PlatformView}}(\textcolor{keyword}{const}\ std::shared\_ptr<Platform>\ \&platform,\ \textcolor{keyword}{const}\ std::shared\_ptr<sf::RenderWindow>\ \&window);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_platform_view_ab17eeed5913d211784b3e010216f0ef2}{loadTexture}}()\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ std::shared\_ptr<Platform>\ platform;\ \ }
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PLATFORMVIEW\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,715 @@
+\doxysection{World Class Reference}
+\hypertarget{class_world}{}\label{class_world}\index{World@{World}}
+
+
+Represents the game world, including entities, the player, camera, and collision detection.  
+
+
+
+
+{\ttfamily \#include $<$World.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_world_a75a5d645388a4396d7ef93f9e9b5c9b6}{World}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_abstract_factory}{Abstract\+Factory}} $>$ \&factory, float view\+Width, float view\+Height)
+\begin{DoxyCompactList}\small\item\em Constructs the \doxylink{class_world}{World} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_world_a3d07ed2f713c3946fbbaa3a1b7b7f8c0}{\texorpdfstring{$\sim$}{\string~}\+World}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_world}{World} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_world_a74776047804cc6c051c3477dcd18cef6}{check\+Collision\+\_\+player}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \&entity) const
+\begin{DoxyCompactList}\small\item\em Checks for a collision between the player and a given entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_a6f861499defce9ddb7f660e4c7f4a194}{update}} (float delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates the world state based on the time delta. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_a3ebe87b202e0616fea548e80acec8944}{set\+Difficulty}} (\mbox{\hyperlink{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83}{Difficulty}} difficulty)
+\begin{DoxyCompactList}\small\item\em Sets the difficulty level of the game. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_world_ae4cdb1f935e32c78bab7ccab263a05fe}{get\+Score}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current score of the game. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_player}{Player}} $>$ \mbox{\hyperlink{class_world_a4ed5bd7bf58ec514fed817150f86c884}{get\+Player}} () const
+\begin{DoxyCompactList}\small\item\em Gets the player entity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_world_ae28ad4b0c4d8c8087f90ede406e887b6}{get\+Game\+Over}} () const
+\begin{DoxyCompactList}\small\item\em Gets the game over state. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_difficulty_settings}{Difficulty\+Settings}} \& \mbox{\hyperlink{class_world_a346015de13a414e155db410040cceb95}{get\+Difficulty}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current difficulty settings based on the selected difficulty level. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_afa1bc807024ae7a2d268f38e07576f80}{remove\+Removable\+Entities}} ()
+\begin{DoxyCompactList}\small\item\em Removes entities that are out of view. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_ad74ae77656443fe0614d371af74a2793}{gen\+World}} ()
+\begin{DoxyCompactList}\small\item\em Generates the world, including platforms, background, and player. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_world_ad283006059f446189fa61ec302d0cbda}{is\+Valid\+Min\+Distance}} (float min\+Distance, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \&newplat) const
+\begin{DoxyCompactList}\small\item\em Checks if the minimum distance between platforms is valid. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_world_ad0e5be627276f6e999a5fb4310a42195}{is\+Valid\+Max\+Distance}} (float max\+Distance, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \&newplat) const
+\begin{DoxyCompactList}\small\item\em Checks if the maximum distance between platforms is valid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_a911335bcbfac6e698eb3cd5c41489297}{gen\+Plats}} (float fromy, float toy)
+\begin{DoxyCompactList}\small\item\em Generates new platforms in the world. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_a02bfb4d5ae1ac1b4f38e8ca1390d1913}{update\+Player}} (float delta\+Time) const
+\begin{DoxyCompactList}\small\item\em Updates the player entity based on the time delta. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_afecbfd107e9865a44e9e77a78371c243}{update\+Entities}} (float delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates all entities in the world. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_a1a97411eb1695686ced14d388faf8a50}{check\+Collisions}} ()
+\begin{DoxyCompactList}\small\item\em Checks for collisions between all entities in the world. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_aea49845d64559c2acde527c0069198d9}{generate\+New\+Platforms}} ()
+\begin{DoxyCompactList}\small\item\em Generates new platforms if needed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_a9404eb0c63f75c1bf9a6d889509800dd}{update\+Camera}} ()
+\begin{DoxyCompactList}\small\item\em Updates the camera\textquotesingle{}s position based on the player\textquotesingle{}s Y-\/coordinate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_a5a8c1fb5c751eb22b974cdedea76e15c}{set\+Game\+Over}} (bool game\+Over)
+\begin{DoxyCompactList}\small\item\em Sets the game over state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_af368b07ca0b1198933db0163e0c85f40}{check\+Game\+Over}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the game is over based on the player\textquotesingle{}s position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_ada3035481e4588853374446001cc716d}{gen\+Bonus}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_platform}{Platform}} $>$ \&entity)
+\begin{DoxyCompactList}\small\item\em Generates bonus platforms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_aa50b1b216927d5945b98af16c2707fa9}{update\+Bonuses}} (float delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates bonus platforms based on the time delta. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_a0bc049484179c1b283da6191986ddb56}{generate\+Background}} (float from\+\_\+y, float to\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Generates background tiles for the world. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_a20683f3d1cc3655003238192893b6175}{update\+Background}} (float delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates the background tiles based on the time delta. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_a506c2375ce432fab03840e1882aed84a}{generate\+New\+Tiles}} ()
+\begin{DoxyCompactList}\small\item\em Generates new background tiles. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_aefaa246f557e3d8d97f5da06b6c9a784}{Check\+Bonus\+Collision}} ()
+\begin{DoxyCompactList}\small\item\em Checks for collisions between the player and bonus platforms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_aaef74b1d04d2c3362041facf46b1e2a0}{Check\+Difficulty}} ()
+\begin{DoxyCompactList}\small\item\em Checks the current difficulty level and adjusts it based on the player\textquotesingle{}s score. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_a7df93ad92d5ae5ce82110eaa7f52f0ba}{Player\+Move}} (int direction) const
+\begin{DoxyCompactList}\small\item\em Moves the player in the specified direction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_world_aea3d52ec29393b6946dcae71c755b4d7}{check\+Collision}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \&entity1, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \&entity2)
+\begin{DoxyCompactList}\small\item\em Checks for a collision between two entities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the game world, including entities, the player, camera, and collision detection. 
+
+The \doxylink{class_world}{World} class is responsible for managing the game\textquotesingle{}s entities, checking collisions, updating the game state, and generating the world and its components (such as platforms and background). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_world_a75a5d645388a4396d7ef93f9e9b5c9b6}\index{World@{World}!World@{World}}
+\index{World@{World}!World@{World}}
+\doxysubsubsection{\texorpdfstring{World()}{World()}}
+{\footnotesize\ttfamily \label{class_world_a75a5d645388a4396d7ef93f9e9b5c9b6} 
+World\+::\+World (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_abstract_factory}{Abstract\+Factory}} $>$ \&}]{factory}{, }\item[{float}]{view\+Width}{, }\item[{float}]{view\+Height}{}\end{DoxyParamCaption})}
+
+
+
+Constructs the \doxylink{class_world}{World} object. 
+
+Constructor for the \doxylink{class_world}{World} class.
+
+Initializes the world with the provided factory and view dimensions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em factory} & A shared pointer to the \doxylink{class_abstract_factory}{Abstract\+Factory} used for creating entities. \\
+\hline
+{\em view\+Width} & The width of the view (camera). \\
+\hline
+{\em view\+Height} & The height of the view (camera).\\
+\hline
+\end{DoxyParams}
+Initializes the \doxylink{class_world}{World} object with a given factory, view dimensions, and creates the score entity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em factory} & The factory used to create game entities. \\
+\hline
+{\em view\+Width} & The width of the camera\textquotesingle{}s view. \\
+\hline
+{\em view\+Height} & The height of the camera\textquotesingle{}s view. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_world_a3d07ed2f713c3946fbbaa3a1b7b7f8c0}\index{World@{World}!````~World@{\texorpdfstring{$\sim$}{\string~}World}}
+\index{````~World@{\texorpdfstring{$\sim$}{\string~}World}!World@{World}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}World()}{\string~World()}}
+{\footnotesize\ttfamily \label{class_world_a3d07ed2f713c3946fbbaa3a1b7b7f8c0} 
+World\+::\texorpdfstring{$\sim$}{\string~}\+World (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destructor for the \doxylink{class_world}{World} class. 
+
+Cleans up any dynamically allocated resources when the world is destroyed. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_world_aefaa246f557e3d8d97f5da06b6c9a784}\index{World@{World}!CheckBonusCollision@{CheckBonusCollision}}
+\index{CheckBonusCollision@{CheckBonusCollision}!World@{World}}
+\doxysubsubsection{\texorpdfstring{CheckBonusCollision()}{CheckBonusCollision()}}
+{\footnotesize\ttfamily \label{class_world_aefaa246f557e3d8d97f5da06b6c9a784} 
+void World\+::\+Check\+Bonus\+Collision (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Checks for collisions between the player and bonus platforms. 
+
+Checks for collisions between the player and any bonuses. If a collision is detected, the corresponding bonus effect is applied to the player.
+
+This method checks if the player has collided with any bonus platforms. \Hypertarget{class_world_aea3d52ec29393b6946dcae71c755b4d7}\index{World@{World}!checkCollision@{checkCollision}}
+\index{checkCollision@{checkCollision}!World@{World}}
+\doxysubsubsection{\texorpdfstring{checkCollision()}{checkCollision()}}
+{\footnotesize\ttfamily \label{class_world_aea3d52ec29393b6946dcae71c755b4d7} 
+bool World\+::check\+Collision (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \&}]{entity1}{, }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \&}]{entity2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Checks for a collision between two entities. 
+
+Checks for collision between two entities.
+
+This method checks if two entities are colliding based on their bounding boxes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity1} & The first entity to check. \\
+\hline
+{\em entity2} & The second entity to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if a collision is detected, false otherwise.
+\end{DoxyReturn}
+This method checks whether two entities\textquotesingle{} bounding boxes intersect.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity1} & The first entity. \\
+\hline
+{\em entity2} & The second entity. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the bounding boxes of the entities intersect. 
+
+false If the bounding boxes do not intersect. 
+\end{DoxyReturn}
+\Hypertarget{class_world_a74776047804cc6c051c3477dcd18cef6}\index{World@{World}!checkCollision\_player@{checkCollision\_player}}
+\index{checkCollision\_player@{checkCollision\_player}!World@{World}}
+\doxysubsubsection{\texorpdfstring{checkCollision\_player()}{checkCollision\_player()}}
+{\footnotesize\ttfamily \label{class_world_a74776047804cc6c051c3477dcd18cef6} 
+bool World\+::check\+Collision\+\_\+player (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \&}]{entity}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Checks for a collision between the player and a given entity. 
+
+Checks for collision between the player and an entity.
+
+This method checks if the player is colliding with a specific entity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity to check for collision with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if a collision is detected, false otherwise.
+\end{DoxyReturn}
+This method checks whether the player collides with a given entity, taking into account the platform type and collision settings.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity to check collision with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If a collision is detected between the player and the entity. 
+
+false If no collision is detected. 
+\end{DoxyReturn}
+\Hypertarget{class_world_a1a97411eb1695686ced14d388faf8a50}\index{World@{World}!checkCollisions@{checkCollisions}}
+\index{checkCollisions@{checkCollisions}!World@{World}}
+\doxysubsubsection{\texorpdfstring{checkCollisions()}{checkCollisions()}}
+{\footnotesize\ttfamily \label{class_world_a1a97411eb1695686ced14d388faf8a50} 
+void World\+::check\+Collisions (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Checks for collisions between all entities in the world. 
+
+Checks for collisions between the player and entities.
+
+This method checks if any entities are colliding with each other.
+
+This method checks if the player collides with any of the entities in the world and processes the collision. \Hypertarget{class_world_aaef74b1d04d2c3362041facf46b1e2a0}\index{World@{World}!CheckDifficulty@{CheckDifficulty}}
+\index{CheckDifficulty@{CheckDifficulty}!World@{World}}
+\doxysubsubsection{\texorpdfstring{CheckDifficulty()}{CheckDifficulty()}}
+{\footnotesize\ttfamily \label{class_world_aaef74b1d04d2c3362041facf46b1e2a0} 
+void World\+::\+Check\+Difficulty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Checks the current difficulty level and adjusts it based on the player\textquotesingle{}s score. 
+
+Checks the player\textquotesingle{}s score and adjusts the game difficulty accordingly. If the score crosses certain thresholds, the difficulty level is increased.
+
+This method updates the difficulty level based on the player\textquotesingle{}s performance. \Hypertarget{class_world_af368b07ca0b1198933db0163e0c85f40}\index{World@{World}!checkGameOver@{checkGameOver}}
+\index{checkGameOver@{checkGameOver}!World@{World}}
+\doxysubsubsection{\texorpdfstring{checkGameOver()}{checkGameOver()}}
+{\footnotesize\ttfamily \label{class_world_af368b07ca0b1198933db0163e0c85f40} 
+void World\+::check\+Game\+Over (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the game is over based on the player\textquotesingle{}s position. 
+
+Checks if the game is over.
+
+This method checks if the player\textquotesingle{}s position indicates the game should end.
+
+This method checks if the player has fallen out of the game world and resets the game state if necessary. \Hypertarget{class_world_ada3035481e4588853374446001cc716d}\index{World@{World}!genBonus@{genBonus}}
+\index{genBonus@{genBonus}!World@{World}}
+\doxysubsubsection{\texorpdfstring{genBonus()}{genBonus()}}
+{\footnotesize\ttfamily \label{class_world_ada3035481e4588853374446001cc716d} 
+void World\+::gen\+Bonus (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_platform}{Platform}} $>$ \&}]{entity}{}\end{DoxyParamCaption})}
+
+
+
+Generates bonus platforms. 
+
+Spawns bonus platforms based on a random spawn rate and the current difficulty level. If a bonus is to be spawned, it can either be a spring or a jetpack, and the bonus is linked to a platform.
+
+This method generates bonus platforms that provide rewards or special abilities to the player.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The platform entity that may spawn a bonus.\\
+\hline
+{\em entity} & A shared pointer to the platform where the bonus might be spawned. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_world_a0bc049484179c1b283da6191986ddb56}\index{World@{World}!generateBackground@{generateBackground}}
+\index{generateBackground@{generateBackground}!World@{World}}
+\doxysubsubsection{\texorpdfstring{generateBackground()}{generateBackground()}}
+{\footnotesize\ttfamily \label{class_world_a0bc049484179c1b283da6191986ddb56} 
+void World\+::generate\+Background (\begin{DoxyParamCaption}\item[{float}]{from\+\_\+y}{, }\item[{float}]{to\+\_\+y}{}\end{DoxyParamCaption})}
+
+
+
+Generates background tiles for the world. 
+
+Generates the background tiles for the world.
+
+This method generates the background tiles within the specified vertical range.
+
+
+\begin{DoxyParams}{Parameters}
+{\em from\+\_\+y} & The starting Y-\/coordinate for background generation. \\
+\hline
+{\em to\+\_\+y} & The ending Y-\/coordinate for background generation.\\
+\hline
+\end{DoxyParams}
+This method creates background tiles within the specified vertical range and populates the background.
+
+
+\begin{DoxyParams}{Parameters}
+{\em from\+\_\+y} & The upper Y-\/bound of the background generation range. \\
+\hline
+{\em to\+\_\+y} & The lower Y-\/bound of the background generation range. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_world_aea49845d64559c2acde527c0069198d9}\index{World@{World}!generateNewPlatforms@{generateNewPlatforms}}
+\index{generateNewPlatforms@{generateNewPlatforms}!World@{World}}
+\doxysubsubsection{\texorpdfstring{generateNewPlatforms()}{generateNewPlatforms()}}
+{\footnotesize\ttfamily \label{class_world_aea49845d64559c2acde527c0069198d9} 
+void World\+::generate\+New\+Platforms (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Generates new platforms if needed. 
+
+Generates new platforms if necessary.
+
+This method generates new platforms based on the current state of the world.
+
+This method generates new platforms below the camera view if needed. \Hypertarget{class_world_a506c2375ce432fab03840e1882aed84a}\index{World@{World}!generateNewTiles@{generateNewTiles}}
+\index{generateNewTiles@{generateNewTiles}!World@{World}}
+\doxysubsubsection{\texorpdfstring{generateNewTiles()}{generateNewTiles()}}
+{\footnotesize\ttfamily \label{class_world_a506c2375ce432fab03840e1882aed84a} 
+void World\+::generate\+New\+Tiles (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Generates new background tiles. 
+
+Generates new background tiles if necessary.
+
+This method generates new background tiles when needed based on the current state of the world.
+
+This method generates new background tiles based on the camera\textquotesingle{}s position. \Hypertarget{class_world_a911335bcbfac6e698eb3cd5c41489297}\index{World@{World}!genPlats@{genPlats}}
+\index{genPlats@{genPlats}!World@{World}}
+\doxysubsubsection{\texorpdfstring{genPlats()}{genPlats()}}
+{\footnotesize\ttfamily \label{class_world_a911335bcbfac6e698eb3cd5c41489297} 
+void World\+::gen\+Plats (\begin{DoxyParamCaption}\item[{float}]{fromy}{, }\item[{float}]{toy}{}\end{DoxyParamCaption})}
+
+
+
+Generates new platforms in the world. 
+
+Generates platforms within a specified vertical range.
+
+This method generates platforms at random positions within a given vertical range.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fromy} & The starting Y-\/coordinate for platform generation. \\
+\hline
+{\em toy} & The ending Y-\/coordinate for platform generation.\\
+\hline
+\end{DoxyParams}
+Platforms are created randomly within the given Y-\/range, ensuring they don\textquotesingle{}t collide with existing entities.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fromy} & The upper Y-\/bound of the platform generation range. \\
+\hline
+{\em toy} & The lower Y-\/bound of the platform generation range. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_world_ad74ae77656443fe0614d371af74a2793}\index{World@{World}!genWorld@{genWorld}}
+\index{genWorld@{genWorld}!World@{World}}
+\doxysubsubsection{\texorpdfstring{genWorld()}{genWorld()}}
+{\footnotesize\ttfamily \label{class_world_ad74ae77656443fe0614d371af74a2793} 
+void World\+::gen\+World (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Generates the world, including platforms, background, and player. 
+
+Generates the world by creating entities, platforms, and the player.
+
+This method initializes and generates the world, including all the entities, platforms, and the player.
+
+This method clears the existing world, resets the platform count, and creates the player and initial platforms. \Hypertarget{class_world_a346015de13a414e155db410040cceb95}\index{World@{World}!getDifficulty@{getDifficulty}}
+\index{getDifficulty@{getDifficulty}!World@{World}}
+\doxysubsubsection{\texorpdfstring{getDifficulty()}{getDifficulty()}}
+{\footnotesize\ttfamily \label{class_world_a346015de13a414e155db410040cceb95} 
+const \mbox{\hyperlink{class_difficulty_settings}{Difficulty\+Settings}} \& World\+::get\+Difficulty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Gets the current difficulty settings based on the selected difficulty level. 
+
+Retrieves the current difficulty settings based on the game\textquotesingle{}s difficulty level.
+
+\begin{DoxyReturn}{Returns}
+A reference to the current difficulty settings.
+
+A reference to the current difficulty settings. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & if the difficulty level is unknown. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_world_ae28ad4b0c4d8c8087f90ede406e887b6}\index{World@{World}!getGameOver@{getGameOver}}
+\index{getGameOver@{getGameOver}!World@{World}}
+\doxysubsubsection{\texorpdfstring{getGameOver()}{getGameOver()}}
+{\footnotesize\ttfamily \label{class_world_ae28ad4b0c4d8c8087f90ede406e887b6} 
+bool World\+::get\+Game\+Over (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Gets the game over state. 
+
+\begin{DoxyReturn}{Returns}
+True if the game is over, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_world_a4ed5bd7bf58ec514fed817150f86c884}\index{World@{World}!getPlayer@{getPlayer}}
+\index{getPlayer@{getPlayer}!World@{World}}
+\doxysubsubsection{\texorpdfstring{getPlayer()}{getPlayer()}}
+{\footnotesize\ttfamily \label{class_world_a4ed5bd7bf58ec514fed817150f86c884} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_player}{Player}} $>$ World\+::get\+Player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Gets the player entity. 
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to the player entity. 
+\end{DoxyReturn}
+\Hypertarget{class_world_ae4cdb1f935e32c78bab7ccab263a05fe}\index{World@{World}!getScore@{getScore}}
+\index{getScore@{getScore}!World@{World}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily \label{class_world_ae4cdb1f935e32c78bab7ccab263a05fe} 
+int World\+::get\+Score (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Gets the current score of the game. 
+
+\begin{DoxyReturn}{Returns}
+The current score of the game. 
+\end{DoxyReturn}
+\Hypertarget{class_world_ad0e5be627276f6e999a5fb4310a42195}\index{World@{World}!isValidMaxDistance@{isValidMaxDistance}}
+\index{isValidMaxDistance@{isValidMaxDistance}!World@{World}}
+\doxysubsubsection{\texorpdfstring{isValidMaxDistance()}{isValidMaxDistance()}}
+{\footnotesize\ttfamily \label{class_world_ad0e5be627276f6e999a5fb4310a42195} 
+bool World\+::is\+Valid\+Max\+Distance (\begin{DoxyParamCaption}\item[{float}]{Max\+Distance}{, }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \&}]{newplat}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Checks if the maximum distance between platforms is valid. 
+
+This method checks if the new platform maintains the maximum allowed distance from other platforms.
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+Distance} & The maximum allowed distance between platforms. \\
+\hline
+{\em newplat} & The new platform to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the distance is valid, false otherwise.
+\end{DoxyReturn}
+The method checks if a new platform is within the allowed maximum distance from existing platforms.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Max\+Distance} & The maximum allowed distance between platforms. \\
+\hline
+{\em newplat} & The new platform to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the new platform is within the maximum distance. 
+
+false If the new platform is too far from other platforms. 
+\end{DoxyReturn}
+\Hypertarget{class_world_ad283006059f446189fa61ec302d0cbda}\index{World@{World}!isValidMinDistance@{isValidMinDistance}}
+\index{isValidMinDistance@{isValidMinDistance}!World@{World}}
+\doxysubsubsection{\texorpdfstring{isValidMinDistance()}{isValidMinDistance()}}
+{\footnotesize\ttfamily \label{class_world_ad283006059f446189fa61ec302d0cbda} 
+bool World\+::is\+Valid\+Min\+Distance (\begin{DoxyParamCaption}\item[{float}]{min\+Distance}{, }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \&}]{newplat}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Checks if the minimum distance between platforms is valid. 
+
+This method checks if the new platform maintains the minimum required distance from other platforms.
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Distance} & The minimum allowed distance between platforms. \\
+\hline
+{\em newplat} & The new platform to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the distance is valid, false otherwise.
+\end{DoxyReturn}
+The method ensures that new platforms are not too close to each other.
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Distance} & The minimum required distance between platforms. \\
+\hline
+{\em newplat} & The new platform to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the new platform is sufficiently far from existing platforms. 
+
+false If the new platform is too close to other platforms. 
+\end{DoxyReturn}
+\Hypertarget{class_world_a7df93ad92d5ae5ce82110eaa7f52f0ba}\index{World@{World}!PlayerMove@{PlayerMove}}
+\index{PlayerMove@{PlayerMove}!World@{World}}
+\doxysubsubsection{\texorpdfstring{PlayerMove()}{PlayerMove()}}
+{\footnotesize\ttfamily \label{class_world_a7df93ad92d5ae5ce82110eaa7f52f0ba} 
+void World\+::\+Player\+Move (\begin{DoxyParamCaption}\item[{int}]{direction}{}\end{DoxyParamCaption}) const}
+
+
+
+Moves the player in the specified direction. 
+
+Moves the player in a given direction.
+
+This method moves the player left or right based on the provided direction.
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & The direction to move the player (positive for right, negative for left).\\
+\hline
+{\em direction} & The direction to move the player. A positive value typically represents rightward movement, and negative values represent leftward movement. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_world_afa1bc807024ae7a2d268f38e07576f80}\index{World@{World}!removeRemovableEntities@{removeRemovableEntities}}
+\index{removeRemovableEntities@{removeRemovableEntities}!World@{World}}
+\doxysubsubsection{\texorpdfstring{removeRemovableEntities()}{removeRemovableEntities()}}
+{\footnotesize\ttfamily \label{class_world_afa1bc807024ae7a2d268f38e07576f80} 
+void World\+::remove\+Removable\+Entities (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Removes entities that are out of view. 
+
+Removes entities and bonuses that are out of view.
+
+This method removes any entities that are no longer visible within the camera\textquotesingle{}s view.
+
+Entities and bonuses that have moved beyond the camera view are marked for removal and deleted from the world. \Hypertarget{class_world_a3ebe87b202e0616fea548e80acec8944}\index{World@{World}!setDifficulty@{setDifficulty}}
+\index{setDifficulty@{setDifficulty}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setDifficulty()}{setDifficulty()}}
+{\footnotesize\ttfamily \label{class_world_a3ebe87b202e0616fea548e80acec8944} 
+void World\+::set\+Difficulty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83}{Difficulty}}}]{difficulty}{}\end{DoxyParamCaption})}
+
+
+
+Sets the difficulty level of the game. 
+
+This method adjusts the game\textquotesingle{}s difficulty based on the provided level.
+
+
+\begin{DoxyParams}{Parameters}
+{\em difficulty} & The difficulty level to set (\doxylink{class_e_a_s_y}{EASY}, \doxylink{class_m_e_d_i_u_m}{MEDIUM}, \doxylink{class_h_a_r_d}{HARD}).\\
+\hline
+{\em difficulty} & The desired difficulty level to set. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_world_a5a8c1fb5c751eb22b974cdedea76e15c}\index{World@{World}!setGameOver@{setGameOver}}
+\index{setGameOver@{setGameOver}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setGameOver()}{setGameOver()}}
+{\footnotesize\ttfamily \label{class_world_a5a8c1fb5c751eb22b974cdedea76e15c} 
+void World\+::set\+Game\+Over (\begin{DoxyParamCaption}\item[{bool}]{game\+Over}{}\end{DoxyParamCaption})}
+
+
+
+Sets the game over state. 
+
+This method sets whether the game is over or not.
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Over} & True if the game is over, false otherwise. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_world_a6f861499defce9ddb7f660e4c7f4a194}\index{World@{World}!update@{update}}
+\index{update@{update}!World@{World}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_world_a6f861499defce9ddb7f660e4c7f4a194} 
+void World\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})}
+
+
+
+Updates the world state based on the time delta. 
+
+Updates the world by processing all entities, the player, and checking collisions.
+
+This method updates all entities in the world, including the player, camera, and other objects.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & The time elapsed since the last update.\\
+\hline
+\end{DoxyParams}
+This method updates the camera, background, entities, and player while checking for collisions and removing out-\/of-\/view entities.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & The time elapsed since the last update. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_world_a20683f3d1cc3655003238192893b6175}\index{World@{World}!updateBackground@{updateBackground}}
+\index{updateBackground@{updateBackground}!World@{World}}
+\doxysubsubsection{\texorpdfstring{updateBackground()}{updateBackground()}}
+{\footnotesize\ttfamily \label{class_world_a20683f3d1cc3655003238192893b6175} 
+void World\+::update\+Background (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})}
+
+
+
+Updates the background tiles based on the time delta. 
+
+Updates the background by checking if any tiles are out of view, and if so, moves them. Also, handles tile-\/specific updates and adjusts the background position when the player moves.
+
+This method updates the state of all background tiles.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & The time elapsed since the last update.\\
+\hline
+{\em delta\+Time} & The time elapsed since the last update, used to adjust the movement of background tiles. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_world_aa50b1b216927d5945b98af16c2707fa9}\index{World@{World}!updateBonuses@{updateBonuses}}
+\index{updateBonuses@{updateBonuses}!World@{World}}
+\doxysubsubsection{\texorpdfstring{updateBonuses()}{updateBonuses()}}
+{\footnotesize\ttfamily \label{class_world_aa50b1b216927d5945b98af16c2707fa9} 
+void World\+::update\+Bonuses (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})}
+
+
+
+Updates bonus platforms based on the time delta. 
+
+This method updates the state of all bonus platforms.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & The time elapsed since the last update. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_world_a9404eb0c63f75c1bf9a6d889509800dd}\index{World@{World}!updateCamera@{updateCamera}}
+\index{updateCamera@{updateCamera}!World@{World}}
+\doxysubsubsection{\texorpdfstring{updateCamera()}{updateCamera()}}
+{\footnotesize\ttfamily \label{class_world_a9404eb0c63f75c1bf9a6d889509800dd} 
+void World\+::update\+Camera (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Updates the camera\textquotesingle{}s position based on the player\textquotesingle{}s Y-\/coordinate. 
+
+Updates the camera by adjusting its position based on the player\textquotesingle{}s Y-\/coordinate.
+
+This method adjusts the camera to follow the player\textquotesingle{}s movements. \Hypertarget{class_world_afecbfd107e9865a44e9e77a78371c243}\index{World@{World}!updateEntities@{updateEntities}}
+\index{updateEntities@{updateEntities}!World@{World}}
+\doxysubsubsection{\texorpdfstring{updateEntities()}{updateEntities()}}
+{\footnotesize\ttfamily \label{class_world_afecbfd107e9865a44e9e77a78371c243} 
+void World\+::update\+Entities (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})}
+
+
+
+Updates all entities in the world. 
+
+This method updates the position and state of all entities in the world.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & The time elapsed since the last update.\\
+\hline
+\end{DoxyParams}
+This method updates the positions and states of all entities, including platforms and bonuses.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & The time elapsed since the last update. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_world_a02bfb4d5ae1ac1b4f38e8ca1390d1913}\index{World@{World}!updatePlayer@{updatePlayer}}
+\index{updatePlayer@{updatePlayer}!World@{World}}
+\doxysubsubsection{\texorpdfstring{updatePlayer()}{updatePlayer()}}
+{\footnotesize\ttfamily \label{class_world_a02bfb4d5ae1ac1b4f38e8ca1390d1913} 
+void World\+::update\+Player (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption}) const}
+
+
+
+Updates the player entity based on the time delta. 
+
+Updates the player by applying delta time to its movement.
+
+This method updates the player\textquotesingle{}s position, state, and other properties based on the elapsed time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & The time elapsed since the last update.\\
+\hline
+\end{DoxyParams}
+This method ensures the player is updated with the elapsed time and that the player doesn\textquotesingle{}t go out of view.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & The time elapsed since the last update. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Logic/\+Game\+Logic/\mbox{\hyperlink{_world_8h}{World.\+h}}\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Logic/\+Game\+Logic/\mbox{\hyperlink{_world_8cpp}{World.\+cpp}}\end{DoxyCompactItemize}

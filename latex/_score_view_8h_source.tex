@@ -1,0 +1,37 @@
+\doxysection{Score\+View.\+h}
+\hypertarget{_score_view_8h_source}{}\label{_score_view_8h_source}\index{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/GameRepresentation/View/ScoreView.h@{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/GameRepresentation/View/ScoreView.h}}
+\mbox{\hyperlink{_score_view_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Skip\ on\ 21/12/2024.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ SCOREVIEW\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ SCOREVIEW\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_view_8h}{EntityView.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../Logic/Entities/Score.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_score_view_a1a4129838696383cf684c4ffb0e48420}{ScoreView}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity_view_a8f74e594a1d814f30ae25b9ad5b425d4}{EntityView}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_score_view_a1a4129838696383cf684c4ffb0e48420}{ScoreView}}(\textcolor{keyword}{const}\ std::shared\_ptr<Score>\ \&score,\ \textcolor{keyword}{const}\ std::shared\_ptr<sf::RenderWindow>\ \&window);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_score_view_afb840951fe79c87c2517c224e996d05d}{loadTexture}}()\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_score_view_a2f86cc66adb7c18ebb368859ff9d10a7}{loadFont}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_score_view_a3ef414b4e33dade6c488ca5622f157ec}{configureText}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_score_view_a78331eb5c577302ca384af9106010fe7}{render}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00073\ \ \ \ \ std::shared\_ptr<Score>\ score;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00080\ \ \ \ \ sf::Font\ font;}
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//SCOREVIEW\_H}}
+
+\end{DoxyCode}

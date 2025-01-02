@@ -1,0 +1,43 @@
+\doxysection{Stopwatch.\+h}
+\hypertarget{_stopwatch_8h_source}{}\label{_stopwatch_8h_source}\index{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/Logic/Utilities/Stopwatch.h@{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/Logic/Utilities/Stopwatch.h}}
+\mbox{\hyperlink{_stopwatch_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ STOPWATCH\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ STOPWATCH\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_stopwatch_a9168950a70e64909ac292fa1ab203c83}{Stopwatch}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_stopwatch_a9168950a70e64909ac292fa1ab203c83}{Stopwatch}}\&\ \mbox{\hyperlink{class_stopwatch_ae8b7e7fbb1ec4dfaec39ed8f72d1ca45}{getInstance}}()\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_stopwatch_a9168950a70e64909ac292fa1ab203c83}{Stopwatch}}\ instance;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ instance;}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_stopwatch_a6d01ecc80c92f1d5210cd9c3eb72883d}{start}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_stopwatch_aa0266311b7392b948061bb985b49cff4}{stop}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00053\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_stopwatch_ae095049063daf3545700784598eb2ecd}{getElapsedTime}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_stopwatch_a71234ede9b40c852fd9ce721506140b3}{tick}}();}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00072\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_stopwatch_ae1298eaa585575d4657cf86bf79db34f}{getDeltaTime}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{class_stopwatch_a9168950a70e64909ac292fa1ab203c83}{Stopwatch}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_stopwatch_a9168950a70e64909ac292fa1ab203c83}{Stopwatch}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{class_stopwatch_a9168950a70e64909ac292fa1ab203c83}{Stopwatch}}\&\ \mbox{\hyperlink{class_stopwatch_a2783eb908f8509282035d2bc7d499d93}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_stopwatch_a9168950a70e64909ac292fa1ab203c83}{Stopwatch}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{class_stopwatch_a9168950a70e64909ac292fa1ab203c83}{Stopwatch}}();}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ Private\ member\ variables}}
+\DoxyCodeLine{00097\ \ \ \ \ std::chrono::time\_point<std::chrono::high\_resolution\_clock>\ startTime;\ }
+\DoxyCodeLine{00098\ \ \ \ \ std::chrono::time\_point<std::chrono::high\_resolution\_clock>\ previousTime;\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{float}\ deltaTime;\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{bool}\ running;\ }
+\DoxyCodeLine{00101\ \};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ STOPWATCH\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,144 @@
+\doxysection{Player\+View Class Reference}
+\hypertarget{class_player_view}{}\label{class_player_view}\index{PlayerView@{PlayerView}}
+
+
+Handles the visual representation of the \doxylink{class_player}{Player} entity.  
+
+
+
+
+{\ttfamily \#include $<$Player\+View.\+h$>$}
+
+Inheritance diagram for Player\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_player_view}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_view_ac79b30ef00a4bfa6d2e0e085ea97aec4}{Player\+View}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_player}{Player}} $>$ \&player, const std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \&window)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_player_view}{Player\+View} object and associates it with a \doxylink{class_player}{Player} entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_view_afce785294689abe3851e4f1eb641d480}{load\+Texture}} () final
+\begin{DoxyCompactList}\small\item\em Loads the texture for the player and applies it to the sprite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity_view}{Entity\+View}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_view_a0f778007e6a69481a371e9ef322e976a}{\texorpdfstring{$\sim$}{\string~}\+Entity\+View}} () override=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_entity_view}{Entity\+View} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_entity_view_a8f74e594a1d814f30ae25b9ad5b425d4}{Entity\+View}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \&\mbox{\hyperlink{class_entity_view_a44310c7a56f0beb141064f88857e92df}{entity}}, const std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \&window)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_entity_view}{Entity\+View} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_view_a3ae42cf32e30ce8d418e35096aab0849}{update}} () final
+\begin{DoxyCompactList}\small\item\em Updates the position and renders the entity\textquotesingle{}s view. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_view_adf2869ddecd4e3f5bf1ae25684b2ee61}{render}} ()
+\begin{DoxyCompactList}\small\item\em Renders the entity\textquotesingle{}s view. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_view_ad33f9914b06f7c1fc1775f3714919441}{set\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Sets the position of the entity\textquotesingle{}s view. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_observer}{Observer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_observer_a37824643eeaef086de17bba2717d865a}{\texorpdfstring{$\sim$}{\string~}\+Observer}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{class_observer}{Observer} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity_view}{Entity\+View}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \mbox{\hyperlink{class_entity_view_aa7e2b51d07a976495ce00ae99d8f4c61}{Current\+Window}}
+\begin{DoxyCompactList}\small\item\em The render window for rendering the entity. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \mbox{\hyperlink{class_entity_view_a44310c7a56f0beb141064f88857e92df}{entity}}
+\begin{DoxyCompactList}\small\item\em The entity associated with this view. \end{DoxyCompactList}\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_entity_view_a39508da83001b63aa61b24af79890a83}{sprite}}
+\begin{DoxyCompactList}\small\item\em The sprite representing the entity. \end{DoxyCompactList}\item 
+sf\+::\+Text \mbox{\hyperlink{class_entity_view_ad9082b7d2c1ecbbe3344e6c292014f37}{Score\+Text}}
+\begin{DoxyCompactList}\small\item\em Text to display information about the entity. \end{DoxyCompactList}\item 
+sf\+::\+Text \mbox{\hyperlink{class_entity_view_a7096285f0c661bc0b07ee9fdb9c32f54}{Best\+Score\+Text}}
+\begin{DoxyCompactList}\small\item\em Text to display the best score. \end{DoxyCompactList}\item 
+sf\+::\+Texture \mbox{\hyperlink{class_entity_view_ab3993583777840a99d04e8823791cace}{texture}}
+\begin{DoxyCompactList}\small\item\em The texture for the sprite. \end{DoxyCompactList}\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_entity_view_a12117818a17530140db583f213f76213}{fallback\+Shape}}
+\begin{DoxyCompactList}\small\item\em The fallback shape to be rendered if texture loading fails. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_view_a521643e64c07c3eaac6b51c297aed77e}{is\+Texture\+Loaded}} = false
+\begin{DoxyCompactList}\small\item\em Flag indicating whether the texture has been loaded. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles the visual representation of the \doxylink{class_player}{Player} entity. 
+
+Manages the visual representation of the \doxylink{class_player}{Player} entity.
+
+This class manages the rendering of the \doxylink{class_player}{Player} entity\textquotesingle{}s texture, as well as its fallback shape when texture loading fails. It updates the position and visual state of the \doxylink{class_player}{Player} entity on the screen.
+
+The \doxylink{class_player_view}{Player\+View} class handles the rendering and visual state of the \doxylink{class_player}{Player} entity. It is responsible for loading and applying the texture to the player sprite, as well as providing fallback visuals if the texture fails to load. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_player_view_ac79b30ef00a4bfa6d2e0e085ea97aec4}\index{PlayerView@{PlayerView}!PlayerView@{PlayerView}}
+\index{PlayerView@{PlayerView}!PlayerView@{PlayerView}}
+\doxysubsubsection{\texorpdfstring{PlayerView()}{PlayerView()}}
+{\footnotesize\ttfamily \label{class_player_view_ac79b30ef00a4bfa6d2e0e085ea97aec4} 
+Player\+View\+::\+Player\+View (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_player}{Player}} $>$ \&}]{player}{, }\item[{const std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \&}]{window}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_player_view}{Player\+View} object and associates it with a \doxylink{class_player}{Player} entity. 
+
+This constructor initializes the \doxylink{class_player_view}{Player\+View} with the associated \doxylink{class_player}{Player} entity and the SFML render window. It also loads the player\textquotesingle{}s texture and sets the initial position of the player.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & A shared pointer to the \doxylink{class_player}{Player} entity. \\
+\hline
+{\em window} & A shared pointer to the SFML render window used for rendering.\\
+\hline
+\end{DoxyParams}
+This constructor initializes the \doxylink{class_player_view}{Player\+View} with the associated \doxylink{class_player}{Player} entity and the SFML render window. It loads the player\textquotesingle{}s texture and sets the initial position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & A shared pointer to the \doxylink{class_player}{Player} entity. \\
+\hline
+{\em window} & A shared pointer to the SFML render window used for rendering. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Load texture based on the player\textquotesingle{}s state
+
+\texorpdfstring{$<$}{<} Set the initial position
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_view_afce785294689abe3851e4f1eb641d480}\index{PlayerView@{PlayerView}!loadTexture@{loadTexture}}
+\index{loadTexture@{loadTexture}!PlayerView@{PlayerView}}
+\doxysubsubsection{\texorpdfstring{loadTexture()}{loadTexture()}}
+{\footnotesize\ttfamily \label{class_player_view_afce785294689abe3851e4f1eb641d480} 
+void Player\+View\+::load\+Texture (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Loads the texture for the player and applies it to the sprite. 
+
+This method attempts to load the player\textquotesingle{}s texture from a file. If successful, it scales and applies the texture to the player\textquotesingle{}s sprite. If the texture cannot be loaded, a fallback rectangle shape is created to represent the player.
+
+\begin{DoxyNote}{Note}
+If the texture cannot be loaded, a fallback rectangle with a red color is used to represent the player visually. 
+\end{DoxyNote}
+\texorpdfstring{$<$}{<} Path to the player\textquotesingle{}s texture file
+
+\texorpdfstring{$<$}{<} Set texture loaded flag
+
+\texorpdfstring{$<$}{<} Apply the loaded texture to the sprite
+
+\texorpdfstring{$<$}{<} Resize the sprite
+
+\texorpdfstring{$<$}{<} Create rectangle with player dimensions
+
+\texorpdfstring{$<$}{<} Set a fallback color (can be customized)
+
+\texorpdfstring{$<$}{<} Center the rectangle
+
+Implements \mbox{\hyperlink{class_entity_view_a6c99fbda524fe5ad64319d1b6dbd2721}{Entity\+View}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Game\+Representation/\+View/\mbox{\hyperlink{_player_view_8h}{Player\+View.\+h}}\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Game\+Representation/\+View/\mbox{\hyperlink{_player_view_8cpp}{Player\+View.\+cpp}}\end{DoxyCompactItemize}

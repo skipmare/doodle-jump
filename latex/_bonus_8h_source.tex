@@ -1,0 +1,36 @@
+\doxysection{Bonus.\+h}
+\hypertarget{_bonus_8h_source}{}\label{_bonus_8h_source}\index{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/Logic/Entities/Bonuses/Bonus.h@{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/Logic/Entities/Bonuses/Bonus.h}}
+\mbox{\hyperlink{_bonus_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ karan\ on\ 14/11/2024.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_SKIPMARE\_BONUS\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_SKIPMARE\_BONUS\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{../Entity.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_platform_8h}{../Platforms/Platform.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../Utilities/Random.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_bonus_acf4cabdaa682a65d1bdb187209fea884}{Bonus}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity_ae5a9ed9b94b78f5f89b177a611689e5f}{Entity}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_bonus_acf4cabdaa682a65d1bdb187209fea884}{Bonus}}(\textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}},\ \textcolor{keyword}{const}\ std::shared\_ptr<Platform>\&\ platform);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_bonus_ab14f9d424054adf6aa56d4c85a96c462}{\string~Bonus}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_bonus_a0b8f69ee630c1821e196b0075bd581b4}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00037\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{_entity_8h_ad6d58ebabfbf9aa4181bfe97a5d8d984}{BonusType}}\ \mbox{\hyperlink{class_bonus_ae193e221d9954d7e0254845cc7bb9eee}{getType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{_entity_8h_ad6d58ebabfbf9aa4181bfe97a5d8d984}{BonusType}}\ \mbox{\hyperlink{class_bonus_ae31eeab6ea841648fd627aa88acab27e}{type}};\ }
+\DoxyCodeLine{00041\ \ \ \ \ std::shared\_ptr<Platform>\ \mbox{\hyperlink{class_bonus_acc5e320f83c53daa9bb1a8c7758e856f}{on\_platform}};\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_bonus_ac564c09625d5fa9d73a74250cb47ddd5}{prevPlatformX}}\ =\ 0;\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_bonus_aefa38e7095d64eeb40f6b342a58ce1b9}{prevPlatformY}}\ =\ 0;\ }
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//INC\_2024\_PROJECT\_SKIPMARE\_BONUS\_H}}
+
+\end{DoxyCode}

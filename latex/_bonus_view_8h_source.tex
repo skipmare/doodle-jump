@@ -1,0 +1,30 @@
+\doxysection{Bonus\+View.\+h}
+\hypertarget{_bonus_view_8h_source}{}\label{_bonus_view_8h_source}\index{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/GameRepresentation/View/BonusView.h@{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/GameRepresentation/View/BonusView.h}}
+\mbox{\hyperlink{_bonus_view_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_SKIPMARE\_BONUSVIEW\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_SKIPMARE\_BONUSVIEW\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_view_8h}{EntityView.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}../Logic/Entities/Bonuses/Bonus.h"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_bonus_view_afc7dab980d89d72eafccd3a67fc9996d}{BonusView}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity_view_a8f74e594a1d814f30ae25b9ad5b425d4}{EntityView}}\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_bonus_view_afc7dab980d89d72eafccd3a67fc9996d}{BonusView}}(\textcolor{keyword}{const}\ std::shared\_ptr<Bonus>\ \&bonus,\ \textcolor{keyword}{const}\ std::shared\_ptr<sf::RenderWindow>\ \&window);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_bonus_view_a5d6a4ca30469dbd7e90f1f7ab3d47782}{\string~BonusView}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_bonus_view_ad1b36cb1d9e04fdc54d6ec1df02f6393}{render}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00043\ \ \ \ \ std::shared\_ptr<Bonus>\ bonus;\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ loadTexture()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//INC\_2024\_PROJECT\_SKIPMARE\_BONUSVIEW\_H}}
+
+\end{DoxyCode}

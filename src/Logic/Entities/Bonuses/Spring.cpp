@@ -4,7 +4,8 @@
 
 #include "Spring.h"
 
-Spring::Spring(float x, float y, const std::shared_ptr<Platform> &platform) : Bonus( x,  y, platform) {
-    type = SPRING;
-    collisionOnLand = true;
+/// @brief Constructs a Spring object.
+Spring::Spring(float x, float y, const std::shared_ptr<Platform>& platform) : Bonus(x, y, platform) {
+    type = SPRING; ///< Set the bonus type to SPRING.
+    collisionOnLand = true; ///< Spring bonus triggers collision on landing.
 }

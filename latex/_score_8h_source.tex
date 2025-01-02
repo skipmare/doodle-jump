@@ -1,0 +1,33 @@
+\doxysection{Score.\+h}
+\hypertarget{_score_8h_source}{}\label{_score_8h_source}\index{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/Logic/Entities/Score.h@{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/Logic/Entities/Score.h}}
+\mbox{\hyperlink{_score_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifndef\ SCORE\_H}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ SCORE\_H}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_score_a5db8740e7df6ba796d5043cd31641a8f}{Score}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity_ae5a9ed9b94b78f5f89b177a611689e5f}{Entity}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_score_a5db8740e7df6ba796d5043cd31641a8f}{Score}}(\textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}});}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_score_a288df0b7ea3aced828d7f5e72b2016cf}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_score_a04f9de1a1f989472a52d225e8d735580}{setScore}}(\textcolor{keywordtype}{int}\ score);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_score_aa2b4e6c71a59ec81f7a111848e1dc8fa}{ResetScore}}();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00030\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_score_a0b481b4e3963090980301b2dbe2c3f95}{getScore}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_score;\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00034\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_score_a44b5564aca6967d806343b8fcf567c28}{getBestScore}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ bestScore;\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \_score;\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ bestScore;\ }
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SCORE\_H}}
+
+\end{DoxyCode}

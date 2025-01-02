@@ -1,0 +1,99 @@
+\doxysection{Game Class Reference}
+\hypertarget{class_game}{}\label{class_game}\index{Game@{Game}}
+
+
+Represents the main game loop and game logic.  
+
+
+
+
+{\ttfamily \#include $<$Game.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_ad59df6562a58a614fda24622d3715b65}{Game}} ()
+\begin{DoxyCompactList}\small\item\em Constructs the \doxylink{class_game}{Game} object and initializes its components. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a1ab78f5ed0d5ea879157357cf2fb2afa}{run}} ()
+\begin{DoxyCompactList}\small\item\em Main game loop that runs until the window is closed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_a3d09cd0b68ef69107d36360ca903e023}{\texorpdfstring{$\sim$}{\string~}\+Game}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_game}{Game} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_aa5abc4e07a1f5abce24e473c5567300b}{handle\+Input}} ()
+\begin{DoxyCompactList}\small\item\em Handles user input for controlling the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the main game loop and game logic. 
+
+Represents the core game logic and controls the main game loop.
+
+The \doxylink{class_game}{Game} class handles the core game loop, window management, user input, and updates the world. It interacts with other components like the stopwatch, world, and factory to manage game state and render the game.
+
+The \doxylink{class_game}{Game} class manages the main game loop, input handling, world updates, and rendering. It also interacts with other components like the stopwatch, world, and factory to manage game state and display. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_ad59df6562a58a614fda24622d3715b65}\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily \label{class_game_ad59df6562a58a614fda24622d3715b65} 
+Game\+::\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructs the \doxylink{class_game}{Game} object and initializes its components. 
+
+\texorpdfstring{$<$}{<} Start the stopwatch\Hypertarget{class_game_a3d09cd0b68ef69107d36360ca903e023}\index{Game@{Game}!````~Game@{\texorpdfstring{$\sim$}{\string~}Game}}
+\index{````~Game@{\texorpdfstring{$\sim$}{\string~}Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Game()}{\string~Game()}}
+{\footnotesize\ttfamily \label{class_game_a3d09cd0b68ef69107d36360ca903e023} 
+Game\+::\texorpdfstring{$\sim$}{\string~}\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destructor for the \doxylink{class_game}{Game} class. 
+
+Cleans up any resources or memory used by the game. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_aa5abc4e07a1f5abce24e473c5567300b}\index{Game@{Game}!handleInput@{handleInput}}
+\index{handleInput@{handleInput}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{handleInput()}{handleInput()}}
+{\footnotesize\ttfamily \label{class_game_aa5abc4e07a1f5abce24e473c5567300b} 
+void Game\+::handle\+Input (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handles user input for controlling the player. 
+
+This method checks for key presses and moves the player accordingly. \texorpdfstring{$<$}{<} Move player left
+
+\texorpdfstring{$<$}{<} Move player right\Hypertarget{class_game_a1ab78f5ed0d5ea879157357cf2fb2afa}\index{Game@{Game}!run@{run}}
+\index{run@{run}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \label{class_game_a1ab78f5ed0d5ea879157357cf2fb2afa} 
+void Game\+::run (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main game loop that runs until the window is closed. 
+
+This method handles events, input, updates the world, and renders the game to the window.
+
+This method controls the flow of the game, handling events, user input, updating the world, and rendering the window at a target frame rate of 60 FPS. \texorpdfstring{$<$}{<} Target frame time for 60 FPS
+
+\texorpdfstring{$<$}{<} Event object to handle window events
+
+\texorpdfstring{$<$}{<} Close the window if the close event is triggered
+
+\texorpdfstring{$<$}{<} Handle user input
+
+\texorpdfstring{$<$}{<} Get the time elapsed since the last update
+
+\texorpdfstring{$<$}{<} Update the world and render the entities
+
+\texorpdfstring{$<$}{<} Sleep to maintain the target frame rate
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Game\+Representation/\mbox{\hyperlink{_game_8h}{Game.\+h}}\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Game\+Representation/\mbox{\hyperlink{_game_8cpp}{Game.\+cpp}}\end{DoxyCompactItemize}

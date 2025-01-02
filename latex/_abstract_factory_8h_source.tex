@@ -1,0 +1,43 @@
+\doxysection{Abstract\+Factory.\+h}
+\hypertarget{_abstract_factory_8h_source}{}\label{_abstract_factory_8h_source}\index{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/Logic/Patterns/AbstractFactory.h@{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/Logic/Patterns/AbstractFactory.h}}
+\mbox{\hyperlink{_abstract_factory_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ karan\ on\ 14/11/2024.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_SKIPMARE\_ABSTRACTFACTORY\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_SKIPMARE\_ABSTRACTFACTORY\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_player_8h}{Player.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../Logic/Entities/Platforms/Platform.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../Logic/Entities/Bonuses/Bonus.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}../Logic/Entities/Platforms/StaticPlatform.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}../Logic/Entities/Platforms/DisappearingPlatform.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}../Logic/Entities/Platforms/VerticalPlatform.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}../Logic/Entities/Platforms/HorizontalPlatform.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../Logic/Entities/BGtile.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_jetpack_8h}{Bonuses/Jetpack.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_spring_8h}{Bonuses/Spring.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}../Logic/Entities/Score.h"{}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_abstract_factory}{AbstractFactory}}\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ std::shared\_ptr<Player>\ \mbox{\hyperlink{class_abstract_factory_a46700428c7560625ebd3b599e35ad60c}{createPlayer}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y)\ =\ 0;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ std::shared\_ptr<Platform>\ \mbox{\hyperlink{class_abstract_factory_a31f01f312dd7a874b17607b8024c2805}{createPlatform}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \mbox{\hyperlink{_entity_8h_a527bfd1a86584280ea4bb3f8a1f8d523}{PlatformType}}\ type)\ =\ 0;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{virtual}\ std::shared\_ptr<Bonus>\ \mbox{\hyperlink{class_abstract_factory_ac4ef593f9fb329597961f3391e68020e}{createBonus}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \mbox{\hyperlink{_entity_8h_ad6d58ebabfbf9aa4181bfe97a5d8d984}{BonusType}}\ type,\ std::shared\_ptr<Platform>\ platform)\ =\ 0;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{virtual}\ std::shared\_ptr<BGtile>\ \mbox{\hyperlink{class_abstract_factory_a3859df828747e5d8296e7217a74e8fc1}{createBGtile}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y)\ =\ 0;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{virtual}\ std::shared\_ptr<Score>\ \mbox{\hyperlink{class_abstract_factory_a2af03c94c2af0f951008e78953bffba3}{createScore}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y)\ =\ 0;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_abstract_factory_ae0b348ff14d4b3e9ab8322afd2fd8b38}{\string~AbstractFactory}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//INC\_2024\_PROJECT\_SKIPMARE\_ABSTRACTFACTORY\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,458 @@
+\doxysection{Player Class Reference}
+\hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
+
+
+Represents the player in the game.  
+
+
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
+Inheritance diagram for Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_player}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_a4c481b6493f9e0d550377c0d99763c82}{Player}} (float \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}}, float \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_player}{Player} object with the specified initial position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a9acd4c2abd2a98d54a4bc574452c20a7}{update}} (float delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Updates the player\textquotesingle{}s state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a70e21ca98281b7d72f105f2693113d7e}{jump}} ()
+\begin{DoxyCompactList}\small\item\em Makes the player jump. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a8e6ae2e7828c05c2125ab0c573b55d83}{move}} (int direction)
+\begin{DoxyCompactList}\small\item\em Moves the player left or right. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a660c9b084f368f60ec5f92215c4829d1}{Set\+Has\+Collided}} (bool collision\+Bool)
+\begin{DoxyCompactList}\small\item\em Sets whether the player has collided with an object (platform or bonus). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_player_a5bbde059ecbc0d08efbbeb91e12c6eb1}{get\+VelocityX}} () const
+\begin{DoxyCompactList}\small\item\em Gets the player\textquotesingle{}s horizontal velocity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_a4eefad86ee90c945cacd79bcb9fe9573}{is\+Jumping}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the player is in a jumping state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_a825c1069de7e6f6663a30a9ba7ae6e05}{is\+Falling}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the player is in a falling state. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_player_a602b6127e7fb97ad1f049543e1bb3b4e}{get\+VelocityY}} () const
+\begin{DoxyCompactList}\small\item\em Gets the player\textquotesingle{}s vertical velocity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_player_a4199a0b3ac3fc9474faafc6c36b3b4c2}{get\+Jump\+Force}} () const
+\begin{DoxyCompactList}\small\item\em Gets the player\textquotesingle{}s jump force. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_player_a87ee847dba1b210acafba2afce56b925}{get\+Gravity}} () const
+\begin{DoxyCompactList}\small\item\em Gets the player\textquotesingle{}s gravity value. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_af1fd609055816f348fd7877939371fcd}{get\+Collision\+With\+Platform}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the player has collided with a platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a1896238f10350b1047480a395bbb6e34}{set\+CWP}} (bool CWP)
+\begin{DoxyCompactList}\small\item\em Sets whether the player has collided with a platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a0850eeca735baecc96e39b47f57e0351}{set\+Jumping}} ()
+\begin{DoxyCompactList}\small\item\em Sets the player to the jumping state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_ae6e3dfed9bb31f3cea6a97bca37897f3}{set\+Falling}} ()
+\begin{DoxyCompactList}\small\item\em Sets the player to the falling state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_ac5283899c0393a932a243248b650ba14}{setisgoingleft}} (bool goingleft)
+\begin{DoxyCompactList}\small\item\em Sets whether the player is moving left. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a7b1d459c095922db6cdc6ef4452e9a31}{apply\+Bonus\+Effect}} (\mbox{\hyperlink{_entity_8h_ad6d58ebabfbf9aa4181bfe97a5d8d984}{Bonus\+Type}} bonus\+Type)
+\begin{DoxyCompactList}\small\item\em Applies a bonus effect to the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a91d870c54071bcc914e2db4609d6b1ff}{set\+VelocityY}} (float \mbox{\hyperlink{class_entity_a7eee17062ce809ed32030b344c6232fe}{velocityY}})
+\begin{DoxyCompactList}\small\item\em Sets the player\textquotesingle{}s vertical velocity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_ae5a9ed9b94b78f5f89b177a611689e5f}{Entity}} (float \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}}, float \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}})
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{class_entity}{Entity} object with the specified initial position. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}{\texorpdfstring{$\sim$}{\string~}\+Entity}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor to allow proper cleanup of derived classes. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a43a066e3ab4376eb6afbade526c2d1e2}{getX}} () const
+\begin{DoxyCompactList}\small\item\em Gets the x-\/coordinate of the entity. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{class_entity_a1628120ebbd5b236a029eaa4a9547313}{getY}} () const
+\begin{DoxyCompactList}\small\item\em Gets the y-\/coordinate of the entity. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a93306ecdce9446da37560f5f2b5307c0}{set\+Position}} (float \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}}, float \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}})
+\begin{DoxyCompactList}\small\item\em Sets the position of the entity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} \mbox{\hyperlink{class_entity_ac9be21c21f70756bf0ad72bb5d7e6b28}{get\+Bounding\+Box}} () const
+\begin{DoxyCompactList}\small\item\em Gets the bounding box of the entity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44}{Entity\+Type}} \mbox{\hyperlink{class_entity_a69c6347e1d6aeabc72f8e754bd0f2b83}{get\+Entity\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Gets the type of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a5f154968f2a478ea924460c78e0cd39e}{get\+Width}} () const
+\begin{DoxyCompactList}\small\item\em Gets the width of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a1332918563adb284c0fd432d47486d44}{get\+Height}} () const
+\begin{DoxyCompactList}\small\item\em Gets the height of the entity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a60c66ea3107dfab9de9ddc19cd9d0e0e}{get\+Collision\+On\+Land}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the entity has collided with the player on landing. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a0e2cb1d3e94796b76909dd9de169deb7}{get\+Collidable}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the entity is collidable. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a9722eefb92bda9cb7cf0ddf5521d52bf}{get\+Jump\+Trigger}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the jump trigger is active. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a24837eeec9f82089609ec84b51d600db}{set\+Jump\+Trigger}} (bool input)
+\begin{DoxyCompactList}\small\item\em Sets the jump trigger state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a50f8a72062a0ebf253c66bbbdef73edd}{set\+Out\+Of\+View}} (bool \mbox{\hyperlink{class_entity_a4fd01fc33b5a1f7877fe5ecd4c583407}{out\+Of\+View}})
+\begin{DoxyCompactList}\small\item\em Sets whether the entity is out of view. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_aa617323e4260b580b73f15138e975060}{get\+Out\+Of\+View}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the entity is out of view. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_ae0136ae533b5de07fcc5fd9a967b409a}{get\+Has\+Collided}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the entity has collided with the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a1a23935fde9e7d7d1c6877f5d4e4fb39}{set\+Has\+Collided}} (bool \mbox{\hyperlink{class_entity_ad2cc13f1f53bf57a100658399ef5db9b}{has\+Collided}})
+\begin{DoxyCompactList}\small\item\em Sets the collision state of the entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_subject}{Subject}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_subject_a7e360b2f847983bff270c67b6aeb153b}{attach}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observer}{Observer}} $>$ observer)
+\begin{DoxyCompactList}\small\item\em Attaches an observer to this subject. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_subject_a9dda003f071a9c8e41813b68901d3741}{detach}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observer}{Observer}} $>$ observer)
+\begin{DoxyCompactList}\small\item\em Detaches an observer from this subject. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_subject_af104c2baf37c7aa63b2ef6d32c2b3a9c}{notify}} ()
+\begin{DoxyCompactList}\small\item\em Notifies all attached observers of a change. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}} = 0
+\begin{DoxyCompactList}\small\item\em The x-\/coordinate of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}} = 0
+\begin{DoxyCompactList}\small\item\em The y-\/coordinate of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a489f84ea2f7b049c466ec25d1bd5957d}{velocityX}} = 0
+\begin{DoxyCompactList}\small\item\em The horizontal velocity of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a7eee17062ce809ed32030b344c6232fe}{velocityY}} = 0
+\begin{DoxyCompactList}\small\item\em The vertical velocity of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_adadfcc784f30b51b8e49f8230a56b793}{width}} = 0
+\begin{DoxyCompactList}\small\item\em The width of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a4550dc1011f47f6c4bb86e564e7d605b}{height}} = 0
+\begin{DoxyCompactList}\small\item\em The height of the entity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44}{Entity\+Type}} \mbox{\hyperlink{class_entity_a98b987ac07e1d55153c4fb3f8588545f}{Entity\+Type\+\_\+var}} = \mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}
+\begin{DoxyCompactList}\small\item\em The type of the entity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_ab8334073c4a81c38f733a1bd0ef1826a}{collision\+On\+Land}} = false
+\begin{DoxyCompactList}\small\item\em Indicates if the entity has collided with the player on landing. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a35a0b763d249ebb4a1e2394f8764236d}{collidable}} = true
+\begin{DoxyCompactList}\small\item\em Indicates if the entity is collidable. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a3cbb140a102f0c95f7fdeb13b466826d}{jumptrigger}} = true
+\begin{DoxyCompactList}\small\item\em Indicates if the jump trigger is active. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_ad2cc13f1f53bf57a100658399ef5db9b}{has\+Collided}} = false
+\begin{DoxyCompactList}\small\item\em Indicates if the entity has collided with the player. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entity_a4fd01fc33b5a1f7877fe5ecd4c583407}{out\+Of\+View}} = false
+\begin{DoxyCompactList}\small\item\em Indicates if the entity is out of view. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the player in the game. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_player_a4c481b6493f9e0d550377c0d99763c82}\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily \label{class_player_a4c481b6493f9e0d550377c0d99763c82} 
+Player\+::\+Player (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_player}{Player} object with the specified initial position. 
+
+Constructs a \doxylink{class_player}{Player} object with specified position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The initial x-\/coordinate of the player. \\
+\hline
+{\em y} & The initial y-\/coordinate of the player.\\
+\hline
+{\em x} & Initial x-\/coordinate. \\
+\hline
+{\em y} & Initial y-\/coordinate. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Width of the player in pixels.
+
+\texorpdfstring{$<$}{<} Height of the player in pixels.
+
+\texorpdfstring{$<$}{<} Horizontal velocity in pixels per second.
+
+\texorpdfstring{$<$}{<} Sets entity type to player.
+
+\texorpdfstring{$<$}{<} Indicates whether the player is collidable.
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_a7b1d459c095922db6cdc6ef4452e9a31}\index{Player@{Player}!applyBonusEffect@{applyBonusEffect}}
+\index{applyBonusEffect@{applyBonusEffect}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{applyBonusEffect()}{applyBonusEffect()}}
+{\footnotesize\ttfamily \label{class_player_a7b1d459c095922db6cdc6ef4452e9a31} 
+void Player\+::apply\+Bonus\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_entity_8h_ad6d58ebabfbf9aa4181bfe97a5d8d984}{Bonus\+Type}}}]{bonus\+Type}{}\end{DoxyParamCaption})}
+
+
+
+Applies a bonus effect to the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bonus\+Type} & The type of bonus to apply. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Sets gravity for the jetpack effect.
+
+\texorpdfstring{$<$}{<} Duration of the jetpack effect.
+
+\texorpdfstring{$<$}{<} Increases jump force.
+
+\texorpdfstring{$<$}{<} Decreases gravity.
+
+\texorpdfstring{$<$}{<} Duration of the spring effect.\Hypertarget{class_player_af1fd609055816f348fd7877939371fcd}\index{Player@{Player}!getCollisionWithPlatform@{getCollisionWithPlatform}}
+\index{getCollisionWithPlatform@{getCollisionWithPlatform}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getCollisionWithPlatform()}{getCollisionWithPlatform()}}
+{\footnotesize\ttfamily \label{class_player_af1fd609055816f348fd7877939371fcd} 
+bool Player\+::get\+Collision\+With\+Platform (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Checks if the player has collided with a platform. 
+
+\begin{DoxyReturn}{Returns}
+True if the player has collided with a platform, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a87ee847dba1b210acafba2afce56b925}\index{Player@{Player}!getGravity@{getGravity}}
+\index{getGravity@{getGravity}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getGravity()}{getGravity()}}
+{\footnotesize\ttfamily \label{class_player_a87ee847dba1b210acafba2afce56b925} 
+float Player\+::get\+Gravity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Gets the player\textquotesingle{}s gravity value. 
+
+\begin{DoxyReturn}{Returns}
+The gravity affecting the player. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a4199a0b3ac3fc9474faafc6c36b3b4c2}\index{Player@{Player}!getJumpForce@{getJumpForce}}
+\index{getJumpForce@{getJumpForce}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getJumpForce()}{getJumpForce()}}
+{\footnotesize\ttfamily \label{class_player_a4199a0b3ac3fc9474faafc6c36b3b4c2} 
+float Player\+::get\+Jump\+Force (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Gets the player\textquotesingle{}s jump force. 
+
+\begin{DoxyReturn}{Returns}
+The force applied when the player jumps. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a5bbde059ecbc0d08efbbeb91e12c6eb1}\index{Player@{Player}!getVelocityX@{getVelocityX}}
+\index{getVelocityX@{getVelocityX}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getVelocityX()}{getVelocityX()}}
+{\footnotesize\ttfamily \label{class_player_a5bbde059ecbc0d08efbbeb91e12c6eb1} 
+float Player\+::get\+VelocityX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Gets the player\textquotesingle{}s horizontal velocity. 
+
+\begin{DoxyReturn}{Returns}
+The player\textquotesingle{}s horizontal velocity. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a602b6127e7fb97ad1f049543e1bb3b4e}\index{Player@{Player}!getVelocityY@{getVelocityY}}
+\index{getVelocityY@{getVelocityY}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getVelocityY()}{getVelocityY()}}
+{\footnotesize\ttfamily \label{class_player_a602b6127e7fb97ad1f049543e1bb3b4e} 
+float Player\+::get\+VelocityY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Gets the player\textquotesingle{}s vertical velocity. 
+
+\begin{DoxyReturn}{Returns}
+The player\textquotesingle{}s vertical velocity. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a825c1069de7e6f6663a30a9ba7ae6e05}\index{Player@{Player}!isFalling@{isFalling}}
+\index{isFalling@{isFalling}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{isFalling()}{isFalling()}}
+{\footnotesize\ttfamily \label{class_player_a825c1069de7e6f6663a30a9ba7ae6e05} 
+bool Player\+::is\+Falling (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Checks if the player is in a falling state. 
+
+\begin{DoxyReturn}{Returns}
+True if the player is falling, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a4eefad86ee90c945cacd79bcb9fe9573}\index{Player@{Player}!isJumping@{isJumping}}
+\index{isJumping@{isJumping}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{isJumping()}{isJumping()}}
+{\footnotesize\ttfamily \label{class_player_a4eefad86ee90c945cacd79bcb9fe9573} 
+bool Player\+::is\+Jumping (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Checks if the player is in a jumping state. 
+
+\begin{DoxyReturn}{Returns}
+True if the player is jumping, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a70e21ca98281b7d72f105f2693113d7e}\index{Player@{Player}!jump@{jump}}
+\index{jump@{jump}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{jump()}{jump()}}
+{\footnotesize\ttfamily \label{class_player_a70e21ca98281b7d72f105f2693113d7e} 
+void Player\+::jump (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Makes the player jump. 
+
+\texorpdfstring{$<$}{<} Checks if the player is not already jumping (mid-\/air).
+
+\texorpdfstring{$<$}{<} Sets a negative velocity for jumping.
+
+\texorpdfstring{$<$}{<} Sets the jumping state.
+
+\texorpdfstring{$<$}{<} Resets the falling state.\Hypertarget{class_player_a8e6ae2e7828c05c2125ab0c573b55d83}\index{Player@{Player}!move@{move}}
+\index{move@{move}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily \label{class_player_a8e6ae2e7828c05c2125ab0c573b55d83} 
+void Player\+::move (\begin{DoxyParamCaption}\item[{int}]{direction}{}\end{DoxyParamCaption})}
+
+
+
+Moves the player left or right. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & The direction to move\+: 1 for right, -\/1 for left.\\
+\hline
+{\em direction} & Direction of movement (1 for right, -\/1 for left). \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Calculates the new x position.
+
+Wrap-\/around logic for screen edges.
+
+\texorpdfstring{$<$}{<} Wraps to the left side.
+
+\texorpdfstring{$<$}{<} Wraps to the right side.
+
+\texorpdfstring{$<$}{<} Updates the player\textquotesingle{}s position.\Hypertarget{class_player_a1896238f10350b1047480a395bbb6e34}\index{Player@{Player}!setCWP@{setCWP}}
+\index{setCWP@{setCWP}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setCWP()}{setCWP()}}
+{\footnotesize\ttfamily \label{class_player_a1896238f10350b1047480a395bbb6e34} 
+void Player\+::set\+CWP (\begin{DoxyParamCaption}\item[{bool}]{CWP}{}\end{DoxyParamCaption})}
+
+
+
+Sets whether the player has collided with a platform. 
+
+Sets the player\textquotesingle{}s collision with platform state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em CWP} & True if the player has collided with a platform, false otherwise. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_ae6e3dfed9bb31f3cea6a97bca37897f3}\index{Player@{Player}!setFalling@{setFalling}}
+\index{setFalling@{setFalling}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setFalling()}{setFalling()}}
+{\footnotesize\ttfamily \label{class_player_ae6e3dfed9bb31f3cea6a97bca37897f3} 
+void Player\+::set\+Falling (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Sets the player to the falling state. 
+
+\Hypertarget{class_player_a660c9b084f368f60ec5f92215c4829d1}\index{Player@{Player}!SetHasCollided@{SetHasCollided}}
+\index{SetHasCollided@{SetHasCollided}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{SetHasCollided()}{SetHasCollided()}}
+{\footnotesize\ttfamily \label{class_player_a660c9b084f368f60ec5f92215c4829d1} 
+void Player\+::\+Set\+Has\+Collided (\begin{DoxyParamCaption}\item[{bool}]{collision\+Bool}{}\end{DoxyParamCaption})}
+
+
+
+Sets whether the player has collided with an object (platform or bonus). 
+
+Sets the player\textquotesingle{}s collision state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em collision\+Bool} & True if the player has collided, false otherwise. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_ac5283899c0393a932a243248b650ba14}\index{Player@{Player}!setisgoingleft@{setisgoingleft}}
+\index{setisgoingleft@{setisgoingleft}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setisgoingleft()}{setisgoingleft()}}
+{\footnotesize\ttfamily \label{class_player_ac5283899c0393a932a243248b650ba14} 
+void Player\+::setisgoingleft (\begin{DoxyParamCaption}\item[{bool}]{goingleft}{}\end{DoxyParamCaption})}
+
+
+
+Sets whether the player is moving left. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goingleft} & True if the player is moving left, false otherwise. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a0850eeca735baecc96e39b47f57e0351}\index{Player@{Player}!setJumping@{setJumping}}
+\index{setJumping@{setJumping}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setJumping()}{setJumping()}}
+{\footnotesize\ttfamily \label{class_player_a0850eeca735baecc96e39b47f57e0351} 
+void Player\+::set\+Jumping (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Sets the player to the jumping state. 
+
+\Hypertarget{class_player_a91d870c54071bcc914e2db4609d6b1ff}\index{Player@{Player}!setVelocityY@{setVelocityY}}
+\index{setVelocityY@{setVelocityY}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setVelocityY()}{setVelocityY()}}
+{\footnotesize\ttfamily \label{class_player_a91d870c54071bcc914e2db4609d6b1ff} 
+void Player\+::set\+VelocityY (\begin{DoxyParamCaption}\item[{float}]{velocityY}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the player\textquotesingle{}s vertical velocity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em velocityY} & The new vertical velocity. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a9acd4c2abd2a98d54a4bc574452c20a7}\index{Player@{Player}!update@{update}}
+\index{update@{update}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_player_a9acd4c2abd2a98d54a4bc574452c20a7} 
+void Player\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the player\textquotesingle{}s state. 
+
+Updates the player\textquotesingle{}s state based on the elapsed time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Time elapsed since the last update, in seconds.\\
+\hline
+{\em delta\+Time} & Time elapsed since the last update in seconds. \\
+\hline
+\end{DoxyParams}
+Check if the player is falling or jumping.
+
+Apply gravity if the player is falling or jumping.
+
+\texorpdfstring{$<$}{<} Increases downward velocity due to gravity.
+
+Update the player\textquotesingle{}s vertical position.
+
+Check if the player has collided with a platform or bonus.
+
+\texorpdfstring{$<$}{<} Sets player to jumping state.
+
+\texorpdfstring{$<$}{<} Sets player to jumping state.
+
+\texorpdfstring{$<$}{<} Resets collision state.
+
+Handle bonus effects expiration.
+
+\texorpdfstring{$<$}{<} Resets bonus effect.
+
+\texorpdfstring{$<$}{<} Resets jump force to normal value.
+
+Implements \mbox{\hyperlink{class_entity_a0a9aa21e0ee17422cf3b91452c3431c4}{Entity}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Logic/\+Entities/\mbox{\hyperlink{_player_8h}{Player.\+h}}\item 
+C\+:/\+Uni/\+Advanced Programming/2024-\/project-\/skipmare/src/\+Logic/\+Entities/\mbox{\hyperlink{_player_8cpp}{Player.\+cpp}}\end{DoxyCompactItemize}

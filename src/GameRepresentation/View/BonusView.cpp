@@ -1,19 +1,36 @@
+/**
+ * @file BonusView.cpp
+ * @brief Implements the BonusView class for rendering bonus entities.
+ *
+ * This file contains the implementation of the BonusView class. It defines the constructor, destructor, and
+ * methods for loading textures and rendering the bonus in the game window.
+ */
+
 #include "BonusView.h"
 #include <iostream> // For error handling
 
-// Constructor that accepts a Bonus entity reference
+/**
+ * @brief Constructs a BonusView object.
+ * @param bonus A shared pointer to the Bonus entity.
+ * @param window A shared pointer to the SFML render window.
+ */
 BonusView::BonusView(const std::shared_ptr<Bonus> &bonus, const std::shared_ptr<sf::RenderWindow> &window)
     : EntityView(bonus, window), bonus(bonus) {
     loadTexture();  // Load the texture based on bonus type
     setPosition();  // Set the initial position of the bonus sprite
 }
 
-// Load the texture based on the bonus type
+/**
+ * @brief Loads the texture for the bonus.
+ *
+ * This method loads the appropriate texture based on the bonus type. If loading fails,
+ * it creates a fallback shape to represent the bonus.
+ */
 void BonusView::loadTexture() {
     std::string textureFile;  // Variable to hold the texture file path
 
     // Load different textures based on bonus type
-    switch (bonus->getType()) {  // Assuming 'getType()' returns the BonusType enum
+    switch (bonus->getType()) {
         case BonusType::JETPACK:
             textureFile = "Assets/Sprites/Jetpack.png";  // Path to jetpack bonus texture
             fallbackShape.setFillColor(sf::Color::Cyan); // Fallback color for jetpack
@@ -57,7 +74,12 @@ void BonusView::loadTexture() {
     }
 }
 
-// Render method to draw the sprite or fallback shape
+/**
+ * @brief Renders the bonus entity.
+ *
+ * This method draws the bonus entity to the window. If the texture is loaded, it draws the sprite;
+ * otherwise, it draws the fallback shape.
+ */
 void BonusView::render() {
     if (isTextureLoaded) {
         CurrentWindow->draw(sprite); // Draw the sprite if texture is loaded
