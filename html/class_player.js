@@ -4,6 +4,7 @@ var class_player =
     [ "applyBonusEffect", "class_player.html#a7b1d459c095922db6cdc6ef4452e9a31", null ],
     [ "getCollisionWithPlatform", "class_player.html#af1fd609055816f348fd7877939371fcd", null ],
     [ "getGravity", "class_player.html#a87ee847dba1b210acafba2afce56b925", null ],
+    [ "getisgoingleft", "class_player.html#abd76c9d6c99a72f1c41ac2895266e0ca", null ],
     [ "getJumpForce", "class_player.html#a4199a0b3ac3fc9474faafc6c36b3b4c2", null ],
     [ "getVelocityX", "class_player.html#a5bbde059ecbc0d08efbbeb91e12c6eb1", null ],
     [ "getVelocityY", "class_player.html#a602b6127e7fb97ad1f049543e1bb3b4e", null ],

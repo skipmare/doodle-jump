@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['medium_0',['MEDIUM',['../_world_8h.html#a43efb0a2e61815a66134dfa5ccea0a83ac87f3be66ffc3c0d4249f1c2cc5f3cce',1,'World.h']]]
+  ['platform_0',['PLATFORM',['../_entity_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44a2c2ba2ae05d0e6c35b68d51aadbe5a25',1,'Entity.h']]],
+  ['player_1',['PLAYER',['../_entity_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44ade5dc3e0dbd007d995ed3e37bde5ce7e',1,'Entity.h']]]
 ];

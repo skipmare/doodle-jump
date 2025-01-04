@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['hard_2ecpp_0',['HARD.cpp',['../_h_a_r_d_8cpp.html',1,'']]],
-  ['hard_2eh_1',['HARD.h',['../_h_a_r_d_8h.html',1,'']]],
-  ['horizontalplatform_2ecpp_2',['HorizontalPlatform.cpp',['../_horizontal_platform_8cpp.html',1,'']]],
-  ['horizontalplatform_2eh_3',['HorizontalPlatform.h',['../_horizontal_platform_8h.html',1,'']]]
+  ['platform_2ecpp_0',['Platform.cpp',['../_platform_8cpp.html',1,'']]],
+  ['platform_2eh_1',['Platform.h',['../_platform_8h.html',1,'']]],
+  ['platformview_2ecpp_2',['PlatformView.cpp',['../_platform_view_8cpp.html',1,'']]],
+  ['platformview_2eh_3',['PlatformView.h',['../_platform_view_8h.html',1,'']]],
+  ['player_2ecpp_4',['Player.cpp',['../_player_8cpp.html',1,'']]],
+  ['player_2eh_5',['Player.h',['../_player_8h.html',1,'']]]
 ];

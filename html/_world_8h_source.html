@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Doodle Jump 2024-2025: C:/Uni/Advanced Programming/2024-project-skipmare/src/Logic/GameLogic/World.h Source File</title>
+<title>Doodle Jump by Karanjot Singh: C:/Uni/Advanced Programming/2024-project-skipmare/src/Logic/GameLogic/World.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Doodle Jump 2024-2025
+   <div id="projectname">Doodle Jump by Karanjot Singh
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -105,15 +105,15 @@ $(function(){initNavTree('_world_8h_source.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">World.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_world_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef WORLD_H</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef WORLD_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define WORLD_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;memory&gt;</span> <span class="comment">// For std::shared_ptr</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_entity_8h.html">Entity.h</a>&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="_abstract_factory_8h.html">AbstractFactory.h</a>&quot;</span> <span class="comment">// Include the factory header</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_camera_8h.html">Camera.h</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="_random_8h.html">Random.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;AbstractFactory.h&quot;</span> <span class="comment">// Include the factory header</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;Camera.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;Random.h&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="_e_a_s_y_8h.html">../DifficultySettings/EASY.h</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="_m_e_d_i_u_m_8h.html">../DifficultySettings/MEDIUM.h</a>&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="_h_a_r_d_8h.html">../DifficultySettings/HARD.h</a>&quot;</span></div>
@@ -121,13 +121,11 @@ $(function(){initNavTree('_world_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;unordered_set&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;functional&quot;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span></div>
-<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="_world_8h.html#a43efb0a2e61815a66134dfa5ccea0a83">   23</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="_world_8h.html#a43efb0a2e61815a66134dfa5ccea0a83">Difficulty</a> {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="_world_8h.html#a43efb0a2e61815a66134dfa5ccea0a83a6e5affbf5c08fef0e28c094856f94627">   24</a></span>    <a class="code hl_class" href="class_e_a_s_y.html">EASY</a>,    </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="_world_8h.html#a43efb0a2e61815a66134dfa5ccea0a83ac87f3be66ffc3c0d4249f1c2cc5f3cce">   25</a></span>    <a class="code hl_class" href="class_m_e_d_i_u_m.html">MEDIUM</a>,  </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="_world_8h.html#a43efb0a2e61815a66134dfa5ccea0a83a7c144eae2e08db14c82e376603cc01f4">   26</a></span>    <a class="code hl_class" href="class_h_a_r_d.html">HARD</a>     </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">enum class</span> Difficulty {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    EASY,    </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    MEDIUM,  </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    HARD     </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
-</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
 <div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_world.html">   35</a></span><span class="keyword">class </span><a class="code hl_function" href="class_world.html#a75a5d645388a4396d7ef93f9e9b5c9b6">World</a> {</div>
@@ -142,7 +140,7 @@ $(function(){initNavTree('_world_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_world.html#a6f861499defce9ddb7f660e4c7f4a194">update</a>(<span class="keywordtype">float</span> deltaTime);</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_world.html#a3ebe87b202e0616fea548e80acec8944">setDifficulty</a>(<a class="code hl_enumeration" href="_world_8h.html#a43efb0a2e61815a66134dfa5ccea0a83">Difficulty</a> difficulty);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_world.html#a3ebe87b202e0616fea548e80acec8944">setDifficulty</a>(Difficulty difficulty);</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span></div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="class_world.html#ae4cdb1f935e32c78bab7ccab263a05fe">   99</a></span>    [[nodiscard]] <span class="keywordtype">int</span> <a class="code hl_function" href="class_world.html#ae4cdb1f935e32c78bab7ccab263a05fe">getScore</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span></div>
@@ -202,25 +200,17 @@ $(function(){initNavTree('_world_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    <a class="code hl_class" href="class_camera.html">Camera</a> camera; </div>
 <div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    <span class="keywordtype">int</span> ActivePlatforms = 0; </div>
 <div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    <span class="keywordtype">bool</span> isGameOver = <span class="keyword">false</span>; </div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    <a class="code hl_enumeration" href="_world_8h.html#a43efb0a2e61815a66134dfa5ccea0a83">Difficulty</a> difficulty = <a class="code hl_enumvalue" href="_world_8h.html#a43efb0a2e61815a66134dfa5ccea0a83a6e5affbf5c08fef0e28c094856f94627">Difficulty::EASY</a>; </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    Difficulty difficulty = Difficulty::EASY; </div>
 <div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>};</div>
 </div>
 <div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
 <div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span><span class="preprocessor">#endif </span><span class="comment">// WORLD_H</span></div>
-<div class="ttc" id="a_abstract_factory_8h_html"><div class="ttname"><a href="_abstract_factory_8h.html">AbstractFactory.h</a></div></div>
-<div class="ttc" id="a_camera_8h_html"><div class="ttname"><a href="_camera_8h.html">Camera.h</a></div></div>
 <div class="ttc" id="a_e_a_s_y_8h_html"><div class="ttname"><a href="_e_a_s_y_8h.html">EASY.h</a></div><div class="ttdoc">Defines the settings for the EASY difficulty level.</div></div>
 <div class="ttc" id="a_entity_8h_html"><div class="ttname"><a href="_entity_8h.html">Entity.h</a></div><div class="ttdoc">Declares the base Entity class and related enumerations for the game.</div></div>
 <div class="ttc" id="a_h_a_r_d_8h_html"><div class="ttname"><a href="_h_a_r_d_8h.html">HARD.h</a></div><div class="ttdoc">Defines the settings for the HARD difficulty level.</div></div>
 <div class="ttc" id="a_m_e_d_i_u_m_8h_html"><div class="ttname"><a href="_m_e_d_i_u_m_8h.html">MEDIUM.h</a></div><div class="ttdoc">Defines the settings for the MEDIUM difficulty level.</div></div>
-<div class="ttc" id="a_random_8h_html"><div class="ttname"><a href="_random_8h.html">Random.h</a></div></div>
-<div class="ttc" id="a_world_8h_html_a43efb0a2e61815a66134dfa5ccea0a83"><div class="ttname"><a href="_world_8h.html#a43efb0a2e61815a66134dfa5ccea0a83">Difficulty</a></div><div class="ttdeci">Difficulty</div><div class="ttdoc">Enum for difficulty levels in the game.</div><div class="ttdef"><b>Definition</b> World.h:23</div></div>
-<div class="ttc" id="a_world_8h_html_a43efb0a2e61815a66134dfa5ccea0a83a6e5affbf5c08fef0e28c094856f94627"><div class="ttname"><a href="_world_8h.html#a43efb0a2e61815a66134dfa5ccea0a83a6e5affbf5c08fef0e28c094856f94627">Difficulty::EASY</a></div><div class="ttdeci">@ EASY</div><div class="ttdoc">Easy difficulty level.</div><div class="ttdef"><b>Definition</b> World.h:24</div></div>
 <div class="ttc" id="aclass_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdoc">A class to manage the camera&#39;s position and transformation of coordinates.</div><div class="ttdef"><b>Definition</b> Camera.h:14</div></div>
 <div class="ttc" id="aclass_difficulty_settings_html"><div class="ttname"><a href="class_difficulty_settings.html">DifficultySettings</a></div><div class="ttdoc">A base class representing the settings for game difficulty.</div><div class="ttdef"><b>Definition</b> DifficultySettings.h:12</div></div>
-<div class="ttc" id="aclass_e_a_s_y_html"><div class="ttname"><a href="class_e_a_s_y.html">EASY</a></div><div class="ttdoc">A derived class representing the EASY difficulty settings.</div><div class="ttdef"><b>Definition</b> EASY.h:12</div></div>
-<div class="ttc" id="aclass_h_a_r_d_html"><div class="ttname"><a href="class_h_a_r_d.html">HARD</a></div><div class="ttdoc">A derived class representing the HARD difficulty settings.</div><div class="ttdef"><b>Definition</b> HARD.h:12</div></div>
-<div class="ttc" id="aclass_m_e_d_i_u_m_html"><div class="ttname"><a href="class_m_e_d_i_u_m.html">MEDIUM</a></div><div class="ttdoc">A derived class representing the MEDIUM difficulty settings.</div><div class="ttdef"><b>Definition</b> MEDIUM.h:12</div></div>
 <div class="ttc" id="aclass_world_html_a02bfb4d5ae1ac1b4f38e8ca1390d1913"><div class="ttname"><a href="class_world.html#a02bfb4d5ae1ac1b4f38e8ca1390d1913">World::updatePlayer</a></div><div class="ttdeci">void updatePlayer(float deltaTime) const</div><div class="ttdoc">Updates the player entity based on the time delta.</div><div class="ttdef"><b>Definition</b> World.cpp:252</div></div>
 <div class="ttc" id="aclass_world_html_a0bc049484179c1b283da6191986ddb56"><div class="ttname"><a href="class_world.html#a0bc049484179c1b283da6191986ddb56">World::generateBackground</a></div><div class="ttdeci">void generateBackground(float from_y, float to_y)</div><div class="ttdoc">Generates background tiles for the world.</div><div class="ttdef"><b>Definition</b> World.cpp:367</div></div>
 <div class="ttc" id="aclass_world_html_a1a97411eb1695686ced14d388faf8a50"><div class="ttname"><a href="class_world.html#a1a97411eb1695686ced14d388faf8a50">World::checkCollisions</a></div><div class="ttdeci">void checkCollisions()</div><div class="ttdoc">Checks for collisions between all entities in the world.</div><div class="ttdef"><b>Definition</b> World.cpp:305</div></div>
@@ -256,7 +246,7 @@ $(function(){initNavTree('_world_8h_source.html',''); initResizable(true); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_879f651efeb43b90a1b3fc2121fcbc1a.html">Uni</a></li><li class="navelem"><a class="el" href="dir_2253dd4729a605258c9021a38d4a0708.html">Advanced Programming</a></li><li class="navelem"><a class="el" href="dir_09dc1607369377661e5a561660ca5dc1.html">2024-project-skipmare</a></li><li class="navelem"><a class="el" href="dir_afc8c456f32a0a6fb2fa51616af96b6d.html">src</a></li><li class="navelem"><a class="el" href="dir_4f1b41b765c05ffb4a374d4521a2ee74.html">Logic</a></li><li class="navelem"><a class="el" href="dir_1911f1d51d54d0b87c81093c85bbec4b.html">GameLogic</a></li><li class="navelem"><a class="el" href="_world_8h.html">World.h</a></li>
+    <li class="navelem"><a class="el" href="dir_879f651efeb43b90a1b3fc2121fcbc1a.html">Uni</a></li><li class="navelem"><a class="el" href="dir_2253dd4729a605258c9021a38d4a0708.html">Advanced Programming</a></li><li class="navelem"><a class="el" href="dir_09dc1607369377661e5a561660ca5dc1.html">2024-project-skipmare</a></li><li class="navelem"><a class="el" href="dir_afc8c456f32a0a6fb2fa51616af96b6d.html">src</a></li><li class="navelem"><a class="el" href="dir_4f1b41b765c05ffb4a374d4521a2ee74.html">Logic</a></li><li class="navelem"><a class="el" href="dir_1911f1d51d54d0b87c81093c85bbec4b.html">GameLogic</a></li><li class="navelem"><b>World.h</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
   </ul>
 </div>

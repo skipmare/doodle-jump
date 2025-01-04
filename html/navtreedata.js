@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "Doodle Jump 2024-2025", "index.html", [
+  [ "Doodle Jump by Karanjot Singh", "index.html", [
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -48,8 +48,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_abstract_factory_8cpp.html",
-"class_platform_view.html"
+"_abstract_factory_8h_source.html",
+"class_score.html#a0b481b4e3963090980301b2dbe2c3f95"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

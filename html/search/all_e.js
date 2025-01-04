@@ -15,8 +15,6 @@ var searchData=
   ['player_2eh_12',['Player.h',['../_player_8h.html',1,'']]],
   ['playermove_13',['PlayerMove',['../class_world.html#a7df93ad92d5ae5ce82110eaa7f52f0ba',1,'World']]],
   ['playerview_14',['PlayerView',['../class_player_view.html',1,'PlayerView'],['../class_player_view.html#ac79b30ef00a4bfa6d2e0e085ea97aec4',1,'PlayerView::PlayerView()']]],
-  ['playerview_2ecpp_15',['PlayerView.cpp',['../_player_view_8cpp.html',1,'']]],
-  ['playerview_2eh_16',['PlayerView.h',['../_player_view_8h.html',1,'']]],
-  ['prevplatformx_17',['prevPlatformX',['../class_bonus.html#ac564c09625d5fa9d73a74250cb47ddd5',1,'Bonus']]],
-  ['prevplatformy_18',['prevPlatformY',['../class_bonus.html#aefa38e7095d64eeb40f6b342a58ce1b9',1,'Bonus']]]
+  ['prevplatformx_15',['prevPlatformX',['../class_bonus.html#ac564c09625d5fa9d73a74250cb47ddd5',1,'Bonus']]],
+  ['prevplatformy_16',['prevPlatformY',['../class_bonus.html#aefa38e7095d64eeb40f6b342a58ce1b9',1,'Bonus']]]
 ];

@@ -25,11 +25,11 @@ void \mbox{\hyperlink{class_platform_view_ab17eeed5913d211784b3e010216f0ef2}{loa
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity_view}{Entity\+View}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_entity_view_a0f778007e6a69481a371e9ef322e976a}{\texorpdfstring{$\sim$}{\string~}\+Entity\+View}} () override=default
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Entity\+View} () override=default
 \begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_entity_view}{Entity\+View} class. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_entity_view_a8f74e594a1d814f30ae25b9ad5b425d4}{Entity\+View}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \&\mbox{\hyperlink{class_entity_view_a44310c7a56f0beb141064f88857e92df}{entity}}, const std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \&window)
 \begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_entity_view}{Entity\+View} class. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_entity_view_a3ae42cf32e30ce8d418e35096aab0849}{update}} () final
+void \mbox{\hyperlink{class_entity_view_adddf0a8ab758a96d7638dd8a9b6300ce}{update}} () override
 \begin{DoxyCompactList}\small\item\em Updates the position and renders the entity\textquotesingle{}s view. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_entity_view_adf2869ddecd4e3f5bf1ae25684b2ee61}{render}} ()
 \begin{DoxyCompactList}\small\item\em Renders the entity\textquotesingle{}s view. \end{DoxyCompactList}\item 
@@ -44,21 +44,21 @@ virtual \mbox{\hyperlink{class_observer_a37824643eeaef086de17bba2717d865a}{\texo
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity_view}{Entity\+View}}}
 \begin{DoxyCompactItemize}
 \item 
-std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \mbox{\hyperlink{class_entity_view_aa7e2b51d07a976495ce00ae99d8f4c61}{Current\+Window}}
+std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ {\bfseries Current\+Window}
 \begin{DoxyCompactList}\small\item\em The render window for rendering the entity. \end{DoxyCompactList}\item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \mbox{\hyperlink{class_entity_view_a44310c7a56f0beb141064f88857e92df}{entity}}
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ {\bfseries entity}
 \begin{DoxyCompactList}\small\item\em The entity associated with this view. \end{DoxyCompactList}\item 
-sf\+::\+Sprite \mbox{\hyperlink{class_entity_view_a39508da83001b63aa61b24af79890a83}{sprite}}
+sf\+::\+Sprite {\bfseries sprite}
 \begin{DoxyCompactList}\small\item\em The sprite representing the entity. \end{DoxyCompactList}\item 
-sf\+::\+Text \mbox{\hyperlink{class_entity_view_ad9082b7d2c1ecbbe3344e6c292014f37}{Score\+Text}}
+sf\+::\+Text {\bfseries Score\+Text}
 \begin{DoxyCompactList}\small\item\em Text to display information about the entity. \end{DoxyCompactList}\item 
-sf\+::\+Text \mbox{\hyperlink{class_entity_view_a7096285f0c661bc0b07ee9fdb9c32f54}{Best\+Score\+Text}}
+sf\+::\+Text {\bfseries Best\+Score\+Text}
 \begin{DoxyCompactList}\small\item\em Text to display the best score. \end{DoxyCompactList}\item 
-sf\+::\+Texture \mbox{\hyperlink{class_entity_view_ab3993583777840a99d04e8823791cace}{texture}}
+sf\+::\+Texture {\bfseries texture}
 \begin{DoxyCompactList}\small\item\em The texture for the sprite. \end{DoxyCompactList}\item 
-sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_entity_view_a12117818a17530140db583f213f76213}{fallback\+Shape}}
+sf\+::\+Rectangle\+Shape {\bfseries fallback\+Shape}
 \begin{DoxyCompactList}\small\item\em The fallback shape to be rendered if texture loading fails. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_entity_view_a521643e64c07c3eaac6b51c297aed77e}{is\+Texture\+Loaded}} = false
+bool {\bfseries is\+Texture\+Loaded} = false
 \begin{DoxyCompactList}\small\item\em Flag indicating whether the texture has been loaded. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 

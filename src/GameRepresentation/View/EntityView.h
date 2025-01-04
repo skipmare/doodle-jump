@@ -51,7 +51,7 @@ public:
      *
      * This method is called to update the entity's position and render it.
      */
-    void update() final;
+    void update() override;
 
     /**
      * @brief Renders the entity's view.

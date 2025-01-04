@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Doodle Jump 2024-2025: C:/Uni/Advanced Programming/2024-project-skipmare/src/GameRepresentation/View/PlayerView.h Source File</title>
+<title>Doodle Jump by Karanjot Singh: C:/Uni/Advanced Programming/2024-project-skipmare/src/GameRepresentation/View/PlayerView.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Doodle Jump 2024-2025
+   <div id="projectname">Doodle Jump by Karanjot Singh
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -105,37 +105,55 @@ $(function(){initNavTree('_player_view_8h_source.html',''); initResizable(true);
   <div class="headertitle"><div class="title">PlayerView.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_player_view_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PLAYERVIEW_H</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PLAYERVIEW_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PLAYERVIEW_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_entity_view_8h.html">EntityView.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_player_8h.html">Player.h</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span></div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_player_view.html">   16</a></span><span class="keyword">class </span><a class="code hl_function" href="class_player_view.html#ac79b30ef00a4bfa6d2e0e085ea97aec4">PlayerView</a> : <span class="keyword">public</span> <a class="code hl_function" href="class_entity_view.html#a8f74e594a1d814f30ae25b9ad5b425d4">EntityView</a> {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_function" href="class_player_view.html#ac79b30ef00a4bfa6d2e0e085ea97aec4">PlayerView</a>(<span class="keyword">const</span> std::shared_ptr&lt;Player&gt; &amp;player, <span class="keyword">const</span> std::shared_ptr&lt;sf::RenderWindow&gt; &amp;window);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player_view.html#afce785294689abe3851e4f1eb641d480">loadTexture</a>() <span class="keyword">final</span>; <span class="comment">// Load texture based on the player&#39;s state</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    std::shared_ptr&lt;Player&gt; player; <span class="comment">// Reference to the associated player</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_entity_view_8h.html">EntityView.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="_player_8h.html">Player.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span></div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_player_view.html">   18</a></span><span class="keyword">class </span><a class="code hl_function" href="class_player_view.html#ac79b30ef00a4bfa6d2e0e085ea97aec4">PlayerView</a> : <span class="keyword">public</span> <a class="code hl_function" href="class_entity_view.html#a8f74e594a1d814f30ae25b9ad5b425d4">EntityView</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_function" href="class_player_view.html#ac79b30ef00a4bfa6d2e0e085ea97aec4">PlayerView</a>(<span class="keyword">const</span> std::shared_ptr&lt;Player&gt;&amp; player, <span class="keyword">const</span> std::shared_ptr&lt;sf::RenderWindow&gt;&amp; window);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player_view.html#a358eb11647b94da6cbe6a716ce002025">update</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player_view.html#ace7f228036ad0c0e4babd59b020ee5fe">render</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> loadTexture() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> updateSprite();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="comment">// Member variables</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    std::shared_ptr&lt;Player&gt; player; </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    sf::Texture textureLeft; </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    sf::Texture textureRight; </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    sf::Sprite PlayerLeft; </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    sf::Sprite PlayerRight; </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    sf::Sprite* currentSprite = <span class="keyword">nullptr</span>; </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    sf::RectangleShape fallbackShape; </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">bool</span> isLeftTextureLoaded = <span class="keyword">true</span>; </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">bool</span> isRightTextureLoaded = <span class="keyword">true</span>; </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>};</div>
 </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#endif </span><span class="comment">// PLAYERVIEW_H</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#endif </span><span class="comment">// PLAYERVIEW_H</span></div>
 <div class="ttc" id="a_entity_view_8h_html"><div class="ttname"><a href="_entity_view_8h.html">EntityView.h</a></div><div class="ttdoc">Header file for the EntityView class, which represents the view for an entity.</div></div>
 <div class="ttc" id="a_player_8h_html"><div class="ttname"><a href="_player_8h.html">Player.h</a></div><div class="ttdoc">Defines the Player class, which represents the player character in the game.</div></div>
 <div class="ttc" id="aclass_entity_view_html_a8f74e594a1d814f30ae25b9ad5b425d4"><div class="ttname"><a href="class_entity_view.html#a8f74e594a1d814f30ae25b9ad5b425d4">EntityView::EntityView</a></div><div class="ttdeci">EntityView(const std::shared_ptr&lt; Entity &gt; &amp;entity, const std::shared_ptr&lt; sf::RenderWindow &gt; &amp;window)</div><div class="ttdoc">Constructor for the EntityView class.</div><div class="ttdef"><b>Definition</b> EntityView.cpp:23</div></div>
-<div class="ttc" id="aclass_player_view_html_ac79b30ef00a4bfa6d2e0e085ea97aec4"><div class="ttname"><a href="class_player_view.html#ac79b30ef00a4bfa6d2e0e085ea97aec4">PlayerView::PlayerView</a></div><div class="ttdeci">PlayerView(const std::shared_ptr&lt; Player &gt; &amp;player, const std::shared_ptr&lt; sf::RenderWindow &gt; &amp;window)</div><div class="ttdoc">Constructs a PlayerView object and associates it with a Player entity.</div><div class="ttdef"><b>Definition</b> PlayerView.cpp:22</div></div>
-<div class="ttc" id="aclass_player_view_html_afce785294689abe3851e4f1eb641d480"><div class="ttname"><a href="class_player_view.html#afce785294689abe3851e4f1eb641d480">PlayerView::loadTexture</a></div><div class="ttdeci">void loadTexture() final</div><div class="ttdoc">Loads the texture for the player and applies it to the sprite.</div><div class="ttdef"><b>Definition</b> PlayerView.cpp:39</div></div>
+<div class="ttc" id="aclass_player_view_html_a358eb11647b94da6cbe6a716ce002025"><div class="ttname"><a href="class_player_view.html#a358eb11647b94da6cbe6a716ce002025">PlayerView::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">Updates the sprite, position, and rendering of the Player entity.</div><div class="ttdef"><b>Definition</b> PlayerView.cpp:69</div></div>
+<div class="ttc" id="aclass_player_view_html_ac79b30ef00a4bfa6d2e0e085ea97aec4"><div class="ttname"><a href="class_player_view.html#ac79b30ef00a4bfa6d2e0e085ea97aec4">PlayerView::PlayerView</a></div><div class="ttdeci">PlayerView(const std::shared_ptr&lt; Player &gt; &amp;player, const std::shared_ptr&lt; sf::RenderWindow &gt; &amp;window)</div><div class="ttdoc">Constructs a PlayerView object and associates it with a Player entity.</div><div class="ttdef"><b>Definition</b> PlayerView.cpp:13</div></div>
+<div class="ttc" id="aclass_player_view_html_ace7f228036ad0c0e4babd59b020ee5fe"><div class="ttname"><a href="class_player_view.html#ace7f228036ad0c0e4babd59b020ee5fe">PlayerView::render</a></div><div class="ttdeci">void render() override</div><div class="ttdoc">Renders the Player entity on the screen.</div><div class="ttdef"><b>Definition</b> PlayerView.cpp:76</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_879f651efeb43b90a1b3fc2121fcbc1a.html">Uni</a></li><li class="navelem"><a class="el" href="dir_2253dd4729a605258c9021a38d4a0708.html">Advanced Programming</a></li><li class="navelem"><a class="el" href="dir_09dc1607369377661e5a561660ca5dc1.html">2024-project-skipmare</a></li><li class="navelem"><a class="el" href="dir_afc8c456f32a0a6fb2fa51616af96b6d.html">src</a></li><li class="navelem"><a class="el" href="dir_0c0228580d993964935c34e3bb97c00e.html">GameRepresentation</a></li><li class="navelem"><a class="el" href="dir_50b1ef172af774fcbdba5bf2055e5ae0.html">View</a></li><li class="navelem"><a class="el" href="_player_view_8h.html">PlayerView.h</a></li>
+    <li class="navelem"><a class="el" href="dir_879f651efeb43b90a1b3fc2121fcbc1a.html">Uni</a></li><li class="navelem"><a class="el" href="dir_2253dd4729a605258c9021a38d4a0708.html">Advanced Programming</a></li><li class="navelem"><a class="el" href="dir_09dc1607369377661e5a561660ca5dc1.html">2024-project-skipmare</a></li><li class="navelem"><a class="el" href="dir_afc8c456f32a0a6fb2fa51616af96b6d.html">src</a></li><li class="navelem"><a class="el" href="dir_0c0228580d993964935c34e3bb97c00e.html">GameRepresentation</a></li><li class="navelem"><a class="el" href="dir_50b1ef172af774fcbdba5bf2055e5ae0.html">View</a></li><li class="navelem"><b>PlayerView.h</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
   </ul>
 </div>

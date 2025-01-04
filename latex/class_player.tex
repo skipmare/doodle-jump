@@ -44,16 +44,20 @@ bool \mbox{\hyperlink{class_player_af1fd609055816f348fd7877939371fcd}{get\+Colli
 \begin{DoxyCompactList}\small\item\em Checks if the player has collided with a platform. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_player_a1896238f10350b1047480a395bbb6e34}{set\+CWP}} (bool CWP)
 \begin{DoxyCompactList}\small\item\em Sets whether the player has collided with a platform. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_player_a0850eeca735baecc96e39b47f57e0351}{set\+Jumping}} ()
+\Hypertarget{class_player_a0850eeca735baecc96e39b47f57e0351}\label{class_player_a0850eeca735baecc96e39b47f57e0351} 
+void {\bfseries set\+Jumping} ()
 \begin{DoxyCompactList}\small\item\em Sets the player to the jumping state. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_player_ae6e3dfed9bb31f3cea6a97bca37897f3}{set\+Falling}} ()
+\Hypertarget{class_player_ae6e3dfed9bb31f3cea6a97bca37897f3}\label{class_player_ae6e3dfed9bb31f3cea6a97bca37897f3} 
+void {\bfseries set\+Falling} ()
 \begin{DoxyCompactList}\small\item\em Sets the player to the falling state. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_player_ac5283899c0393a932a243248b650ba14}{setisgoingleft}} (bool goingleft)
 \begin{DoxyCompactList}\small\item\em Sets whether the player is moving left. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_player_a7b1d459c095922db6cdc6ef4452e9a31}{apply\+Bonus\+Effect}} (\mbox{\hyperlink{_entity_8h_ad6d58ebabfbf9aa4181bfe97a5d8d984}{Bonus\+Type}} bonus\+Type)
 \begin{DoxyCompactList}\small\item\em Applies a bonus effect to the player. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_player_a91d870c54071bcc914e2db4609d6b1ff}{set\+VelocityY}} (float \mbox{\hyperlink{class_entity_a7eee17062ce809ed32030b344c6232fe}{velocityY}})
-\begin{DoxyCompactList}\small\item\em Sets the player\textquotesingle{}s vertical velocity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sets the player\textquotesingle{}s vertical velocity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_abd76c9d6c99a72f1c41ac2895266e0ca}{getisgoingleft}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the player is moving to the left. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -104,29 +108,29 @@ void \mbox{\hyperlink{class_subject_af104c2baf37c7aa63b2ef6d32c2b3a9c}{notify}} 
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
 \begin{DoxyCompactItemize}
 \item 
-float \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}} = 0
+float {\bfseries x} = 0
 \begin{DoxyCompactList}\small\item\em The x-\/coordinate of the entity. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}} = 0
+float {\bfseries y} = 0
 \begin{DoxyCompactList}\small\item\em The y-\/coordinate of the entity. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{class_entity_a489f84ea2f7b049c466ec25d1bd5957d}{velocityX}} = 0
+float {\bfseries velocityX} = 0
 \begin{DoxyCompactList}\small\item\em The horizontal velocity of the entity. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{class_entity_a7eee17062ce809ed32030b344c6232fe}{velocityY}} = 0
+float {\bfseries velocityY} = 0
 \begin{DoxyCompactList}\small\item\em The vertical velocity of the entity. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{class_entity_adadfcc784f30b51b8e49f8230a56b793}{width}} = 0
+float {\bfseries width} = 0
 \begin{DoxyCompactList}\small\item\em The width of the entity. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{class_entity_a4550dc1011f47f6c4bb86e564e7d605b}{height}} = 0
+float {\bfseries height} = 0
 \begin{DoxyCompactList}\small\item\em The height of the entity. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44}{Entity\+Type}} \mbox{\hyperlink{class_entity_a98b987ac07e1d55153c4fb3f8588545f}{Entity\+Type\+\_\+var}} = \mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}
+\mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44}{Entity\+Type}} {\bfseries Entity\+Type\+\_\+var} = \mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}
 \begin{DoxyCompactList}\small\item\em The type of the entity. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_entity_ab8334073c4a81c38f733a1bd0ef1826a}{collision\+On\+Land}} = false
+bool {\bfseries collision\+On\+Land} = false
 \begin{DoxyCompactList}\small\item\em Indicates if the entity has collided with the player on landing. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_entity_a35a0b763d249ebb4a1e2394f8764236d}{collidable}} = true
+bool {\bfseries collidable} = true
 \begin{DoxyCompactList}\small\item\em Indicates if the entity is collidable. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_entity_a3cbb140a102f0c95f7fdeb13b466826d}{jumptrigger}} = true
+bool {\bfseries jumptrigger} = true
 \begin{DoxyCompactList}\small\item\em Indicates if the jump trigger is active. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_entity_ad2cc13f1f53bf57a100658399ef5db9b}{has\+Collided}} = false
+bool {\bfseries has\+Collided} = false
 \begin{DoxyCompactList}\small\item\em Indicates if the entity has collided with the player. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_entity_a4fd01fc33b5a1f7877fe5ecd4c583407}{out\+Of\+View}} = false
+bool {\bfseries out\+Of\+View} = false
 \begin{DoxyCompactList}\small\item\em Indicates if the entity is out of view. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -189,8 +193,6 @@ Applies a bonus effect to the player.
 
 \texorpdfstring{$<$}{<} Increases jump force.
 
-\texorpdfstring{$<$}{<} Decreases gravity.
-
 \texorpdfstring{$<$}{<} Duration of the spring effect.\Hypertarget{class_player_af1fd609055816f348fd7877939371fcd}\index{Player@{Player}!getCollisionWithPlatform@{getCollisionWithPlatform}}
 \index{getCollisionWithPlatform@{getCollisionWithPlatform}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{getCollisionWithPlatform()}{getCollisionWithPlatform()}}
@@ -216,6 +218,21 @@ Gets the player\textquotesingle{}s gravity value.
 
 \begin{DoxyReturn}{Returns}
 The gravity affecting the player. 
+\end{DoxyReturn}
+\Hypertarget{class_player_abd76c9d6c99a72f1c41ac2895266e0ca}\index{Player@{Player}!getisgoingleft@{getisgoingleft}}
+\index{getisgoingleft@{getisgoingleft}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getisgoingleft()}{getisgoingleft()}}
+{\footnotesize\ttfamily \label{class_player_abd76c9d6c99a72f1c41ac2895266e0ca} 
+bool Player\+::getisgoingleft (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if the player is moving to the left. 
+
+This method returns the current movement direction of the player. It indicates whether the player is moving left.
+
+\begin{DoxyReturn}{Returns}
+True if the player is moving to the left, false otherwise. 
 \end{DoxyReturn}
 \Hypertarget{class_player_a4199a0b3ac3fc9474faafc6c36b3b4c2}\index{Player@{Player}!getJumpForce@{getJumpForce}}
 \index{getJumpForce@{getJumpForce}!Player@{Player}}
@@ -340,16 +357,6 @@ Sets the player\textquotesingle{}s collision with platform state.
 {\em CWP} & True if the player has collided with a platform, false otherwise. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_player_ae6e3dfed9bb31f3cea6a97bca37897f3}\index{Player@{Player}!setFalling@{setFalling}}
-\index{setFalling@{setFalling}!Player@{Player}}
-\doxysubsubsection{\texorpdfstring{setFalling()}{setFalling()}}
-{\footnotesize\ttfamily \label{class_player_ae6e3dfed9bb31f3cea6a97bca37897f3} 
-void Player\+::set\+Falling (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-
-
-Sets the player to the falling state. 
-
 \Hypertarget{class_player_a660c9b084f368f60ec5f92215c4829d1}\index{Player@{Player}!SetHasCollided@{SetHasCollided}}
 \index{SetHasCollided@{SetHasCollided}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{SetHasCollided()}{SetHasCollided()}}
@@ -382,16 +389,6 @@ Sets whether the player is moving left.
 {\em goingleft} & True if the player is moving left, false otherwise. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_player_a0850eeca735baecc96e39b47f57e0351}\index{Player@{Player}!setJumping@{setJumping}}
-\index{setJumping@{setJumping}!Player@{Player}}
-\doxysubsubsection{\texorpdfstring{setJumping()}{setJumping()}}
-{\footnotesize\ttfamily \label{class_player_a0850eeca735baecc96e39b47f57e0351} 
-void Player\+::set\+Jumping (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-
-
-Sets the player to the jumping state. 
-
 \Hypertarget{class_player_a91d870c54071bcc914e2db4609d6b1ff}\index{Player@{Player}!setVelocityY@{setVelocityY}}
 \index{setVelocityY@{setVelocityY}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{setVelocityY()}{setVelocityY()}}

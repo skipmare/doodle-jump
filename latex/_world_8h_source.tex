@@ -1,6 +1,6 @@
 \doxysection{World.\+h}
 \hypertarget{_world_8h_source}{}\label{_world_8h_source}\index{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/Logic/GameLogic/World.h@{C:/Uni/Advanced Programming/2024-\/project-\/skipmare/src/Logic/GameLogic/World.h}}
-\mbox{\hyperlink{_world_8h}{Go to the documentation of this file.}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WORLD\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WORLD\_H}}
@@ -8,9 +8,9 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}\ \textcolor{comment}{//\ For\ std::shared\_ptr}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_abstract_factory_8h}{AbstractFactory.h}}"{}}\ \textcolor{comment}{//\ Include\ the\ factory\ header}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_camera_8h}{Camera.h}}"{}}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_random_8h}{Random.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}AbstractFactory.h"{}}\ \textcolor{comment}{//\ Include\ the\ factory\ header}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Camera.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Random.h"{}}}
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_e_a_s_y_8h}{../DifficultySettings/EASY.h}}"{}}}
 \DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_m_e_d_i_u_m_8h}{../DifficultySettings/MEDIUM.h}}"{}}}
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_h_a_r_d_8h}{../DifficultySettings/HARD.h}}"{}}}
@@ -18,10 +18,10 @@
 \DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}unordered\_set"{}}}
 \DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}functional"{}}}
 \DoxyCodeLine{00016\ }
-\DoxyCodeLine{00023\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83}{Difficulty}}\ \{}
-\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_e_a_s_y}{EASY}},\ \ \ \ }
-\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_m_e_d_i_u_m}{MEDIUM}},\ \ }
-\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_h_a_r_d}{HARD}}\ \ \ \ \ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{enum\ class}\ Difficulty\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ EASY,\ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ MEDIUM,\ \ }
+\DoxyCodeLine{00026\ \ \ \ \ HARD\ \ \ \ \ }
 \DoxyCodeLine{00027\ \};}
 \DoxyCodeLine{00028\ }
 \DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_world_a75a5d645388a4396d7ef93f9e9b5c9b6}{World}}\ \{}
@@ -36,7 +36,7 @@
 \DoxyCodeLine{00075\ }
 \DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_a6f861499defce9ddb7f660e4c7f4a194}{update}}(\textcolor{keywordtype}{float}\ deltaTime);}
 \DoxyCodeLine{00084\ }
-\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_a3ebe87b202e0616fea548e80acec8944}{setDifficulty}}(\mbox{\hyperlink{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83}{Difficulty}}\ difficulty);}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_world_a3ebe87b202e0616fea548e80acec8944}{setDifficulty}}(Difficulty\ difficulty);}
 \DoxyCodeLine{00093\ }
 \DoxyCodeLine{00099\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_world_ae4cdb1f935e32c78bab7ccab263a05fe}{getScore}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00100\ }
@@ -96,7 +96,7 @@
 \DoxyCodeLine{00297\ \ \ \ \ \mbox{\hyperlink{class_camera}{Camera}}\ camera;\ }
 \DoxyCodeLine{00298\ \ \ \ \ \textcolor{keywordtype}{int}\ ActivePlatforms\ =\ 0;\ }
 \DoxyCodeLine{00299\ \ \ \ \ \textcolor{keywordtype}{bool}\ isGameOver\ =\ \textcolor{keyword}{false};\ }
-\DoxyCodeLine{00300\ \ \ \ \ \mbox{\hyperlink{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83}{Difficulty}}\ difficulty\ =\ \mbox{\hyperlink{_world_8h_a43efb0a2e61815a66134dfa5ccea0a83a6e5affbf5c08fef0e28c094856f94627}{Difficulty::EASY}};\ }
+\DoxyCodeLine{00300\ \ \ \ \ Difficulty\ difficulty\ =\ Difficulty::EASY;\ }
 \DoxyCodeLine{00301\ \};}
 \DoxyCodeLine{00302\ }
 \DoxyCodeLine{00303\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ WORLD\_H}}

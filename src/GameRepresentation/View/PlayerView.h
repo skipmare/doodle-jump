@@ -1,52 +1,79 @@
 #ifndef PLAYERVIEW_H
 #define PLAYERVIEW_H
 
+#include <memory>
+#include <SFML/Graphics.hpp>
 #include "EntityView.h"
 #include "Player.h"
-#include <SFML/Graphics.hpp>
 
 /**
  * @class PlayerView
- * @brief Manages the visual representation of the Player entity.
+ * @brief Handles the visual representation of the Player entity.
  *
- * The PlayerView class handles the rendering and visual state of the Player entity.
- * It is responsible for loading and applying the texture to the player sprite,
- * as well as providing fallback visuals if the texture fails to load.
+ * This class is responsible for rendering the Player entity on the screen,
+ * including managing textures for different directions (left and right)
+ * and a fallback shape in case textures fail to load. It dynamically updates
+ * the sprite and position based on the Player's state.
  */
 class PlayerView : public EntityView {
 public:
     /**
      * @brief Constructs a PlayerView object and associates it with a Player entity.
      *
-     * This constructor initializes the PlayerView with the associated Player entity
-     * and the SFML render window. It also loads the player's texture and sets
-     * the initial position of the player.
+     * Initializes the PlayerView with the associated Player entity and
+     * SFML render window. It loads the necessary textures and sets the
+     * initial visual state.
      *
      * @param player A shared pointer to the Player entity.
      * @param window A shared pointer to the SFML render window used for rendering.
      */
-    PlayerView(const std::shared_ptr<Player> &player, const std::shared_ptr<sf::RenderWindow> &window);
+    PlayerView(const std::shared_ptr<Player>& player, const std::shared_ptr<sf::RenderWindow>& window);
 
     /**
-     * @brief Loads the texture for the player and applies it to the sprite.
+     * @brief Updates the sprite, position, and rendering of the Player entity.
      *
-     * This method attempts to load the player's texture from a file. If successful,
-     * it scales and applies the texture to the player's sprite. If the texture cannot
-     * be loaded, a fallback rectangle shape is created to represent the player.
-     *
-     * @note If the texture cannot be loaded, a fallback rectangle with a red color is used
-     *       to represent the player visually.
+     * This method dynamically adjusts the visual state of the PlayerView
+     * to reflect the Player's current direction and position.
      */
-    void loadTexture() final; // Load texture based on the player's state
+    void update() override;
+
+    /**
+     * @brief Renders the Player entity on the screen.
+     *
+     * Draws the appropriate sprite (left or right) or a fallback shape
+     * if the textures are not available.
+     */
+    void render() override;
 
 private:
     /**
-     * @brief Reference to the associated Player entity.
+     * @brief Loads textures for both left and right directions.
      *
-     * This member stores the reference to the Player entity, which this PlayerView
-     * is responsible for rendering.
+     * Attempts to load textures from files for rendering the Player in
+     * left and right orientations. If loading fails, sets up a fallback
+     * rectangle shape.
      */
-    std::shared_ptr<Player> player; // Reference to the associated player
+    void loadTexture() override;
+
+    /**
+     * @brief Updates the sprite based on the Player's direction.
+     *
+     * Selects the appropriate sprite (left or right) based on whether
+     * the Player is moving left or right.
+     */
+    void updateSprite();
+
+    // Member variables
+    std::shared_ptr<Player> player; ///< Pointer to the associated Player entity
+    sf::Texture textureLeft; ///< Texture for the left direction
+    sf::Texture textureRight; ///< Texture for the right direction
+    sf::Sprite PlayerLeft; ///< Sprite for the left direction
+    sf::Sprite PlayerRight; ///< Sprite for the right direction
+    sf::Sprite* currentSprite = nullptr; ///< Pointer to the currently active sprite
+    sf::RectangleShape fallbackShape; ///< Fallback rectangle shape for visual representation
+
+    bool isLeftTextureLoaded = true; ///< Flag to indicate if left texture is loaded
+    bool isRightTextureLoaded = true; ///< Flag to indicate if right texture is loaded
 };
 
 #endif // PLAYERVIEW_H

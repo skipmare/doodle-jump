@@ -81,3 +81,4 @@ void ScoreView::render() {
     BestScoreText.setString("Best: " + std::to_string(score->getBestScore()/100));
     CurrentWindow->draw(BestScoreText);
 }
+

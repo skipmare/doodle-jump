@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jetpack_0',['JETPACK',['../_entity_8h.html#ad6d58ebabfbf9aa4181bfe97a5d8d984a0cdf5daf87a76eb5e72fd82f6aa16b16',1,'Entity.h']]]
+  ['none_0',['NONE',['../_entity_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44ac157bdf0b85a40d2619cbc8bc1ae5fe2',1,'Entity.h']]]
 ];

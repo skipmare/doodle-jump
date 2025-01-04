@@ -10,12 +10,11 @@ var searchData=
   ['bgtileview_2eh_7',['BGtileView.h',['../_b_gtile_view_8h.html',1,'']]],
   ['bonus_8',['BONUS',['../_entity_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44a1867908cfbd59d506f09c46311c5664d',1,'Entity.h']]],
   ['bonus_9',['Bonus',['../class_bonus.html',1,'Bonus'],['../class_bonus.html#acf4cabdaa682a65d1bdb187209fea884',1,'Bonus::Bonus()']]],
-  ['bonus_2ecpp_10',['Bonus.cpp',['../_bonus_8cpp.html',1,'']]],
-  ['bonus_2eh_11',['Bonus.h',['../_bonus_8h.html',1,'']]],
-  ['bonustype_12',['BonusType',['../_entity_8h.html#ad6d58ebabfbf9aa4181bfe97a5d8d984',1,'Entity.h']]],
-  ['bonusview_13',['BonusView',['../class_bonus_view.html',1,'BonusView'],['../class_bonus_view.html#afc7dab980d89d72eafccd3a67fc9996d',1,'BonusView::BonusView()']]],
-  ['bonusview_2ecpp_14',['BonusView.cpp',['../_bonus_view_8cpp.html',1,'']]],
-  ['bonusview_2eh_15',['BonusView.h',['../_bonus_view_8h.html',1,'']]],
-  ['bottom_16',['bottom',['../struct_bounding_box.html#a3f4e5aebccff0bbc37b6195cc1e8eab5',1,'BoundingBox']]],
-  ['boundingbox_17',['BoundingBox',['../struct_bounding_box.html',1,'']]]
+  ['bonus_2eh_10',['Bonus.h',['../_bonus_8h.html',1,'']]],
+  ['bonustype_11',['BonusType',['../_entity_8h.html#ad6d58ebabfbf9aa4181bfe97a5d8d984',1,'Entity.h']]],
+  ['bonusview_12',['BonusView',['../class_bonus_view.html',1,'BonusView'],['../class_bonus_view.html#afc7dab980d89d72eafccd3a67fc9996d',1,'BonusView::BonusView()']]],
+  ['bonusview_2ecpp_13',['BonusView.cpp',['../_bonus_view_8cpp.html',1,'']]],
+  ['bonusview_2eh_14',['BonusView.h',['../_bonus_view_8h.html',1,'']]],
+  ['bottom_15',['bottom',['../struct_bounding_box.html#a3f4e5aebccff0bbc37b6195cc1e8eab5',1,'BoundingBox']]],
+  ['boundingbox_16',['BoundingBox',['../struct_bounding_box.html',1,'']]]
 ];

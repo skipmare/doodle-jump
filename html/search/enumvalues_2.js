@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['easy_0',['EASY',['../_world_8h.html#a43efb0a2e61815a66134dfa5ccea0a83a6e5affbf5c08fef0e28c094856f94627',1,'World.h']]]
+  ['horizontal_0',['HORIZONTAL',['../_entity_8h.html#a527bfd1a86584280ea4bb3f8a1f8d523a4dd51ad73508d6fc83a502966779e48e',1,'Entity.h']]]
 ];

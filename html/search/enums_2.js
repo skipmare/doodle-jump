@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['entitytype_0',['EntityType',['../_entity_8h.html#ad79a57ed3105eb60d991a1aeb4a9dc44',1,'Entity.h']]]
+  ['platformtype_0',['PlatformType',['../_entity_8h.html#a527bfd1a86584280ea4bb3f8a1f8d523',1,'Entity.h']]]
 ];

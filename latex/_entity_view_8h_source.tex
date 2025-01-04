@@ -18,21 +18,21 @@
 \DoxyCodeLine{00038\ }
 \DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_entity_view_a8f74e594a1d814f30ae25b9ad5b425d4}{EntityView}}(\textcolor{keyword}{const}\ std::shared\_ptr<Entity>\ \&\mbox{\hyperlink{class_entity_view_a44310c7a56f0beb141064f88857e92df}{entity}},\ \textcolor{keyword}{const}\ std::shared\_ptr<sf::RenderWindow>\ \&window);}
 \DoxyCodeLine{00048\ }
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_view_a3ae42cf32e30ce8d418e35096aab0849}{update}}()\ final;}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_view_adddf0a8ab758a96d7638dd8a9b6300ce}{update}}()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00055\ }
-\DoxyCodeLine{00061\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_view_adf2869ddecd4e3f5bf1ae25684b2ee61}{render}}();}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_view_adf2869ddecd4e3f5bf1ae25684b2ee61}{render}}();}
 \DoxyCodeLine{00062\ }
 \DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_view_ad33f9914b06f7c1fc1775f3714919441}{setPosition}}();}
 \DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ protected:}
+\DoxyCodeLine{00070\ \textcolor{keyword}{protected}:}
 \DoxyCodeLine{00071\ \ \ \ \ std::shared\_ptr<sf::RenderWindow>\ \mbox{\hyperlink{class_entity_view_aa7e2b51d07a976495ce00ae99d8f4c61}{CurrentWindow}};\ \ }
-\DoxyCodeLine{00072\ \ \ \ \ std::shared\_ptr<\mbox{\hyperlink{class_entity}{Entity}}>\ \mbox{\hyperlink{class_entity_view_a44310c7a56f0beb141064f88857e92df}{entity}};\ \ }
+\DoxyCodeLine{00072\ \ \ \ \ std::shared\_ptr<Entity>\ \mbox{\hyperlink{class_entity_view_a44310c7a56f0beb141064f88857e92df}{entity}};\ \ }
 \DoxyCodeLine{00073\ \ \ \ \ sf::Sprite\ \mbox{\hyperlink{class_entity_view_a39508da83001b63aa61b24af79890a83}{sprite}};\ \ }
 \DoxyCodeLine{00074\ \ \ \ \ sf::Text\ \mbox{\hyperlink{class_entity_view_ad9082b7d2c1ecbbe3344e6c292014f37}{ScoreText}};\ \ }
 \DoxyCodeLine{00075\ \ \ \ \ sf::Text\ \mbox{\hyperlink{class_entity_view_a7096285f0c661bc0b07ee9fdb9c32f54}{BestScoreText}};\ \ }
 \DoxyCodeLine{00076\ \ \ \ \ sf::Texture\ \mbox{\hyperlink{class_entity_view_ab3993583777840a99d04e8823791cace}{texture}};\ \ }
 \DoxyCodeLine{00077\ \ \ \ \ sf::RectangleShape\ \mbox{\hyperlink{class_entity_view_a12117818a17530140db583f213f76213}{fallbackShape}};\ \ }
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_entity_view_a521643e64c07c3eaac6b51c297aed77e}{isTextureLoaded}}\ =\ false;\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_entity_view_a521643e64c07c3eaac6b51c297aed77e}{isTextureLoaded}}\ =\ \textcolor{keyword}{false};\ }
 \DoxyCodeLine{00079\ \};}
 \DoxyCodeLine{00080\ }
 \DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_SKIPMARE\_ENTITYVIEW\_H}}

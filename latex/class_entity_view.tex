@@ -18,13 +18,14 @@ Inheritance diagram for Entity\+View\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_entity_view_a0f778007e6a69481a371e9ef322e976a}{\texorpdfstring{$\sim$}{\string~}\+Entity\+View}} () override=default
+\Hypertarget{class_entity_view_a0f778007e6a69481a371e9ef322e976a}\label{class_entity_view_a0f778007e6a69481a371e9ef322e976a} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Entity\+View} () override=default
 \begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_entity_view}{Entity\+View} class. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_entity_view_a6c99fbda524fe5ad64319d1b6dbd2721}{load\+Texture}} ()=0
 \begin{DoxyCompactList}\small\item\em Pure virtual method to load the texture for the entity. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_entity_view_a8f74e594a1d814f30ae25b9ad5b425d4}{Entity\+View}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \&\mbox{\hyperlink{class_entity_view_a44310c7a56f0beb141064f88857e92df}{entity}}, const std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \&window)
 \begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_entity_view}{Entity\+View} class. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_entity_view_a3ae42cf32e30ce8d418e35096aab0849}{update}} () final
+void \mbox{\hyperlink{class_entity_view_adddf0a8ab758a96d7638dd8a9b6300ce}{update}} () override
 \begin{DoxyCompactList}\small\item\em Updates the position and renders the entity\textquotesingle{}s view. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_entity_view_adf2869ddecd4e3f5bf1ae25684b2ee61}{render}} ()
 \begin{DoxyCompactList}\small\item\em Renders the entity\textquotesingle{}s view. \end{DoxyCompactList}\item 
@@ -38,21 +39,29 @@ virtual \mbox{\hyperlink{class_observer_a37824643eeaef086de17bba2717d865a}{\texo
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ \mbox{\hyperlink{class_entity_view_aa7e2b51d07a976495ce00ae99d8f4c61}{Current\+Window}}
+\Hypertarget{class_entity_view_aa7e2b51d07a976495ce00ae99d8f4c61}\label{class_entity_view_aa7e2b51d07a976495ce00ae99d8f4c61} 
+std\+::shared\+\_\+ptr$<$ sf\+::\+Render\+Window $>$ {\bfseries Current\+Window}
 \begin{DoxyCompactList}\small\item\em The render window for rendering the entity. \end{DoxyCompactList}\item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ \mbox{\hyperlink{class_entity_view_a44310c7a56f0beb141064f88857e92df}{entity}}
+\Hypertarget{class_entity_view_a44310c7a56f0beb141064f88857e92df}\label{class_entity_view_a44310c7a56f0beb141064f88857e92df} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ {\bfseries entity}
 \begin{DoxyCompactList}\small\item\em The entity associated with this view. \end{DoxyCompactList}\item 
-sf\+::\+Sprite \mbox{\hyperlink{class_entity_view_a39508da83001b63aa61b24af79890a83}{sprite}}
+\Hypertarget{class_entity_view_a39508da83001b63aa61b24af79890a83}\label{class_entity_view_a39508da83001b63aa61b24af79890a83} 
+sf\+::\+Sprite {\bfseries sprite}
 \begin{DoxyCompactList}\small\item\em The sprite representing the entity. \end{DoxyCompactList}\item 
-sf\+::\+Text \mbox{\hyperlink{class_entity_view_ad9082b7d2c1ecbbe3344e6c292014f37}{Score\+Text}}
+\Hypertarget{class_entity_view_ad9082b7d2c1ecbbe3344e6c292014f37}\label{class_entity_view_ad9082b7d2c1ecbbe3344e6c292014f37} 
+sf\+::\+Text {\bfseries Score\+Text}
 \begin{DoxyCompactList}\small\item\em Text to display information about the entity. \end{DoxyCompactList}\item 
-sf\+::\+Text \mbox{\hyperlink{class_entity_view_a7096285f0c661bc0b07ee9fdb9c32f54}{Best\+Score\+Text}}
+\Hypertarget{class_entity_view_a7096285f0c661bc0b07ee9fdb9c32f54}\label{class_entity_view_a7096285f0c661bc0b07ee9fdb9c32f54} 
+sf\+::\+Text {\bfseries Best\+Score\+Text}
 \begin{DoxyCompactList}\small\item\em Text to display the best score. \end{DoxyCompactList}\item 
-sf\+::\+Texture \mbox{\hyperlink{class_entity_view_ab3993583777840a99d04e8823791cace}{texture}}
+\Hypertarget{class_entity_view_ab3993583777840a99d04e8823791cace}\label{class_entity_view_ab3993583777840a99d04e8823791cace} 
+sf\+::\+Texture {\bfseries texture}
 \begin{DoxyCompactList}\small\item\em The texture for the sprite. \end{DoxyCompactList}\item 
-sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_entity_view_a12117818a17530140db583f213f76213}{fallback\+Shape}}
+\Hypertarget{class_entity_view_a12117818a17530140db583f213f76213}\label{class_entity_view_a12117818a17530140db583f213f76213} 
+sf\+::\+Rectangle\+Shape {\bfseries fallback\+Shape}
 \begin{DoxyCompactList}\small\item\em The fallback shape to be rendered if texture loading fails. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_entity_view_a521643e64c07c3eaac6b51c297aed77e}{is\+Texture\+Loaded}} = false
+\Hypertarget{class_entity_view_a521643e64c07c3eaac6b51c297aed77e}\label{class_entity_view_a521643e64c07c3eaac6b51c297aed77e} 
+bool {\bfseries is\+Texture\+Loaded} = false
 \begin{DoxyCompactList}\small\item\em Flag indicating whether the texture has been loaded. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -64,16 +73,6 @@ Abstract base class for rendering and updating an entity\textquotesingle{}s view
 The \doxylink{class_entity_view}{Entity\+View} class is responsible for rendering the graphical representation of an entity, updating its position, and loading the corresponding texture. It provides a basic structure for subclasses that render specific types of entities (e.\+g., platform, bonus, etc.). 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_entity_view_a0f778007e6a69481a371e9ef322e976a}\index{EntityView@{EntityView}!````~EntityView@{\texorpdfstring{$\sim$}{\string~}EntityView}}
-\index{````~EntityView@{\texorpdfstring{$\sim$}{\string~}EntityView}!EntityView@{EntityView}}
-\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}EntityView()}{\string~EntityView()}}
-{\footnotesize\ttfamily \label{class_entity_view_a0f778007e6a69481a371e9ef322e976a} 
-Entity\+View\+::\texorpdfstring{$\sim$}{\string~}\+Entity\+View (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
-
-
-
-Destructor for the \doxylink{class_entity_view}{Entity\+View} class. 
-
 \Hypertarget{class_entity_view_a8f74e594a1d814f30ae25b9ad5b425d4}\index{EntityView@{EntityView}!EntityView@{EntityView}}
 \index{EntityView@{EntityView}!EntityView@{EntityView}}
 \doxysubsubsection{\texorpdfstring{EntityView()}{EntityView()}}
@@ -121,7 +120,7 @@ Pure virtual method to load the texture for the entity.
 
 Derived classes must implement this method to load the texture specific to the entity type. 
 
-Implemented in \mbox{\hyperlink{class_platform_view_ab17eeed5913d211784b3e010216f0ef2}{Platform\+View}}, \mbox{\hyperlink{class_player_view_afce785294689abe3851e4f1eb641d480}{Player\+View}}, and \mbox{\hyperlink{class_score_view_afb840951fe79c87c2517c224e996d05d}{Score\+View}}.
+Implemented in \mbox{\hyperlink{class_platform_view_ab17eeed5913d211784b3e010216f0ef2}{Platform\+View}}, and \mbox{\hyperlink{class_score_view_afb840951fe79c87c2517c224e996d05d}{Score\+View}}.
 
 \Hypertarget{class_entity_view_adf2869ddecd4e3f5bf1ae25684b2ee61}\index{EntityView@{EntityView}!render@{render}}
 \index{render@{render}!EntityView@{EntityView}}
@@ -143,7 +142,7 @@ This method is responsible for drawing the entity\textquotesingle{}s sprite or f
 
 \texorpdfstring{$<$}{<} Draw the score text on the screen
 
-Reimplemented in \mbox{\hyperlink{class_bonus_view_ad1b36cb1d9e04fdc54d6ec1df02f6393}{Bonus\+View}}, and \mbox{\hyperlink{class_score_view_a78331eb5c577302ca384af9106010fe7}{Score\+View}}.
+Reimplemented in \mbox{\hyperlink{class_bonus_view_ad1b36cb1d9e04fdc54d6ec1df02f6393}{Bonus\+View}}, \mbox{\hyperlink{class_player_view_ace7f228036ad0c0e4babd59b020ee5fe}{Player\+View}}, and \mbox{\hyperlink{class_score_view_a78331eb5c577302ca384af9106010fe7}{Score\+View}}.
 
 \Hypertarget{class_entity_view_ad33f9914b06f7c1fc1775f3714919441}\index{EntityView@{EntityView}!setPosition@{setPosition}}
 \index{setPosition@{setPosition}!EntityView@{EntityView}}
@@ -159,11 +158,11 @@ This method sets the position of the sprite or fallback shape based on the entit
 
 This method updates the position of the sprite or fallback shape based on the entity\textquotesingle{}s current position. If the texture is loaded, the sprite\textquotesingle{}s position is set directly; otherwise, the fallback shape\textquotesingle{}s position is adjusted. \texorpdfstring{$<$}{<} Set the position of the sprite
 
-\texorpdfstring{$<$}{<} Center the fallback shape\Hypertarget{class_entity_view_a3ae42cf32e30ce8d418e35096aab0849}\index{EntityView@{EntityView}!update@{update}}
+\texorpdfstring{$<$}{<} Center the fallback shape\Hypertarget{class_entity_view_adddf0a8ab758a96d7638dd8a9b6300ce}\index{EntityView@{EntityView}!update@{update}}
 \index{update@{update}!EntityView@{EntityView}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily \label{class_entity_view_a3ae42cf32e30ce8d418e35096aab0849} 
-void Entity\+View\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_entity_view_adddf0a8ab758a96d7638dd8a9b6300ce} 
+void Entity\+View\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -179,86 +178,7 @@ Implements \mbox{\hyperlink{class_observer_ac75e4b339faeb3ea6fe0a01bf0b4a215}{Ob
 
 
 
-\doxysubsection{Member Data Documentation}
-\Hypertarget{class_entity_view_a7096285f0c661bc0b07ee9fdb9c32f54}\index{EntityView@{EntityView}!BestScoreText@{BestScoreText}}
-\index{BestScoreText@{BestScoreText}!EntityView@{EntityView}}
-\doxysubsubsection{\texorpdfstring{BestScoreText}{BestScoreText}}
-{\footnotesize\ttfamily \label{class_entity_view_a7096285f0c661bc0b07ee9fdb9c32f54} 
-sf\+::\+Text Entity\+View\+::\+Best\+Score\+Text\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Text to display the best score. 
-
-\Hypertarget{class_entity_view_aa7e2b51d07a976495ce00ae99d8f4c61}\index{EntityView@{EntityView}!CurrentWindow@{CurrentWindow}}
-\index{CurrentWindow@{CurrentWindow}!EntityView@{EntityView}}
-\doxysubsubsection{\texorpdfstring{CurrentWindow}{CurrentWindow}}
-{\footnotesize\ttfamily \label{class_entity_view_aa7e2b51d07a976495ce00ae99d8f4c61} 
-std\+::shared\+\_\+ptr$<$sf\+::\+Render\+Window$>$ Entity\+View\+::\+Current\+Window\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-The render window for rendering the entity. 
-
-\Hypertarget{class_entity_view_a44310c7a56f0beb141064f88857e92df}\index{EntityView@{EntityView}!entity@{entity}}
-\index{entity@{entity}!EntityView@{EntityView}}
-\doxysubsubsection{\texorpdfstring{entity}{entity}}
-{\footnotesize\ttfamily \label{class_entity_view_a44310c7a56f0beb141064f88857e92df} 
-std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_entity}{Entity}}$>$ Entity\+View\+::entity\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-The entity associated with this view. 
-
-\Hypertarget{class_entity_view_a12117818a17530140db583f213f76213}\index{EntityView@{EntityView}!fallbackShape@{fallbackShape}}
-\index{fallbackShape@{fallbackShape}!EntityView@{EntityView}}
-\doxysubsubsection{\texorpdfstring{fallbackShape}{fallbackShape}}
-{\footnotesize\ttfamily \label{class_entity_view_a12117818a17530140db583f213f76213} 
-sf\+::\+Rectangle\+Shape Entity\+View\+::fallback\+Shape\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-The fallback shape to be rendered if texture loading fails. 
-
-\Hypertarget{class_entity_view_a521643e64c07c3eaac6b51c297aed77e}\index{EntityView@{EntityView}!isTextureLoaded@{isTextureLoaded}}
-\index{isTextureLoaded@{isTextureLoaded}!EntityView@{EntityView}}
-\doxysubsubsection{\texorpdfstring{isTextureLoaded}{isTextureLoaded}}
-{\footnotesize\ttfamily \label{class_entity_view_a521643e64c07c3eaac6b51c297aed77e} 
-bool Entity\+View\+::is\+Texture\+Loaded = false\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Flag indicating whether the texture has been loaded. 
-
-\Hypertarget{class_entity_view_ad9082b7d2c1ecbbe3344e6c292014f37}\index{EntityView@{EntityView}!ScoreText@{ScoreText}}
-\index{ScoreText@{ScoreText}!EntityView@{EntityView}}
-\doxysubsubsection{\texorpdfstring{ScoreText}{ScoreText}}
-{\footnotesize\ttfamily \label{class_entity_view_ad9082b7d2c1ecbbe3344e6c292014f37} 
-sf\+::\+Text Entity\+View\+::\+Score\+Text\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Text to display information about the entity. 
-
-\Hypertarget{class_entity_view_a39508da83001b63aa61b24af79890a83}\index{EntityView@{EntityView}!sprite@{sprite}}
-\index{sprite@{sprite}!EntityView@{EntityView}}
-\doxysubsubsection{\texorpdfstring{sprite}{sprite}}
-{\footnotesize\ttfamily \label{class_entity_view_a39508da83001b63aa61b24af79890a83} 
-sf\+::\+Sprite Entity\+View\+::sprite\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-The sprite representing the entity. 
-
-\Hypertarget{class_entity_view_ab3993583777840a99d04e8823791cace}\index{EntityView@{EntityView}!texture@{texture}}
-\index{texture@{texture}!EntityView@{EntityView}}
-\doxysubsubsection{\texorpdfstring{texture}{texture}}
-{\footnotesize\ttfamily \label{class_entity_view_ab3993583777840a99d04e8823791cace} 
-sf\+::\+Texture Entity\+View\+::texture\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-The texture for the sprite. 
+Reimplemented in \mbox{\hyperlink{class_player_view_a358eb11647b94da6cbe6a716ce002025}{Player\+View}}.
 
 
 

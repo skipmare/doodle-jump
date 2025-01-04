@@ -87,9 +87,8 @@ void Player::applyBonusEffect(BonusType bonusType) {
         BonusEffectTime = 2.0f; ///< Duration of the jetpack effect.
     } else if (bonusType == BonusType::SPRING) {
         BonusEffect = true;
-        jumpForce = 1500.0f; ///< Increases jump force.
-        gravity = 5.0f; ///< Decreases gravity.
-        BonusEffectTime = 1.0f; ///< Duration of the spring effect.
+        jumpForce = 1300.0f; ///< Increases jump force.
+        BonusEffectTime = 0.5f; ///< Duration of the spring effect.
     }
 }
 

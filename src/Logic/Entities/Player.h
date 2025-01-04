@@ -79,6 +79,16 @@ public:
     /// @param velocityY The new vertical velocity.
     void setVelocityY(float velocityY) { this->velocityY = velocityY; }
 
+    /**
+     * @brief Checks if the player is moving to the left.
+     *
+     * This method returns the current movement direction of the player.
+     * It indicates whether the player is moving left.
+     *
+     * @return True if the player is moving to the left, false otherwise.
+     */
+    bool getisgoingleft() const { return isgoingleft; }
+
 private:
     bool isJumpingState = false; ///< Indicates whether the player is jumping.
     bool isFallingState = false; ///< Indicates whether the player is falling.

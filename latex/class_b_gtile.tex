@@ -20,7 +20,8 @@ Inheritance diagram for BGtile\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{class_b_gtile_a07d528706003e22efe49a901793f0afd}{BGtile}} (float \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}}, float \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}})
 \begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_b_gtile}{BGtile} object with the specified initial position. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_gtile_a1b436c310d6559c7ae7b2ed77cb4b1fc}{\texorpdfstring{$\sim$}{\string~}\+BGtile}} () override=default
+\Hypertarget{class_b_gtile_a1b436c310d6559c7ae7b2ed77cb4b1fc}\label{class_b_gtile_a1b436c310d6559c7ae7b2ed77cb4b1fc} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+BGtile} () override=default
 \begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_b_gtile_a32642bd9eda795f1a059d2723dabc7bc}{update}} (float delta\+Time) override
 \begin{DoxyCompactList}\small\item\em Updates the background tile\textquotesingle{}s state. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -74,29 +75,29 @@ void \mbox{\hyperlink{class_subject_af104c2baf37c7aa63b2ef6d32c2b3a9c}{notify}} 
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
 \begin{DoxyCompactItemize}
 \item 
-float \mbox{\hyperlink{class_entity_abc2d19ee6ff26b8520428894da6a8f68}{x}} = 0
+float {\bfseries x} = 0
 \begin{DoxyCompactList}\small\item\em The x-\/coordinate of the entity. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{class_entity_af4966f81d91cc8f8d5eb9e9002240c49}{y}} = 0
+float {\bfseries y} = 0
 \begin{DoxyCompactList}\small\item\em The y-\/coordinate of the entity. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{class_entity_a489f84ea2f7b049c466ec25d1bd5957d}{velocityX}} = 0
+float {\bfseries velocityX} = 0
 \begin{DoxyCompactList}\small\item\em The horizontal velocity of the entity. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{class_entity_a7eee17062ce809ed32030b344c6232fe}{velocityY}} = 0
+float {\bfseries velocityY} = 0
 \begin{DoxyCompactList}\small\item\em The vertical velocity of the entity. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{class_entity_adadfcc784f30b51b8e49f8230a56b793}{width}} = 0
+float {\bfseries width} = 0
 \begin{DoxyCompactList}\small\item\em The width of the entity. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{class_entity_a4550dc1011f47f6c4bb86e564e7d605b}{height}} = 0
+float {\bfseries height} = 0
 \begin{DoxyCompactList}\small\item\em The height of the entity. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44}{Entity\+Type}} \mbox{\hyperlink{class_entity_a98b987ac07e1d55153c4fb3f8588545f}{Entity\+Type\+\_\+var}} = \mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}
+\mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44}{Entity\+Type}} {\bfseries Entity\+Type\+\_\+var} = \mbox{\hyperlink{_entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}
 \begin{DoxyCompactList}\small\item\em The type of the entity. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_entity_ab8334073c4a81c38f733a1bd0ef1826a}{collision\+On\+Land}} = false
+bool {\bfseries collision\+On\+Land} = false
 \begin{DoxyCompactList}\small\item\em Indicates if the entity has collided with the player on landing. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_entity_a35a0b763d249ebb4a1e2394f8764236d}{collidable}} = true
+bool {\bfseries collidable} = true
 \begin{DoxyCompactList}\small\item\em Indicates if the entity is collidable. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_entity_a3cbb140a102f0c95f7fdeb13b466826d}{jumptrigger}} = true
+bool {\bfseries jumptrigger} = true
 \begin{DoxyCompactList}\small\item\em Indicates if the jump trigger is active. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_entity_ad2cc13f1f53bf57a100658399ef5db9b}{has\+Collided}} = false
+bool {\bfseries has\+Collided} = false
 \begin{DoxyCompactList}\small\item\em Indicates if the entity has collided with the player. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_entity_a4fd01fc33b5a1f7877fe5ecd4c583407}{out\+Of\+View}} = false
+bool {\bfseries out\+Of\+View} = false
 \begin{DoxyCompactList}\small\item\em Indicates if the entity is out of view. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -133,17 +134,7 @@ Initializes the background tile with default dimensions and sets its type to {\t
 
 \texorpdfstring{$<$}{<} Set the entity type to background tile.
 
-\texorpdfstring{$<$}{<} Background tiles are not collidable.\Hypertarget{class_b_gtile_a1b436c310d6559c7ae7b2ed77cb4b1fc}\index{BGtile@{BGtile}!````~BGtile@{\texorpdfstring{$\sim$}{\string~}BGtile}}
-\index{````~BGtile@{\texorpdfstring{$\sim$}{\string~}BGtile}!BGtile@{BGtile}}
-\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}BGtile()}{\string~BGtile()}}
-{\footnotesize\ttfamily \label{class_b_gtile_a1b436c310d6559c7ae7b2ed77cb4b1fc} 
-BGtile\+::\texorpdfstring{$\sim$}{\string~}\+BGtile (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
-
-
-
-Default destructor. 
-
-
+\texorpdfstring{$<$}{<} Background tiles are not collidable.
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{class_b_gtile_a32642bd9eda795f1a059d2723dabc7bc}\index{BGtile@{BGtile}!update@{update}}
