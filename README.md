@@ -8,7 +8,8 @@
 ## 📖 Overview
 This project is a recreation of the popular **Doodle Jump** game, built in C++ as part of an advanced programming course.  
 The player controls a character that continuously jumps upward, avoiding falling while landing on platforms, collecting power-ups, and achieving the highest possible score.  
-![Doodle Jump Gameplay](https://raw.githubusercontent.com/skipmare/doodle-jump/master/img.png)
+<img src="https://raw.githubusercontent.com/skipmare/doodle-jump/master/img.png" alt="Doodle Jump Gameplay" style="width:50%;"/>
+
 
 ---
 
