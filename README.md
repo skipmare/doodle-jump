@@ -33,3 +33,7 @@ The player controls a character that continuously jumps upward, avoiding falling
 - C++17 or later  
 - [CMake](https://cmake.org/)  
 - [SFML library](https://www.sfml-dev.org/) (for graphics, audio, and window handling)  
+
+### 2. How to Play
+
+Compile and run `main.cpp`.
