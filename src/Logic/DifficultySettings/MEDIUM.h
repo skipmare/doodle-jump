@@ -19,7 +19,9 @@ public:
         ChanceHorizontal = 0.25f; ///< Set the chance for a horizontal platform.
         ChanceVertical = 0.1f; ///< Set the chance for a vertical platform.
         ChanceDisappearing = 0.15f; ///< Set the chance for a disappearing platform.
-        minDistance = 130.0f; ///< Set the minimum distance between platforms.
-        maxDistance = 165.0f; ///< Set the maximum distance between platforms.
+        minDistance = 110.0f; ///< Set the minimum vertical distance between path platforms.
+        maxDistance = 145.0f; ///< Set the maximum vertical distance between path platforms.
+        maxHorizontalDistance = 175.0f;
+        ChallengePlatformChance = 0.45f;
     }
 };

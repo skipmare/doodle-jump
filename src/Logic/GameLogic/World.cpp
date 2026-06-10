@@ -16,7 +16,7 @@
  * @param viewHeight The height of the camera's view.
  */
 World::World(const std::shared_ptr<AbstractFactory>& factory, float viewWidth, float viewHeight)
-    : factory(factory), score(nullptr), camera(viewWidth, viewHeight) {
+    : score(nullptr), factory(factory), camera(viewWidth, viewHeight) {
     score = factory->createScore(150, 100); // Create the score entity
     genWorld(); // Generate the world
 }
@@ -51,13 +51,16 @@ bool World::checkCollision(std::shared_ptr<Entity> const& entity1, std::shared_p
  * @return false If no collision is detected.
  */
 bool World::checkCollision_player(const std::shared_ptr<Entity>& entity) const {
-    if (!entity) return false;
+    if (!entity || !player) return false;
 
     if (entity->getCollidable()) {
         if (entity->getCollisionOnLand()) {
-            BoundingBox playerBox = player->getBoundingBox();
+            BoundingBox playerBox = player->getLandingBox();
             BoundingBox entityBox = entity->getBoundingBox();
-            return (std::abs(playerBox.bottom - entityBox.top) < 3.0f && playerBox.right >= entityBox.left && playerBox.left <= entityBox.right && player->isFalling());
+            const float previousBottom = player->getPreviousY() + player->getHeight() / 2.0f;
+            const bool crossedPlatformTop = previousBottom <= entityBox.top && playerBox.bottom >= entityBox.top;
+            const bool overlapsHorizontally = playerBox.right >= entityBox.left && playerBox.left <= entityBox.right;
+            return crossedPlatformTop && overlapsHorizontally && player->isFalling();
         } else {
             return checkCollision(player, entity);
         }
@@ -106,6 +109,8 @@ void World::removeRemovableEntities() {
  */
 void World::genWorld() {
     entities.clear();
+    bonuses.clear();
+    background.clear();
     ActivePlatforms = 0;
 
     player = factory->createPlayer(0, 0); // Create the player entity
@@ -114,73 +119,60 @@ void World::genWorld() {
     // Hard code a static platform at (250, 200)
     std::shared_ptr<Platform> staticPlatform = factory->createPlatform(250, 600, PlatformType::STATIC);
     entities.push_back(staticPlatform);
+    pathAnchor = staticPlatform;
     ActivePlatforms++;
 
-    genPlats(camera.getCameraY() + 395, camera.getCameraY() - 395);
+    extendPlayablePath(camera.getCameraY() - camera.getViewHeight());
     generateBackground(camera.getCameraY() + 400, camera.getCameraY() - 400);
 }
 
 /**
  * @brief Generates platforms within a specified vertical range.
  *
- * Platforms are created randomly within the given Y-range, ensuring they don't collide with existing entities.
+ * Extends the guaranteed playable route to the top of the requested Y-range.
  *
  * @param fromy The upper Y-bound of the platform generation range.
  * @param toy The lower Y-bound of the platform generation range.
  */
 void World::genPlats(float fromy, float toy) {
-    bool canGenerateMore = true;
+    extendPlayablePath(std::min(fromy, toy));
+}
 
-    while (canGenerateMore) {
-        float X_pos = Random::getInstance().getRandomFloat(camera.getCameraX() - 200, camera.getCameraX() + 200);
-        float Y_pos = Random::getInstance().getRandomFloat(toy, fromy);
-
-        float chance = Random::getInstance().getRandomFloat(0.0f, 1.0f);
-
-        std::shared_ptr<Platform> newPlatform;
-
-        // Random platform generation based on chances
-        if (chance < getDifficulty().ChanceStatic) {
-            newPlatform = factory->createPlatform(X_pos, Y_pos, PlatformType::STATIC);
-        } else if (chance < getDifficulty().ChanceStatic + getDifficulty().ChanceHorizontal) {
-            newPlatform = factory->createPlatform(X_pos, Y_pos, PlatformType::HORIZONTAL);
-        } else if (chance < getDifficulty().ChanceStatic + getDifficulty().ChanceHorizontal + getDifficulty().ChanceVertical) {
-            newPlatform = factory->createPlatform(X_pos, Y_pos, PlatformType::VERTICAL);
-        } else if (chance < getDifficulty().ChanceStatic + getDifficulty().ChanceHorizontal + getDifficulty().ChanceVertical + getDifficulty().ChanceDisappearing) {
-            newPlatform = factory->createPlatform(X_pos, Y_pos, PlatformType::STATIC);
-        }
-
-        bool collisionDetected = false;
-        for (const auto& entity : entities) {
-            if (checkCollision(newPlatform, entity)) {
-                collisionDetected = true;
-                break;
-            }
-        }
-
-        if (!collisionDetected && isValidMinDistance(getDifficulty().minDistance, newPlatform) && isValidMaxDistance(getDifficulty().maxDistance, newPlatform)) {
-            genBonus(newPlatform);
-            entities.push_back(newPlatform);
-            ActivePlatforms++;
-        }
-
-        // Check if we can generate more platforms in the given range
-        canGenerateMore = false;
-        for (float y = toy; y <= fromy; y += getDifficulty().minDistance) {
-            bool spaceAvailable = true;
-            for (const auto& entity : entities) {
-                if (std::abs(entity->getY() - y) < getDifficulty().minDistance) {
-                    spaceAvailable = false;
-                    break;
-                }
-            }
-
-            if (spaceAvailable ) {
-                canGenerateMore = true;
-                break;
-            }
-        }
+float World::maximumReachableHorizontalDistance(float verticalGap) {
+    if (verticalGap <= 0.0f) {
+        return 0.0f;
     }
+
+    const float jumpSpeed = Player::NormalJumpSpeed;
+    const float gravity = Player::NormalGravity;
+    const float discriminant = jumpSpeed * jumpSpeed - 2.0f * gravity * verticalGap;
+    if (discriminant <= 0.0f) {
+        return 0.0f;
+    }
+
+    // Landing occurs at the descending intersection with the target platform height.
+    const float flightTime = (jumpSpeed + std::sqrt(discriminant)) / gravity;
+    const float accelerationTime = Player::MaximumMoveSpeed / Player::MoveAcceleration;
+    float travelDistance = 0.0f;
+    if (flightTime <= accelerationTime) {
+        travelDistance = 0.5f * Player::MoveAcceleration * flightTime * flightTime;
+    } else {
+        travelDistance =
+            0.5f * Player::MoveAcceleration * accelerationTime * accelerationTime +
+            Player::MaximumMoveSpeed * (flightTime - accelerationTime);
+    }
+
+    // The feet sit behind the facing direction, so only their leading edge counts toward reach.
+    constexpr float playerHalfWidth =
+        Player::LandingFootWidth / 2.0f - Player::LandingFootOffset;
+    constexpr float platformHalfWidth = 40.0f;
+    return travelDistance + playerHalfWidth + platformHalfWidth;
+}
+
+bool World::isPlatformReachable(float fromX, float fromY, float toX, float toY) {
+    const float verticalGap = fromY - toY;
+    return verticalGap > 0.0f &&
+           std::abs(toX - fromX) <= maximumReachableHorizontalDistance(verticalGap);
 }
 
 /**
@@ -195,12 +187,9 @@ void World::genPlats(float fromy, float toy) {
  */
 bool World::isValidMaxDistance(float MaxDistance, const std::shared_ptr<Entity>& newplat) const {
     return std::any_of(entities.begin(), entities.end(), [&](const auto& entity) {
-        if (entity->getPlatformType() != DISAPPEARING) {
-            float distanceX = abs(newplat->getX() - entity->getX());
-            float distanceY = abs(newplat->getY() - entity->getY());
-            return (distanceY < MaxDistance && distanceX < MaxDistance);
-        }
-        return false;
+        return entity->getPlatformType() != DISAPPEARING &&
+               entity->getY() - newplat->getY() <= MaxDistance &&
+               isPlatformReachable(entity->getX(), entity->getY(), newplat->getX(), newplat->getY());
     });
 }
 
@@ -234,12 +223,26 @@ void World::update(float deltaTime) {
     updateBackground(deltaTime);
     updateEntities(deltaTime);
     updatePlayer(deltaTime);
-    checkCollisions();
     CheckBonusCollision();
+    checkCollisions();
     removeRemovableEntities();
     CheckDifficulty();
     generateNewPlatforms();
     checkGameOver();
+}
+
+void World::render() const {
+    for (const auto& bgTile : background) {
+        bgTile->notify();
+    }
+    for (const auto& entity : entities) {
+        entity->notify();
+    }
+    for (const auto& bonus : bonuses) {
+        bonus->notify();
+    }
+    player->notify();
+    score->notify();
 }
 
 /**
@@ -271,22 +274,23 @@ void World::updateCamera() {
  * @param deltaTime The time elapsed since the last update.
  */
 void World::updateEntities(float deltaTime) {
+    const bool isCameraScrolling =
+        player->getVelocityY() < 0 && std::abs(camera.getCameraY() - player->getY()) < 0.001f;
+
     for (const auto& entity : entities) {
         if (entity->getY() > camera.getCameraY() + camera.getViewHeight() / 2) {
             entity->setOutOfView(true);
         }
 
-        if (player->getVelocityY() < 0 && (camera.getCameraY()-player->getY() == 0.0f)) {
+        if (isCameraScrolling) {
             if(entity->getPlatformType()==VERTICAL) {
                 entity->setPosition(entity->getX(), entity->getInitialY() - player->getVelocityY() * deltaTime);
             } else {
                 entity->setPosition(entity->getX(), entity->getY() - player->getVelocityY() * deltaTime);
             }
-            score->setScore(score->getScore() - player->getVelocityY() * deltaTime);
         }
 
         entity->update(deltaTime);
-        score->update(deltaTime);
     }
 
     for (const auto& bonus : bonuses) {
@@ -295,6 +299,11 @@ void World::updateEntities(float deltaTime) {
         }
         bonus->update(deltaTime);
     }
+
+    if (isCameraScrolling) {
+        score->setScore(score->getScore() - player->getVelocityY() * deltaTime);
+    }
+    score->update(deltaTime);
 }
 
 /**
@@ -305,7 +314,6 @@ void World::updateEntities(float deltaTime) {
 void World::checkCollisions() {
     for (const auto& entity : entities) {
         if (checkCollision_player(entity)) {
-            player->setCWP(entity->getHasCollided());
             entity->setHasCollided(true);
             if(entity->getJumpTrigger()) {
                 player->jump();
@@ -321,7 +329,102 @@ void World::checkCollisions() {
  * This method generates new platforms below the camera view if needed.
  */
 void World::generateNewPlatforms() {
-    genPlats(camera.getCameraY() - 395, camera.getCameraY() - 800);
+    const float targetY = camera.getCameraY() - camera.getViewHeight();
+    extendPlayablePath(targetY);
+}
+
+void World::extendPlayablePath(float targetY) {
+    if (!pathAnchor) {
+        return;
+    }
+
+    const auto& settings = getDifficulty();
+    while (pathAnchor->getY() > targetY) {
+        const auto previousPathPlatform = pathAnchor;
+        const float verticalGap =
+            Random::getInstance().getRandomFloat(settings.minDistance, settings.maxDistance);
+        const float physicalHorizontalLimit = maximumReachableHorizontalDistance(verticalGap);
+        const float safeHorizontalLimit =
+            std::min(settings.maxHorizontalDistance, physicalHorizontalLimit * 0.70f);
+        const float y = previousPathPlatform->getY() - verticalGap;
+        const float minimumOffset =
+            std::max(-safeHorizontalLimit, 40.0f - previousPathPlatform->getX());
+        const float maximumOffset =
+            std::min(safeHorizontalLimit, 460.0f - previousPathPlatform->getX());
+
+        float x = previousPathPlatform->getX();
+        for (int attempt = 0; attempt < 12; ++attempt) {
+            const float horizontalOffset =
+                Random::getInstance().getRandomFloat(minimumOffset, maximumOffset);
+            const float candidateX = previousPathPlatform->getX() + horizontalOffset;
+            auto candidate = std::make_shared<StaticPlatform>(candidateX, y);
+            const bool overlapsExisting =
+                std::any_of(entities.begin(), entities.end(), [&](const auto& entity) {
+                    return checkCollision(candidate, entity);
+                });
+            if (!overlapsExisting) {
+                x = candidateX;
+                break;
+            }
+        }
+
+        auto nextPathPlatform = factory->createPlatform(x, y, PlatformType::STATIC);
+        genBonus(nextPathPlatform);
+        entities.push_back(nextPathPlatform);
+        pathAnchor = nextPathPlatform;
+        ActivePlatforms++;
+
+        tryGenerateChallengePlatform(previousPathPlatform, nextPathPlatform);
+    }
+}
+
+void World::tryGenerateChallengePlatform(
+    const std::shared_ptr<Platform>& fromPlatform,
+    const std::shared_ptr<Platform>& pathPlatform) {
+    const auto& settings = getDifficulty();
+    if (Random::getInstance().getRandomFloat(0.0f, 1.0f) > settings.ChallengePlatformChance) {
+        return;
+    }
+
+    const float verticalGap =
+        Random::getInstance().getRandomFloat(settings.minDistance * 0.70f, settings.maxDistance);
+    const float reachableDistance = maximumReachableHorizontalDistance(verticalGap) * 0.65f;
+    const float maximumOffset = std::min(settings.maxHorizontalDistance * 1.15f, reachableDistance);
+    const float minimumOffset = std::min(80.0f, maximumOffset * 0.55f);
+    const float pathDirection = pathPlatform->getX() - fromPlatform->getX();
+    const float branchDirection = pathDirection >= 0.0f ? -1.0f : 1.0f;
+    const float offset =
+        branchDirection * Random::getInstance().getRandomFloat(minimumOffset, maximumOffset);
+    const float x = std::max(40.0f, std::min(460.0f, fromPlatform->getX() + offset));
+    const float y = fromPlatform->getY() - verticalGap;
+
+    auto candidate = std::make_shared<StaticPlatform>(x, y);
+    const bool overlapsExisting = std::any_of(entities.begin(), entities.end(), [&](const auto& entity) {
+        return checkCollision(candidate, entity);
+    });
+    if (overlapsExisting ||
+        !isPlatformReachable(fromPlatform->getX(), fromPlatform->getY(), x, y)) {
+        return;
+    }
+
+    auto challengePlatform = factory->createPlatform(x, y, randomChallengePlatformType());
+    genBonus(challengePlatform);
+    entities.push_back(challengePlatform);
+    ActivePlatforms++;
+}
+
+PlatformType World::randomChallengePlatformType() const {
+    const auto& settings = getDifficulty();
+    const float nonStaticChance =
+        settings.ChanceHorizontal + settings.ChanceVertical + settings.ChanceDisappearing;
+    const float chance = Random::getInstance().getRandomFloat(0.0f, nonStaticChance);
+    if (chance < settings.ChanceHorizontal) {
+        return PlatformType::HORIZONTAL;
+    }
+    if (chance < settings.ChanceHorizontal + settings.ChanceVertical) {
+        return PlatformType::VERTICAL;
+    }
+    return PlatformType::DISAPPEARING;
 }
 
 /**
@@ -339,7 +442,8 @@ void World::generateNewTiles() {
  * This method checks if the player has fallen out of the game world and resets the game state if necessary.
  */
 void World::checkGameOver() {
-    if (player->getY() > 800) {
+    const float bottomOfView = camera.getCameraY() + camera.getViewHeight() / 2.0f;
+    if (player->getY() - player->getHeight() / 2.0f > bottomOfView) {
         isGameOver = true;
         std::cout << "Game Over" << std::endl;
     }
@@ -348,10 +452,6 @@ void World::checkGameOver() {
         score->ResetScore();
         camera.resetCamera();
         isGameOver = false;
-        entities.clear();
-        bonuses.clear();
-        background.clear();
-        removeRemovableEntities();
         genWorld();
     }
 }
@@ -368,8 +468,10 @@ void World::generateBackground(float from_y, float to_y) {
     float viewWidth = camera.getViewWidth();
 
     // Generate background tiles
-    for (float y = from_y; y >= to_y - 4000; y -= 40.0f) {
-        for (float x = camera.getCameraX() - viewWidth / 2; x <= camera.getCameraX() + viewWidth / 2; x += 40.0f) {
+    for (float y = from_y; y >= to_y; y -= 40.0f) {
+        for (float x = camera.getCameraX() - viewWidth / 2 + 20.0f;
+             x <= camera.getCameraX() + viewWidth / 2;
+             x += 40.0f) {
             std::shared_ptr<BGtile> bgTile = factory->createBGtile(x, y);
             background.push_back(bgTile);
         }
@@ -392,7 +494,8 @@ void World::updateBackground(float deltaTime) {
         }
 
         // Move the background tiles down if the player is going up
-        if (player->getVelocityY() < 0 && (camera.getCameraY()-player->getY() ==0.0f)) {
+        if (player->getVelocityY() < 0 &&
+            std::abs(camera.getCameraY() - player->getY()) < 0.001f) {
             bgTile->setPosition(bgTile->getX(), bgTile->getY() - player->getVelocityY() * deltaTime);
         }
 
@@ -409,14 +512,16 @@ void World::updateBackground(float deltaTime) {
         }
     }
 
-    float currentX = 0.0f;
+    float currentX = camera.getCameraX() - camera.getViewWidth() / 2.0f + 20.0f;
+    float nextY = lowestY - 40.0f;
     for (auto& bgTile : background) {
         if (bgTile->getOutOfView()) {
             bgTile->setOutOfView(false);
-            bgTile->setPosition(currentX, lowestY - bgTile->getHeight());
+            bgTile->setPosition(currentX, nextY);
             currentX += bgTile->getHeight();
-            if (currentX > 500) {
-                currentX = 0.0f;
+            if (currentX > camera.getCameraX() + camera.getViewWidth() / 2.0f) {
+                currentX = camera.getCameraX() - camera.getViewWidth() / 2.0f + 20.0f;
+                nextY -= bgTile->getHeight();
             }
         }
     }
@@ -481,7 +586,7 @@ void World::genBonus(const std::shared_ptr<Platform>& entity) {
  */
 void World::CheckBonusCollision() {
     for (const auto& bonus : bonuses) {
-        if (checkCollision_player(bonus)) {
+        if (!bonus->getHasCollided() && checkCollision_player(bonus)) {
             bonus->setHasCollided(true);
             player->applyBonusEffect(bonus->getType());
         }
@@ -493,9 +598,9 @@ void World::CheckBonusCollision() {
  * If the score crosses certain thresholds, the difficulty level is increased.
  */
 void World::CheckDifficulty() {
-    if(score->getScore()/100 > 1000 && score->getScore()/100 < 2000) {
+    if(score->getScore()/100 >= 25 && score->getScore()/100 < 75) {
         setDifficulty(Difficulty::MEDIUM);
-    } else if(score->getScore()/100 > 2000) {
+    } else if(score->getScore()/100 >= 75) {
         setDifficulty(Difficulty::HARD);
     } else {
         setDifficulty(Difficulty::EASY);
@@ -508,5 +613,27 @@ void World::CheckDifficulty() {
  * @param direction The direction to move the player. A positive value typically represents rightward movement, and negative values represent leftward movement.
  */
 void World::PlayerMove(int direction) const {
-    player->move(direction);
+    player->setMoveDirection(direction);
+}
+
+int World::getScore() const {
+    return score->getScore();
+}
+
+std::shared_ptr<Player> World::getPlayer() const {
+    return player;
+}
+
+bool World::getGameOver() const {
+    return isGameOver;
+}
+
+void World::setGameOver(bool gameOver) {
+    isGameOver = gameOver;
+}
+
+void World::updateBonuses(float deltaTime) {
+    for (const auto& bonus : bonuses) {
+        bonus->update(deltaTime);
+    }
 }

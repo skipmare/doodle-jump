@@ -12,7 +12,7 @@
  * It displays the scores as text on the screen, with customized font, size, and colors.
  */
 ScoreView::ScoreView(const std::shared_ptr<Score> &score, const std::shared_ptr<sf::RenderWindow> &window)
-    : EntityView(score, window), score(score) {
+    : EntityView(score, window), score(score.get()) {
     loadFont();  ///< Load the font used for score display
     configureText();  ///< Configure the text properties for both score and best score
 }

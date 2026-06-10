@@ -24,12 +24,13 @@ void VerticalPlatform::update(float deltaTime) {
 
     if (newY < Maxupwards) {
         velocityY = -velocityY; ///< Reverse direction when reaching the upper boundary.
+        newY = Maxupwards;
     } else if (newY > Maxdownwards) {
         velocityY = -velocityY; ///< Reverse direction when reaching the lower boundary.
-    } else {
-        y = newY; ///< Update the platform's y-position.
-        notify(); ///< Notify observers (if any).
+        newY = Maxdownwards;
     }
+
+    y = newY; ///< Update the platform's y-position.
 }
 
 /// @brief Sets the position of the platform, including vertical position adjustments.
@@ -38,5 +39,4 @@ void VerticalPlatform::setPosition(float x, float initialY) {
     float diff = this->initialY - initialY; ///< Calculate the vertical difference.
     this->initialY = initialY; ///< Update the initial y-coordinate.
     this->y = this->y - diff; ///< Adjust the platform's current y-position.
-    notify(); ///< Notify observers (if any).
 }

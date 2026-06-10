@@ -40,7 +40,7 @@ public:
     void render() override;
 
 private:
-    std::shared_ptr<Bonus> bonus; ///< Reference to the bonus entity for which the view is created.
+    Bonus* bonus; ///< Non-owning reference to the bonus entity.
 
     /**
      * @brief Loads the texture for the bonus.

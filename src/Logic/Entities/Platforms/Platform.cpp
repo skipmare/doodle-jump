@@ -6,7 +6,7 @@
 /// @brief Constructs a Platform object.
 /// @param x The initial x-coordinate of the platform.
 /// @param y The initial y-coordinate of the platform.
-Platform::Platform(float x, float y) : Entity(x, y) {
+Platform::Platform(float x, float y) : Entity(x, y), initialY(y), type(PlatformType::STATIC) {
     width = 80; ///< Set the width of the platform.
     height = 30; ///< Set the height of the platform.
     EntityType_var = EntityType::PLATFORM; ///< Set the entity type to platform.
@@ -19,8 +19,7 @@ Platform::~Platform() = default;
 
 /// @brief Updates the platform state.
 /// @param deltaTime The time elapsed since the last update.
-void Platform::update(float deltaTime) {
-    notify(); ///< Notify observers of the state change.
+void Platform::update(float) {
 }
 
 /// @brief Gets the platform type.

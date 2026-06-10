@@ -10,9 +10,8 @@
 /// @brief Updates the background tile's state.
 /// @param deltaTime The time elapsed since the last update, in seconds.
 ///
-/// This method notifies any observers about the state changes of the background tile.
-void BGtile::update(float deltaTime) {
-    notify(); ///< Notify observers of state changes.
+/// Background movement is managed by the world.
+void BGtile::update(float) {
 }
 
 /// @brief Constructs a BGtile object with the specified initial position.

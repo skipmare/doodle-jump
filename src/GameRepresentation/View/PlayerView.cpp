@@ -11,7 +11,7 @@
 
 // Constructor to initialize PlayerView with the associated Player entity
 PlayerView::PlayerView(const std::shared_ptr<Player>& player, const std::shared_ptr<sf::RenderWindow>& window)
-    : EntityView(player, window), player(player) {
+    : EntityView(player, window), player(player.get()) {
     loadTexture(); ///< Load textures for both directions
     updateSprite(); ///< Set the initial sprite based on the player's direction
 }
@@ -22,21 +22,23 @@ void PlayerView::loadTexture() {
     const std::string textureFileRight = "Assets/Sprites/playerRight.png"; ///< Path to the right texture
 
     // Load left texture
-    if (textureLeft.loadFromFile(textureFileLeft)) {
-        PlayerLeft.setTexture(textureLeft); ///< Assign texture to the left sprite
-        PlayerLeft.setOrigin(textureLeft.getSize().x / 2.0f, textureLeft.getSize().y / 2.0f); ///< Center the sprite
-        PlayerLeft.setScale(player->getWidth() / static_cast<float>(textureLeft.getSize().x),
-                            player->getHeight() / static_cast<float>(textureLeft.getSize().y));
+    textureLeft = getCachedTexture(textureFileLeft);
+    if (textureLeft) {
+        PlayerLeft.setTexture(*textureLeft); ///< Assign texture to the left sprite
+        PlayerLeft.setOrigin(textureLeft->getSize().x / 2.0f, textureLeft->getSize().y / 2.0f); ///< Center the sprite
+        PlayerLeft.setScale(player->getWidth() / static_cast<float>(textureLeft->getSize().x),
+                            player->getHeight() / static_cast<float>(textureLeft->getSize().y));
     } else {
         isLeftTextureLoaded = false; ///< Mark failure for left texture
     }
 
     // Load right texture
-    if (textureRight.loadFromFile(textureFileRight)) {
-        PlayerRight.setTexture(textureRight); ///< Assign texture to the right sprite
-        PlayerRight.setOrigin(textureRight.getSize().x / 2.0f, textureRight.getSize().y / 2.0f); ///< Center the sprite
-        PlayerRight.setScale(player->getWidth() / static_cast<float>(textureRight.getSize().x),
-                             player->getHeight() / static_cast<float>(textureRight.getSize().y));
+    textureRight = getCachedTexture(textureFileRight);
+    if (textureRight) {
+        PlayerRight.setTexture(*textureRight); ///< Assign texture to the right sprite
+        PlayerRight.setOrigin(textureRight->getSize().x / 2.0f, textureRight->getSize().y / 2.0f); ///< Center the sprite
+        PlayerRight.setScale(player->getWidth() / static_cast<float>(textureRight->getSize().x),
+                             player->getHeight() / static_cast<float>(textureRight->getSize().y));
     } else {
         isRightTextureLoaded = false; ///< Mark failure for right texture
     }

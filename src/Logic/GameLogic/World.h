@@ -13,6 +13,10 @@
 #include "iostream"
 #include "unordered_set"
 #include "functional"
+#include <algorithm>
+#include <cmath>
+#include <limits>
+#include <stdexcept>
 
 /**
  * @enum Difficulty
@@ -63,6 +67,11 @@ public:
      */
     static bool checkCollision(const std::shared_ptr<Entity>& entity1, const std::shared_ptr<Entity>& entity2);
 
+    [[nodiscard]] static float maximumReachableHorizontalDistance(float verticalGap);
+
+    [[nodiscard]] static bool isPlatformReachable(
+        float fromX, float fromY, float toX, float toY);
+
     /**
      * @brief Checks for a collision between the player and a given entity.
      *
@@ -81,6 +90,14 @@ public:
      * @param deltaTime The time elapsed since the last update.
      */
     void update(float deltaTime);
+
+    /**
+     * @brief Renders the current world state.
+     *
+     * Rendering is performed after all logic updates so an entity is drawn
+     * exactly once at its final position for the frame.
+     */
+    void render() const;
 
     /**
      * @brief Sets the difficulty level of the game.
@@ -288,6 +305,12 @@ public:
     void PlayerMove(int direction) const;
 
 private:
+    void extendPlayablePath(float targetY);
+    void tryGenerateChallengePlatform(
+        const std::shared_ptr<Platform>& fromPlatform,
+        const std::shared_ptr<Platform>& pathPlatform);
+    [[nodiscard]] PlatformType randomChallengePlatformType() const;
+
     std::shared_ptr<Player> player; ///< Shared pointer to the player entity.
     std::vector<std::shared_ptr<Platform>> entities; ///< List of platforms and other entities in the world.
     std::vector<std::shared_ptr<Entity>> background; ///< List of background tiles.
@@ -298,6 +321,7 @@ private:
     int ActivePlatforms = 0; ///< Number of active platforms in the world.
     bool isGameOver = false; ///< Game over state.
     Difficulty difficulty = Difficulty::EASY; ///< Default difficulty level.
+    std::shared_ptr<Platform> pathAnchor; ///< Highest platform on the guaranteed playable route.
 };
 
 #endif // WORLD_H

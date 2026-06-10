@@ -6,8 +6,7 @@
 
 /// @brief Updates the bonus position based on platform movement.
 void Bonus::update(float deltaTime) {
-    // Check if the bonus is of type Jetpack and has collided
-    if (hasCollided && BonusType::JETPACK == type) {
+    if (hasCollided) {
         setOutOfView(true); ///< Mark the bonus as out of view when collected.
     }
 
@@ -30,17 +29,17 @@ void Bonus::update(float deltaTime) {
 
 /// @brief Constructs a Bonus object.
 Bonus::Bonus(float x, float y, const std::shared_ptr<Platform>& platform) : Entity(x, y), on_platform(platform) {
+    width = 20;
+    height = 20;
+
     // Generate a random x-coordinate within the platform's width
     float randomX = Random::getInstance().getRandomFloat(on_platform->getX() - on_platform->getWidth() / 2,
                                                           on_platform->getX() + on_platform->getWidth() / 2 - width);
     this->x = randomX;
     setPosition(this->x, on_platform->getY() - on_platform->getHeight() / 2 - height / 2);
-    width = 20;
-    height = 20;
     EntityType_var = EntityType::BONUS;
     prevPlatformX = on_platform->getX();
     prevPlatformY = on_platform->getY();
-    notify();
 }
 
 /// @brief Returns the type of the bonus.

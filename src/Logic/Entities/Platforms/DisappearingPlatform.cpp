@@ -13,7 +13,7 @@
 DisappearingPlatform::DisappearingPlatform(float x, float y) : StaticPlatform(x, y) {
     type = PlatformType::DISAPPEARING; ///< Set the platform type to disappearing.
     disappeared = false; ///< Initially, the platform has not disappeared.
-    jumptrigger = false; ///< Jump trigger is disabled by default.
+    jumptrigger = true;
 }
 
 /// @brief Default destructor for the DisappearingPlatform class.
@@ -23,15 +23,20 @@ DisappearingPlatform::~DisappearingPlatform() = default;
 /// @param deltaTime The time elapsed since the last update.
 ///
 /// If the platform has collided with another entity, it will be marked as out of view.
-void DisappearingPlatform::update(float deltaTime) {
+void DisappearingPlatform::update(float) {
     if (hasCollided) {
+        disappeared = true;
+        collidable = false;
         this->setOutOfView(true);
     }
-    notify(); ///< Notify observers of the state change.
 }
 
 /// @brief Checks if the platform has disappeared.
 /// @return `true` if the platform has disappeared, otherwise `false`.
 bool DisappearingPlatform::isDisappeared() const {
     return disappeared;
+}
+
+void DisappearingPlatform::playDisappearSound() {
+    // Sound playback is handled by the representation layer.
 }

@@ -11,8 +11,7 @@ Score::Score(float x, float y) : Entity(x, y), _score(0), bestScore(0) {}
 
 /// @brief Updates the score's state.
 /// @param deltaTime Time elapsed since the last update, in seconds.
-void Score::update(float deltaTime) {
-    notify(); ///< Notify observers of score updates.
+void Score::update(float) {
 }
 
 /// @brief Sets the current score.
