@@ -1,39 +1,43 @@
-# Doodle Jump 🎮
-*A C++ implementation of the classic Doodle Jump game with sprites, sounds, and multiple platform types.*  
+# Doodle Jump
 
-⚠️ **Note:** This project was developed for educational purposes and may still contain bugs or incomplete features.  
-
----
-
-## 📖 Overview
-This project is a recreation of the popular **Doodle Jump** game, built in C++ as part of an advanced programming course.  
-The player controls a character that continuously jumps upward, avoiding falling while landing on platforms, collecting power-ups, and achieving the highest possible score.  
+A C++17/SFML recreation of Doodle Jump, originally built for an advanced
+programming course.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/skipmare/doodle-jump/master/img.png" alt="Doodle Jump Gameplay" width="250"><br>
-  <sub>Gameplay Screenshot</sub>
+  <img src="img.png" alt="Doodle Jump gameplay" width="250">
 </p>
 
-
----
-
 ## Features
-- Playable Doodle Jump clone in C++  
-- Multiple platform types (static, disappearing, moving, vertical/horizontal)  
-- Power-ups: springs, jetpacks, etc.  
-- Sound effects (jump, break, spring, jetpack)  
-- Sprites and animations for platforms, bonuses, and the player  
-- Includes assets (sprites, sounds, fonts)  
 
----
+- Static, horizontal, vertical, and disappearing platforms
+- Spring and jetpack power-ups
+- Responsive arcade movement with automatic jumping
+- A mathematically reachable climbing path with optional challenge platforms
+- Gradually increasing difficulty based on score
+- Sound effects, sprites, and a persistent best score during a session
+- CMake build with automatic SFML fallback through FetchContent
 
-## Getting Started
+## Controls
 
-### 1. Prerequisites
-- C++17 or later  
-- [CMake](https://cmake.org/)  
-- [SFML library](https://www.sfml-dev.org/) (for graphics, audio, and window handling)  
+- `A` or `Left Arrow`: move left
+- `D` or `Right Arrow`: move right
+- Close the window to quit
 
-### 2. How to Play
+The character jumps automatically when landing on a platform.
 
-Compile and run `main.cpp`.
+## Build
+
+You need a C++17 compiler and CMake 3.20 or newer. If SFML is not installed,
+CMake downloads SFML 2.6.2 automatically.
+
+```bash
+cmake -S . -B build
+cmake --build build --config Release
+ctest --test-dir build --output-on-failure
+```
+
+Run the executable from `build/bin`. The build copies the required assets next
+to the executable automatically.
+
+On multi-config generators such as Visual Studio, the executable may be inside
+`build/bin/Release`.

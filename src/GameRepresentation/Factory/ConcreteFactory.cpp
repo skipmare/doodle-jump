@@ -1,4 +1,5 @@
 #include "ConcreteFactory.h"
+#include <stdexcept>
 
 // Create a Player instance
 /**
@@ -51,6 +52,10 @@ std::shared_ptr<Platform> ConcreteFactory::createPlatform(float x, float y, Plat
             break;
     }
 
+    if (!platform) {
+        throw std::invalid_argument("Unknown platform type");
+    }
+
     auto platformView = std::make_shared<PlatformView>(platform, currentWindow); // Create the platform view
     platform->attach(platformView); // Attach the view to the platform
     return platform; // Return the shared_ptr to the Platform
@@ -80,6 +85,10 @@ std::shared_ptr<Bonus> ConcreteFactory::createBonus(float x, float y, BonusType 
         case BonusType::JETPACK:
             bonus = std::make_shared<Jetpack>(x, y,platform); // Create a jetpack bonus
             break;
+    }
+
+    if (!bonus) {
+        throw std::invalid_argument("Unknown bonus type");
     }
 
     auto bonusView = std::make_shared<BonusView>(bonus, currentWindow); // Create the bonus view

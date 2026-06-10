@@ -1,14 +1,25 @@
 /// @file Player.cpp
 #include "Player.h"
-#include <iostream>
+#include <algorithm>
+#include <cmath>
+
+// Definitions keep the constants compatible with the project's older MinGW toolchain.
+constexpr float Player::NormalGravity;
+constexpr float Player::NormalJumpSpeed;
+constexpr float Player::MaximumFallSpeed;
+constexpr float Player::MaximumMoveSpeed;
+constexpr float Player::MoveAcceleration;
+constexpr float Player::MoveDeceleration;
+constexpr float Player::LandingFootWidth;
+constexpr float Player::LandingFootOffset;
 
 /// @brief Constructs a Player object with specified position.
 /// @param x Initial x-coordinate.
 /// @param y Initial y-coordinate.
-Player::Player(float x, float y) : Entity(x, y) {
+Player::Player(float x, float y) : Entity(x, y), previousY(y) {
     width = 60; ///< Width of the player in pixels.
     height = 80; ///< Height of the player in pixels.
-    velocityX = 3.0f; ///< Horizontal velocity in pixels per second.
+    velocityX = 0.0f; ///< Horizontal velocity starts at rest and accelerates from input.
     EntityType_var = EntityType::PLAYER; ///< Sets entity type to player.
     collidable = false; ///< Indicates whether the player is collidable.
 }
@@ -16,6 +27,9 @@ Player::Player(float x, float y) : Entity(x, y) {
 /// @brief Updates the player's state based on the elapsed time.
 /// @param deltaTime Time elapsed since the last update in seconds.
 void Player::update(float deltaTime) {
+    previousY = getY();
+    updateHorizontalMovement(deltaTime);
+
     /// Check if the player is falling or jumping.
     if (velocityY >= 0) {
         setFalling();
@@ -25,17 +39,9 @@ void Player::update(float deltaTime) {
 
     /// Apply gravity if the player is falling or jumping.
     if (isFallingState || isJumpingState) {
-        velocityY += gravity; ///< Increases downward velocity due to gravity.
-    }
-
-    /// Update the player's vertical position.
-    setPosition(getX(), getY() + velocityY * deltaTime);
-
-    /// Check if the player has collided with a platform or bonus.
-    if (getHasCollided()) {
-        jump(); ///< Sets player to jumping state.
-        setJumping(); ///< Sets player to jumping state.
-        SetHasCollided(false); ///< Resets collision state.
+        const float previousVelocityY = velocityY;
+        velocityY = std::min(velocityY + gravity * deltaTime, MaximumFallSpeed);
+        setPosition(getX(), getY() + (previousVelocityY + velocityY) * 0.5f * deltaTime);
     }
 
     BonusEffectTime -= deltaTime;
@@ -43,8 +49,8 @@ void Player::update(float deltaTime) {
     /// Handle bonus effects expiration.
     if (BonusEffect && BonusEffectTime < 0) {
         BonusEffect = false; ///< Resets bonus effect.
-        jumpForce = 650.0f; ///< Resets jump force to normal value.
-        gravity = 8.0f;
+        jumpForce = NormalJumpSpeed; ///< Resets jump force to normal value.
+        gravity = NormalGravity;
     }
 }
 
@@ -59,23 +65,50 @@ void Player::jump() {
 
 /// @brief Moves the player left or right.
 /// @param direction Direction of movement (1 for right, -1 for left).
-void Player::move(int direction) {
-    float newX = getX() + (direction * velocityX); ///< Calculates the new x position.
+void Player::move(int direction, float deltaTime) {
+    setMoveDirection(direction);
+    updateHorizontalMovement(deltaTime);
+}
 
-    if (direction == -1) {
-        isgoingleft = true;
-    } else {
-        isgoingleft = false;
+void Player::setMoveDirection(int direction) {
+    moveDirection = std::max(-1, std::min(1, direction));
+    if (moveDirection != 0) {
+        isgoingleft = moveDirection < 0;
+    }
+}
+
+void Player::updateHorizontalMovement(float deltaTime) {
+    const float targetVelocity = moveDirection * MaximumMoveSpeed;
+    const bool reversing = moveDirection != 0 && velocityX * moveDirection < 0.0f;
+    const float acceleration =
+        moveDirection == 0 ? MoveDeceleration : (reversing ? MoveDeceleration : MoveAcceleration);
+    const float velocityChange = acceleration * deltaTime;
+
+    const float previousVelocityX = velocityX;
+    if (velocityX < targetVelocity) {
+        velocityX = std::min(velocityX + velocityChange, targetVelocity);
+    } else if (velocityX > targetVelocity) {
+        velocityX = std::max(velocityX - velocityChange, targetVelocity);
     }
 
-    /// Wrap-around logic for screen edges.
-    if (newX > 500) {
-        newX = 0; ///< Wraps to the left side.
-    } else if (newX < 0) {
-        newX = 500; ///< Wraps to the right side.
-    }
+    setPosition(getX() + (previousVelocityX + velocityX) * 0.5f * deltaTime, getY());
+    wrapHorizontally();
+}
 
-    setPosition(newX, getY()); ///< Updates the player's position.
+void Player::wrapHorizontally() {
+    const float halfWidth = width / 2.0f;
+    if (getX() - halfWidth > 500.0f) {
+        setPosition(-halfWidth, getY());
+    } else if (getX() + halfWidth < 0.0f) {
+        setPosition(500.0f + halfWidth, getY());
+    }
+}
+
+BoundingBox Player::getLandingBox() const {
+    const float footCenterX = getX() + (isgoingleft ? LandingFootOffset : -LandingFootOffset);
+    const float halfFootWidth = LandingFootWidth / 2.0f;
+    const float bottom = getY() + height / 2.0f;
+    return {footCenterX - halfFootWidth, footCenterX + halfFootWidth, bottom - 10.0f, bottom};
 }
 
 /// @brief Applies a bonus effect to the player.
@@ -83,11 +116,15 @@ void Player::move(int direction) {
 void Player::applyBonusEffect(BonusType bonusType) {
     if (bonusType == BonusType::JETPACK) {
         BonusEffect = true;
-        gravity = -2.0f; ///< Sets gravity for the jetpack effect.
+        gravity = -180.0f; ///< Sustains upward jetpack movement.
+        velocityY = -900.0f;
+        setJumping();
         BonusEffectTime = 2.0f; ///< Duration of the jetpack effect.
     } else if (bonusType == BonusType::SPRING) {
         BonusEffect = true;
-        jumpForce = 1300.0f; ///< Increases jump force.
+        jumpForce = 1120.0f; ///< Increases jump force.
+        velocityY = -jumpForce;
+        setJumping();
         BonusEffectTime = 0.5f; ///< Duration of the spring effect.
     }
 }
@@ -102,16 +139,4 @@ void Player::setFalling() {
 void Player::setJumping() {
     isJumpingState = true;
     isFallingState = false;
-}
-
-/// @brief Sets the player's collision state.
-/// @param collisionBool True if the player has collided, false otherwise.
-void Player::SetHasCollided(bool collisionBool) {
-    hasCollided = collisionBool;
-}
-
-/// @brief Sets the player's collision with platform state.
-/// @param CWP True if the player has collided with a platform, false otherwise.
-void Player::setCWP(bool CWP) {
-    CollisionWithPlatform = CWP;
 }

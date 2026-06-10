@@ -15,7 +15,7 @@
  * @param window A shared pointer to the SFML render window.
  */
 BonusView::BonusView(const std::shared_ptr<Bonus> &bonus, const std::shared_ptr<sf::RenderWindow> &window)
-    : EntityView(bonus, window), bonus(bonus) {
+    : EntityView(bonus, window), bonus(bonus.get()) {
     loadTexture();  // Load the texture based on bonus type
     setPosition();  // Set the initial position of the bonus sprite
 }
@@ -46,16 +46,17 @@ void BonusView::loadTexture() {
     }
 
     // Load the texture from file and apply it to the sprite
-    if (texture.loadFromFile(textureFile)) {
-        sprite.setTexture(texture);  // Apply the texture to the sprite
+    sharedTexture = getCachedTexture(textureFile);
+    if (sharedTexture) {
+        sprite.setTexture(*sharedTexture);  // Apply the texture to the sprite
 
         // Calculate the scale factors to match the bonus's dimensions
-        float scaleX = bonus->getWidth() / static_cast<float>(texture.getSize().x);
-        float scaleY = bonus->getHeight() / static_cast<float>(texture.getSize().y);
+        float scaleX = bonus->getWidth() / static_cast<float>(sharedTexture->getSize().x);
+        float scaleY = bonus->getHeight() / static_cast<float>(sharedTexture->getSize().y);
         sprite.setScale(scaleX, scaleY); // Resize the sprite
 
         // Set the origin to the center of the sprite
-        sprite.setOrigin(texture.getSize().x / 2.0f, texture.getSize().y / 2.0f);
+        sprite.setOrigin(sharedTexture->getSize().x / 2.0f, sharedTexture->getSize().y / 2.0f);
 
         // Set the initial position to the bonus's position
         sprite.setPosition(bonus->getX(), bonus->getY());

@@ -20,7 +20,7 @@
  * @param window A shared pointer to the SFML render window.
  */
 PlatformView::PlatformView(const std::shared_ptr<Platform> &platform, const std::shared_ptr<sf::RenderWindow> &window) 
-    : EntityView(platform, window), platform(platform) {
+    : EntityView(platform, window), platform(platform.get()) {
     loadTexture();  ///< Load texture for the platform sprite
     sprite.setPosition(platform->getX(), platform->getY());  ///< Set the initial position
 }
@@ -59,17 +59,18 @@ void PlatformView::loadTexture() {
     }
 
     // Load the texture from file and apply it to the sprite
-    if (texture.loadFromFile(textureFile)) {
+    sharedTexture = getCachedTexture(textureFile);
+    if (sharedTexture) {
         isTextureLoaded = true;  ///< Set texture loaded flag
-        sprite.setTexture(texture);  ///< Apply the texture to the sprite
+        sprite.setTexture(*sharedTexture);  ///< Apply the texture to the sprite
 
         // Calculate the scale factors to match the platform's dimensions
-        float scaleX = platform->getWidth() / static_cast<float>(texture.getSize().x);
-        float scaleY = platform->getHeight() / static_cast<float>(texture.getSize().y);
+        float scaleX = platform->getWidth() / static_cast<float>(sharedTexture->getSize().x);
+        float scaleY = platform->getHeight() / static_cast<float>(sharedTexture->getSize().y);
         sprite.setScale(scaleX, scaleY);  ///< Resize the sprite
 
         // Set the origin to the center of the sprite
-        sprite.setOrigin(texture.getSize().x / 2.0f, texture.getSize().y / 2.0f);
+        sprite.setOrigin(sharedTexture->getSize().x / 2.0f, sharedTexture->getSize().y / 2.0f);
 
         // Set the initial position to the platform's position
         sprite.setPosition(platform->getX(), platform->getY());

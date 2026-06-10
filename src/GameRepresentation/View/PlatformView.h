@@ -42,7 +42,7 @@ public:
     void loadTexture() final;
 
 private:
-    std::shared_ptr<Platform> platform;  ///< The platform associated with this view
+    Platform* platform;  ///< Non-owning reference to the platform associated with this view.
 };
 
 #endif // PLATFORMVIEW_H

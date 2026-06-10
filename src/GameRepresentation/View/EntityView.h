@@ -13,6 +13,7 @@
 
 #include <SFML/Graphics.hpp>  ///< SFML for rendering graphics
 #include "Entity.h"  ///< Include the Entity class for entity properties
+#include <string>
 
 /**
  * @class EntityView
@@ -68,12 +69,17 @@ public:
     void setPosition();
 
 protected:
+    /**
+     * @brief Loads a texture once and shares it between all views using the same file.
+     */
+    static std::shared_ptr<sf::Texture> getCachedTexture(const std::string& textureFile);
+
     std::shared_ptr<sf::RenderWindow> CurrentWindow;  ///< The render window for rendering the entity
-    std::shared_ptr<Entity> entity;  ///< The entity associated with this view
+    Entity* entity;  ///< Non-owning entity pointer; the entity owns this view through Subject.
     sf::Sprite sprite;  ///< The sprite representing the entity
     sf::Text ScoreText;  ///< Text to display information about the entity
     sf::Text BestScoreText;  ///< Text to display the best score
-    sf::Texture texture;  ///< The texture for the sprite
+    std::shared_ptr<sf::Texture> sharedTexture;  ///< Shared cached texture for the sprite
     sf::RectangleShape fallbackShape;  ///< The fallback shape to be rendered if texture loading fails
     bool isTextureLoaded = false; ///< Flag indicating whether the texture has been loaded
 };

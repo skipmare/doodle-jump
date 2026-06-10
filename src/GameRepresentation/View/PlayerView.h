@@ -64,9 +64,9 @@ private:
     void updateSprite();
 
     // Member variables
-    std::shared_ptr<Player> player; ///< Pointer to the associated Player entity
-    sf::Texture textureLeft; ///< Texture for the left direction
-    sf::Texture textureRight; ///< Texture for the right direction
+    Player* player; ///< Non-owning pointer to the associated Player entity.
+    std::shared_ptr<sf::Texture> textureLeft; ///< Cached texture for the left direction
+    std::shared_ptr<sf::Texture> textureRight; ///< Cached texture for the right direction
     sf::Sprite PlayerLeft; ///< Sprite for the left direction
     sf::Sprite PlayerRight; ///< Sprite for the right direction
     sf::Sprite* currentSprite = nullptr; ///< Pointer to the currently active sprite

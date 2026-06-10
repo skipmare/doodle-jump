@@ -36,7 +36,7 @@ public:
     ~BGtileView() override = default;
 
 private:
-    std::shared_ptr<BGtile> tile; ///< Reference to the background tile entity for which the view is created.
+    BGtile* tile; ///< Non-owning reference to the background tile entity.
 
     /**
      * @brief Loads the texture for the background tile.

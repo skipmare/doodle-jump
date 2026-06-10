@@ -70,7 +70,7 @@ private:
      *
      * The ScoreView uses this reference to access the current and best score values.
      */
-    std::shared_ptr<Score> score;
+    Score* score;
 
     /**
      * @brief Font used for displaying the score text.

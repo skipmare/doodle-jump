@@ -1,5 +1,5 @@
 #include "Game.h"
-#include <iostream>
+#include <algorithm>
 
 /**
  * @class Game
@@ -9,11 +9,12 @@
  * It interacts with other components like the stopwatch, world, and factory to manage game state and render the game.
  */
 Game::Game()
-    : window(std::make_shared<sf::RenderWindow>(sf::VideoMode(500, 800), "Doodle Jump by Karan")), ///< Create the SFML window
+    : window(std::make_shared<sf::RenderWindow>(sf::VideoMode(500, 800), "Doodle Jump")), ///< Create the SFML window
       factory(std::make_shared<ConcreteFactory>(window)), ///< Instantiate the factory
       world(factory, 500, 800), ///< Initialize the World instance
       stopwatch(Stopwatch::getInstance()) ///< Get the Stopwatch instance
 {
+    window->setFramerateLimit(60);
     stopwatch.start(); ///< Start the stopwatch
 }
 
@@ -24,7 +25,6 @@ Game::Game()
  * and rendering the window at a target frame rate of 60 FPS.
  */
 void Game::run() {
-    float targetFrameTime = 1.0f / 60.0f; ///< Target frame time for 60 FPS
     // Main game loop
     while (window->isOpen()) {
         sf::Event event {}; ///< Event object to handle window events
@@ -33,25 +33,22 @@ void Game::run() {
                 window->close(); ///< Close the window if the close event is triggered
         }
 
-        handleInput(); ///< Handle user input
+        if (!window->isOpen()) {
+            break;
+        }
 
-        // Update the world
-        float deltaTime = stopwatch.tick(); ///< Get the time elapsed since the last update
+        // Cap large frame deltas so a pause cannot make the player tunnel through platforms.
+        const float deltaTime = std::min(stopwatch.tick(), 1.0f / 30.0f);
+        handleInput(); ///< Handle user input
 
         // Clear the window
         window->clear(sf::Color::Black);
 
-        world.update(deltaTime); ///< Update the world and render the entities
+        world.update(deltaTime); ///< Update the world state
+        world.render(); ///< Render each entity once after all state changes
 
         // Display the contents of the window
         window->display();
-
-        // Control the frame rate
-        float elapsedTime = stopwatch.getElapsedTime();
-
-        if (elapsedTime < targetFrameTime) {
-            sf::sleep(sf::seconds(targetFrameTime - elapsedTime)); ///< Sleep to maintain the target frame rate
-        }
     }
 }
 
@@ -61,10 +58,13 @@ void Game::run() {
  * This method checks for key presses and moves the player accordingly.
  */
 void Game::handleInput() {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-        world.PlayerMove(-1); ///< Move player left
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-        world.PlayerMove(1); ///< Move player right
-    }
+    const bool movingLeft =
+        sf::Keyboard::isKeyPressed(sf::Keyboard::A) ||
+        sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
+    const bool movingRight =
+        sf::Keyboard::isKeyPressed(sf::Keyboard::D) ||
+        sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
+
+    const int direction = movingLeft == movingRight ? 0 : (movingRight ? 1 : -1);
+    world.PlayerMove(direction);
 }

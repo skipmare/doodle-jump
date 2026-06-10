@@ -10,6 +10,7 @@
 
 #include "EntityView.h"
 #include "Entity.h"  ///< Include the Entity class for reference
+#include <unordered_map>
 
 /**
  * @brief Constructor for the EntityView class.
@@ -21,7 +22,7 @@
  * @param window A shared pointer to the SFML render window.
  */
 EntityView::EntityView(const std::shared_ptr<Entity> &entity, const std::shared_ptr<sf::RenderWindow> &window)
-    : entity(entity), CurrentWindow(window) {
+    : CurrentWindow(window), entity(entity.get()) {
     // DO NOTHING, JUST INITIALIZE THE ENTITY (BASE CLASS)
 }
 
@@ -44,15 +45,29 @@ void EntityView::update() {
  * Additionally, the entity's X position is displayed as a score.
  */
 void EntityView::render() {
-    if (texture.getSize().x > 0) {  ///< Check if texture is loaded
+    if (isTextureLoaded) {  ///< Check if texture is loaded
         CurrentWindow->draw(sprite);  ///< Draw the sprite if texture is loaded
     } else {
         CurrentWindow->draw(fallbackShape);  ///< Draw the fallback shape if texture loading failed
     }
 
-    // Display the entity's X position as a score
-    ScoreText.setString(std::to_string(entity->getX()));
-    CurrentWindow->draw(ScoreText);  ///< Draw the score text on the screen
+}
+
+std::shared_ptr<sf::Texture> EntityView::getCachedTexture(const std::string& textureFile) {
+    static std::unordered_map<std::string, std::shared_ptr<sf::Texture>> cache;
+
+    const auto cached = cache.find(textureFile);
+    if (cached != cache.end()) {
+        return cached->second;
+    }
+
+    auto loadedTexture = std::make_shared<sf::Texture>();
+    if (!loadedTexture->loadFromFile(textureFile)) {
+        return nullptr;
+    }
+
+    cache.emplace(textureFile, loadedTexture);
+    return loadedTexture;
 }
 
 /**

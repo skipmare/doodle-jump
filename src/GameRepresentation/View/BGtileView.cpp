@@ -15,7 +15,7 @@
  * @param window A shared pointer to the SFML render window.
  */
 BGtileView::BGtileView(const std::shared_ptr<BGtile> &tile, const std::shared_ptr<sf::RenderWindow> &window)
-    : EntityView(tile, window), tile(tile) {
+    : EntityView(tile, window), tile(tile.get()) {
     loadTexture(); // Load the texture based on the background tile type
     setPosition(); // Set the initial position of the background tile sprite
 }
@@ -31,17 +31,18 @@ void BGtileView::loadTexture() {
     fallbackShape.setFillColor(sf::Color::Yellow); // Fallback color for unknown
 
     // Attempt to load the texture from file
-    if (texture.loadFromFile(textureFile)) {
+    sharedTexture = getCachedTexture(textureFile);
+    if (sharedTexture) {
         isTextureLoaded = true;
-        sprite.setTexture(texture); // Apply the texture to the sprite
+        sprite.setTexture(*sharedTexture); // Apply the texture to the sprite
 
         // Scale the sprite to match the tile's dimensions
-        float scaleX = tile->getWidth() / static_cast<float>(texture.getSize().x);
-        float scaleY = tile->getHeight() / static_cast<float>(texture.getSize().y);
+        float scaleX = tile->getWidth() / static_cast<float>(sharedTexture->getSize().x);
+        float scaleY = tile->getHeight() / static_cast<float>(sharedTexture->getSize().y);
         sprite.setScale(scaleX, scaleY);
 
         // Set the sprite's origin to the center
-        sprite.setOrigin(texture.getSize().x / 2.0f, texture.getSize().y / 2.0f);
+        sprite.setOrigin(sharedTexture->getSize().x / 2.0f, sharedTexture->getSize().y / 2.0f);
 
         // Position the sprite at the tile's position
         sprite.setPosition(tile->getX(), tile->getY());

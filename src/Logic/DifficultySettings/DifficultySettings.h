@@ -22,4 +22,6 @@ public:
     float ChanceDisappearing; ///< The chance for a disappearing platform to appear.
     float minDistance; ///< The minimum distance between two consecutive platforms.
     float maxDistance; ///< The maximum distance between two consecutive platforms.
+    float maxHorizontalDistance; ///< Safe horizontal offset used by the guaranteed climbing path.
+    float ChallengePlatformChance; ///< Chance to add an optional non-static platform near the safe path.
 };

@@ -23,13 +23,16 @@ float Entity::getY() const {
     return y;
 }
 
+EntityType Entity::getEntityType() const {
+    return EntityType_var;
+}
+
 /// @brief Sets the position of the entity.
 /// @param x The new x-coordinate.
 /// @param y The new y-coordinate.
 void Entity::setPosition(float x, float y) {
     this->x = x;
     this->y = y;
-    notify(); ///< Notify observers of the position change.
 }
 
 /// @brief Updates the entity's position based on its velocity.

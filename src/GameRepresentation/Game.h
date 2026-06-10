@@ -42,6 +42,7 @@ public:
      * @brief Handles user input for controlling the player.
      *
      * This method checks for key presses and moves the player accordingly.
+     *
      */
     void handleInput(); // Handle user input
 
@@ -51,23 +52,6 @@ private:
     World world; ///< Instance of the World class
     Stopwatch& stopwatch; ///< Reference to the Stopwatch instance
 
-    /**
-     * @brief Updates the game state.
-     *
-     * This method updates the game world and any relevant entities, based on
-     * the elapsed time since the last update.
-     *
-     * @param deltaTime The time elapsed since the last update, used for smooth
-     *                  updates and frame rate independence.
-     */
-    void update(float deltaTime); // Update method
-
-    /**
-     * @brief Renders the game world to the window.
-     *
-     * This method draws the updated game world to the screen.
-     */
-    void render(); // Render method
 };
 
 #endif // GAME_H
