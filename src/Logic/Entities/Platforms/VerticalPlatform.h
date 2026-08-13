@@ -35,7 +35,7 @@ public:
     void setPosition(float x, float initialY) override;
 
 private:
-    float maxtravel = 70.0f; ///< The maximum distance the platform can travel vertically.
+    static constexpr float maxTravel = 50.0f; ///< Maximum travel in either direction.
 };
 
 #endif // VERTICALPLATFORM_H

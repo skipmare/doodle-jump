@@ -19,15 +19,15 @@ void VerticalPlatform::update(float deltaTime) {
     float newY = y + velocityY * deltaTime; ///< Calculate new y-position based on velocity.
 
     // Check if the platform has moved out of the allowed range.
-    float Maxupwards = initialY - 50;
-    float Maxdownwards = initialY + 50;
+    const float maxUpwards = initialY - maxTravel;
+    const float maxDownwards = initialY + maxTravel;
 
-    if (newY < Maxupwards) {
+    if (newY < maxUpwards) {
         velocityY = -velocityY; ///< Reverse direction when reaching the upper boundary.
-        newY = Maxupwards;
-    } else if (newY > Maxdownwards) {
+        newY = maxUpwards;
+    } else if (newY > maxDownwards) {
         velocityY = -velocityY; ///< Reverse direction when reaching the lower boundary.
-        newY = Maxdownwards;
+        newY = maxDownwards;
     }
 
     y = newY; ///< Update the platform's y-position.
