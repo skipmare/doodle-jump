@@ -6,7 +6,7 @@
  *
  * Initializes the stopwatch to a stopped state and sets the initial delta time to 0.
  */
-Stopwatch::Stopwatch() : running(false), deltaTime(0.0) {}
+Stopwatch::Stopwatch() : deltaTime(0.0f), running(false) {}
 
 // Start the stopwatch
 /**

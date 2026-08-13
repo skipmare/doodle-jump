@@ -6,6 +6,7 @@
 
 /// @brief Updates the bonus position based on platform movement.
 void Bonus::update(float deltaTime) {
+    (void)deltaTime;
     if (hasCollided) {
         setOutOfView(true); ///< Mark the bonus as out of view when collected.
     }
